@@ -1,0 +1,40 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+body {
+	padding-top: 70px;
+}
+
+.navbar-default {
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+}
+
+.wiki--item a h2{
+   color: #fff;
+   text-decoration: none;
+
+}
+
+.wiki--item a:hover, .wiki--item a:focus{
+   color: #fff;
+   text-decoration: none;
+
+}
+
+.bg--success {
+	background: #239423;
+}
+
+.bg--primary {
+	background: #2a75c1;
+}
+
