@@ -42,10 +42,16 @@ function addDef()
 		
 }
 
+
+function addTheorem()
+{
+	insertAtCaret("<starttheorem>\r\n\r\n<endtheorem>");
+}
+
+
 function addProof()
 {
-	insertAtCaret("<startproof>\r\n\r\n<endproof>");
-		
+	insertAtCaret("<startproof>\r\n\r\n<endproof>");	
 }
 
 

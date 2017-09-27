@@ -150,7 +150,7 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 
    
    <div id="editor" class="editor--toolbar" style="margin-top: 20px;">
-     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups"> 
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups"> 
         <div class="btn-group" role="group" aria-label="First group"> 
             <button type="button" class="btn btn-default" onclick="addHeader();return false;"><i class="fa fa-header"></i></button>
             <button type="button" class="btn btn-default" onclick="addLink();return false;"><i class="fa fa-link"></i></button>  
@@ -159,8 +159,9 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
             <button type="button" class="btn btn-default" onclick="addImage();return false;"><i class="fa fa-photo"></i></button> 
          </div> 
          <div class="btn-group" role="group" aria-label="Second group"> 
-            <button type="button" class="btn btn-default" onclick="addExample();return false;">E.g.</button> 
-            <button type="button" class="btn btn-default" onclick="addProof();return false;">Th.</button>
+            <button type="button" class="btn btn-default" onclick="addExample();return false;">E.g.</button>
+            <button type="button" class="btn btn-default" onclick="addTheorem();return false;">Theorem</button>  
+            <button type="button" class="btn btn-default" onclick="addProof();return false;">Proof</button>
             <button type="button" class="btn btn-default" onclick="addQuestion(1);return false;"><i class="fa fa-question-circle"></i></button> 
          </div> 
          <div class="btn-group" role="group" aria-label="Third group"> 

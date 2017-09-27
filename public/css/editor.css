@@ -12,8 +12,8 @@ body {
     box-shadow: 0 0 0 1px #f3f3f3;
     font-size: 17px;
 }
+
 .preview {
-    
     padding: 3px; 
     width: 99%;
     margin-top:1ex;
@@ -34,15 +34,11 @@ blockquote {
 
 .editor--toolbar button {
     background-color: #fcfcfc;
-    font-size: 20px;
-    width: 50px;
+    font-size: 20px; 
 }
 
-.definition, .proof {
-    
+.definition, .example, .theorem {
     background-color: #f7f7f7;
-
-
 }
 
 .table-of-contents {
@@ -68,4 +64,5 @@ blockquote {
 .center {
   text-align: center;
 }
+
 

@@ -195,8 +195,9 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
             <button type="button" class="btn btn-default" onclick="addImage();return false;"><i class="fa fa-photo"></i></button> 
          </div> 
          <div class="btn-group" role="group" aria-label="Second group"> 
-            <button type="button" class="btn btn-default" onclick="addExample();return false;">E.g.</button> 
-            <button type="button" class="btn btn-default" onclick="addProof();return false;">Th.</button>
+            <button type="button" class="btn btn-default" onclick="addExample();return false;">E.g.</button>
+            <button type="button" class="btn btn-default" onclick="addTheorem();return false;">Theorem</button>  
+            <button type="button" class="btn btn-default" onclick="addProof();return false;">Proof</button>
             <button type="button" class="btn btn-default" onclick="addQuestion(1);return false;"><i class="fa fa-question-circle"></i></button> 
          </div> 
          <div class="btn-group" role="group" aria-label="Third group"> 
@@ -238,11 +239,16 @@ Title | Title | Title
 
 <startexample>
 ### The Example comes here - Button 6
-<endexample>  
+<endexample> 
 
+<starttheorem>
+#### The theorem of anything!
 <startproof>
-### Similary the theorem/proof here. - Button 7
+### Similary the theorem/proof here. - Button 8
 <endproof>
+<endtheorem>  
+
+
 
 <startdefinition>
 ### Definition part - Button 9
