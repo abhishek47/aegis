@@ -15,8 +15,12 @@
 
     </div> <!-- /container -->
 	<div class="container">
+	  <?php $wikiChunks = $wikis->chunk(2); ?>
+
+	  @foreach($wikiChunks as $wikiG)
 	  <div class="row">
-		@foreach($wikis as $index => $wiki)
+
+		@foreach($wikiG as $index => $wiki)
           <div class="col-md-6 wiki--item">
            <a href="/wiki/{{$wiki->id}}">
 				<div class="panel panel-default {{ $index%2 == 0 ? 'bg--primary' : 'bg--success' }}" >
@@ -29,6 +33,8 @@
 
 		@endforeach
       </div>
+
+      @endforeach
 	</div>
 
 

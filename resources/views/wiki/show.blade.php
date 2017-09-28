@@ -77,15 +77,32 @@ var Preview = {
   //
   PreviewDone: function () {
     this.mjRunning = false;
+
+    
+
     text = this.buffer.innerHTML;
     // replace occurrences of &gt; at the beginning of a new line
     // with > again, so Markdown blockquotes are handled correctly
     text = text.replace(/^&gt;/mg, '>');
      text = md.render(text) ;
-     
+
+    
+
      this.buffer.innerHTML = aegismarked(text);
  
      this.SwapBuffers();
+
+       $('.slickQuiz').each(function(i, obj) {
+        var qid = $(this).data('id');
+      
+         $('#slickQuiz-'+qid).slickQuiz({
+            // options
+        });
+    });
+
+
+     
+    
 
     $('#editor--container').toggleClass('hidden');
     $('#main--output').toggleClass('hidden');
@@ -160,6 +177,7 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
          </div> 
          <div class="btn-group" role="group" aria-label="Second group"> 
             <button type="button" class="btn btn-default" onclick="addExample();return false;">E.g.</button>
+            <button type="button" class="btn btn-default" onclick="addSoln();return false;">Soln.</button>
             <button type="button" class="btn btn-default" onclick="addTheorem();return false;">Theorem</button>  
             <button type="button" class="btn btn-default" onclick="addProof();return false;">Proof</button>
             <button type="button" class="btn btn-default" onclick="addQuestion(1);return false;"><i class="fa fa-question-circle"></i></button> 
