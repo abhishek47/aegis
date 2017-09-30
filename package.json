@@ -22,7 +22,10 @@
     "markdown-it": "^8.4.0",
     "markdown-it-anchor": "^4.0.0",
     "markdown-it-container": "^2.0.0",
+    "markdown-it-contents": "0.0.1",
     "markdown-it-decorate": "^1.2.2",
-    "markdown-it-table-of-contents": "^0.3.2"
+    "markdown-it-deflist": "^2.0.3",
+    "markdown-it-table-of-contents": "^0.3.2",
+    "simplemde": "^1.11.2"
   }
 }

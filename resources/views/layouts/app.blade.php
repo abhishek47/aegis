@@ -25,10 +25,12 @@
         TeX: { equationNumbers: {autoNumber: "AMS"} }
       });
     </script>
+    
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="/js/marked.js"></script>
     <script type="text/javascript" src="/js/aegismarked.js"></script>
 
+  
     <script>
     marked.setOptions({
       renderer: new marked.Renderer(),
@@ -47,7 +49,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-default">
             <div class="container">
                 <div class="navbar-header">
 

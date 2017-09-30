@@ -32,6 +32,7 @@ window.md = require('markdown-it')({
 md.use(require("markdown-it-anchor")); // Optional, but makes sense as you really want to link to something 
 md.use(require("markdown-it-table-of-contents"));
 md.use(require('markdown-it-decorate'));
+md.use(require('markdown-it-deflist'));
 
 /**
  * Next we will register the CSRF Token as a common header with Axios so that

@@ -94,12 +94,14 @@ var Preview = {
 
        $('.slickQuiz').each(function(i, obj) {
         var qid = $(this).data('id');
-      
-         $('#slickQuiz-'+qid).slickQuiz({
-            // options
+
+        axios.get('/quiz/'+qid).then(function(response) {
+          console.log(response.data);
+          $('#slickQuiz-'+qid).slickQuiz({
+            json: response.data
+           });
         });
     });
-
 
      
     
@@ -169,28 +171,28 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
    <div id="editor" class="editor--toolbar" style="margin-top: 20px;">
     <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups"> 
         <div class="btn-group" role="group" aria-label="First group"> 
-            <button type="button" class="btn btn-default" onclick="addHeader();return false;"><i class="fa fa-header"></i></button>
-            <button type="button" class="btn btn-default" onclick="addLink();return false;"><i class="fa fa-link"></i></button>  
-            <button type="button" class="btn btn-default" onclick="addList();return false;"><i class="fa fa-list-ul"></i></button> 
-            <button type="button" class="btn btn-default" onclick="addTable();return false;"><i class="fa fa-table"></i></button> 
-            <button type="button" class="btn btn-default" onclick="addImage();return false;"><i class="fa fa-photo"></i></button> 
+            <button type="button" title="Add Heading" data-toggle="tooltip" class="btn btn-default" onclick="addHeader();return false;"><i class="fa fa-header"></i></button>
+            <button type="button" title="Add Link" data-toggle="tooltip" class="btn btn-default" onclick="addLink();return false;"><i class="fa fa-link"></i></button>  
+            <button type="button" title="Add List" data-toggle="tooltip" class="btn btn-default" onclick="addList();return false;"><i class="fa fa-list-ul"></i></button> 
+            <button type="button" title="Add Table" data-toggle="tooltip" class="btn btn-default" onclick="addTable();return false;"><i class="fa fa-table"></i></button> 
+            <button type="button" title="Add Image" data-toggle="tooltip" class="btn btn-default" onclick="addImage();return false;"><i class="fa fa-photo"></i></button> 
          </div> 
          <div class="btn-group" role="group" aria-label="Second group"> 
-            <button type="button" class="btn btn-default" onclick="addExample();return false;">E.g.</button>
-            <button type="button" class="btn btn-default" onclick="addSoln();return false;">Soln.</button>
-            <button type="button" class="btn btn-default" onclick="addTheorem();return false;">Theorem</button>  
-            <button type="button" class="btn btn-default" onclick="addProof();return false;">Proof</button>
-            <button type="button" class="btn btn-default" onclick="addQuestion(1);return false;"><i class="fa fa-question-circle"></i></button> 
+            <button type="button" title="Add Example" data-toggle="tooltip" class="btn btn-default" onclick="addExample();return false;">E.g.</button>
+            <button type="button" title="Add Solution" data-toggle="tooltip" class="btn btn-default" onclick="addSoln();return false;">Soln.</button>
+            <button type="button" title="Add Theorem" data-toggle="tooltip" class="btn btn-default" onclick="addTheorem();return false;">Theorem</button>  
+            <button type="button" title="Add Proof" data-toggle="tooltip" class="btn btn-default" onclick="addProof();return false;">Proof</button>
+            <button type="button" title="Add Problems Section" data-toggle="tooltip" class="btn btn-default" onclick="addQuestion(1);return false;"><i class="fa fa-question-circle"></i></button> 
          </div> 
          <div class="btn-group" role="group" aria-label="Third group"> 
-            <button type="button" class="btn btn-default" onclick="addDef();return false;">Df.</button> 
-             <button type="button" class="btn btn-default" onclick="addToc();return false;"><i class="fa fa-list-alt"></i></button> 
+            <button type="button" title="Add Definition" data-toggle="tooltip" class="btn btn-default" onclick="addDef();return false;">Df.</button> 
+             <button type="button" title="Add Table of Contents" data-toggle="tooltip" class="btn btn-default" onclick="addToc();return false;"><i class="fa fa-list-alt"></i></button> 
          </div> 
          <div class="btn-group" role="group" aria-label="Fourth group"> 
-            <button type="button" class="btn btn-default" onclick="addCenterAlign();return false;"><i class="fa fa-align-center"></i></button> 
+            <button type="button" title="Align to Center" data-toggle="tooltip" class="btn btn-default" onclick="addCenterAlign();return false;"><i class="fa fa-align-center"></i></button> 
          </div> 
       </div>
-	    <textarea id="marked-mathjax-input" name="comment" class="form-control">{{ $wiki->body }}
+	    <textarea id="marked-mathjax-input" rows="17" name="comment" class="form-control">{{ $wiki->body }}
 	    </textarea>
 
     </div>
@@ -228,6 +230,12 @@ Preview.Update();
 </script>
 
  <script type="text/javascript" src="/js/functions.js"></script>
+
+ <script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
 
 
 @endsection

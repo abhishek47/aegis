@@ -23,11 +23,7 @@ function addImage()
 
 function addTable()
 {
-	insertAtCaret("Title | Title | Title\r\n \
---- | --- | ---\r\n \
-*Still* | `renders` | **nicely**\r\n \
-1 | 2 | 3"
-		);
+	insertAtCaret("| First Header  | Second Header |\n| ------------- | ------------- |\n| Content Cell  | Content Cell  |\n| Content Cell  | Content Cell  |\n ");
 }
 
 function addExample()
@@ -74,7 +70,7 @@ function addList()
 
 function addCenterAlign()
 {
-	insertAtCaret("<!-- {p: .center} -->");
+	insertAtCaret("<startcenter>\r\n\r\n<endcenter>");
 }	
 
 function addQuestion(id)
@@ -287,6 +283,7 @@ function insertAtCaret(text) {
         var quizValues = (plugin.config.json ? plugin.config.json : typeof quizJSON != 'undefined' ? quizJSON : null);
 
         // Get questions, possibly sorted randomly
+       
         var questions = plugin.config.randomSortQuestions ?
                         quizValues.questions.sort(function() { return (Math.round(Math.random())-0.5); }) :
                         quizValues.questions;
@@ -299,6 +296,7 @@ function insertAtCaret(text) {
             questions = questions.slice(0, plugin.config.numberOfQuestions);
             questionCount = questions.length;
         }
+
 
         // some special private/internal methods
         var internal = {method: {
@@ -331,6 +329,7 @@ function insertAtCaret(text) {
         plugin.method = {
             // Sets up the questions and answers based on above array
             setupQuiz: function(options) { // use 'options' object to pass args
+                var quizID = quizValues.info.id;
                 var key, keyNotch, kN;
                 key = internal.method.getKey (3); // how many notches == how many jQ animations you will run
                 keyNotch = internal.method.getKeyNotch; // a function that returns a jQ animation callback function
@@ -352,6 +351,7 @@ function insertAtCaret(text) {
 
                 // Loop through questions object
                 for (i in questions) {
+
                     if (questions.hasOwnProperty(i)) {
                         var question = questions[i];
 
@@ -389,9 +389,12 @@ function insertAtCaret(text) {
                         var answerHTML = $('<ul class="' + answersClass + '"></ul>');
 
                         // Get the answers
+                        var qanswers = JSON.parse(question.a);
                         var answers = plugin.config.randomSortAnswers ?
-                            question.a.sort(function() { return (Math.round(Math.random())-0.5); }) :
-                            question.a;
+                            qanswers.sort(function() { return (Math.round(Math.random())-0.5); }) :
+                            qanswers;
+
+
 
                         // prepare a name for the answer inputs based on the question
                         var selectAny     = question.select_any ? question.select_any : false,
@@ -408,7 +411,7 @@ function insertAtCaret(text) {
                             if (answers.hasOwnProperty(i)) {
                                 answer   = answers[i],
                                 optionId = inputName + '_' + i.toString();
-
+                                console.log(answer);
                                 // If question has >1 true answers and is not a select any, use checkboxes; otherwise, radios
                                 var input = '<input id="' + optionId + '" name="' + inputName +
                                             '" type="' + inputType + '" /> ';
@@ -453,7 +456,7 @@ function insertAtCaret(text) {
                         } else {
                             questionHTML.append('<a href="#" class="button ' + nextQuestionClass + '">' + nextText + '</a>');
                             questionHTML.append('<a href="#" class="button ' + checkAnswerClass + '">' + plugin.config.checkAnswerText + '</a>');
-                            questionHTML.append('<a href="#" class="button">Discuss Solution</a>');
+                            questionHTML.append('<a target="_blank" href="/quiz/' + quizID + '/question:' + question.id + '/discuss" class="button">Discuss Solution</a>');
                         }
 
                         // Append question & answers to quiz
@@ -887,17 +890,13 @@ var quizJSON = {
         "name":    "Basic Mathematical Problems!!",
         "main":    "<p>Solve General Maths Questions</p>",
         "results": "<h5>Learn More</h5><p>Read our wiki pages daily to learn more Mathematical skills</p>",
-        "level1":  "Jeopardy Ready",
-        "level2":  "Jeopardy Contender",
-        "level3":  "Jeopardy Amateur",
-        "level4":  "Jeopardy Newb",
-        "level5":  "Stay in school, kid..." // no comma here
+        
     },
     "questions": [
         { // Question 1 - Multiple Choice, Single True Answer
             "q": "The sum of two positive irrational numbers must be irrational.",
             "a": [
-                {"option": "True",      "correct": false},
+                {"option": "True"},
                 {"option": "False",     "correct": true} // no comma here
             ],
             "correct": "<p><span>That's right!</span> The sum of two positive irrational numbers may not be irrational</p>",

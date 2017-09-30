@@ -42,6 +42,8 @@ function aegismarked(text)
         // Theory
         text = text.replace(/&lt;starttheorem&gt;/g,'<div class="panel panel-default theorem"> \r\n \
 			    <div class="panel-body"><small class="text-muted">THEOREM</small>\r\n<div>').replace(/&lt;endtheorem&gt;/g, '</div></div>\r\n</div>');
+
+        text = text.replace(/&lt;startcenter&gt;/g,'<p class="text-center">').replace(/&lt;endcenter&gt;/g, '</p>');
         
         text = text.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 

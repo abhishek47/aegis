@@ -22,3 +22,6 @@ Route::post('/wiki', 'WikiController@store')->name('wiki.store');
 Route::get('/wiki/create', 'WikiController@create')->name('wiki.create');
 Route::get('/wiki/{wiki}', 'WikiController@show')->name('wiki.show');
 Route::post('/wiki/update/{wiki}', 'WikiController@update')->name('wiki.update');
+
+
+Route::get('/quiz/{quiz}', 'QuizController@get')->name('quiz.get');
