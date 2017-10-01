@@ -40,7 +40,7 @@ class QuestionCrudController extends CrudController {
 						'label' => "Is Answer",
 						'type' => "checkbox"]
 			    ],
-			    'max' => 5, // maximum rows allowed in the table
+			    'max' => 4, // maximum rows allowed in the table
 			    'min' => 0 // minimum rows allowed in the table
 			],
 			['name' => 'select_any',
@@ -88,7 +88,7 @@ class QuestionCrudController extends CrudController {
 			                       'incorrect' => 'required', 'solution' => 'required', 'level' => 'required'
 
 			]);
-		
+
 		return parent::updateCrud();
 	}
 }

@@ -390,6 +390,7 @@ function insertAtCaret(text) {
 
                         // Get the answers
                         var qanswers = JSON.parse(question.a);
+                        console.log(qanswers);
                         var answers = plugin.config.randomSortAnswers ?
                             qanswers.sort(function() { return (Math.round(Math.random())-0.5); }) :
                             qanswers;
@@ -411,7 +412,7 @@ function insertAtCaret(text) {
                             if (answers.hasOwnProperty(i)) {
                                 answer   = answers[i],
                                 optionId = inputName + '_' + i.toString();
-                                console.log(answer);
+                                
                                 // If question has >1 true answers and is not a select any, use checkboxes; otherwise, radios
                                 var input = '<input id="' + optionId + '" name="' + inputName +
                                             '" type="' + inputType + '" /> ';
@@ -560,7 +561,7 @@ function insertAtCaret(text) {
                     answerLIs     = questionLI.find(_answers + ' li'),
                     answerSelects = answerLIs.find('input:checked'),
                     questionIndex = parseInt(questionLI.attr('id').replace(/(question)/, ''), 10),
-                    answers       = questions[questionIndex].a,
+                    answers       = JSON.parse(questions[questionIndex].a),
                     selectAny     = questions[questionIndex].select_any ? questions[questionIndex].select_any : false;
 
                 answerLIs.addClass(incorrectResponseClass);
@@ -572,6 +573,7 @@ function insertAtCaret(text) {
                         var answer = answers[i],
                             index  = parseInt(i, 10);
 
+                        console.log(answer);    
                         if (answer.correct) {
                             trueAnswers.push(index);
                             answerLIs.eq(index).removeClass(incorrectResponseClass).addClass(correctResponseClass);

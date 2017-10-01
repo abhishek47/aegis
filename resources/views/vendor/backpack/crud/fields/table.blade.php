@@ -55,9 +55,6 @@
                       @else 
                         
                               <input type="checkbox" value="0"  name="{{ $item['name'] }}" ng-model="item.{{ $item['name'] }}"> 
-                           
-
-                        
                       @endif   
                     </td>
                     @endforeach
