@@ -50,7 +50,8 @@ class WikiController extends Controller
 
     public function show(Wiki $wiki)
     {
-    	return view('wiki.show', compact('wiki'));
+    	$quizzes = Quiz::orderBy('name', 'asc')->get();
+    	return view('wiki.show', compact('wiki', 'quizzes'));
     }
 
     public function update(Request $request, Wiki $wiki)
