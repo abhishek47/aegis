@@ -92,8 +92,7 @@ var Preview = {
     this.mjRunning = true;
     MathJax.Hub.Queue(
       ["Typeset",MathJax.Hub,this.buffer],
-      ["PreviewDone",this],
-      ["resetEquationNumbers", MathJax.InputJax.TeX]
+      ["PreviewDone",this]
     );
   },
   //
@@ -125,6 +124,16 @@ var Preview = {
           $('#slickQuiz-'+qid).slickQuiz({
             json: response.data
            });
+
+
+            MathJax.Hub.Queue(
+              ["Typeset",MathJax.Hub,document.getElementById('slickQuiz-'+qid)],
+              function() {
+                 console.log('Done');
+              }
+            );
+
+            
         });
     });
     
