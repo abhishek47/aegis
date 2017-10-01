@@ -9,12 +9,18 @@ class Question extends Model
 {
      use CrudTrait;
 
-     protected $fillable = ['q', 'a', 'select_any', 'correct', 'incorrect', 'quiz_id'];
+     protected $fillable = ['q', 'a', 'select_any', 'correct', 'incorrect', 'quiz_id', 'level', 'solution'];
 
-      protected $visible = ['id', 'q', 'a', 'select_any', 'correct', 'incorrect'];
+      protected $visible = ['id', 'q', 'a', 'select_any', 'correct', 'incorrect', 'level'];
 
      public function quiz()
      {
      	return $this->belongsTo(Quiz::class);
      }
+
+     public function comments()
+     {
+     	return $this->hasMany(Comment::class)->orderBy('created_at', 'desc');
+     }
+
 }

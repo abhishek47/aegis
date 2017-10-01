@@ -150,7 +150,7 @@ function insertAtCaret(text) {
                 backButtonText: '',
                 completeQuizText: '',
                 tryAgainText: 'Try Again',
-                questionCountText: 'Question %current of %total',
+                questionCountText: 'Question %current of %total | LEVEL %level',
                 preventUnansweredText: 'You must select at least one answer.',
                 questionTemplateText:  '%count. %text',
                 scoreTemplateText: '%score / %total',
@@ -362,7 +362,7 @@ function insertAtCaret(text) {
                                 plugin.config.questionCountText
                                     .replace('%current', '<span class="current">' + count + '</span>')
                                     .replace('%total', '<span class="total">' +
-                                        questionCount + '</span>') + '</div>');
+                                        questionCount + '</span>').replace('%level','<b>' + question.level + '</b>') + '</div>');
                         }
 
                         var formatQuestion = '';

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Wiki;
+use App\Quiz;
 use Illuminate\Http\Request;
 
 class WikiController extends Controller
@@ -25,7 +26,8 @@ class WikiController extends Controller
 
     public function create()
     {
-    	return view('wiki.create');
+    	$quizzes = Quiz::orderBy('name', 'asc')->get();
+    	return view('wiki.create', compact('quizzes'));
     }
 
     public function store(Request $request)
