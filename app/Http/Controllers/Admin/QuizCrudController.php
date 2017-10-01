@@ -27,11 +27,17 @@ class QuizCrudController extends CrudController {
 
 	public function store(Request $request)
 	{
+		$request->validate(['name' => 'required', 'main' => 'required'
+
+			]);
+
 		return parent::storeCrud();
 	}
 
 	public function update(Request $request)
 	{
+
+		$request->validate(['name' => 'required', 'main' => 'required' ]);
 		return parent::updateCrud();
 	}
 }

@@ -75,11 +75,20 @@ class QuestionCrudController extends CrudController {
 
 	public function store(Request $request)
 	{
+		$request->validate(['q' => 'required', 'a' => 'required', 'correct' => 'required', 
+			                       'incorrect' => 'required', 'solution' => 'required', 'level' => 'required'
+
+			]);
 		return parent::storeCrud();
 	}
 
 	public function update(Request $request)
 	{
+		$request->validate(['q' => 'required', 'a' => 'required', 'correct' => 'required', 
+			                       'incorrect' => 'required', 'solution' => 'required', 'level' => 'required'
+
+			]);
+		
 		return parent::updateCrud();
 	}
 }
