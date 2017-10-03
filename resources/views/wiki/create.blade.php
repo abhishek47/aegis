@@ -229,6 +229,32 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
          <div class="btn-group" role="group" aria-label="Fourth group"> 
             <button type="button" title="Align to Center" data-toggle="tooltip" class="btn btn-default" onclick="addCenterAlign();return false;"><i class="fa fa-align-center"></i></button> 
          </div> 
+         <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Line
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" onclick="addLine(1);return false;">
+             <svg width="100" height="1">
+                <rect width="100" height="1" 
+                style="fill:#989898;stroke-width:0" />
+              Sorry, your browser does not support inline SVG.
+              </svg>
+              </a>
+             </li>
+             <li><a href="#" onclick="addLine(2);return false;"><svg width="100" height="2">
+                <rect width="100" height="2" 
+                style="fill:#989898;stroke-width:0" />
+              Sorry, your browser does not support inline SVG.
+              </svg></a></li>
+              <li><a href="#" onclick="addLine(3);return false;"><svg width="100" height="3">
+                <rect width="100" height="3" 
+                style="fill:#989898;stroke-width:0" />
+              Sorry, your browser does not support inline SVG.
+              </svg></a></li>
+          </ul>
+        </div>
       </div>
 	    <textarea id="marked-mathjax-input" name="comment" rows="13" class="form-control">We have developed a very simple language for adding elements to the wiki page. As per the number of buttons above we have given what the button prints and you click on ***Preview*** to see what that results to.
 

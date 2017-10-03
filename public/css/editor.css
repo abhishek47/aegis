@@ -88,6 +88,19 @@ blockquote {
   text-align: center;
 }
 
+.markdown-body hr {
+    height: 1px;
+    padding: 0;
+    margin: 9px 0;
+    background-color: #989898;
+    border: 0;
+}
+
+.dropdown-menu::before, .dropdown-menu::after {
+    
+   display: none;
+}
+
 
 
 

@@ -78,6 +78,15 @@ function addQuestion(id)
 	insertAtCaret('<startquestion-'+id+'></endquestion>');
 }	
 
+
+function addLine(height)
+{
+    insertAtCaret('<hr-'+height+'>')
+        
+}
+
+
+
 function insertAtCaret(text) {
 	    
 	    var areaId = 'marked-mathjax-input';

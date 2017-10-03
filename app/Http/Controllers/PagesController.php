@@ -11,9 +11,19 @@ class PagesController extends Controller
     	return view('welcome');
     }
 
-     public function about()
+    public function about()
     {
     	return view('pages.about');
+    }
+
+    public function careers()
+    {
+    	return view('pages.careers');
+    }
+
+    public function contact()
+    {
+    	return view('pages.contact');
     }
 
     
