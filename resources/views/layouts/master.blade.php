@@ -97,7 +97,7 @@
   <!-- preloader -->
   <div id="preloader">
     <div id="spinner">
-      <img alt="" src="/images/preloaders/5.gif">
+      <img alt="" src="/images/preloaders/2.gif">
     </div>
     <div id="disable-preloader" class="btn btn-default btn-sm">Disable Preloader</div>
   </div>

@@ -38,3 +38,8 @@ Route::get('/comment/{comment}/dislike', 'CommentsController@dislike');
 
 Route::post('/image/upload', 'ImageController@upload');
 
+
+Route::get('/courses', 'CoursesController@index');
+Route::get('/courses/{course}', 'CoursesController@show');
+Route::get('/enroll/{course}', 'CoursesController@enroll');
+

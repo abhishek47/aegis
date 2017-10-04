@@ -9,5 +9,5 @@ class Course extends Model
 {
     use CrudTrait;
 
-     protected $fillable = ['name', 'body', 'fees', 'days', 'duration'];
+     protected $fillable = ['name', 'body', 'fees', 'days', 'duration', 'type'];
 }

@@ -29,7 +29,7 @@ class CourseCrudController extends CrudController {
 			],
 			['name' => 'body',
 			'label' => "Course Description",
-			'type' => 'simplemde'],
+			'type' => 'summernote'],
 			['name' => 'fees',
 			'label' => "Course Fees (Enter 0 for free )",
 			'type' => 'number'],
@@ -38,7 +38,12 @@ class CourseCrudController extends CrudController {
 			'type' => 'number'],
 			['name' => 'duration',
 			'label' => "Course Duration ( in minutes )",
-			'type' => 'number']
+			'type' => 'number'],
+			['name' => 'type',
+			'label' => "Online/Offline",
+			'type' => 'select2_from_array',
+			'options' => ['0' => 'Offline', '1' => 'Online'],
+            'allows_null' => false]
 			
 
 
