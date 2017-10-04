@@ -5,8 +5,54 @@
 
   @include('partials.banner')
 
+    <section id="cta"> 
+  <div class="container">
+     <div class="call-to-action pt-40 pb-40 mb-20 bg-theme-colored2">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-md-8">
+            <div class="icon-box icon-rounded-bordered left media mb-0 ml-60 ml-sm-0"> <a class="media-left pull-left flip" href="#"> <i class="fa fa-info text-white border-1px p-20"></i></a>
+              <div class="media-body">
+                <h3 class="media-heading heading text-white">{{ $wikiOfDay->title }}</h3>
+                <p class="text-white" style="font-size: 16px;">Wiki of the Day</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-4 text-center"> 
+            <a href="#" class="btn btn-default btn-flat btn-xl mt-20">Read Now</a> 
+          </div>
+        </div>
+      </div>
+    </div>
+   </section> 
+
      
- <!-- Divider: Features -->
+ 
+
+
+
+     <!-- Section: About -->
+    <section>
+      <div class="container pb-70">
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-5">
+              <img class="img-fullwidth maxwidth500" src="images/about/1.png" alt="">
+            </div>
+            <div class="col-md-7">
+              <h2 class="text-uppercasetext-theme-colored mt-0 mt-sm-30">About <span class="text-theme-colored2">AEGIS</span></h2>
+              <div class="double-line-bottom-theme-colored-2"></div>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas voluptatem maiores eaque similique non distinctio voluptates perspiciatis omnis, repellendus ipsa aperiam, laudantium voluptatum nulla?.</p>
+              <p class="hidden-md">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, assumenda, voluptatum. Libero eligendi molestias iure error animi totam laudantium, aspernatur similique id eos at consectetur illo culpa, quisquam temporibus esse!</p>
+              <p class="hidden-md">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, assumenda, voluptatum. Libero eligendi molestias iure error animi totam laudantium, aspernatur similique id eos at consectetur illo culpa, quisquam temporibus esse!</p>
+              <a href="#" class="btn btn-colored btn-theme-colored2 text-white btn-lg pl-40 pr-40 mt-15">Read More</a>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider: Features -->
     <section class="divider bg-silver-deep">
       <div class="container pt-50 pb-60">
         <div class="row">
@@ -48,47 +94,7 @@
     </section>
 
 
-     <!-- Section: About -->
-    <section>
-      <div class="container pb-70">
-        <div class="section-content">
-          <div class="row">
-            <div class="col-md-5">
-              <img class="img-fullwidth maxwidth500" src="images/about/1.png" alt="">
-            </div>
-            <div class="col-md-7">
-              <h2 class="text-uppercasetext-theme-colored mt-0 mt-sm-30">About <span class="text-theme-colored2">AEGIS</span></h2>
-              <div class="double-line-bottom-theme-colored-2"></div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas voluptatem maiores eaque similique non distinctio voluptates perspiciatis omnis, repellendus ipsa aperiam, laudantium voluptatum nulla?.</p>
-              <p class="hidden-md">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, assumenda, voluptatum. Libero eligendi molestias iure error animi totam laudantium, aspernatur similique id eos at consectetur illo culpa, quisquam temporibus esse!</p>
-              <p class="hidden-md">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, assumenda, voluptatum. Libero eligendi molestias iure error animi totam laudantium, aspernatur similique id eos at consectetur illo culpa, quisquam temporibus esse!</p>
-              <a href="#" class="btn btn-colored btn-theme-colored2 text-white btn-lg pl-40 pr-40 mt-15">Read More</a>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </section>
-
-   <section id="cta"> 
-  <div class="container">
-     <div class="call-to-action pt-40 pb-40 mb-20 bg-theme-colored2">
-        <div class="row">
-          <div class="col-xs-12 col-sm-8 col-md-8">
-            <div class="icon-box icon-rounded-bordered left media mb-0 ml-60 ml-sm-0"> <a class="media-left pull-left flip" href="#"> <i class="fa fa-info text-white border-1px p-20"></i></a>
-              <div class="media-body">
-                <h3 class="media-heading heading text-white">{{ $wikiOfDay->title }}</h3>
-                <p class="text-white" style="font-size: 16px;">Wiki of the Day</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 col-md-4 text-center"> 
-            <a href="#" class="btn btn-default btn-flat btn-xl mt-20">Read Now</a> 
-          </div>
-        </div>
-      </div>
-    </div>
-   </section> 
+  
 
 
     <!-- Section: Courses -->

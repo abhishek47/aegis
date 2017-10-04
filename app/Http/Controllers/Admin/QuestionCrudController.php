@@ -66,7 +66,8 @@ class QuestionCrudController extends CrudController {
 			   'name' => 'quiz_id', // the db column for the foreign key
 			   'entity' => 'quiz', // the method that defines the relationship in your Model
 			   'attribute' => 'name', // foreign key attribute that is shown to user
-			   'model' => "App\Quiz" // foreign key model
+			   'model' => "App\Quiz", // foreign key model
+			   'allows_null' => false
 			]
 
 
