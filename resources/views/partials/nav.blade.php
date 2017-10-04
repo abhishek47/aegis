@@ -8,7 +8,7 @@
               <ul class="list-inline xs-text-center text-white">
                 <li class="m-0 pl-10 pr-10"> <a href="#" class="text-white"><i class="fa fa-phone text-white"></i> 8800106866</a> </li>
                 <li class="m-0 pl-10 pr-10"> 
-                  <a href="#" class="text-white"><i class="fa fa-envelope-o text-white mr-5"></i> contact@aegisinstitute.com</a> 
+                  <a href="#" class="text-white"><i class="fa fa-envelope-o text-white mr-5"></i> info@aegisacademy.co.in</a> 
                 </li>
               </ul>
             </div>

@@ -122,7 +122,7 @@
             <ul class="list-inline mt-5">
               <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-theme-colored2 mr-5"></i> <a class="text-gray" href="#">8800106866</a> </li>
               <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-theme-colored2 mr-5"></i> <a class="text-gray" href="#">contact@aegisinstitute.com</a> </li>
-              <li class="m-0 pl-10 pr-10"> <i class="fa fa-globe text-theme-colored2 mr-5"></i> <a class="text-gray" href="#">www.aegisinstitute.com</a> </li>
+              <li class="m-0 pl-10 pr-10"> <i class="fa fa-globe text-theme-colored2 mr-5"></i> <a class="text-gray" href="#">www.aegisacademy.co.in</a> </li>
             </ul>            
             <ul class="styled-icons icon-sm icon-bordered icon-circled clearfix mt-10">
               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -166,7 +166,7 @@
               <article class="post media-post clearfix pb-0 mb-10">
                 <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
                 <div class="post-right">
-                  <h5 class="post-title mt-0 mb-5"><a href="#">English</a></h5>
+                  <h5 class="post-title mt-0 mb-5"><a href="#">Physics</a></h5>
                   <p class="post-date mb-0 font-12">Mar 08, 2017</p>
                 </div>
               </article>
