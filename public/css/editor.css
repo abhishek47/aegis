@@ -50,6 +50,7 @@ blockquote {
     border: none;
     box-shadow: none;
     -webkit-box-shadow: none;
+    border-radius: 0;
 }
 
 .table-of-contents {
