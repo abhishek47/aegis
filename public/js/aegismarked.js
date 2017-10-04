@@ -3,7 +3,7 @@ function aegismarked(text)
 		
 		//Example	
 		text = text.replace(/&lt;startexample&gt;/g,'<div class="panel panel-default example"> \r\n \
-			    <div class="panel-body" style="padding: 0px;">\r\n<div style="padding: 15px">').replace(/&lt;endexample&gt;/g, '</div></div>\r\n</div>');
+			    <div class="panel-body" ><small class="text-muted">EXAMPLE</small>\r\n<div>').replace(/&lt;endexample&gt;/g, '</div></div>\r\n</div>');
          
         //Solution	
 		text = text.replace(/&lt;startsolution&gt;/g,'</div><div class="panel panel-default solution"> \r\n \
@@ -13,7 +13,7 @@ function aegismarked(text)
 
 		// Defintion
         text = text.replace(/&lt;startdefinition&gt;/g,'<div class="panel panel-default definition"> \r\n \
-			    <div class="panel-body">\r\n<div>').replace(/&lt;enddefinition&gt;/g, '</div></div>\r\n</div>');
+			    <div class="panel-body"><small class="text-muted">DEFINITION</small>\r\n<div>').replace(/&lt;enddefinition&gt;/g, '</div></div>\r\n</div>');
 
 
 
@@ -41,7 +41,11 @@ function aegismarked(text)
 
         // Theory
         text = text.replace(/&lt;starttheorem&gt;/g,'<div class="panel panel-default theorem"> \r\n \
-			    <div class="panel-body" style="padding: 0px;">\r\n<div style="padding: 15px">').replace(/&lt;endtheorem&gt;/g, '</div></div>\r\n</div>');
+			    <div class="panel-body"><small class="text-muted">THEOREM</small>\r\n<div>').replace(/&lt;endtheorem&gt;/g, '</div></div>\r\n</div>');
+
+         // Theory
+        text = text.replace(/&lt;startbox&gt;/g,'<div class="panel panel-default box"> \r\n \
+			    <div class="panel-body">\r\n<div>').replace(/&lt;endbox&gt;/g, '</div></div>\r\n</div>');
 
         text = text.replace(/&lt;startcenter&gt;/g,'<p class="text-center">').replace(/&lt;endcenter&gt;/g, '</p>');
 

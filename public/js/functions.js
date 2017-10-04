@@ -32,6 +32,12 @@ function addExample()
 		
 }
 
+function addBox()
+{
+    insertAtCaret("<startbox>\r\n\r\n<endbox>");
+        
+}
+
 function addSoln()
 {
 	insertAtCaret("<startsolution>\r\n\r\n<endsolution>");

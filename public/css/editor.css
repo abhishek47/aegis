@@ -42,7 +42,7 @@ blockquote {
     cursor: pointer;
 }
 
-.definition, .example, .theorem {
+.definition, .example, .theorem, .box {
     background-color: #f7f7f7;
 }
 
