@@ -137,11 +137,11 @@
           <div class="widget dark">
             <h4 class="widget-title line-bottom-theme-colored-2">Useful Links</h4>
             <ul class="angle-double-right list-border">
-              <li><a href="#">Home Page</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Courses</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Wiki Pages</a></li>              
+              <li><a href="/">Home Page</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/courses">Courses</a></li>
+              <li><a href="/careers">Careers</a></li>
+              <li><a href="/wiki">Wiki Pages</a></li>              
             </ul>
           </div>
         </div>
@@ -152,21 +152,21 @@
               <article class="post media-post clearfix pb-0 mb-10">
                 <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
                 <div class="post-right">
-                  <h5 class="post-title mt-0 mb-5"><a href="#">Mathematics</a></h5>
+                  <h5 class="post-title mt-0 mb-5"><a href="#">Olympiad Number Theory</a></h5>
                   <p class="post-date mb-0 font-12">Mar 08, 2017</p>
                 </div>
               </article>
               <article class="post media-post clearfix pb-0 mb-10">
                 <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
                 <div class="post-right">
-                  <h5 class="post-title mt-0 mb-5"><a href="#">Science</a></h5>
+                  <h5 class="post-title mt-0 mb-5"><a href="#">ISI/CMI Entrance</a></h5>
                   <p class="post-date mb-0 font-12">Mar 08, 2017</p>
                 </div>
               </article>
               <article class="post media-post clearfix pb-0 mb-10">
                 <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
                 <div class="post-right">
-                  <h5 class="post-title mt-0 mb-5"><a href="#">Physics</a></h5>
+                  <h5 class="post-title mt-0 mb-5"><a href="#">JEE Adv. Maths</a></h5>
                   <p class="post-date mb-0 font-12">Mar 08, 2017</p>
                 </div>
               </article>
@@ -179,13 +179,13 @@
             <div class="opening-hours">
               <ul class="list-border">
                 <li class="clearfix"> <span> Mon - Tues :  </span>
-                  <div class="value pull-right"> 6.00 am - 10.00 pm </div>
+                  <div class="value pull-right"> 8.00 am - 8.00 pm </div>
                 </li>
                 <li class="clearfix"> <span> Wednes - Thurs :</span>
-                  <div class="value pull-right"> 8.00 am - 6.00 pm </div>
+                  <div class="value pull-right"> 8.00 am - 8.00 pm </div>
                 </li>
                 <li class="clearfix"> <span> Fri : </span>
-                  <div class="value pull-right"> 3.00 pm - 8.00 pm </div>
+                  <div class="value pull-right"> 8.00 pm - 8.00 pm </div>
                 </li>
                 <li class="clearfix"> <span> Sun : </span>
                   <div class="value pull-right bg-theme-colored2 text-white closed"> Closed </div>

@@ -70,6 +70,27 @@
       </div>
     </section>
 
+   <section id="cta"> 
+  <div class="container">
+     <div class="call-to-action pt-40 pb-40 mb-20 bg-theme-colored2">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-md-8">
+            <div class="icon-box icon-rounded-bordered left media mb-0 ml-60 ml-sm-0"> <a class="media-left pull-left flip" href="#"> <i class="fa fa-info text-white border-1px p-20"></i></a>
+              <div class="media-body">
+                <h3 class="media-heading heading text-white">{{ $wikiOfDay->title }}</h3>
+                <p class="text-white" style="font-size: 16px;">Wiki of the Day</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-4 text-center"> 
+            <a href="#" class="btn btn-default btn-flat btn-xl mt-20">Read Now</a> 
+          </div>
+        </div>
+      </div>
+    </div>
+   </section> 
+
+
     <!-- Section: Courses -->
     <section id="courses" class="bg-silver-deep">
       <div class="container pb-40">
@@ -254,10 +275,10 @@
                 <h2 class="package-type text-uppercase line-bottom-centered mb-50">Free</h2>
                 <h2 class="price text-theme-colored2 font-opensans font-weight-400 font-64 bg-white pt-10 pb-20 mb-0"><span class="font-36 currency">&#8377</span>0 <span class="font-16 text-black">/ Month</span></h2>
                 <ul class="list price-list theme-colored text-left flip check-circle mt-0 mb-20">
-                  <li>Feature 1</li>
-                  <li>Feature 2</li>
-                  <li>Feature 3</li>
-                  <li>Feature 4</li>
+                  <li>Read Unlimited Wiki Pages</li>
+                  <li>Solve Various Problems</li>
+                  <li>View Solutions to 20 Problems</li>
+                  <li>Get Updated about our courses</li>
                 </ul>
                 <a class="btn btn-lg btn-theme-colored text-uppercase btn-block pt-20 pb-20 btn-flat" href="{{ route('register') }}">Signup Now</a>
               </div>
@@ -266,12 +287,12 @@
             <div class="col-xs-12 col-sm-6 col-md-6 hvr-float-shadow mb-sm-30">
               <div class="pricing-table bg-silver-deep text-center maxwidth400 pt-10">
                 <h2 class="package-type text-uppercase line-bottom-centered mb-50">Premium</h2>
-                <h2 class="price text-theme-colored2 font-opensans font-weight-400 font-64 bg-white pt-10 pb-20 mb-0"><span class="font-36 currency">&#8377</span>2000 <span class="font-16 text-black">/ Month</span></h2>
+                <h2 class="price text-theme-colored2 font-opensans font-weight-400 font-64 bg-white pt-10 pb-20 mb-0"><span class="font-36 currency">&#8377</span>2000 <span class="font-16 text-black">/ Year</span></h2>
                 <ul class="list price-list theme-colored text-left flip check-circle mt-0 mb-20">
-                  <li>All Free Features +</li>
-                  <li>Feature 2</li>
-                  <li>Feature 3</li>
-                  <li>Feature 4</li>
+                  <li>Read Unlimited Wiki Pages</li>
+                  <li>Solve Various Problems</li>
+                  <li>View Solutions to <b>Unlimited</b> Problems</li>
+                  <li>Get Updated about our courses</li>
                 </ul>
                 <a class="btn btn-lg btn-theme-colored text-uppercase btn-block pt-20 pb-20 btn-flat" href="{{ route('register') }}">Signup Now</a>
               </div>

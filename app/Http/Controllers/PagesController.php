@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Wiki;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
     public function index()
     {
-    	return view('welcome');
+    	$wikiOfDay = Wiki::latest()->first();
+    	return view('welcome', compact('wikiOfDay'));
     }
 
     public function about()
