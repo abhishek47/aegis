@@ -220,7 +220,7 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
             :crop="false"
             @imageuploaded="imageuploaded"
             :max-file-size="5242880"
-            url="http://aegis.dev/image/upload" >
+            url="/image/upload">
           </vue-core-image-upload>
          </div> 
          <div class="btn-group" role="group" aria-label="Second group"> 
