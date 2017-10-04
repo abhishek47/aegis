@@ -46,7 +46,7 @@ blockquote {
     background-color: #f7f7f7;
 }
 
-.theorem .proof,.example .soution {
+.theorem .proof, .example .solution {
     border: none;
     box-shadow: none;
     -webkit-box-shadow: none;
