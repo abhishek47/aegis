@@ -25,60 +25,61 @@
             </div>
           </div>
           <div class="col-md-2">
+
             <ul class="list-inline sm-pull-none sm-text-center text-right text-white mb-sm-20 mt-10">
+             @guest
               <li class="m-0 pl-10"> <a href="{{ route('login') }}" class="text-white"><i class="fa fa-user-o mr-5 text-white"></i> Login /</a> </li>
               <li class="m-0 pl-0 pr-10"> 
                 <a href="{{ route('register') }}" class="text-white"><i class="fa fa-edit mr-5"></i>Register</a> 
               </li>
+             @else
+              
+              
+               <li class="m-0 pl-0 pr-10">
+                  <a href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();" class="text-white">
+                     <i class="fa fa-sign-out mr-5 text-white"></i>Logout
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      {{ csrf_field() }}
+                  </form>
+              </li>
+
+             @endguest 
             </ul>
           </div>
         </div>
       </div>
     </div>
-    <div class="header-middle p-0 bg-lightest xs-text-center">
-      <div class="container pt-20">
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-4">
-            <a class="menuzord-brand pull-left flip sm-pull-center mb-15" href="index-mp-layout1.html"><img src="images/logo-wide.png" alt=""></a>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-8">
-            <div class="row">
-              <div class="col-xs-12 col-sm-4 col-md-4">
-                <div class="widget no-border sm-text-center mt-10 mb-10 m-0">
-                  <i class="pe-7s-headphones text-theme-colored2 font-48 mt-0 mr-15 mr-sm-0 sm-display-block pull-left flip sm-pull-none"></i>
-                  <a href="#" class="font-12 text-gray text-uppercase">Call us for more details</a>
-                  <h5 class="font-13 text-black m-0"> +(91) 8800106866</h5>
-                </div>
-              </div>
-             
-              <div class="col-xs-12 col-sm-4 col-md-4">
-                <div class="widget no-border sm-text-center mt-10 mb-10 m-0">
-                  <i class="pe-7s-map-marker text-theme-colored2 font-48 mt-0 mr-15 mr-sm-0 sm-display-block pull-left flip sm-pull-none"></i>
-                  <a href="#" class="font-12 text-gray text-uppercase">Location us at</a>
-                  <h5 class="font-13 text-black m-0"> Nashik, Maharashtra, India</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
     <div class="header-nav">
-      <div class="header-nav-wrapper navbar-scrolltofixed bg-white">
+      <div class="header-nav-wrapper navbar-scrolltofixed bg-white" style="z-index: auto; position: static; top: auto;">
         <div class="container">
-          <nav id="menuzord" class="menuzord default menuzord-responsive">
-            <ul class="menuzord-menu">
+          <nav id="menuzord-right" class="menuzord default menuzord-responsive"><a href="javascript:void(0)" class="showhide" style="display: none;"><em></em><em></em><em></em></a><a class="menuzord-brand pull-left flip mt-sm-10 mb-sm-20" href="index-mp-layout1.html"><img src="/images/logo-wide.png" alt=""></a>
+            <ul class="menuzord-menu menuzord-right menuzord-indented scrollable" style="max-height: 400px;">
+              @guest
               <li><a href="/">Home</a></li>
               <li><a href="/about">About</a></li>
               <li><a href="/courses">Courses</a></li>
+              <li><a href="/wiki">Wiki Pages</a></li>
               <li><a href="/careers">Careers</a></li>
               <li><a href="/contact">Contact</a></li>
+              @else
+              <li><a href="/home">Home</a></li>
+              <li><a href="/courses">Courses</a></li>
+              <li><a href="/wiki">Wiki Pages</a></li>
+              <li><a href="/account">My Account</a></li>
+              @endguest
+              <li class="scrollable-fix"></li>
             </ul>
-            <div class="pull-right sm-pull-none mb-sm-15">
-              <a class="btn btn-colored btn-theme-colored2 mt-15 mt-sm-10 pt-10 pb-10" href="/wiki">Read Wiki</a>
-            </div>
-          </nav>
+           </nav>
         </div>
-      </div>
+      </div><div style="display: none; width: 2048px; height: 70px; float: none;"></div>
     </div>
   </header>
+
+
+
+

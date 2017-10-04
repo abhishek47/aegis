@@ -36,9 +36,10 @@ blockquote {
 }
 
 
-.editor--toolbar button {
+.editor--toolbar button, .editor--toolbar .btn {
     background-color: #fcfcfc;
     font-size: 20px; 
+    cursor: pointer;
 }
 
 .definition, .example, .theorem {
@@ -72,12 +73,16 @@ blockquote {
 }
 
 .table-of-contents li {
+    
     padding-top: 0px;
 }
 
 .table-of-contents li+li {
+ 
     border-top: none;
 }
+
+
 
 .markdown-body li+li,  .markdown-body li{
     margin-top: 0px;
@@ -94,6 +99,18 @@ blockquote {
     margin: 9px 0;
     background-color: #989898;
     border: 0;
+}
+
+.markdown-body ol {
+    list-style-type: decimal;
+}
+
+.markdown-body ul {
+    list-style-type: disc;
+}
+
+.markdown-body a {
+    color: #1A458E !important;
 }
 
 .dropdown-menu::before, .dropdown-menu::after {
@@ -172,7 +189,8 @@ blockquote {
 .slickQuiz h1 {
     font-size: 26px;
     margin: 0 0 20px;
-    color: #0C4569;
+    color: #1a458e;
+
 }
 .slickQuiz h2 {
     font-size: 22px;
@@ -206,7 +224,7 @@ blockquote {
     width: auto;
     padding: 5px 15px;
     color:#ffffff;
-    background-color:darkcyan;
+    background-color:#1a458e;
     border: 1px solid #fff;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;

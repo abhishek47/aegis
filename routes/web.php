@@ -35,3 +35,6 @@ Route::post('/comments/{question}', 'CommentsController@store');
 
 Route::get('/comment/{comment}/like', 'CommentsController@like');
 Route::get('/comment/{comment}/dislike', 'CommentsController@dislike');
+
+Route::post('/image/upload', 'ImageController@upload');
+

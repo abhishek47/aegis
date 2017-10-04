@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('css')
 
@@ -197,8 +197,8 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
      <div>
        <h3 class="pull-left" style="margin-top: 0;padding-top: 0;font-weight: bold;">Wiki Page Content</h3>
        <div class="pull-right"> 
-       	  <a href="#" class="btn btn-default" onclick="toggleEditor()">Cancel</a> &nbsp;
-       	  <a href="#" class="btn btn-primary" onclick="Preview.Update()">Preview</a> &nbsp;
+       	  <a href="#" class="btn btn-default btn-flat" onclick="toggleEditor()">Cancel</a> &nbsp;
+       	  <a href="#" class="btn btn-colored btn-theme-colored2 btn-flat" onclick="Preview.Update()">Preview</a> &nbsp;
        </div>
      </div>
 
@@ -211,9 +211,17 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
         <div class="btn-group" role="group" aria-label="First group"> 
             <button type="button" title="Add Heading" data-toggle="tooltip" class="btn btn-default" onclick="addHeader();return false;"><i class="fa fa-header"></i></button>
             <button type="button" title="Add Link" data-toggle="tooltip" class="btn btn-default" onclick="addLink();return false;"><i class="fa fa-link"></i></button>  
-            <button type="button" title="Add List" data-toggle="tooltip" class="btn btn-default" onclick="addList();return false;"><i class="fa fa-list-ul"></i></button> 
+            <button type="button" title="Add List" data-toggle="tooltip" class="btn btn-default" onclick="addList();return false;"><i class="fa fa-list-ul"></i></button>
+            <button type="button" title="Add Numbered List" data-toggle="tooltip" class="btn btn-default" onclick="addNList();return false;"><i class="fa fa-list-ol"></i></button> 
             <button type="button" title="Add Table" data-toggle="tooltip" class="btn btn-default" onclick="addTable();return false;"><i class="fa fa-table"></i></button> 
             <button type="button" title="Add Image" data-toggle="tooltip" class="btn btn-default" onclick="addImage();return false;"><i class="fa fa-photo"></i></button> 
+            <vue-core-image-upload
+            class="btn btn-default"
+            :crop="false"
+            @imageuploaded="imageuploaded"
+            :max-file-size="5242880"
+            url="http://aegis.dev/image/upload" >
+          </vue-core-image-upload>
          </div> 
          <div class="btn-group" role="group" aria-label="Second group"> 
             <button type="button" title="Add Example" data-toggle="tooltip" class="btn btn-default" onclick="addExample();return false;">E.g.</button>
@@ -225,8 +233,6 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
          <div class="btn-group" role="group" aria-label="Third group"> 
             <button type="button" title="Add Definition" data-toggle="tooltip" class="btn btn-default" onclick="addDef();return false;">Df.</button> 
              <button type="button" title="Add Table of Contents" data-toggle="tooltip" class="btn btn-default" onclick="addToc();return false;"><i class="fa fa-list-alt"></i></button> 
-         </div> 
-         <div class="btn-group" role="group" aria-label="Fourth group"> 
             <button type="button" title="Align to Center" data-toggle="tooltip" class="btn btn-default" onclick="addCenterAlign();return false;"><i class="fa fa-align-center"></i></button> 
          </div> 
          <div class="btn-group" role="group">
@@ -347,17 +353,11 @@ Since the gravitational force is the only force keeping the stars in orbit, it i
 <hr>
 
 <div class="form-group">
-  <label>Wiki Category</label>
-  <select class="form-control" name="category_id">
-     <option value="1">Category 1</option>
-     <option value="2">Category 2</option>
-     <option value="3">Category 3</option>
-  </select>
+   <input type="hidden" name="category_id" value="1">
 </div>
 <br>
-<hr>
 
-<button type="submit" class="btn btn-primary">Post Wiki Page</button>
+<button type="submit" class="btn btn-colored btn-success btn-flat">Post Wiki Page</button>
 
 <br><br><br>
 </form>

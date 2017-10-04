@@ -68,6 +68,11 @@ function addList()
 	insertAtCaret("* Item 1\r\n* Item 2");
 }	
 
+function addNList()
+{
+    insertAtCaret("1. Item 1\r\n2. Item 2");
+}   
+
 function addCenterAlign()
 {
 	insertAtCaret("<startcenter>\r\n\r\n<endcenter>");
@@ -154,7 +159,7 @@ function insertAtCaret(text) {
             _element = '#' + $element.attr('id'),
 
             defaults = {
-                checkAnswerText:  'Check Solution!',
+                checkAnswerText:  'Submit Answer!',
                 nextQuestionText: 'Next &raquo;',
                 backButtonText: '',
                 completeQuizText: '',
@@ -173,7 +178,7 @@ function insertAtCaret(text) {
                 disableRanking: true,
                 scoreAsPercentage: false,
                 perQuestionResponseMessaging: true,
-                perQuestionResponseAnswers: false,
+                perQuestionResponseAnswers: true,
                 completionResponseMessaging: false,
                 displayQuestionCount: true,   // Deprecate?
                 displayQuestionNumber: true,  // Deprecate?

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('css')
 
@@ -158,7 +158,7 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 <div class="page-header">
   <h2>{{ $wiki->title }}</h2>
 
-	<a href="#" id="edit" onclick="toggleEditor()">Edit this wiki</a> 
+	<a href="#" id="edit" style="color: #313131;" onclick="toggleEditor()"><i class="fa fa-edit"></i> Edit this wiki</a> 
 
 </div>  
    <form method="POST" action="/wiki/update/{{ $wiki->id }}">
@@ -168,9 +168,9 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 
      <div>
        <div class="pull-right"> 
-       	  <a href="#" class="btn btn-default" onclick="toggleEditor()">Cancel</a> &nbsp;
-       	  <a href="#" class="btn btn-primary" onclick="Preview.Update()">Preview</a> &nbsp;
-          <button type="submit" class="btn btn-success" >Update</button> &nbsp;
+       	  <a href="#" class="btn btn-default btn-flat" onclick="toggleEditor()">Cancel</a> &nbsp;
+       	  <a href="#" class="btn btn-colored btn-theme-colored2 btn-flat" onclick="Preview.Update()">Preview</a> &nbsp;
+          <button type="submit" class="btn btn-colored btn-success btn-flat" >Update</button> &nbsp;
        </div>
      </div>
 
@@ -184,8 +184,17 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
             <button type="button" title="Add Heading" data-toggle="tooltip" class="btn btn-default" onclick="addHeader();return false;"><i class="fa fa-header"></i></button>
             <button type="button" title="Add Link" data-toggle="tooltip" class="btn btn-default" onclick="addLink();return false;"><i class="fa fa-link"></i></button>  
             <button type="button" title="Add List" data-toggle="tooltip" class="btn btn-default" onclick="addList();return false;"><i class="fa fa-list-ul"></i></button> 
+            <button type="button" title="Add Numbered List" data-toggle="tooltip" class="btn btn-default" onclick="addNList();return false;"><i class="fa fa-list-ol"></i></button> 
             <button type="button" title="Add Table" data-toggle="tooltip" class="btn btn-default" onclick="addTable();return false;"><i class="fa fa-table"></i></button> 
             <button type="button" title="Add Image" data-toggle="tooltip" class="btn btn-default" onclick="addImage();return false;"><i class="fa fa-photo"></i></button> 
+            <button type="button" title="Upload Image" data-toggle="tooltip" class="btn btn-default" onclick="uploadImage();return false;"><i class="fa fa-file-image-o"></i></button> 
+            <vue-core-image-upload
+            class="btn btn-default"
+            :crop="false"
+            @imageuploaded="imageuploaded"
+            :max-file-size="5242880"
+            url="http://aegis.dev/image/upload" >
+          </vue-core-image-upload>
          </div> 
          <div class="btn-group" role="group" aria-label="Second group"> 
             <button type="button" title="Add Example" data-toggle="tooltip" class="btn btn-default" onclick="addExample();return false;">E.g.</button>
@@ -197,12 +206,36 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
          <div class="btn-group" role="group" aria-label="Third group"> 
             <button type="button" title="Add Definition" data-toggle="tooltip" class="btn btn-default" onclick="addDef();return false;">Df.</button> 
              <button type="button" title="Add Table of Contents" data-toggle="tooltip" class="btn btn-default" onclick="addToc();return false;"><i class="fa fa-list-alt"></i></button> 
-         </div> 
-         <div class="btn-group" role="group" aria-label="Fourth group"> 
             <button type="button" title="Align to Center" data-toggle="tooltip" class="btn btn-default" onclick="addCenterAlign();return false;"><i class="fa fa-align-center"></i></button> 
          </div> 
+          <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Line
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" onclick="addLine(1);return false;">
+             <svg width="100" height="1">
+                <rect width="100" height="1" 
+                style="fill:#989898;stroke-width:0" />
+              Sorry, your browser does not support inline SVG.
+              </svg>
+              </a>
+             </li>
+             <li><a href="#" onclick="addLine(2);return false;"><svg width="100" height="2">
+                <rect width="100" height="2" 
+                style="fill:#989898;stroke-width:0" />
+              Sorry, your browser does not support inline SVG.
+              </svg></a></li>
+              <li><a href="#" onclick="addLine(3);return false;"><svg width="100" height="3">
+                <rect width="100" height="3" 
+                style="fill:#989898;stroke-width:0" />
+              Sorry, your browser does not support inline SVG.
+              </svg></a></li>
+          </ul>
+        </div>
       </div>
-	    <textarea id="marked-mathjax-input" rows="17" name="comment" class="form-control">{{ $wiki->body }}
+	    <textarea id="marked-mathjax-input" style="height: 1700px;" name="comment" class="form-control">{{ $wiki->body }}
 	    </textarea>
 
     </div>
