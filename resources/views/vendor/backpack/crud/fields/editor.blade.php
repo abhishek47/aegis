@@ -1,7 +1,7 @@
 <div id="app" @include('crud::inc.field_wrapper_attributes') >
  <label>{!! $field['label'] !!}</label>
 
-<div id="editor" class="editor--toolbar" style="margin-top: 20px;">
+<div id="editor" class="editor--toolbar">
       <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups"> 
         <div class="btn-group" role="group" aria-label="First group"> 
             <button type="button" title="Add Heading" data-toggle="tooltip" class="btn btn-default" onclick="addHeader();return false;"><i class="fa fa-header"></i></button>
