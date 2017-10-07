@@ -3,6 +3,7 @@
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
+use App\Quiz;
 use Illuminate\Http\Request;
 
 class WikiCrudController extends CrudController {
@@ -20,10 +21,12 @@ class WikiCrudController extends CrudController {
 			],
 			['name' => 'body',
 			'label' => "Page Body",
-			'type' => 'simplemde']
+			'type' => 'editor']
 
 
 	]);
+
+      
     }
 
 	public function store(Request $request)

@@ -222,15 +222,11 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
             :max-file-size="5242880"
             url="/image/upload">
           </vue-core-image-upload>
-         </div> 
-         <div class="btn-group" role="group" aria-label="Second group"> 
             <button type="button" title="Add Example" data-toggle="tooltip" class="btn btn-default" onclick="addExample();return false;">E.g.</button>
             <button type="button" title="Add Solution" data-toggle="tooltip" class="btn btn-default" onclick="addSoln();return false;">Soln.</button>
             <button type="button" title="Add Theorem" data-toggle="tooltip" class="btn btn-default" onclick="addTheorem();return false;">Theorem</button>  
             <button type="button" title="Add Proof" data-toggle="tooltip" class="btn btn-default" onclick="addProof();return false;">Proof</button>
             <button type="button" title="Add Problems Section" class="btn btn-default" data-toggle="modal" data-target="#myModal" ><i class="fa fa-question-circle"></i></button> 
-         </div> 
-         <div class="btn-group" role="group" aria-label="Third group"> 
             <button type="button" title="Add Definition" data-toggle="tooltip" class="btn btn-default" onclick="addDef();return false;">Df.</button> 
              <button type="button" title="Add Table of Contents" data-toggle="tooltip" class="btn btn-default" onclick="addToc();return false;"><i class="fa fa-list-alt"></i></button> 
             <button type="button" title="Align to Center" data-toggle="tooltip" class="btn btn-default" onclick="addCenterAlign();return false;"><i class="fa fa-align-center"></i></button> 
@@ -263,75 +259,7 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
           </ul>
         </div>
       </div>
-	    <textarea id="marked-mathjax-input" name="comment" rows="13" class="form-control">We have developed a very simple language for adding elements to the wiki page. As per the number of buttons above we have given what the button prints and you click on ***Preview*** to see what that results to.
-
-***NOTE : Don't leave any spaces while writing commands.***
-
-#### For automatically generating table of contents you can click on Button 10 ( The cursor should be at the start of line )
-
-[[toc]]
-
-#### Button 1 : 
-# Your Header
-
-#### Button 2:
-[Name your link](https://www.link.com)
-
-#### Button 3 :
-* Item 1
-* Item 2
-
-#### Button 4:
-Title | Title | Title
- --- | --- | ---
- *Still* | `renders` | **nicely**
- 1 | 2 | 3    
-
-#### Button 5:
-![alt text](https://assets.servedby-buysellads.com/p/manage/asset/id/28536 "Image Title")
-
-## Custom Marks
-
-<startexample>
-### The Example comes here - Button 6
-<endexample> 
-
-<starttheorem>
-#### The theorem of anything!
-<startproof>
-### Similary the theorem/proof here. - Button 8
-<endproof>
-<endtheorem>  
-
-
-
-<startdefinition>
-### Definition part - Button 9
-<enddefinition>
-
-## Latex Formulas
-
-This plot demonstrates that the error bars on the observed velocities are reasonably small compared to the velocities. Below, the observed velocities are compared to the Newtonian prediction \(v = \sqrt{\frac{GM}{r}}\), where curve A is the Newtonian prediction and curve B is the experimental data:
-
-Even though the radius of a typical star’s orbit around a galactic bulge is vastly larger than the distances in the solar system, Newton’s laws of gravity still apply to the orbits of stars. The magnitude of the Newtonian gravitational force \(F_g\) on a star of mass \(m\) well outside the galactic bulge is given as a function of radius \(r\) from the center of the galaxy by:
-
-\[F_g = G\frac{mM}{r^2}\]
-
-where \(G\approx 6.67 \times 10^{-11} \text{ N}\cdot\text{m}^2/\text{kg}^2\) is Newton’s gravitational constant and \(M\) is the total mass of the galaxy. 
-
-Assuming these stars move in circular orbits around the center,  they are bound by a centripetal force given by:
-
-\[F_c = \frac{mv^2}{r}.\]
-
-Since the gravitational force is the only force keeping the stars in orbit, it is equal to the centripetal force. Equating the two yields a formula for the velocity of these far-away stars as a function of radius \(r\) from the center of the galaxy:
-
-\[v(r) = \sqrt{\frac{GM}{r}}.\]
-
- ## Questions Section     
-      
- <startquestion></endquestion>    
-      
-	    
+	    <textarea id="marked-mathjax-input" name="comment" rows="13" class="form-control">
 	    </textarea>
 
     </div>
