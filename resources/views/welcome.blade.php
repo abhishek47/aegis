@@ -5,7 +5,49 @@
 
   @include('partials.banner')
 
-    <section id="cta"> 
+
+    <!-- Divider: Features -->
+    <section class="divider bg-silver-deep">
+      <div class="container pt-50 pb-60">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-4 mb-sm-30">
+            <div class="feature-box text-center">
+              <div class="feature-icon">
+                <img src="images/icons/online.png" alt="">
+              </div>
+              <div class="feature-title">
+                <h3>Online Courses</h3>
+                <a href="/courses" class="read-more font-roboto-slab text-theme-colored2">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-4 mb-sm-30">
+            <div class="feature-box text-center">
+              <div class="feature-icon">
+                <img src="images/icons/book.png" alt="">
+              </div>
+              <div class="feature-title">
+                <h3>Wiki of the Day</h3>
+                <a href="/wiki" class="read-more font-roboto-slab text-theme-colored2">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="feature-box text-center">
+              <div class="feature-icon">
+                <img src="images/icons/graduate.png" alt="">
+              </div>
+              <div class="feature-title">
+                <h3>Offline Courses</h3>
+                <a href="/about" class="read-more font-roboto-slab text-theme-colored2">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+ <!--   <section id="cta"> 
   <div class="container">
      <div class="call-to-action pt-40 pb-40 mb-20 bg-theme-colored2">
         <div class="row">
@@ -23,8 +65,9 @@
         </div>
       </div>
     </div>
-   </section> 
+   </section> -->
 
+   
      
  
 
@@ -52,46 +95,6 @@
       </div>
     </section>
 
-    <!-- Divider: Features -->
-    <section class="divider bg-silver-deep">
-      <div class="container pt-50 pb-60">
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-4 mb-sm-30">
-            <div class="feature-box text-center">
-              <div class="feature-icon">
-                <img src="images/icons/online.png" alt="">
-              </div>
-              <div class="feature-title">
-                <h3>Online Course Facilities</h3>
-                <a href="/courses" class="read-more font-roboto-slab text-theme-colored2">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 mb-sm-30">
-            <div class="feature-box text-center">
-              <div class="feature-icon">
-                <img src="images/icons/book.png" alt="">
-              </div>
-              <div class="feature-title">
-                <h3>Modern WIKI Library</h3>
-                <a href="/wiki" class="read-more font-roboto-slab text-theme-colored2">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="feature-box text-center">
-              <div class="feature-icon">
-                <img src="images/icons/graduate.png" alt="">
-              </div>
-              <div class="feature-title">
-                <h3>Learn at our Institute</h3>
-                <a href="/about" class="read-more font-roboto-slab text-theme-colored2">Read More</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
 
   

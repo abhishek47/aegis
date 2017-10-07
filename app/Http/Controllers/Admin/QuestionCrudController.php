@@ -48,9 +48,11 @@ class QuestionCrudController extends CrudController {
 			'type' => 'checkbox'],
 			['name' => 'correct',
 			'label' => "Response on Correct Answer",
+			'default' => '<span>Your Answer is Correct!</span>'
 			'type' => 'textarea'],
 			['name' => 'incorrect',
 			'label' => "Response on Incorrect Answer",
+			'default' => '<span>Your Answer is Incorrect!</span>'
 			'type' => 'textarea'],
 			['name' => 'solution',
 			'label' => "Solution",
@@ -58,7 +60,7 @@ class QuestionCrudController extends CrudController {
 			['name' => 'level',
 			'label' => "Level",
 			'type' => 'select_from_array',
-		    'options' => [1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7, 8 => 8, 9 => 9, 10 => 10],
+		    'options' => [0 => 0, 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7, 8 => 8, 9 => 9, 10 => 10],
 		    'allows_null' => false,],
 			[  // Select2
 			   'label' => "Quiz",
