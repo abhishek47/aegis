@@ -26,6 +26,7 @@ class QuestionCrudController extends CrudController {
         	 [
 			'name' => 'q',
 			'label' => "Question"
+			'type' => 'editor'
 			],
 			[ // Table
 			    'name' => 'a',
