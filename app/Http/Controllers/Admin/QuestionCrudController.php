@@ -25,7 +25,7 @@ class QuestionCrudController extends CrudController {
         $this->crud->addFields([
         	 [
 			'name' => 'q',
-			'label' => "Question"
+			'label' => "Question",
 			'type' => 'editor'
 			],
 			[ // Table
