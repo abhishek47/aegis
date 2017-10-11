@@ -67,6 +67,9 @@
 
 	      @endforeach
 
+
+	        {{ $wikis->links() }}
+
         </div>
       </div>
     </section>

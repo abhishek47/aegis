@@ -20,7 +20,7 @@ class WikiController extends Controller
      
     public function index()
     {
-    	$wikis = Wiki::all();
+    	$wikis = Wiki::latest()->paginate(10);
     	return view('wiki.index', compact('wikis'));
     }
 
