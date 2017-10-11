@@ -85,7 +85,7 @@
               </div>
               <div class="form-group">
                 <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="" />
-                <button type="submit" class="btn btn-flat bg-theme-colored mr-5" data-loading-text="Please wait...">Send your message</button>
+                <button type="submit" class="btn btn-flat bg-theme-colored mr-5 text-white" data-loading-text="Please wait...">Send your message</button>
                 <button type="reset" class="btn btn-flat btn-theme-colored2 bg-hover-theme-colored">Reset</button>
               </div>
             </form>
