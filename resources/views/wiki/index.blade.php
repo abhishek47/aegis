@@ -41,28 +41,24 @@
 
 
 	            <div class="col-sm-6 col-md-4">
-	              <article class="post clearfix mb-30 bg-lighter">
-	                <div class="entry-header">
-	                                  
-	                  <div class="entry-date media-left text-center flip bg-theme-colored border-top-theme-colored2-3px pt-5 pr-15 pb-5 pl-15">
-	                    <ul>
-	                      <li class="font-16 text-white font-weight-600">28</li>
-	                      <li class="font-12 text-white text-uppercase">Feb</li>
-	                    </ul>
-	                  </div>
-	                </div>
-	                <div class="entry-content p-15">
-	                  <div class="entry-meta media no-bg no-border mt-0 mb-10">
-	                    <div class="media-body pl-0">
-	                      <div class="event-content pull-left flip">
-	                        <h4 class="entry-title text-white text-uppercase font-weight-600 m-0 mt-5"><a href="/wiki/{{$wiki->id}}">{{ $wiki->title }}</a></h4>
-	                        
-	                      </div>
-	                    </div>
-	                  </div>
-	                  <a class="btn btn-colored btn-theme-colored2 btn-flat font-12 mt-10 ml-5" href="/wiki/{{$wiki->id}}"> Read This</a>
-	                </div>
-	              </article>
+	             <article>
+                  <div class="event-block">
+                    <div class="event-date text-center">
+                      <ul class="text-white font-18 font-weight-600">
+                        <li class="border-bottom">{{ $wiki->created_at->format('d') }}</li>
+                        <li class="">{{ $wiki->created_at->format('M') }}</li>
+                      </ul>
+                    </div>
+                    <div class="event-meta border-1px pl-40">
+                      <div class="event-content pull-left flip">
+                        <h4 class="event-title media-heading font-roboto-slab font-weight-700"><a href="/wiki/{{ $wiki->id }}">{{ substr($wiki->title, 0, 40) }}</a></h4>
+                        <a class="btn btn-colored btn-theme-colored2 btn-flat font-12 mt-10 ml-5" href="/wiki/{{$wiki->id}}"> Read This</a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+                
+	              
 	            </div>
 	            
 	            @endforeach
