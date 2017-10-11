@@ -1,5 +1,12 @@
 @extends('layouts.master')
 
+@section('title')
+  
+  {{ $wiki->title }} | Aegis Academy
+
+@endsection
+
+
 @section('css')
 
 

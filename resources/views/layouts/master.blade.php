@@ -10,7 +10,7 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<title>{{ config('app.name', 'Laravel') }}</title>
+<title> @yield('title', 'Aegis Academy | Online Courses, Wiki Pages, Offline Courses') </title>
 
 
 <!-- Favicon and Touch Icons -->

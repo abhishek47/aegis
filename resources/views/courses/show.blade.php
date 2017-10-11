@@ -1,5 +1,11 @@
 @extends('layouts.master')
 
+@section('title')
+  
+  {{ $course->name }} | Aegis Academy
+
+@endsection
+
 
 @section('content')
 
