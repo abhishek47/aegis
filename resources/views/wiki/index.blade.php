@@ -27,7 +27,7 @@
     <section>
       <div class="container pt-70 pb-40">
         <div class="section-content">
-         <?php $wikiChunks = $wikis->chunk(3); ?>
+         <?php $wikiChunks = $wikis->chunk(2); ?>
 
 		  @foreach($wikiChunks as $wikiG)
 		
@@ -51,7 +51,7 @@
                     </div>
                     <div class="event-meta border-1px pl-40">
                       <div class="event-content pull-left flip">
-                        <h4 class="event-title media-heading font-roboto-slab font-weight-700"><a href="/wiki/{{ $wiki->id }}">{{ substr($wiki->title, 0, 70) }}...</a></h4>
+                        <h4 class="event-title media-heading font-roboto-slab font-weight-700"><a href="/wiki/{{ $wiki->id }}">{{ $wiki->title }}</a></h4>
                         <a class="btn btn-colored btn-theme-colored2 btn-flat font-12 mt-10 ml-5 pull-right" href="/wiki/{{$wiki->id}}"> Read This</a>
                       </div>
                     </div>
