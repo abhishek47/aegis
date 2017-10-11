@@ -27,7 +27,7 @@
     <section>
     <section id="courses" class="bg-silver-deep">
          <div class="container pb-0">
-          <h2 class="text-uppercasetext-theme-colored mt-0 mt-sm-30">Online <span class="text-theme-colored2">Courses</span></h2>
+          <h2 class="text-uppercasetext-theme-colored mt-0 mt-sm-30">Daily <span class="text-theme-colored2">Articles</span></h2>
 	            <div class="double-line-bottom-theme-colored-2"></div>
         
          <?php $wikiChunks = $wikis->chunk(2); ?>
@@ -63,11 +63,11 @@
            @endforeach
         </div>
 
-
+        @endforeach
 
 	        {{ $wikis->links() }}
 
-	        
+
       </div>
     </section>
 
