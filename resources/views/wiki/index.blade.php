@@ -67,6 +67,8 @@
 
 	        {{ $wikis->links() }}
 
+	        <br><br>
+
 
       </div>
     </section>
