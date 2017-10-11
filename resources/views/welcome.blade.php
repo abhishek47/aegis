@@ -116,7 +116,7 @@
                     </div>
                     <div class="event-meta border-1px pl-40">
                       <div class="event-content pull-left flip">
-                        <h4 class="event-title media-heading font-roboto-slab font-weight-700"><a href="#">{{ substr($wiki->title, 0, 40) }}</a></h4>
+                        <h4 class="event-title media-heading font-roboto-slab font-weight-700"><a href="/wiki/{{ $wiki->id }}">{{ substr($wiki->title, 0, 40) }}</a></h4>
                         <p class="mt-5">Read and Learn with our daily updated wiki pages</p>
                       </div>
                     </div>
