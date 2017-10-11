@@ -34,8 +34,8 @@
               </a>
               <h3 class="icon-box-title pt-15 mt-0 mb-40">Content Writer</h3>
               <hr>
-              <p class="text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias repudiandae doloremque, dolor, quam nostrum laudantium earum illum odio quasi excepturi mollitia corporis quas ipsa modi nihil, ad ex tempore.</p>
-              <a class="btn btn-dark btn-sm mt-15" href="#">Apply Now</a>
+              <p class="text-gray">We are seeking for enthusiasts for Mathematics, Physics, Chemistry, Biology, Computer Science who can write and illustrate the concepts like we do.</p>
+              <a class="btn btn-dark btn-sm mt-15" href="/contact">Apply Now</a>
             </div>
             <div class="icon-box mt-80 mb-0 p-0">
               <a href="#" class="icon icon-gray pull-left mb-0 mr-10">
@@ -43,8 +43,8 @@
               </a>
               <h3 class="icon-box-title pt-15 mt-0 mb-40">Online/Offline Teacher</h3>
               <hr>
-              <p class="text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias repudiandae doloremque, dolor, quam nostrum laudantium earum illum odio quasi excepturi mollitia corporis quas ipsa modi nihil, ad ex tempore.</p>
-              <a class="btn btn-dark btn-sm mt-15" href="#">Apply Now</a>
+              <p class="text-gray">We are seeking online/offline teachers for Mathematics, Physics, Chemistry, Biology, Computer Science who can teach for Olympiads, JEE/NEET, ISI/CMI(entrance exam), AMC-10, AMC-12, GMAT, SAT. For offline positions place in Nashik, Maharashtra, India. We prefer online teaching.</p>
+              <a class="btn btn-dark btn-sm mt-15" href="/contact">Apply Now</a>
             </div>
             <div class="icon-box mt-80 mb-0 p-0">
               <a href="#" class="icon icon-gray pull-left mb-0 mr-10">
@@ -52,8 +52,8 @@
               </a>
               <h3 class="icon-box-title pt-15 mt-0 mb-40">Software Engineer and Designer</h3>
               <hr>
-              <p class="text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias repudiandae doloremque, dolor, quam nostrum laudantium earum illum odio quasi excepturi mollitia corporis quas ipsa modi nihil, ad ex tempore.</p>
-              <a class="btn btn-dark btn-sm mt-15" href="#">Apply Now</a>
+              <p class="text-gray">We are seeking for a software engineer and designer for updation and maintainance of our website.</p>
+              <a class="btn btn-dark btn-sm mt-15" href="/contact">Apply Now</a>
             </div>
             <div class="icon-box mt-80 mb-0 p-0">
               <a href="#" class="icon icon-gray pull-left mb-0 mr-10">
@@ -61,8 +61,8 @@
               </a>
               <h3 class="icon-box-title pt-15 mt-0 mb-40">Sales and Online Marketing</h3>
               <hr>
-              <p class="text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias repudiandae doloremque, dolor, quam nostrum laudantium earum illum odio quasi excepturi mollitia corporis quas ipsa modi nihil, ad ex tempore.</p>
-              <a class="btn btn-dark btn-sm mt-15" href="#">Apply Now</a>
+              <p class="text-gray">We require individuals who have a experience in sales and online marketing.</p>
+              <a class="btn btn-dark btn-sm mt-15" href="/contact">Apply Now</a>
             </div>
           </div>
         </div>
