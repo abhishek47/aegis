@@ -1,6 +1,6 @@
 <!-- Header -->
   <header id="header" class="header">
-    <div class="header-top bg-theme-colored2 sm-text-center">
+    <div class="header-top bg-theme-colored2 sm-text-center hidden-sm">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
