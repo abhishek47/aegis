@@ -9,8 +9,10 @@ class CoursesController extends Controller
 {
     public function index()
     {
-    	$courses = Course::latest()->get();
-    	return view('courses.index', compact('courses'));
+    	$onlineCourses = Course::where('type', 1)->latest()->get();
+        $offlineCourses = Course::where('type', 0)->latest()->get();
+
+    	return view('courses.index', compact('onlineCourses', 'offlineCourses'));
     }
 
     public function show(Course $course)

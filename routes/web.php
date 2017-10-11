@@ -19,6 +19,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/careers', 'PagesController@careers')->name('careers');
 Route::get('/contact', 'PagesController@contact')->name('contact');
+Route::get('/account', 'HomeController@account')->name('account');
+Route::post('/account/update', 'HomeController@update')->name('account.update');
+Route::post('/account/password/update', 'HomeController@updatePassword')->name('account.password.update');
 
 Route::get('/wiki', 'WikiController@index')->name('wiki');
 Route::post('/wiki', 'WikiController@store')->name('wiki.store');

@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
+<section>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                <div class="panel-heading bg-theme-colored2 text-white">Login</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
@@ -51,7 +52,7 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btn-theme-colored btn-flat">
                                     Login
                                 </button>
 
@@ -66,4 +67,50 @@
         </div>
     </div>
 </div>
+</section>
+
+ <!-- Divider: Features -->
+    <section class="divider bg-silver-deep">
+      <div class="container pt-50 pb-60">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-4 mb-sm-30">
+            <div class="feature-box text-center">
+              <div class="feature-icon">
+                <img src="images/icons/online.png" alt="">
+              </div>
+              <div class="feature-title">
+                <h3>Online Courses</h3>
+                <p>Enroll into our curated courses</p>
+                <a href="/courses" class="read-more font-roboto-slab text-theme-colored2">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-4 mb-sm-30">
+            <div class="feature-box text-center">
+              <div class="feature-icon">
+                <img src="images/icons/book.png" alt="">
+              </div>
+              <div class="feature-title">
+                <h3>Wiki of the Day</h3>
+                <p>Read our daily wiki pages to sharpen your knowledge</p>
+                <a href="/wiki" class="read-more font-roboto-slab text-theme-colored2">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="feature-box text-center">
+              <div class="feature-icon">
+                <img src="images/icons/graduate.png" alt="">
+              </div>
+              <div class="feature-title">
+                <h3>Offline Courses</h3>
+                <p>Join our institute for more effective learning.</p>
+                <a href="/about" class="read-more font-roboto-slab text-theme-colored2">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
 @endsection

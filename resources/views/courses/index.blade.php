@@ -30,7 +30,7 @@
           <h2 class="text-uppercasetext-theme-colored mt-0 mt-sm-30">Online <span class="text-theme-colored2">Courses</span></h2>
 	            <div class="double-line-bottom-theme-colored-2"></div>
         <div class="row mtli-row-clearfix">
-           @foreach($courses as $course)
+           @foreach($onlineCourses as $course)
             <div class="item">
               <div class="course-single-item bg-white border-1px clearfix mb-30 col-md-12">
                
@@ -48,11 +48,11 @@
                   <p class="course-description mt-20" style="font-size: 20px;!important">{!! substr($course->body, 0, 180) !!}...</p>
                   <ul class="list-inline course-meta mt-15">
                     <li>
-                      <h6>{{ $course->days }}</h6>
+                      <h6>{{ $course->days }} Days</h6>
                       <span> Course</span>
                     </li>
                     <li>
-                      <h6>0</h6>
+                      <h6>{{ $course->enrollments()->count() }}</h6>
                       <span> Enrolls</span>
                     </li>
                     <li>
@@ -63,102 +63,7 @@
                 </div>
               </div>
             </div>
-            <div class="item">
-              <div class="course-single-item bg-white border-1px clearfix mb-30 col-md-12">
-               
-                <div class="course-details clearfix p-20 pt-15">
-                  <div class="course-top-part pull-left mr-40">
-                    <a href="/courses/{{$course->id}}"><h3 class="mt-0 mb-5">{{ $course->name }}</h3></a>
-                    <ul class="list-inline">
-                      <li class="review-stars text-theme-colored2">
-                        {{ $course->type == 0 ? 'Offline' : 'Online' }}
-                      </li>
-                    </ul>
-                  </div>
-                  
-                  <div class="clearfix"></div>
-                  <p class="course-description mt-20" style="font-size: 20px;!important">{!! substr($course->body, 0, 180) !!}...</p>
-                  <ul class="list-inline course-meta mt-15">
-                    <li>
-                      <h6>{{ $course->days }}</h6>
-                      <span> Course</span>
-                    </li>
-                    <li>
-                      <h6>0</h6>
-                      <span> Enrolls</span>
-                    </li>
-                    <li>
-                      <h6><span class="course-time">{{ $course->duration }} min</span></h6>
-                      <span> Class Duration</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="course-single-item bg-white border-1px clearfix mb-30 col-md-12">
-               
-                <div class="course-details clearfix p-20 pt-15">
-                  <div class="course-top-part pull-left mr-40">
-                    <a href="/courses/{{$course->id}}"><h3 class="mt-0 mb-5">{{ $course->name }}</h3></a>
-                    <ul class="list-inline">
-                      <li class="review-stars text-theme-colored2">
-                        {{ $course->type == 0 ? 'Offline' : 'Online' }}
-                      </li>
-                    </ul>
-                  </div>
-                  
-                  <div class="clearfix"></div>
-                  <p class="course-description mt-20" style="font-size: 20px;!important">{!! substr($course->body, 0, 180) !!}...</p>
-                  <ul class="list-inline course-meta mt-15">
-                    <li>
-                      <h6>{{ $course->days }}</h6>
-                      <span> Course</span>
-                    </li>
-                    <li>
-                      <h6>0</h6>
-                      <span> Enrolls</span>
-                    </li>
-                    <li>
-                      <h6><span class="course-time">{{ $course->duration }} min</span></h6>
-                      <span> Class Duration</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="course-single-item bg-white border-1px clearfix mb-30 col-md-12">
-               
-                <div class="course-details clearfix p-20 pt-15">
-                  <div class="course-top-part pull-left mr-40">
-                    <a href="/courses/{{$course->id}}"><h3 class="mt-0 mb-5">{{ $course->name }}</h3></a>
-                    <ul class="list-inline">
-                      <li class="review-stars text-theme-colored2">
-                        {{ $course->type == 0 ? 'Offline' : 'Online' }}
-                      </li>
-                    </ul>
-                  </div>
-                  
-                  <div class="clearfix"></div>
-                  <p class="course-description mt-20" style="font-size: 20px;!important">{!! substr($course->body, 0, 180) !!}...</p>
-                  <ul class="list-inline course-meta mt-15">
-                    <li>
-                      <h6>{{ $course->days }}</h6>
-                      <span> Course</span>
-                    </li>
-                    <li>
-                      <h6>0</h6>
-                      <span> Enrolls</span>
-                    </li>
-                    <li>
-                      <h6><span class="course-time">{{ $course->duration }} min</span></h6>
-                      <span> Class Duration</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            
            @endforeach
         </div>
       </div>
@@ -171,103 +76,41 @@
           <h2 class="text-uppercasetext-theme-colored mt-0 mt-sm-30">Offline <span class="text-theme-colored2">Courses</span></h2>
 	            <div class="double-line-bottom-theme-colored-2"></div>
         <div class="row mtli-row-clearfix">
-           @foreach($courses as $course)
-            <div class="item">
-              <div class="course-single-item bg-white border-1px clearfix mb-30 col-md-12">
-               
-                <div class="course-details clearfix p-20 pt-15">
-                  <div class="course-top-part pull-left mr-40">
-                    <a href="/courses/{{$course->id}}"><h3 class="mt-0 mb-5">{{ $course->name }}</h3></a>
-                    <ul class="list-inline">
-                      <li class="review-stars text-theme-colored2">
-                        {{ $course->type == 0 ? 'Offline' : 'Online' }}
+           @foreach($offlineCourses as $course)
+
+              <div class="item">
+                <div class="course-single-item bg-white border-1px clearfix mb-30 col-md-12">
+                 
+                  <div class="course-details clearfix p-20 pt-15">
+                    <div class="course-top-part pull-left mr-40">
+                      <a href="/courses/{{$course->id}}"><h3 class="mt-0 mb-5">{{ $course->name }}</h3></a>
+                      <ul class="list-inline">
+                        <li class="review-stars text-theme-colored2">
+                          {{ $course->type == 0 ? 'Offline' : 'Online' }}
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div class="clearfix"></div>
+                    <p class="course-description mt-20" style="font-size: 20px;!important">{!! substr($course->body, 0, 180) !!}...</p>
+                    <ul class="list-inline course-meta mt-15">
+                      <li>
+                        <h6>{{ $course->days }}</h6>
+                        <span> Course</span>
+                      </li>
+                      <li>
+                        <h6>0</h6>
+                        <span> Enrolls</span>
+                      </li>
+                      <li>
+                        <h6><span class="course-time">{{ $course->duration }} min</span></h6>
+                        <span> Class Duration</span>
                       </li>
                     </ul>
                   </div>
-                  
-                  <div class="clearfix"></div>
-                  <p class="course-description mt-20" style="font-size: 20px;!important">{!! substr($course->body, 0, 180) !!}...</p>
-                  <ul class="list-inline course-meta mt-15">
-                    <li>
-                      <h6>{{ $course->days }}</h6>
-                      <span> Course</span>
-                    </li>
-                    <li>
-                      <h6>0</h6>
-                      <span> Enrolls</span>
-                    </li>
-                    <li>
-                      <h6><span class="course-time">{{ $course->duration }} min</span></h6>
-                      <span> Class Duration</span>
-                    </li>
-                  </ul>
                 </div>
               </div>
-            </div>
-            <div class="item">
-              <div class="course-single-item bg-white border-1px clearfix mb-30 col-md-12">
-               
-                <div class="course-details clearfix p-20 pt-15">
-                  <div class="course-top-part pull-left mr-40">
-                    <a href="/courses/{{$course->id}}"><h3 class="mt-0 mb-5">{{ $course->name }}</h3></a>
-                    <ul class="list-inline">
-                      <li class="review-stars text-theme-colored2">
-                        {{ $course->type == 0 ? 'Offline' : 'Online' }}
-                      </li>
-                    </ul>
-                  </div>
-                  
-                  <div class="clearfix"></div>
-                  <p class="course-description mt-20" style="font-size: 20px;!important">{!! substr($course->body, 0, 180) !!}...</p>
-                  <ul class="list-inline course-meta mt-15">
-                    <li>
-                      <h6>{{ $course->days }}</h6>
-                      <span> Course</span>
-                    </li>
-                    <li>
-                      <h6>0</h6>
-                      <span> Enrolls</span>
-                    </li>
-                    <li>
-                      <h6><span class="course-time">{{ $course->duration }} min</span></h6>
-                      <span> Class Duration</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-              <div class="course-single-item bg-white border-1px clearfix mb-30 col-md-12">
-               
-                <div class="course-details clearfix p-20 pt-15">
-                  <div class="course-top-part pull-left mr-40">
-                    <a href="/courses/{{$course->id}}"><h3 class="mt-0 mb-5">{{ $course->name }}</h3></a>
-                    <ul class="list-inline">
-                      <li class="review-stars text-theme-colored2">
-                        {{ $course->type == 0 ? 'Offline' : 'Online' }}
-                      </li>
-                    </ul>
-                  </div>
-                  
-                  <div class="clearfix"></div>
-                  <p class="course-description mt-20" style="font-size: 20px;!important">{!! substr($course->body, 0, 180) !!}...</p>
-                  <ul class="list-inline course-meta mt-15">
-                    <li>
-                      <h6>{{ $course->days }}</h6>
-                      <span> Course</span>
-                    </li>
-                    <li>
-                      <h6>0</h6>
-                      <span> Enrolls</span>
-                    </li>
-                    <li>
-                      <h6><span class="course-time">{{ $course->duration }} min</span></h6>
-                      <span> Class Duration</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            
            @endforeach
         </div>
       </div>

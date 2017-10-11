@@ -229,7 +229,7 @@ blockquote {
     float: left;
     width: auto;
     padding: 5px 15px;
-    color:#ffffff;
+    color: #ffffff !important;
     background-color:#1a458e;
     border: 1px solid #fff;
     -webkit-border-radius: 5px;

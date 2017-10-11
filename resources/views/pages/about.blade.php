@@ -31,19 +31,19 @@
               </a>
               <h3 class="icon-box-title pt-15 mt-0 mb-40">AEGIS Institute</h3>
               <hr>
-              <p class="text-gray" style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla neque nesciunt alias repudiandae doloremque, dolor, quam nostrum laudantium earum illum odio quasi excepturi mollitia corporis quas ipsa modi nihil, ad ex tempore.</p>
-              <p class="text-gray" style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla. consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla.</p>
-              <p class="text-gray" style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi id perspiciatis facilis nulla possimus quasi, amet qui. Ea rerum officia, aspernatur nulla.</p>
+              <p class="text-black" style="font-size: 18px;">Aegis Academy is started by young educators to provide high - quality education at affordable price. Almost every country conducts several exams to hunt extraordinary problem - solving skilled students.Olympiads are the most prestigious exam among them.</p>
+              <p class="text-black" style="font-size: 18px;">Preparation for olympiads is exciting and challenging.Due to lack of resources and high - quality education, many students coudn't hone their problem-skills. We are here to fill this gap.</p>
+              <p class="text-black" style="font-size: 18px;">First, we are starting with the training for maths olympiads and other contests based on maths. Later, we shall add more subjects.We prepare the students for the following exams.</p>
             </div>
-            <h5 class="mt-30" style="font-size: 18px;">Exams :</h5>
-            <ul class="list theme-colored" style="font-size: 18px;">
-              <li>Lorem ipsum dolor sit elit</li>
-              <li>Lorem ipsum dolor sit amet</li>
-              <li>Lorem ipsum dolor sit elit</li>
-              <li>Lorem ipsum dolor sit amet</li>
-                <li>Lorem ipsum dolor sit elit</li>
-              <li>Lorem ipsum dolor sit amet</li>
-            </ul>
+            <h5 class="mt-30 text-black" style="font-size: 18px;">Exams :</h5>
+            <ol class="list text-black" style="font-size: 17px;font-weight: normal;">
+              <li>1. Olympiads ( Regional Level and National Level )</li>
+              <li>2. IIT - JEE Maths</li>
+              <li>3. ISI/CMI Entrance exam for an undergraduate program</li>
+              <li>4. AMC - 10</li>
+              <li>5. AMC - 12</li>
+              <li>6. AIME</li>
+            </ol>
           </div>
         </div>
       </div>
@@ -68,7 +68,7 @@
                   <a class="media-left pull-left flip mr-20" href="#"><i class="pe-7s-note2 text-theme-colored2 font-weight-600"></i></a>
                   <div class="media-body">
                     <h4 class="media-heading text-white heading mb-10">Curated Courses</h4>
-                    <p>Lorem ipsum dolor sit ametcon sectet uradipis icing elitCum consec tetur sectet uradipis icing consec tetur</p>
+                    <p>Our every course had been developed with a complete understanding of how an student can easily adapt it.</p>
                   </div>
                 </div>
               </div>
@@ -77,7 +77,7 @@
                   <a class="media-left pull-left flip mr-20" href="#"><i class="pe-7s-notebook text-theme-colored2 font-weight-600"></i></a>
                   <div class="media-body">
                     <h4 class="media-heading text-white heading mb-10">Modern Wiki Library</h4>
-                    <p>Lorem ipsum dolor sit ametcon sectet uradipis icing elitCum consec tetur sectet uradipis icing consec tetur</p>
+                    <p>An vast library of wiki pages on the different topics and concepts that help you sharpen your knowledge.</p>
                   </div>
                 </div>
               </div>
@@ -86,7 +86,7 @@
                   <a class="media-left pull-left flip mr-20" href="#"><i class="pe-7s-diamond text-theme-colored2 font-weight-600"></i></a>
                   <div class="media-body">
                     <h4 class="media-heading text-white heading mb-10">Qualified Teachers</h4>
-                    <p>Lorem ipsum dolor sit ametcon sectet uradipis icing elitCum consec tetur sectet uradipis icing consec tetur</p>
+                    <p>A group of young, motivated and well trained teachers that think with the perspective of students.</p>
                   </div>
                 </div>
               </div>
@@ -95,7 +95,7 @@
                   <a class="media-left pull-left flip mr-20" href="#"><i class="pe-7s-bell text-theme-colored2 font-weight-600"></i></a>
                   <div class="media-body">
                     <h4 class="media-heading text-white heading mb-10">Test Your Knowledge</h4>
-                    <p>Lorem ipsum dolor sit ametcon sectet uradipis icing elitCum consec tetur sectet uradipis icing consec tetur</p>
+                    <p>Not only learning by reading, we focus on adapting for solving different problems topic wise to test your skills.</p>
                   </div>
                 </div>
               </div>
@@ -104,7 +104,7 @@
                   <a class="media-left pull-left flip mr-20" href="#"><i class="pe-7s-musiclist text-theme-colored2 font-weight-600"></i></a>
                   <div class="media-body">
                     <h4 class="media-heading text-white heading mb-10">Effective Teaching</h4>
-                    <p>Lorem ipsum dolor sit ametcon sectet uradipis icing elitCum consec tetur sectet uradipis icing consec tetur</p>
+                    <p>We aim towards effective teaching and effective understanding of the students.</p>
                   </div>
                 </div>
               </div>
@@ -113,7 +113,7 @@
                   <a class="media-left pull-left flip mr-20" href="#"><i class="pe-7s-global text-theme-colored2 font-weight-600"></i></a>
                   <div class="media-body">
                     <h4 class="media-heading text-white heading mb-10">Easy to Engage</h4>
-                    <p>Lorem ipsum dolor sit ametcon sectet uradipis icing elitCum consec tetur sectet uradipis icing consec tetur</p>
+                    <p>The platform is made very easy to engage and start learning the skills you want to.</p>
                   </div>
                 </div>
               </div>
