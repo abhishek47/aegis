@@ -25,8 +25,11 @@
 
      <!-- Section: Events Grid -->
     <section>
-      <div class="container pt-70 pb-40">
-        <div class="section-content">
+    <section id="courses" class="bg-silver-deep">
+         <div class="container pb-0">
+          <h2 class="text-uppercasetext-theme-colored mt-0 mt-sm-30">Online <span class="text-theme-colored2">Courses</span></h2>
+	            <div class="double-line-bottom-theme-colored-2"></div>
+        
          <?php $wikiChunks = $wikis->chunk(2); ?>
 
 		  @foreach($wikiChunks as $wikiG)
@@ -39,41 +42,37 @@
 
 			@foreach($wikiG as $index => $wiki)
 
-
-	            <div class="col-sm-6 col-md-6">
-	             <article>
-                  <div class="event-block">
-                    <div class="event-date text-center">
-                      <ul class="text-white font-18 font-weight-600">
-                        <li class="border-bottom">{{ $wiki->created_at->format('d') }}</li>
-                        <li class="">{{ $wiki->created_at->format('M') }}</li>
-                      </ul>
-                    </div>
-                    <div class="event-meta border-1px pl-40">
-                      <div class="event-content pull-left flip">
-                        <h4 class="event-title media-heading font-roboto-slab font-weight-700"><a href="/wiki/{{ $wiki->id }}">{{ $wiki->title }}</a></h4>
-                        <a class="btn btn-colored btn-theme-colored2 btn-flat font-12 mt-10 ml-5 pull-right" href="/wiki/{{$wiki->id}}"> Read This</a>
-                      </div>
-                    </div>
+            <div class="item">
+              <div class="course-single-item bg-white border-1px clearfix mb-30 col-md-12">
+               
+                <div class="course-details clearfix p-20 pt-15">
+                  <div class="course-top-part pull-left mr-40">
+                    <a href="/wiki/{{$wiki->id}}"><h3 class="mt-0 mb-5">{{ $wiki->title }}</h3></a>
+                    <ul class="list-inline">
+                      <li class="review-stars text-theme-colored2">
+                        {{ $wiki->created_at->format('d, M Y') }}
+                      </li>
+                    </ul>
                   </div>
-                </article>
+                  
+                 
+                </div>
+              </div>
+            </div>
+            
+           @endforeach
+        </div>
 
-	              
-	            </div>
-	            
-	            @endforeach
-
-		      </div>
-
-	      @endforeach
 
 
 	        {{ $wikis->links() }}
 
-        </div>
+	        
       </div>
     </section>
 
+
+	            
 
    
 
