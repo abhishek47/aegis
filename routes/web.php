@@ -15,7 +15,9 @@ Route::get('/', 'PagesController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function() {
+	return redirect('/');
+})->name('home');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/careers', 'PagesController@careers')->name('careers');
 Route::get('/contact', 'PagesController@contact')->name('contact');
