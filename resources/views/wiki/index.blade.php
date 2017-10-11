@@ -40,7 +40,7 @@
 			@foreach($wikiG as $index => $wiki)
 
 
-	            <div class="col-sm-6 col-md-4">
+	            <div class="col-sm-6 col-md-6">
 	             <article>
                   <div class="event-block">
                     <div class="event-date text-center">
