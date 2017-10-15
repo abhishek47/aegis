@@ -23,6 +23,8 @@ class QuizCrudController extends CrudController {
 
 
 	]);
+
+         $this->crud->allowAccess('show');
     }
 
 	public function store(Request $request)

@@ -122,7 +122,7 @@
             <p>Nashik, Maharashtra, India</p>
             <ul class="list-inline mt-5">
               <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-theme-colored2 mr-5"></i> <a class="text-gray" href="#">8800106866</a> </li>
-              <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-theme-colored2 mr-5"></i> <a class="text-gray" href="#">contact@aegisinstitute.com</a> </li>
+              <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-theme-colored2 mr-5"></i> <a class="text-gray" href="#">info@aegisinstitute.co.in</a> </li>
               <li class="m-0 pl-10 pr-10"> <i class="fa fa-globe text-theme-colored2 mr-5"></i> <a class="text-gray" href="#">www.aegisacademy.co.in</a> </li>
             </ul>            
             <ul class="styled-icons icon-sm icon-bordered icon-circled clearfix mt-10">

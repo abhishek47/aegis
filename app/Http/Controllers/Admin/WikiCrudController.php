@@ -34,6 +34,11 @@ class WikiCrudController extends CrudController {
 
          $this->crud->with('revisionHistory');
 
+
+         $this->crud->allowAccess('show');
+
+         
+
       
     }
 

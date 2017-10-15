@@ -16,4 +16,15 @@ class Course extends Model
          return $this->belongsToMany(User::class, 'enrollments', 
             'course_id', 'user_id');
     }
+
+
+    public function showMe($crud = false)
+   { 
+   	 
+   	  
+	  	return '<a class="btn btn-xs btn-success" target="_blank"  href="/admin/courses/'. $this->id .'" data-toggle="tooltip" title="View Course Details">Preview</a>';
+   	 
+   	 
+   	   
+   }
 }

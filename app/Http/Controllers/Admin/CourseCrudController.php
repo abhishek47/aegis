@@ -48,6 +48,14 @@ class CourseCrudController extends CrudController {
 
 
 	]);
+
+
+         $this->crud->with('enrollments');
+
+
+         $this->crud->allowAccess('show');
+
+         $this->crud->setShowView('admin.wikis.show');
     }
 
 	public function store(Request $request)
