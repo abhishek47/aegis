@@ -4,7 +4,7 @@
           <div class="container pt-200 pb-200">
             <div class="row">
               <div class="col-md-6 col-md-offset-6 text-right">
-                <h1 class="text-white text-uppercase font-42">If you love  <span class="text-theme-colored2">Challenging problems</span> than you are at the right place</h1>
+                <h1 class="text-white text-uppercase font-42">If you love  <span class="text-theme-colored2">Challenging problems</span> you are at the right place</h1>
                 
               </div>
             </div>

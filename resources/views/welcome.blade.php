@@ -325,7 +325,7 @@
             <div class="col-xs-12 col-sm-6 col-md-6 hvr-float-shadow mb-sm-30">
               <div class="pricing-table bg-silver-deep text-center maxwidth400 pt-10">
                 <h2 class="package-type text-uppercase line-bottom-centered mb-50">Free</h2>
-                <h2 class="price text-theme-colored2 font-opensans font-weight-400 font-64 bg-white pt-10 pb-20 mb-0"><span class="font-36 currency">&#8377</span>0 <span class="font-16 text-black">/ Month</span></h2>
+                <h2 class="price text-theme-colored2 font-opensans font-weight-400 font-64 bg-white pt-10 pb-20 mb-0"><span class="font-36 currency">&#8377</span>0 <span class="font-16 text-black">/ Year</span></h2>
                 <ul class="list price-list theme-colored text-left flip check-circle mt-0 mb-20">
                   <li>Read Unlimited Wiki Pages</li>
                   <li>Solve Various Problems</li>
