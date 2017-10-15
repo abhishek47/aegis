@@ -10,9 +10,10 @@ class PagesController extends Controller
 {
     public function index()
     {
-    	$wikiOfDay = Wiki::latest()->first();
-        $wikis = Wiki::latest()->limit(3)->get();
+    	$wikiOfDay = Wiki::latest()->where('published', 1)->first();
+        $wikis = Wiki::latest()->where('published', 1)->limit(3)->get();
         $courses = Course::latest()->get();
+
     	return view('welcome', compact('wikiOfDay', 'wikis', 'courses'));
     }
 

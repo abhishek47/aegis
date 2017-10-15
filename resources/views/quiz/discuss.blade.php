@@ -22,7 +22,7 @@
 	    
 	    <h4>{{ $question->q }}</h4>
 
-	    <p><b>Desired Solution : </b></p>
+	    <p><b>Solution : </b></p>
 
 	   {{ $question->solution }}
 	  </div>

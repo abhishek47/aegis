@@ -295,7 +295,10 @@ blockquote {
     font-size: 18px;
 }
 .slickQuiz .complete ul.answers li.correct,.slickQuiz ul.responses li.correct p span {
-    color: #6C9F2E;
+    border: 1px solid #6C9F2E;
+    padding: 5px;
+    background: #6C9F2E;
+    color: #000;
 }
 .slickQuiz ul.responses li.incorrect p span {
     color: #B5121B;

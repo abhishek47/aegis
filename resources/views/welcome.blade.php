@@ -29,7 +29,11 @@
               </div>
               <div class="feature-title">
                 <h3>Wiki of the Day</h3>
+                @if($wikiOfDay != null)
                 <p>{{ substr($wikiOfDay->title, 0, 40) }}...</p>
+                @else 
+                <p>Read our wiki articles daily...</p>
+                @endif
                 <a href="/wiki" class="read-more font-roboto-slab text-theme-colored2">Read More</a>
               </div>
             </div>
@@ -50,25 +54,7 @@
       </div>
     </section>
 
- <!--   <section id="cta"> 
-  <div class="container">
-     <div class="call-to-action pt-40 pb-40 mb-20 bg-theme-colored2">
-        <div class="row">
-          <div class="col-xs-12 col-sm-8 col-md-8">
-            <div class="icon-box icon-rounded-bordered left media mb-0 ml-60 ml-sm-0"> <a class="media-left pull-left flip" href="#"> <i class="fa fa-info text-white border-1px p-20"></i></a>
-              <div class="media-body">
-                <h3 class="media-heading heading text-white">{{ $wikiOfDay->title }}</h3>
-                <p class="text-white" style="font-size: 16px;">Wiki of the Day</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4 col-md-4 text-center"> 
-            <a href="#" class="btn btn-default btn-flat btn-xl mt-20">Read Now</a> 
-          </div>
-        </div>
-      </div>
-    </div>
-   </section> -->
+
 
    
      
@@ -208,6 +194,60 @@
       </div>
     </section>
 
+
+
+    <section class="layer-overlay overlay-white-9" data-bg-img="images/bg/bg-pattern.png" style="background-image: url(&quot;images/bg/bg-pattern.png&quot;);">
+      <div class="container pb-40">
+          <div class="section-title">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="text-uppercase title">Seamless <span class="text-theme-colored2">Learning</span> Process</h2>              
+              <div class="double-line-bottom-theme-colored-2"></div>
+            </div>
+          </div>
+        </div>
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
+                <a href="#" class="icon icon-circled icon-lg" data-bg-color="#FC9928" style="background: rgb(252, 153, 40) !important;">
+                  <i class="pe-7s-study text-white font-48"></i>
+                </a>
+                <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="#">1. Watch Online Courses</a></h4>
+                <p class="">Choose from our huge library of courses, enroll into them and get into an interactive live learning session, like a real classroom.</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
+                <a href="#" class="icon icon-circled icon-lg" data-bg-color="#43B14B" style="background: rgb(67, 177, 75) !important;">
+                  <i class="pe-7s-notebook text-white font-48"></i>
+                </a>
+                <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="#">2. Read Our Wiki Pages</a></h4>
+                <p class="">Once you learn about the course through our live sessions, move to our wiki pages to read and sharpen the learnt knowledge.</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
+                <a href="#" class="icon icon-circled icon-lg" data-bg-color="#00C3CB" style="background: rgb(0, 195, 203) !important;">
+                  <i class="pe-7s-diamond text-white font-48"></i>
+                </a>
+                <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="#">3. Practice Questions</a></h4>
+                <p class="">Practice makes man perfect, hence we have a set of practice questions in each wiki page to practice that set of course.</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
+                <a href="#" class="icon icon-circled icon-lg" data-bg-color="#EF5861" style="background: rgb(239, 88, 97) !important;">
+                  <i class="pe-7s-medal text-white font-48"></i>
+                </a>
+                <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="#">4. Post Your Doubts</a></h4>
+                <p class="">Afterall, if you still got doubts, visit our discuss section to post your queries and get it cleared from other experts around.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
   

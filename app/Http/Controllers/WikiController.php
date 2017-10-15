@@ -20,7 +20,7 @@ class WikiController extends Controller
      
     public function index()
     {
-    	$wikis = Wiki::latest()->paginate(10);
+    	$wikis = Wiki::latest()->where('published', 1)->paginate(10);
     	return view('wiki.index', compact('wikis'));
     }
 
@@ -44,15 +44,29 @@ class WikiController extends Controller
     	$wiki->category_id = $request->get('category_id');
     	$wiki->save();
 
-    	return redirect('/wiki/' . $wiki->id);
+    	return redirect('/wiki/preview' . $wiki->id);
     }
 
+    public function publish(Wiki $wiki)
+    {
+        $wiki->published = !$wiki->published;
+        $wiki->save();
+
+        return back();
+    }    
 
     public function show(Wiki $wiki)
     {
     	$quizzes = Quiz::orderBy('name', 'asc')->get();
     	return view('wiki.show', compact('wiki', 'quizzes'));
     }
+
+    public function preview(Wiki $wiki)
+    {
+        $quizzes = Quiz::orderBy('name', 'asc')->get();
+        return view('wiki.preview', compact('wiki', 'quizzes'));
+    }
+
 
     public function update(Request $request, Wiki $wiki)
     {

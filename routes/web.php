@@ -29,6 +29,8 @@ Route::get('/wiki', 'WikiController@index')->name('wiki');
 Route::post('/wiki', 'WikiController@store')->name('wiki.store');
 Route::get('/wiki/create', 'WikiController@create')->name('wiki.create');
 Route::get('/wiki/{wiki}', 'WikiController@show')->name('wiki.show');
+Route::get('/wiki/preview/{wiki}', 'WikiController@preview')->name('wiki.show');
+Route::get('/wiki/publish/{wiki}', 'WikiController@publish')->name('wiki.publish');
 Route::post('/wiki/update/{wiki}', 'WikiController@update')->name('wiki.update');
 
 

@@ -436,8 +436,26 @@ function insertAtCaret(text) {
                                 // If question has >1 true answers and is not a select any, use checkboxes; otherwise, radios
                                 var input = '<input id="' + optionId + '" name="' + inputName +
                                             '" type="' + inputType + '" /> ';
+                                
+                                if(i == 0)
+                                {
+                                    posLabel = 'A';
+                                } else if(i == 1)
+                                {
+                                    posLabel = 'B';
+                                } else if(i == 2)
+                                {
+                                    posLabel = 'C';
+                                } else if(i == 3)
+                                {
+                                    posLabel = 'D';
+                                }else if(i == 4)
+                                {
+                                    posLabel = 'E';
+                                }
 
-                                var optionLabel = '<label for="' + optionId + '">' + answer.option + '</label>';
+                                       
+                                var optionLabel = '<label for="' + optionId + '">' + posLabel + '. '+ answer.option + '</label>';
 
                                 var answerContent = $('<li></li>')
                                     .append(input)

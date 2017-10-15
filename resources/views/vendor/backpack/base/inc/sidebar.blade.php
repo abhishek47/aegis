@@ -21,13 +21,34 @@
           <!-- ================================================ -->
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
 
+
+
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/wikis') }}"><i class="fa fa-file"></i> <span>Wiki Pages</span></a></li>
 
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/quiz') }}"><i class="fa fa-th-list"></i> <span>Quizzes</span></a></li>
 
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/questions') }}"><i class="fa fa-question"></i> <span>Questions</span></a></li>
 
+          @role('administrator')
+
            <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/courses') }}"><i class="fa fa-video-camera"></i> <span>Courses</span></a></li>
+
+
+           
+
+           <li class="header">General</li>
+           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/backup') }}"><i class="fa fa-hdd-o"></i> <span>Backups</span></a></li>
+
+           <li class="treeview">
+            <a href="#"><i class="fa fa-group"></i> <span>Users, Roles, Permissions</span> <i class="fa fa-angle-left pull-right"></i></a>
+            <ul class="treeview-menu">
+              <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/user') }}"><i class="fa fa-user"></i> <span>Users</span></a></li>
+              <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/role') }}"><i class="fa fa-group"></i> <span>Roles</span></a></li>
+              <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/permission') }}"><i class="fa fa-key"></i> <span>Permissions</span></a></li>
+            </ul>
+          </li>
+
+          @endhasrole
 
 
            
