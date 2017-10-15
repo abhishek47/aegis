@@ -28,7 +28,7 @@
                 <img src="images/icons/book.png" alt="">
               </div>
               <div class="feature-title">
-                <h3>Wiki of the Day</h3>
+                <h3>Wiki of the Week</h3>
                 @if($wikiOfDay != null)
                 <p>{{ substr($wikiOfDay->title, 0, 40) }}...</p>
                 @else 
