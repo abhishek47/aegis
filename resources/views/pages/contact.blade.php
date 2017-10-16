@@ -58,30 +58,36 @@
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group mb-30">
-                    <input id="form_name" name="form_name" class="form-control" type="text" placeholder="Enter Name" required="">
+                    <input id="form_name" name="name" class="form-control" type="text" placeholder="Enter Name" required="">
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group mb-30">
-                    <input id="form_email" name="form_email" class="form-control required email" type="email" placeholder="Enter Email">
+                    <input id="form_email" name="email" class="form-control required email" type="email" placeholder="Enter Email">
                   </div>
                 </div>
               </div>                
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group mb-30">
-                    <input id="form_subject" name="form_subject" class="form-control required" type="text" placeholder="Enter Subject">
+                    <input id="form_subject" name="subject" class="form-control required" type="text" placeholder="Enter Subject">
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group mb-30">
-                    <input id="form_phone" name="form_phone" class="form-control" type="text" placeholder="Enter Phone">
+                    <input id="form_phone" name="phone" class="form-control" type="text" placeholder="Enter Phone">
                   </div>
                 </div>
               </div>
 
+               <div class="col-sm-12">
+                <div class="form-group mb-30">
+                  <input placeholder="Attach a file"  name="file" required="" class="form-control" aria-required="true" type="file">
+                </div>
+              </div>
+
               <div class="form-group mb-30">
-                <textarea id="form_message" name="form_message" class="form-control required" rows="7" placeholder="Enter Message"></textarea>
+                <textarea id="form_message" name="message" class="form-control required" rows="7" placeholder="Enter Message"></textarea>
               </div>
               <div class="form-group">
                 <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="" />
@@ -110,7 +116,7 @@
             <div class="contact-info text-center bg-silver-light border-1px pt-60 pb-60">
               <i class="fa fa-envelope font-36 mb-10 text-theme-colored2"></i>
               <h4>Email</h4>
-              <h6 class="text-gray">contact@aegisinstitute.com</h6>
+              <h6 class="text-gray">info@aegisinstitute.co.in</h6>
             </div>
           </div>
           
