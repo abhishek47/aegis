@@ -206,7 +206,7 @@
                       <span> Enrolls</span>
                     </li>
                     <li>
-                      <h6><span class="course-time">{{ $course->duration }} min</span></h6>
+                      <h6><span class="course-time">{{ $course->duration }} hrs</span></h6>
                       <span> Class Duration</span>
                     </li>
                   </ul>
