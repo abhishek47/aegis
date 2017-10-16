@@ -94,7 +94,7 @@
       <div class="icon-box icon-rounded-bordered left media mb-0 ml-60 ml-sm-0"> <a class="media-left pull-left flip" href="#"> <i class="pe-7s-notebook text-white border-1px p-20"></i></a>
         <div class="media-body">
           <h3 class="media-heading heading text-white font-12">Wiki of the Week</h3>
-          <p class="text-white font-36" style="line-height: 22px;">{{ $wikiOfDay->title }}</p>
+          <p class="text-white font-36" style="line-height: 48px;">{{ $wikiOfDay->title }}</p>
         </div>
       </div>
     </div>
