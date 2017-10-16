@@ -29,26 +29,7 @@
           <div class="col-md-5">
             <h4 class="mt-0 mb-30 line-bottom-theme-colored-2">Find Our Location</h4>
             <!-- Google Map HTML Codes -->
-            <div 
-              data-address="Nashik,Maharashtra,India"
-              data-popupstring-id="#popupstring1"
-              class="map-canvas autoload-map"
-              data-mapstyle="style1"
-              data-height="400"
-              data-latlng="-37.817314,144.955431"
-              data-title="sample title"
-              data-zoom="12"
-              data-marker="images/map-icon-blue.png">
-            </div>
-            <div class="map-popupstring hidden" id="popupstring1">
-              <div class="text-center">
-                <h3>Main Insititute</h3>
-                <p>Nashik, Maharashtra, India</p>
-              </div>
-            </div>            
-            <!-- Google Map Javascript Codes -->
-            <script src="http://maps.google.com/maps/api/js?key=AIzaSyAYWE4mHmR9GyPsHSOVZrSCOOljk8DU9B4"></script>
-            <script src="js/google-map-init.js"></script>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59990.65887208493!2d73.76846144556879!3d19.991040271901912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddd290b09914b3%3A0xcb07845d9d28215c!2sNashik%2C+Maharashtra!5e0!3m2!1sen!2sin!4v1508123275428" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
           </div>
           <div class="col-md-7">
             <h4 class="mt-0 mb-30 line-bottom-theme-colored-2">Interested in discussing?</h4>
