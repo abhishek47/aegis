@@ -80,10 +80,12 @@
                 </div>
               </div>
 
+              <div class="row">
                <div class="col-sm-12">
                 <div class="form-group mb-30">
                   <input placeholder="Attach a file"  name="file" required="" class="form-control" aria-required="true" type="file">
                 </div>
+              </div>
               </div>
 
               <div class="form-group mb-30">
