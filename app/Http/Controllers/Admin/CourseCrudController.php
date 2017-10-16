@@ -37,7 +37,7 @@ class CourseCrudController extends CrudController {
 			'label' => "Number of Days",
 			'type' => 'number'],
 			['name' => 'duration',
-			'label' => "Course Duration ( in minutes )",
+			'label' => "Course Duration ( in hrs )",
 			'type' => 'number'],
 			['name' => 'type',
 			'label' => "Online/Offline",

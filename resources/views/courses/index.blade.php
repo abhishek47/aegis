@@ -55,7 +55,7 @@
                       <span> Enrolls</span>
                     </li>
                     <li>
-                      <h6><span class="course-time">{{ $course->duration }} min</span></h6>
+                      <h6><span class="course-time">{{ $course->duration }} hrs</span></h6>
                       <span> Class Duration</span>
                     </li>
                   </ul>
@@ -69,6 +69,7 @@
     </section>
     
 
+    @if(count($offlineCourses))
      <!-- Section: Courses -->
     <section id="courses" class="bg-silver-deep">
       <div class="container pt-10">
@@ -101,7 +102,7 @@
                         <span> Enrolls</span>
                       </li>
                       <li>
-                        <h6><span class="course-time">{{ $course->duration }} min</span></h6>
+                        <h6><span class="course-time">{{ $course->duration }} hrs</span></h6>
                         <span> Class Duration</span>
                       </li>
                     </ul>
@@ -113,7 +114,7 @@
         </div>
       </div>
     </section>
-
+@endif
 
 
 
