@@ -45,7 +45,6 @@
                   </div>
                   
                   <div class="clearfix"></div>
-                  <p class="course-description mt-20" style="font-size: 20px;!important">{!! substr($course->body, 0, 180) !!}...</p>
                   <ul class="list-inline course-meta mt-15">
                     <li>
                       <h6>{{ $course->days }} Days</h6>
@@ -92,7 +91,6 @@
                     </div>
                     
                     <div class="clearfix"></div>
-                    <p class="course-description mt-20" style="font-size: 20px;!important">{!! substr($course->body, 0, 180) !!}...</p>
                     <ul class="list-inline course-meta mt-15">
                       <li>
                         <h6>{{ $course->days }}</h6>
