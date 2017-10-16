@@ -196,7 +196,6 @@
                   </div>
                   
                   <div class="clearfix"></div>
-                  <p class="course-description mt-20" style="font-size: 16px;!important">{!! substr($course->body, 0, 100) !!}...</p>
                   <ul class="list-inline course-meta mt-15">
                     <li>
                       <h6>{{ $course->days }} Days</h6>
