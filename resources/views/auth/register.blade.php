@@ -1,7 +1,16 @@
-@extends('layouts.master')
+@extends('layouts.auth')
+
+
+@section('css')
+
+<style type="text/css">
+  html { height: 100%; }
+</style>
+
+@endsection
 
 @section('content')
-<section>
+<section style="height: 83vh;padding-bottom: 0px;margin-bottom: 0px;">
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -78,47 +87,4 @@
 </section>
 
 
-    <!-- Divider: Features -->
-    <section class="divider bg-silver-deep">
-      <div class="container pt-50 pb-60">
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-4 mb-sm-30">
-            <div class="feature-box text-center">
-              <div class="feature-icon">
-                <img src="images/icons/online.png" alt="">
-              </div>
-              <div class="feature-title">
-                <h3>Online Courses</h3>
-                <p>Enroll into our curated courses</p>
-                <a href="/courses" class="read-more font-roboto-slab text-theme-colored2">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4 mb-sm-30">
-            <div class="feature-box text-center">
-              <div class="feature-icon">
-                <img src="images/icons/book.png" alt="">
-              </div>
-              <div class="feature-title">
-                <h3>Wiki of the Day</h3>
-                <p>Read our daily wiki pages to sharpen your knowledge</p>
-                <a href="/wiki" class="read-more font-roboto-slab text-theme-colored2">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="feature-box text-center">
-              <div class="feature-icon">
-                <img src="images/icons/graduate.png" alt="">
-              </div>
-              <div class="feature-title">
-                <h3>Offline Courses</h3>
-                <p>Join our institute for more effective learning.</p>
-                <a href="/about" class="read-more font-roboto-slab text-theme-colored2">Read More</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 @endsection
