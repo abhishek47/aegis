@@ -86,24 +86,24 @@
     </section>
 
 
-    <section class="mb-30">
+    <section class="mb-30 wikiOfDay">
      <div class="container" style="padding-top: 0px;">
       <div class="call-to-action pt-40 pb-40 mb-20 bg-theme-colored">
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-md-8">
-      <div class="icon-box icon-rounded-bordered left media mb-0 ml-60 ml-sm-0"> <a class="media-left pull-left flip" href="#"> <i class="pe-7s-notebook text-white border-1px p-20"></i></a>
-        <div class="media-body">
-          <h3 class="media-heading heading text-white font-12">Wiki of the Week</h3>
-          <p class="text-white font-36" style="line-height: 48px;">{{ $wikiOfDay->title }}</p>
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-md-8">
+            <div class="icon-box icon-rounded-bordered left media mb-0 ml-60 ml-sm-0"> <a class="media-left pull-left flip" href="#"> <i class="pe-7s-notebook text-white border-1px p-20"></i></a>
+              <div class="media-body">
+                <h3 class="media-heading heading text-white font-12">Wiki of the Week</h3>
+                <p class="text-white font-36" style="line-height: 48px;">{{ $wikiOfDay->title }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-4 text-center"> 
+            <a href="/wiki/{{$wikiOfDay->id}}" class="btn btn-flat btn-default btn-xl mt-20">Read Wiki Page</a> 
+          </div>
         </div>
+       </div>
       </div>
-    </div>
-    <div class="col-sm-4 col-md-4 text-center"> 
-      <a href="/wiki/{{$wikiOfDay->id}}" class="btn btn-flat btn-default btn-xl mt-20">Read Wiki Page</a> 
-    </div>
-  </div>
-</div>
-</div>
     </section>
 
  
@@ -195,21 +195,7 @@
                     </ul>
                   </div>
                   
-                  <div class="clearfix"></div>
-                  <ul class="list-inline course-meta mt-15">
-                    <li>
-                      <h6>{{ $course->days }} Days</h6>
-                      <span> Course</span>
-                    </li>
-                    <li>
-                      <h6>{{ $course->enrollments()->count() }}</h6>
-                      <span> Enrolls</span>
-                    </li>
-                    <li>
-                      <h6><span class="course-time">{{ $course->duration }} hrs</span></h6>
-                      <span> Class Duration</span>
-                    </li>
-                  </ul>
+                  
                 </div>
               </div>
             </div>

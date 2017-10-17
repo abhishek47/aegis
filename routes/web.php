@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'PagesController@index');
+Route::get('/terms', 'PagesController@terms');
+Route::get('/privacy-policy', 'PagesController@policy');
 
 Auth::routes();
 

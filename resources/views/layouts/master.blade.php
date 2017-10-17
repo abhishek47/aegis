@@ -207,16 +207,13 @@
             <div class="widget no-border m-0">
               <ul class="list-inline sm-text-center mt-5 font-12">
                 <li>
-                  <a href="#">FAQ</a>
+                  <a href="#">Terms &amp; Conditions</a>
                 </li>
                 <li>|</li>
                 <li>
-                  <a href="#">Careers</a>
+                  <a href="#">Privacy Policy</a>
                 </li>
-                <li>|</li>
-                <li>
-                  <a href="#">Support</a>
-                </li>
+                
               </ul>
             </div>
           </div>

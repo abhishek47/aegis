@@ -32,5 +32,17 @@ class PagesController extends Controller
     	return view('pages.contact');
     }
 
+    public function terms()
+    {
+        return view('pages.terms');
+    }
+
+    public function policy()
+    {
+        return view('pages.policy');
+    }
+
+
+
     
 }
