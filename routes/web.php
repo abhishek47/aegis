@@ -48,6 +48,10 @@ Route::get('/discuss', 'DiscussionsController@index');
 Route::post('/discuss', 'DiscussionsController@store');
 Route::get('/discuss/discussion:{discussion}', 'DiscussionsController@show');
 
+Route::post('/solutions/{discussion}', 'SolutionsController@store');
+Route::get('/solutions/{solution}/like', 'SolutionsController@like');
+Route::get('/solutions/{solution}/dislike', 'SolutionsController@dislike');
+
 Route::post('/comments/{question}', 'CommentsController@store');
 
 Route::get('/comment/{comment}/like', 'CommentsController@like');

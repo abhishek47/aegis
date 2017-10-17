@@ -59,21 +59,27 @@
 	@foreach($discussions as $discussion)
        
        <div class="panel panel-default">
-		  <div class="panel-heading">
-		    <h3 class="panel-title" style="font-weight: bold;"><a href="#">{{ $discussion->user->name }} | {{ $discussion->created_at->diffForHumans() }}</a></h3>
-		  </div>
-		  <div class="panel-body">
-		    <div class="media"> 
-		      <div class="media-body" style="font-size: 16px;color: #000"> 
-				<a href="/discuss/discussion:{{ $discussion->id }}" style="color: #000;">{{ $discussion->title }}</a> </div> 
-		      <br><br>
-		    </div>
-		  </div>
-		  
-		</div>
+	  <div class="panel-heading">
+	    <h3 class="panel-title" style="font-weight: bold;"><a href="/discuss/discussion:{{ $discussion->id }}">{{ $discussion->title }}</a></h3>
+	  </div>
+	  <div class="panel-body" style="font-size: 17px;color: #000;">
+	    
+	    <h4>{{ substr($discussion->question, 0, 100) }}...</h4>
+
+	   
+	  </div>
+	  <div class="panel-footer">
+	  	{{ $discussion->user->name }} | {{ $discussion->created_at->diffForHumans() }}
+	  </div>
+	</div>
 
 
 	@endforeach
+
+
+	<div>
+		{{ $discussions->links() }}
+	</div>
 
 
 

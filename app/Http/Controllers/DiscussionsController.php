@@ -9,7 +9,7 @@ class DiscussionsController extends Controller
 {
     public function index()
     {
-    	$discussions = Discussion::latest()->get();
+    	$discussions = Discussion::latest()->paginate(10);
     	return view('discuss.index', compact('discussions'));
     }
 
