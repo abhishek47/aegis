@@ -22,9 +22,9 @@
 
             <ul class="list-inline sm-pull-none sm-text-center text-right text-white mb-sm-20 mt-10">
              @guest
-              <li class="m-0 pl-10"><a href="/ajax/login-form.html" class="text-white ajaxload-popup"><i class="fa fa-user-o mr-5 text-white"></i> Login /</a></li>
+              <li class="m-0 pl-10"><a href="/login" class="text-white"><i class="fa fa-user-o mr-5 text-white"></i> Login /</a></li>
               <li class="m-0 pl-0 pr-10"> 
-                <a href="/ajax/register-form.html" class="text-white ajaxload-popup"><i class="fa fa-edit mr-5"></i>Register</a> 
+                <a href="/register" class="text-white"><i class="fa fa-edit mr-5"></i>Register</a> 
               </li>
              @else
                
