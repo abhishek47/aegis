@@ -36,9 +36,9 @@ return [
     ],
 
     'google' => [
-        'client_id' => '35617699424-gt470osfvk8ujhei641mlh3ahpval6qu.apps.googleusercontent.com',
-        'client_secret' => '8_cc6YTTX0oE4eDTMH7tJSTf',
-        'redirect' => 'https://tdrive.dev/oauth/handle/google',
+        'client_id' => '838495330944-93rlvhsoqd4pvpo9s3ng9mdo478j83s8.apps.googleusercontent.com',
+        'client_secret' => 'hBEJrzRVZIsq1thr5hDQU2Y9',
+        'redirect' => 'https://aegisacademy.co.in/oauth/handle/google',
     ],
 
      'facebook' => [
