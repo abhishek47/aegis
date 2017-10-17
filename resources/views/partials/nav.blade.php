@@ -66,6 +66,7 @@
               @else
               <li><a href="/home">Home</a></li>
               <li><a href="/courses">Courses</a></li>
+              <li><a href="/discuss">Discuss</a></li>
               <li><a href="/wiki">Wiki Pages</a></li>
               <li><a href="/account">My Account</a></li>
               @endguest

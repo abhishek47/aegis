@@ -44,6 +44,10 @@ Route::get('/quiz/{quiz}', 'QuizController@get')->name('quiz.get');
 
 Route::get('/quiz/{quiz}/question:{question}/discuss', 'QuizController@discuss')->name('quiz.discuss');
 
+Route::get('/discuss', 'DiscussionsController@index');
+Route::post('/discuss', 'DiscussionsController@store');
+Route::get('/discuss/discussion:{discussion}', 'DiscussionsController@show');
+
 Route::post('/comments/{question}', 'CommentsController@store');
 
 Route::get('/comment/{comment}/like', 'CommentsController@like');
