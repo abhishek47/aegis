@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Backpack\PermissionManager\PermissionManagerServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
     ],
 

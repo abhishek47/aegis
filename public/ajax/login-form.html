@@ -30,15 +30,22 @@
                 </div>
               </div>
 
+
+               <div class="col-sm-12">
                 <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
                         <div class="socialSignup">
                           <a href="{{ route('oauth.redirect', ['provider' => 'google']) }}" class="btn btn-primary fbGoogle"><i class="fa fa-google-plus"></i> &nbsp; Sign In with Google</a>
-                          <a href="{{ route('oauth.redirect', ['provider' => 'facebook']) }}" class="btn btn-primary fbSignup"><i class="fa fa-facebook"></i> &nbsp; Sign In with Facebook</a>
                         </div>
-                        </div>
+                </div>
+                </div>
+                <div class="col-sm-12">
+                <div class="form-group">
+                        <div class="socialSignup">
+                  <a href="{{ route('oauth.redirect', ['provider' => 'facebook']) }}" class="btn btn-primary fbSignup"><i class="fa fa-facebook"></i> &nbsp; Sign In with Facebook</a>
+                  </div>
+                </div>
 
-                        
+
               <div class="col-sm-12">
                 <div class="form-group mt-15 text-center">
                   <p>Don't have an account? <a href="/register" class="text-theme-colored2 text-underline">Sign Up Here</a> </p>

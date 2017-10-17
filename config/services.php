@@ -35,4 +35,16 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'google' => [
+        'client_id' => '35617699424-gt470osfvk8ujhei641mlh3ahpval6qu.apps.googleusercontent.com',
+        'client_secret' => '8_cc6YTTX0oE4eDTMH7tJSTf',
+        'redirect' => 'https://tdrive.dev/oauth/handle/google',
+    ],
+
+     'facebook' => [
+        'client_id' => '707376409448239',
+        'client_secret' => '9f5e7f5439172fc6bf3ae4f748518f01',
+        'redirect' => 'https://tdrive.dev/oauth/handle/facebook',
+    ],
+
 ];
