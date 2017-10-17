@@ -24,9 +24,9 @@
               </div>
 
               @if(auth()->user()->enrollments->contains($course))
-                <a href="#" class="btn btn-colored btn-theme-colored2 btn-flat btn-lg" style="font-size: 18px;font-weight: bold;">You Are Already Enrolled</a> 
+                <a href="#" class="btn btn-colored btn-theme-colored2 btn-flat btn-lg" style="font-size: 18px;font-weight: bold;">You will be Notified when the Course begins!</a> 
               @else
-               <a href="/enroll/{{$course->id}}" class="btn btn-colored btn-theme-colored2 btn-flat btn-lg" style="font-size: 18px;font-weight: bold;">Enroll Now</a> 
+               <a href="/enroll/{{$course->id}}" class="btn btn-colored btn-theme-colored2 btn-flat btn-lg" style="font-size: 18px;font-weight: bold;">Notify Me</a> 
               @endif
 
         </div>
