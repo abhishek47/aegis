@@ -44,21 +44,7 @@
                     </ul>
                   </div>
                   
-                  <div class="clearfix"></div>
-                  <ul class="list-inline course-meta mt-15">
-                    <li>
-                      <h6>{{ $course->days }} Days</h6>
-                      <span> Course</span>
-                    </li>
-                    <li>
-                      <h6>{{ $course->enrollments()->count() }}</h6>
-                      <span> Enrolls</span>
-                    </li>
-                    <li>
-                      <h6><span class="course-time">{{ $course->duration }} hrs</span></h6>
-                      <span> Class Duration</span>
-                    </li>
-                  </ul>
+                  
                 </div>
               </div>
             </div>
@@ -91,21 +77,7 @@
                       </ul>
                     </div>
                     
-                    <div class="clearfix"></div>
-                    <ul class="list-inline course-meta mt-15">
-                      <li>
-                        <h6>{{ $course->days }}</h6>
-                        <span> Course</span>
-                      </li>
-                      <li>
-                        <h6>0</h6>
-                        <span> Enrolls</span>
-                      </li>
-                      <li>
-                        <h6><span class="course-time">{{ $course->duration }} hrs</span></h6>
-                        <span> Class Duration</span>
-                      </li>
-                    </ul>
+                    
                   </div>
                 </div>
               </div>
