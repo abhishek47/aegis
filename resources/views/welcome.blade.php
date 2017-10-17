@@ -86,7 +86,7 @@
     </section>
 
 
-    <section class="mb-30 wikiOfDay">
+    <section class="mb-30 wikiOfDay" style="cursor: pointer;" @click="openWiki({{$wikiOfDay->id}})">
      <div class="container" style="padding-top: 0px;">
       <div class="call-to-action pt-40 pb-40 mb-20 bg-theme-colored">
         <div class="row">

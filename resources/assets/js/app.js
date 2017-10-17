@@ -37,6 +37,12 @@ const app = new Vue({
 	    	console.log(res);
 	        insertAtCaret('![alt text]('+ res.src + ' "Image Title")');
 	      
+	    },
+
+	    openWiki(id)
+	    {
+	    	console.log(window.location);
+	    	window.location = '/wiki/' + id;
 	    }
 	  }
     
