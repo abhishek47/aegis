@@ -36,6 +36,16 @@
                   <button type="submit" class="btn btn-colored btn-block btn-theme-colored2 text-white btn-lg btn-flat" data-loading-text="Please wait...">Create Account</button>
                 </div>
               </div>
+
+              <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                        <div class="socialSignup">
+                          <a href="{{ route('oauth.redirect', ['provider' => 'google']) }}" class="btn btn-primary fbGoogle"><i class="fa fa-google-plus"></i> &nbsp; Sign Up with Google</a>
+                          <a href="{{ route('oauth.redirect', ['provider' => 'facebook']) }}" class="btn btn-primary fbSignup"><i class="fa fa-facebook"></i> &nbsp; Sign Up with Facebook</a>
+                        </div>
+                        </div>
+
+
               <div class="col-sm-12">
                 <div class="form-group mt-15 text-center">
                   <p>Already have an account? <a href="/login" class="text-theme-colored2 text-underline">Sign In Here</a> </p>

@@ -78,6 +78,14 @@
                                 </button>
                             </div>
                         </div>
+
+                         <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                        <div class="socialSignup">
+                          <a href="{{ route('oauth.redirect', ['provider' => 'google']) }}" class="btn btn-primary fbGoogle"><i class="fa fa-google-plus"></i> &nbsp; Sign Up with Google</a>
+                          <a href="{{ route('oauth.redirect', ['provider' => 'facebook']) }}" class="btn btn-primary fbSignup"><i class="fa fa-facebook"></i> &nbsp; Sign Up with Facebook</a>
+                        </div>
+                        </div>
                     </form>
                 </div>
             </div>

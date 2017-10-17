@@ -207,11 +207,11 @@
             <div class="widget no-border m-0">
               <ul class="list-inline sm-text-center mt-5 font-12">
                 <li>
-                  <a href="#">Terms &amp; Conditions</a>
+                  <a href="/terms-of-use">Terms &amp; Conditions</a>
                 </li>
                 <li>|</li>
                 <li>
-                  <a href="#">Privacy Policy</a>
+                  <a href="/privacy-policy">Privacy Policy</a>
                 </li>
                 
               </ul>

@@ -12,10 +12,14 @@
 */
 
 Route::get('/', 'PagesController@index');
-Route::get('/terms', 'PagesController@terms');
+Route::get('/terms-of-use', 'PagesController@terms');
 Route::get('/privacy-policy', 'PagesController@policy');
 
 Auth::routes();
+
+$s = 'oauth.';
+Route::get('/oauth/redirect/{provider}',   ['as' => $s . 'redirect',   'uses' => 'Auth\SocialController@getSocialRedirect']);
+Route::get('/oauth/handle/{provider}',     ['as' => $s . 'handle',     'uses' => 'Auth\SocialController@getSocialHandle']);
 
 Route::get('/home', function() {
 	return redirect('/');

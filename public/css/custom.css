@@ -37,3 +37,15 @@
 .c-description a {
     color: #1A458E !important;
 }
+
+
+.fbGoogle, .fbGoogle:hover {
+    border: none;
+  background-color: #db4437;
+}
+
+
+.fbSignup, .fbSignup:hover {
+    border: none;
+  background-color: #39579A;
+}
