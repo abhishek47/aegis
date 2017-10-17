@@ -10,20 +10,21 @@
 
 	<div class="panel panel-default">
 	  <div class="panel-heading">
-	    <h3 class="panel-title" style="font-weight: bold;">Start New Discussions ( You can use latex for writing mathematics )</h3>
+	    <h3 class="panel-title" style="font-weight: bold;">Start New Discussion ( You can use latex for writing mathematics )</h3>
 	  </div>
 	  <div class="panel-body">
-	  <form method="POST" action="/discussion">
+	  <form method="POST" action="/discuss">
 	    {{ csrf_field() }}
 	    
 	    <div class="form-group">
 	    	
-	    	
+	    	<label>Title</label>
+	    	<input type="text" name="title" class="form-control">
 	    </div>
 
 	     <div id="editor" class="editor--toolbar" style="margin-top: 20px;">
 	   	
-    
+    	<label>Description</label>
 	    <textarea id="marked-mathjax-input" name="question" rows="8" class="form-control"></textarea>
 
     </div>
@@ -49,7 +50,7 @@
 	
 
 	<div class="page-header">
-		<h5>Recent Discussions</h5>
+		<h2>Recent Discussions</h2>
 	</div>
 
 
@@ -59,11 +60,12 @@
        
        <div class="panel panel-default">
 		  <div class="panel-heading">
-		    <h3 class="panel-title" style="font-weight: bold;">{{ $discussion->user->name }} | {{ $discussion->created_at->diffForHumans() }}</h3>
+		    <h3 class="panel-title" style="font-weight: bold;"><a href="#">{{ $discussion->user->name }} | {{ $discussion->created_at->diffForHumans() }}</a></h3>
 		  </div>
 		  <div class="panel-body">
 		    <div class="media"> 
-		      <div class="media-body" style="font-size: 16px;color: #000"> {!! $discussion->question !!} </div> 
+		      <div class="media-body" style="font-size: 16px;color: #000"> 
+				<a href="/discuss/discussion:{{ $discussion->id }}" style="color: #000;">{{ $discussion->title }}</a> </div> 
 		      <br><br>
 		    </div>
 		  </div>

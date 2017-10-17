@@ -16,13 +16,16 @@
 	<br>
 	<div class="panel panel-default">
 	  <div class="panel-heading">
-	    <h3 class="panel-title" style="font-weight: bold;">Discussion</h3>
+	    <h3 class="panel-title" style="font-weight: bold;">{{ $discussion->title }}</h3>
 	  </div>
 	  <div class="panel-body" style="font-size: 17px;color: #000;">
 	    
 	    <h4>{{ $discussion->question }}</h4>
 
 	   
+	  </div>
+	  <div class="panel-footer">
+	  	{{ $discussion->user->name }} | {{ $discussion->created_at->diffForHumans() }}
 	  </div>
 	</div>
 
@@ -61,7 +64,7 @@
 	    <h3 class="panel-title" style="font-weight: bold;">Add New Comment ( You can use latex for writing mathematics )</h3>
 	  </div>
 	  <div class="panel-body">
-	  <form method="POST" action="/comments/{{ $question->id }}">
+	  <form method="POST" action="/solutions/{{ $discussion->id }}">
 	    {{ csrf_field() }}
 	     <div id="editor" class="editor--toolbar" style="margin-top: 20px;">
 	   

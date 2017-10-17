@@ -15,14 +15,14 @@ class DiscussionsController extends Controller
 
     public function show(Discussion $discussion)
     {
-    	return view('discuss.index', compact('discussion'));
+    	return view('discuss.show', compact('discussion'));
     }
 
 
     public function store()
     {
-    	$id = auth()->user()->discussions()->create(request()->all());
+    	$d = auth()->user()->discussions()->create(request()->all());
 
-    	return redirect('/discuss/discussion:' . $id);
+    	return redirect('/discuss/discussion:' . $d->id);
     }
 }
