@@ -124,7 +124,7 @@
           <div class="row">
             <div class="col-md-3">
               <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
-                <a href="#" class="icon icon-circled icon-lg" data-bg-color="#FC9928" style="background: rgb(252, 153, 40) !important;">
+                <a href="/courses" class="icon icon-circled icon-lg" data-bg-color="#FC9928" style="background: rgb(252, 153, 40) !important;">
                   <i class="pe-7s-study text-white font-48"></i>
                 </a>
                 <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="/courses">1. Watch Online Courses</a></h4>
@@ -133,7 +133,7 @@
             </div>
             <div class="col-md-3">
               <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
-                <a href="#" class="icon icon-circled icon-lg" data-bg-color="#43B14B" style="background: rgb(67, 177, 75) !important;">
+                <a href="/wiki" class="icon icon-circled icon-lg" data-bg-color="#43B14B" style="background: rgb(67, 177, 75) !important;">
                   <i class="pe-7s-notebook text-white font-48"></i>
                 </a>
                 <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="/wiki">2. Read Our Wiki Pages</a></h4>
@@ -142,7 +142,7 @@
             </div>
             <div class="col-md-3">
               <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
-                <a href="#" class="icon icon-circled icon-lg"  data-bg-color="#00C3CB" style="background: rgb(0, 195, 203) !important;">
+                <a href="/ajax/quiz-info.html" class="icon icon-circled icon-lg ajaxload-popup"  data-bg-color="#00C3CB" style="background: rgb(0, 195, 203) !important;">
                   <i class="pe-7s-diamond text-white font-48"></i>
                 </a>
                 <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="/ajax/quiz-info.html" class="ajaxload-popup">3. Practice Questions</a></h4>
@@ -151,7 +151,7 @@
             </div>
             <div class="col-md-3">
               <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
-                <a href="#" class="icon icon-circled icon-lg" data-bg-color="#EF5861" style="background: rgb(239, 88, 97) !important;">
+                <a href="/discuss" class="icon icon-circled icon-lg" data-bg-color="#EF5861" style="background: rgb(239, 88, 97) !important;">
                   <i class="pe-7s-medal text-white font-48"></i>
                 </a>
                 <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="/discuss">4. Post Your Doubts</a></h4>

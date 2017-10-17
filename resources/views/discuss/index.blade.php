@@ -3,14 +3,14 @@
 
 @section('content')
 	
-
+<section>
 
 	<div class="container">
 
 
 	<div class="panel panel-default">
 	  <div class="panel-heading">
-	    <h3 class="panel-title" style="font-weight: bold;">Start New Comment ( You can use latex for writing mathematics )</h3>
+	    <h3 class="panel-title" style="font-weight: bold;">Start New Discussions ( You can use latex for writing mathematics )</h3>
 	  </div>
 	  <div class="panel-body">
 	  <form method="POST" action="/discussion">
@@ -24,7 +24,7 @@
        
        <br>
 
-    	<button class="btn btn-success" type="submit">Post Comment</button>	
+    	<button class="btn btn-success" type="submit">Post Question</button>	
 
 
        </form>
@@ -73,6 +73,7 @@
 
 	</div>
 
+</section>
 @endsection
 
 
