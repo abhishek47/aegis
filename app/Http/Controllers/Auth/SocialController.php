@@ -88,7 +88,7 @@ class SocialController extends Controller
         auth()->login($socialUser, true);
             
 
-        return redirect()->route('/');
+        return redirect('/');
         
            
        

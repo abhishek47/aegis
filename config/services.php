@@ -44,7 +44,7 @@ return [
      'facebook' => [
         'client_id' => '707376409448239',
         'client_secret' => '9f5e7f5439172fc6bf3ae4f748518f01',
-        'redirect' => 'https://tdrive.dev/oauth/handle/facebook',
+        'redirect' => 'https://aegisacademy.co.in/oauth/handle/facebook',
     ],
 
 ];
