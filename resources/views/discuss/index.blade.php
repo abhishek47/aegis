@@ -15,8 +15,14 @@
 	  <div class="panel-body">
 	  <form method="POST" action="/discussion">
 	    {{ csrf_field() }}
+	    
+	    <div class="form-group">
+	    	
+	    	
+	    </div>
+
 	     <div id="editor" class="editor--toolbar" style="margin-top: 20px;">
-	   
+	   	
     
 	    <textarea id="marked-mathjax-input" name="question" rows="8" class="form-control"></textarea>
 
@@ -29,6 +35,8 @@
 
        </form>
 	    
+	  </div>
+
 	  </div>
 
 	<!-- <div>
