@@ -1,5 +1,11 @@
 @extends('layouts.master')
 
+@section('css')
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+
+@endsection
 
 @section('content')
 	
@@ -10,7 +16,7 @@
 
 	<div class="panel panel-default">
 	  <div class="panel-heading">
-	    <h3 class="panel-title" style="font-weight: bold;">Start New Discussion ( You can use latex for writing mathematics )</h3>
+	    <h3 class="panel-title" style="font-weight: bold;">Start New Discussion ( Put latex commands inside \$ \$ )</h3>
 	  </div>
 	  <div class="panel-body">
 	  <form method="POST" action="/discuss">
@@ -95,6 +101,9 @@
 
 @section('js')
   
+  <script>
+var simplemde = new SimpleMDE();
+</script>
 
 
   <script type="text/javascript" src="/js/functions.js"></script>

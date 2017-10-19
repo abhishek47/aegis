@@ -194,7 +194,6 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
             <button type="button" title="Add Numbered List" data-toggle="tooltip" class="btn btn-default" onclick="addNList();return false;"><i class="fa fa-list-ol"></i></button> 
             <button type="button" title="Add Table" data-toggle="tooltip" class="btn btn-default" onclick="addTable();return false;"><i class="fa fa-table"></i></button> 
             <button type="button" title="Add Image" data-toggle="tooltip" class="btn btn-default" onclick="addImage();return false;"><i class="fa fa-photo"></i></button> 
-            <button type="button" title="Upload Image" data-toggle="tooltip" class="btn btn-default" onclick="uploadImage();return false;"><i class="fa fa-file-image-o"></i></button> 
             <vue-core-image-upload
             class="btn btn-default"
             :crop="false"

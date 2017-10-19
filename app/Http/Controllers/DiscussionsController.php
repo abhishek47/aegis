@@ -25,4 +25,11 @@ class DiscussionsController extends Controller
 
     	return redirect('/discuss/discussion:' . $d->id);
     }
+
+    public function update(Discussion $discussion)
+    {
+        $discussion->update(request()->all());
+
+        return redirect('/discuss/discussion:' . $discussion->id);
+    }
 }

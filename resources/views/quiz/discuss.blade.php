@@ -1,5 +1,14 @@
 @extends('layouts.master')
 
+@section('css')
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+
+
+
+@endsection
+
 
 @section('content')
 	
@@ -43,7 +52,7 @@
 		  </div>
 		  <div class="panel-body">
 		    <div class="media"> 
-		      <div class="media-body" style="font-size: 16px;color: #000"> {!! $comment->body !!} </div> 
+		      <div class="media-body" style="font-size: 16px;color: #000" id="comment-{{$comment->id}}"> {!! $comment->body !!} </div> 
 		      <br><br>
 		    </div>
 		  </div>
@@ -60,7 +69,7 @@
 
 	<div class="panel panel-default">
 	  <div class="panel-heading">
-	    <h3 class="panel-title" style="font-weight: bold;">Add New Comment ( You can use latex for writing mathematics )</h3>
+	    <h3 class="panel-title" style="font-weight: bold;">Add New Comment ( Put latex commands inside \$ \$ )</h3>
 	  </div>
 	  <div class="panel-body">
 	  <form method="POST" action="/comments/{{ $question->id }}">
@@ -68,7 +77,7 @@
 	     <div id="editor" class="editor--toolbar" style="margin-top: 20px;">
 	   
     
-	    <textarea id="marked-mathjax-input" name="comment" rows="8" class="form-control"></textarea>
+	    <textarea  id="comment-input" name="comment" rows="8" class="form-control" ></textarea>
 
     </div>
        
@@ -89,6 +98,16 @@
 
 @section('js')
   
+  <script>
+var simplemde = new SimpleMDE({ element: document.getElementById("comment-input") });
+</script>
+
+
+<script type="text/javascript">
+	@foreach($question->comments as $comment)
+	$('#comment-{{$comment->id}}').html(md.render($('#comment-{{$comment->id}}').html()));
+	@endforeach
+</script>	
 
 
   <script type="text/javascript" src="/js/functions.js"></script>

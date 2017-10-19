@@ -47,6 +47,7 @@ Route::get('/quiz/{quiz}/question:{question}/discuss', 'QuizController@discuss')
 Route::get('/discuss', 'DiscussionsController@index');
 Route::post('/discuss', 'DiscussionsController@store');
 Route::get('/discuss/discussion:{discussion}', 'DiscussionsController@show');
+Route::post('/discussion/update/{discussion}', 'DiscussionsController@update');
 
 Route::post('/solutions/{discussion}', 'SolutionsController@store');
 Route::get('/solutions/{solution}/like', 'SolutionsController@like');
