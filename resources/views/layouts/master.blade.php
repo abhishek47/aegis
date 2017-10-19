@@ -150,7 +150,6 @@
           <div class="widget dark">
             <h4 class="widget-title line-bottom-theme-colored-2">Top Courses</h4>
             <div class="latest-posts">
-            <?php $tcourses = $courses->slice(0, 3); ?>
              @foreach($tcourses as $course)
               <article class="post media-post clearfix pb-0 mb-10">
                 <div class="post-right">
