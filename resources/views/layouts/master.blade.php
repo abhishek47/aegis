@@ -150,27 +150,17 @@
           <div class="widget dark">
             <h4 class="widget-title line-bottom-theme-colored-2">Top Courses</h4>
             <div class="latest-posts">
+            <?php $tcourses = array_slice($courses, 3); ?>
+             @foreach($tcourses as $course)
               <article class="post media-post clearfix pb-0 mb-10">
-                <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
                 <div class="post-right">
-                  <h5 class="post-title mt-0 mb-5"><a href="#">Olympiad Number Theory</a></h5>
-                  <p class="post-date mb-0 font-12">Mar 08, 2017</p>
+                  <h5 class="post-title mt-0 mb-5"><a href="/courses/{{ $course->id }}">{{ substr($course->name, 0, 30) }}..</a></h5>
+                  <p class="post-date mb-0 font-12">Coming Soon</p>
                 </div>
               </article>
-              <article class="post media-post clearfix pb-0 mb-10">
-                <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
-                <div class="post-right">
-                  <h5 class="post-title mt-0 mb-5"><a href="#">ISI/CMI Entrance</a></h5>
-                  <p class="post-date mb-0 font-12">Mar 08, 2017</p>
-                </div>
-              </article>
-              <article class="post media-post clearfix pb-0 mb-10">
-                <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
-                <div class="post-right">
-                  <h5 class="post-title mt-0 mb-5"><a href="#">JEE Adv. Maths</a></h5>
-                  <p class="post-date mb-0 font-12">Mar 08, 2017</p>
-                </div>
-              </article>
+             @endforeach 
+              
+              
             </div>
           </div>
         </div>

@@ -10,14 +10,14 @@
             <button type="button" title="Add Numbered List" data-toggle="tooltip" class="btn btn-default" onclick="addNList();return false;"><i class="fa fa-list-ol"></i></button> 
             <button type="button" title="Add Table" data-toggle="tooltip" class="btn btn-default" onclick="addTable();return false;"><i class="fa fa-table"></i></button> 
             <button type="button" title="Add Image" data-toggle="tooltip" class="btn btn-default" onclick="addImage();return false;"><i class="fa fa-photo"></i></button> 
-            <vue-core-image-upload
+            <vue-core-image-upload-2
             id="{{ $field['name'] }}"
             class="btn btn-default"
             :crop="false"
             @imageuploaded="imageuploaded"
             :max-file-size="5242880"
             url="/image/upload">
-          </vue-core-image-upload>
+          </vue-core-image-upload-2>
             <button type="button" title="Add Example" data-toggle="tooltip" class="btn btn-default" onclick="addExample();return false;">E.g.</button>
             <button type="button" title="Add Solution" data-toggle="tooltip" class="btn btn-default" onclick="addSoln();return false;">Soln.</button>
             <button type="button" title="Add Theorem" data-toggle="tooltip" class="btn btn-default" onclick="addTheorem();return false;">Theorem</button>  
