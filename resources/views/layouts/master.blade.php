@@ -5,7 +5,6 @@
 <!-- Meta Tags -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
 
 <!-- CSRF Token -->
@@ -125,13 +124,7 @@
               <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-theme-colored2 mr-5"></i> <a class="text-gray" href="#">info@aegisinstitute.co.in</a> </li>
               <li class="m-0 pl-10 pr-10"> <i class="fa fa-globe text-theme-colored2 mr-5"></i> <a class="text-gray" href="#">www.aegisacademy.co.in</a> </li>
             </ul>            
-            <ul class="styled-icons icon-sm icon-bordered icon-circled clearfix mt-10">
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-vk"></i></a></li>
-              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-            </ul>
+            
           </div>
         </div>
         <div class="col-sm-6 col-md-3">
