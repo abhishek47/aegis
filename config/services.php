@@ -42,8 +42,8 @@ return [
     ],
 
      'facebook' => [
-        'client_id' => '707376409448239',
-        'client_secret' => '9f5e7f5439172fc6bf3ae4f748518f01',
+        'client_id' => '124837214880625',
+        'client_secret' => 'e519a4ace3de15ed3b79876984e90d95',
         'redirect' => 'https://aegisacademy.co.in/oauth/handle/facebook',
     ],
 
