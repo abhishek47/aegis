@@ -5,7 +5,7 @@ use Socialite;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
-use App\Models\Social;
+use App\Social;
 use App\User;
 
 class SocialController extends Controller
