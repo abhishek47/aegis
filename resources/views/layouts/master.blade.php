@@ -5,6 +5,7 @@
 <!-- Meta Tags -->
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
 
 <!-- CSRF Token -->
@@ -54,6 +55,15 @@
  
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
+       "HTML-CSS": {
+    styles: {
+      ".MathJax_Display": {
+        width: null,
+        position: null,
+        display: "table"
+      }
+    }
+  },
         showProcessingMessages: false,
         tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] },
         TeX: { equationNumbers: {autoNumber: "AMS"}, extensions: ["AMSmath.js","AMSsymbols.js", "http://sonoisa.github.io/xyjax_ext/xypic.js"] },
@@ -77,6 +87,7 @@
       smartLists: true,
       smartypants: false
     });
+
     </script>
 
     @yield('css')
@@ -109,8 +120,6 @@
 
   @yield('content')
 
-
-  </div>
   <!-- Footer -->
   <footer id="footer" class="footer" data-bg-color="#212331">
     <div class="container pt-70 pb-40">
@@ -143,14 +152,25 @@
           <div class="widget dark">
             <h4 class="widget-title line-bottom-theme-colored-2">Top Courses</h4>
             <div class="latest-posts">
-             @foreach($tcourses as $course)
-              <article class="post media-post clearfix pb-0 mb-10">
+                           <article class="post media-post clearfix pb-0 mb-10">
                 <div class="post-right">
-                  <h5 class="post-title mt-0 mb-5"><a href="/courses/{{ $course->id }}">{{ substr($course->name, 0, 30) }}..</a></h5>
+                  <h5 class="post-title mt-0 mb-5"><a href="/courses/4">ISI/CMI Entrance exam and JEE(..</a></h5>
                   <p class="post-date mb-0 font-12">Coming Soon</p>
                 </div>
               </article>
-             @endforeach 
+                           <article class="post media-post clearfix pb-0 mb-10">
+                <div class="post-right">
+                  <h5 class="post-title mt-0 mb-5"><a href="/courses/3">Introductory Geometry..</a></h5>
+                  <p class="post-date mb-0 font-12">Coming Soon</p>
+                </div>
+              </article>
+                           <article class="post media-post clearfix pb-0 mb-10">
+                <div class="post-right">
+                  <h5 class="post-title mt-0 mb-5"><a href="/courses/2">Introductory Number Theory..</a></h5>
+                  <p class="post-date mb-0 font-12">Coming Soon</p>
+                </div>
+              </article>
+              
               
               
             </div>
@@ -203,6 +223,10 @@
       </div>
     </div>
   </footer>
+
+
+  </div>
+  
   <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
   </div>
 </div>

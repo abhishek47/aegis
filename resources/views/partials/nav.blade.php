@@ -54,7 +54,8 @@
     <div class="header-nav">
       <div class="header-nav-wrapper navbar-scrolltofixed bg-white" style="z-index: auto; position: static; top: auto;">
         <div class="container">
-          <nav id="menuzord-right" class="menuzord default menuzord-responsive"><a href="javascript:void(0)" class="showhide" style="display: none;"><em></em><em></em><em></em></a><a class="menuzord-brand pull-left flip mt-sm-10 mb-sm-20" href="/"><img src="/images/logo-wide.png" alt=""></a>
+          <nav id="menuzord-right" class="menuzord default menuzord-responsive"><em></em><em></em><em></em>
+               </a><a class="menuzord-brand pull-left flip mt-sm-10 mb-sm-20" href="/"><img src="/images/logo-wide.png" alt=""></a>
             <ul class="menuzord-menu menuzord-right menuzord-indented scrollable" style="max-height: 400px;">
               @guest
               <li><a href="/">Home</a></li>

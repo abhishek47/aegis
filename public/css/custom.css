@@ -1,5 +1,13 @@
+body {
+    min-width: 0 !important;
+}
+
+@media only screen and (min-width: 767px)
+{
+    
 .menuzord-brand img {
     max-height: 70px;
+}
 }
 
 .menuzord-brand  {

@@ -84,7 +84,6 @@ var Preview = {
   PreviewDone: function () {
     this.mjRunning = false;
 
-    
 
     text = this.buffer.innerHTML;
     // replace occurrences of &gt; at the beginning of a new line
@@ -254,7 +253,7 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 
 
 
-  <div id="main--output" class="markdown-body hidden">
+  <div id="main--output" style="width: 100%;" class="markdown-body hidden">
   <div class="preview" id="marked-mathjax-preview"></div>
   <div class="preview" id="marked-mathjax-preview-buffer" 
        style="display:none;

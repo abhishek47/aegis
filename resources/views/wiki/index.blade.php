@@ -7,7 +7,7 @@
   <div class="main-content">
     <!-- Section: inner-header -->
     <section class="inner-header divider layer-overlay overlay-theme-colored-7" data-bg-img="images/bg/bg1.jpg">
-      <div class="container pt-120 pb-60">
+      <div class="container short-banner-wrapper">
         <!-- Section Content -->
         <div class="section-content">
           <div class="row"> 

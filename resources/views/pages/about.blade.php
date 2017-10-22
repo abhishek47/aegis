@@ -5,7 +5,7 @@
 	
 	 <!-- Section: inner-header -->
     <section class="inner-header divider layer-overlay overlay-theme-colored-7" data-bg-img="images/bg/bg1.jpg">
-      <div class="container pt-120 pb-60">
+      <div class="container short-banner-wrapper">
         <!-- Section Content -->
         <div class="section-content">
           <div class="row"> 
@@ -26,11 +26,11 @@
         <div class="row">
           <div class="col-md-12">
             <div class="icon-box mb-0 p-0">
-              <a href="#" class="icon icon-gray pull-left mb-0 mr-10">
+              <a href="#" class="icon icon-gray pull-left mb-0 mr-10 hidden-xs">
                 <i class="pe-7s-users"></i>
               </a>
-              <h3 class="icon-box-title pt-15 mt-0 mb-40">AEGIS Institute</h3>
-              <hr>
+              <h3 class="icon-box-title pt-15 mt-0 mb-40 hidden-xs">AEGIS Institute</h3>
+              <hr class="hidden-xs">
               <p class="text-black" style="font-size: 18px;">Aegis Academy is started by young educators to provide high - quality education at affordable price. Almost every country conducts several exams to hunt extraordinary problem - solving skilled students.Olympiads are the most prestigious exam among them.</p>
               <p class="text-black" style="font-size: 18px;">Preparation for olympiads is exciting and challenging.Due to lack of resources and high - quality education, many students coudn't hone their problem-skills. We are here to fill this gap.</p>
               <p class="text-black" style="font-size: 18px;">First, we are starting with the training for maths olympiads and other contests based on maths. Later, we shall add more subjects.We prepare the students for the following exams.</p>
