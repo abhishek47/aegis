@@ -75,7 +75,9 @@
 		text-align: center;
 	}
 
-	
+	.panel {
+		overflow: auto;
+	}
 }
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 479px) {
