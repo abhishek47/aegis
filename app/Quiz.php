@@ -28,6 +28,7 @@ class Quiz extends Model
      */
     public function toArray()
     {
-        return array_merge(['info' => $this->attributesToArray()], $this->relationsToArray());
+        return array_merge(['info' => $this->attributesToArray()], $this->relationsToArray(),
+                           ['levels' => $this->questions->groupBy('level')->count()]);
     }
 }

@@ -306,6 +306,8 @@ Preview.Init();
 Preview.Update();
 </script>
 
+
+
  <script type="text/javascript" src="/js/functions.js"></script>
 
  <script>
@@ -313,6 +315,7 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip(); 
 });
 </script>
+
 
 
 @endsection

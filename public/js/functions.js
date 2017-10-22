@@ -139,6 +139,34 @@ function insertAtCaret(text) {
 
 
 
+function changeLevel(quizId, level)
+{
+    
+    console.log('Quiz ID : ' + quizId + ' Level : ' + level);
+      var qid = quizId;
+
+    axios.get('/quiz/'+qid+'/'+level).then(function(response) {
+      console.log(response.data);
+      
+
+
+      $('#slickQuiz-'+qid).slickQuiz({
+        json: response.data,
+       });
+
+        MathJax.Hub.Queue(
+          ["Typeset",MathJax.Hub,document.getElementById('slickQuiz-'+qid)],
+          function() {
+             console.log('Done');
+          }
+        );
+
+    });
+
+    window.event.preventDefault();
+}
+
+
 
 
 
@@ -311,6 +339,8 @@ function insertAtCaret(text) {
         // Count the number of questions
         var questionCount = questions.length;
 
+        var levels = quizValues.levels;
+
         // Select X number of questions to load if options is set
         if (plugin.config.numberOfQuestions && questionCount >= plugin.config.numberOfQuestions) {
             questions = questions.slice(0, plugin.config.numberOfQuestions);
@@ -358,6 +388,17 @@ function insertAtCaret(text) {
                 $quizName.hide().html(plugin.config.nameTemplateText
                     .replace('%name', quizValues.info.name) ).fadeIn(1000, kN(key,1));
                 $quizHeader.hide().prepend($('<div class="quizDescription">' + quizValues.info.main + '</div>')).fadeIn(1000, kN(key,2));
+
+            
+
+                    for(i = 1; i<=levels; i++)
+                    {
+                        $quizHeader.hide().append($('<a href="#" style="padding-right:5px;padding-left:5px;border-left: 1px solid;" \
+                                  onclick="changeLevel(' + quizID + ',' + i + ');">Level ' + i + '</a>')).fadeIn(1000, kN(key,2));
+                    }
+
+                   
+
                 $quizResultsCopy.append(quizValues.info.results);
 
                 // add retry button to results view, if enabled

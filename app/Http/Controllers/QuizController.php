@@ -9,9 +9,17 @@ use Illuminate\Http\Request;
 class QuizController extends Controller
 {
     
-    public function get(Quiz $quiz)
+    public function get(Quiz $quiz, $level = null)
     {
-    	return $quiz->toJson();
+    	if(!isset($level))
+    	{
+    		return $quiz->toJson();
+    	} else {
+    		return array_merge(['info' => $quiz->attributesToArray()], 
+    		        ['questions' => $quiz->questions()->where('level', $level)->get()->toArray()], 
+		            ['levels' => $quiz->questions->groupBy('level')->count()]);
+    	}
+    	
     }
 
 

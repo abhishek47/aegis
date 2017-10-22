@@ -41,6 +41,7 @@ Route::post('/wiki/update/{wiki}', 'WikiController@update')->name('wiki.update')
 
 
 Route::get('/quiz/{quiz}', 'QuizController@get')->name('quiz.get');
+Route::get('/quiz/{quiz}/{level}', 'QuizController@get')->name('quiz.get');
 
 Route::get('/quiz/{quiz}/question:{question}/discuss', 'QuizController@discuss')->name('quiz.discuss');
 
