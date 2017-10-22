@@ -4,7 +4,7 @@ body {
 
 @media only screen and (min-width: 767px)
 {
-    
+
 .menuzord-brand img {
     max-height: 70px;
 }
@@ -56,4 +56,14 @@ body {
 .fbSignup, .fbSignup:hover {
     border: none;
   background-color: #39579A;
+}
+
+.quiz-levels {
+    padding-left: 0 !important;
+    list-style-type: none;
+}
+
+.quiz-levels li {
+    list-style-type: none;
+    display: inline;
 }

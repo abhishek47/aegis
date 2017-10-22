@@ -389,13 +389,16 @@ function changeLevel(quizId, level)
                     .replace('%name', quizValues.info.name) ).fadeIn(1000, kN(key,1));
                 $quizHeader.hide().prepend($('<div class="quizDescription">' + quizValues.info.main + '</div>')).fadeIn(1000, kN(key,2));
 
+                var levelsHtml = $('<ol class="quiz-levels"><br><b>Choose Questions Level : </b></ol>');
             
 
                     for(i = 1; i<=levels; i++)
                     {
-                        $quizHeader.hide().append($('<a href="#" style="padding-right:5px;padding-left:5px;border-left: 1px solid;" \
-                                  onclick="changeLevel(' + quizID + ',' + i + ');">Level ' + i + '</a>')).fadeIn(1000, kN(key,2));
+                        levelsHtml.append($('<li><a href="#" \
+                                  onclick="changeLevel(' + quizID + ',' + i + ');">Level ' + i + '</a></li>')).fadeIn(1000, kN(key,2));
                     }
+
+                    $quizHeader.hide().append(levelsHtml).fadeIn(1000, kN(key,2));
 
                    
 
