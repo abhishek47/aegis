@@ -276,6 +276,7 @@ blockquote {
 .slickQuiz ol.questions {
     margin-top: 20px;
     margin-left: 0;
+   float: left;
 }
 .slickQuiz ol.questions li {
     margin-left: 0;
@@ -315,3 +316,10 @@ blockquote {
     clear: both;
     margin-top: 20px;
 }
+
+.slickQuiz .quiz-levels {
+    width: 200px;
+    float: left;
+}
+
+
