@@ -178,7 +178,7 @@ function insertAtCaret(text) {
                 questionTemplateText:  '%count. %text',
                 scoreTemplateText: '%score / %total',
                 nameTemplateText:  '<span>Quiz: </span>%name',
-                skipStartButton: false,
+                skipStartButton: true,
                 numberOfQuestions: null,
                 randomSortQuestions: false,
                 randomSortAnswers: false,
