@@ -274,7 +274,7 @@ blockquote {
 }
 
 .slickQuiz ol.questions {
-    margin-top: 20px;
+    margin-top: 0px;
     margin-left: 0;
    float: left;
 }
