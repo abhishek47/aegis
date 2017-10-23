@@ -64,6 +64,6 @@ body {
 }
 
 .quiz-levels li {
-    list-style-type: none;
-    display: inline;
+    list-style-type: circle;
+    display: block;
 }
