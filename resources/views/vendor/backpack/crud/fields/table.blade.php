@@ -49,6 +49,7 @@
                 <tr ng-repeat="item in items" class="array-row">
 
                     @foreach( $field['columns'] as $item)
+                    
                     <td>
                       @if($item['type'] != 'checkbox')
                         <input class="form-control input-sm" type="{{ $item['type'] ?  $item['type'] : 'text'  }}" ng-model="item.{{ $item['name'] }}">

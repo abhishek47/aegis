@@ -9,6 +9,8 @@ class Question extends Model
 {
      use CrudTrait;
 
+     protected $casts = [ 'a' => 'array' ];
+
      protected $fillable = ['q', 'a', 'select_any', 'correct', 'incorrect', 'quiz_id', 'level', 'solution'];
 
       protected $visible = ['id', 'q', 'a', 'select_any', 'correct', 'incorrect', 'level'];
@@ -22,5 +24,7 @@ class Question extends Model
      {
      	return $this->hasMany(Comment::class)->orderBy('created_at', 'desc');
      }
+
+     
 
 }

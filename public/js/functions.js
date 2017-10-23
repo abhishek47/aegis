@@ -939,10 +939,10 @@ function insertAtCaret(text) {
 
 
 
-                $('.quizDescription').remove();
-                $('.quiz-levels').remove();
-                $('.questions').remove();
-                $('.tryAgain').remove();   
+                $(_element + ' ' + '.quizDescription').remove();
+                $(_element + ' ' + '.quiz-levels').remove();
+                $(_element + ' ' + '.questions').remove();
+                $(_element + ' ' + '.tryAgain').remove();   
 
                       plugin.config.skipStartButton = true;
                       plugin.init();
