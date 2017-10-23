@@ -24,7 +24,6 @@ class QuizCrudController extends CrudController {
 
 	]);
 
-         $this->crud->allowAccess('show');
 
          $this->crud->with('questions');
 
