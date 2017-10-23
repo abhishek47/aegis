@@ -63,7 +63,3 @@ body {
     list-style-type: none;
 }
 
-.quiz-levels li {
-    list-style-type: circle;
-    display: block;
-}

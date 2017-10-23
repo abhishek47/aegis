@@ -223,7 +223,7 @@ blockquote {
 .slickQuiz em { font-style: italic; }
 .slickQuiz ul { list-style-type: circle; }
 .slickQuiz ol { list-style-type: decimal; }
-.slickQuiz ol li { list-style-type: decimal; margin-left: 20px; }
+.slickQuiz ol li { list-style-type: square; margin-left: 20px; }
 
 .slickQuiz .button {
     float: left;
