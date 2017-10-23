@@ -139,32 +139,7 @@ function insertAtCaret(text) {
 
 
 
-function changeLevel(quizId, level)
-{
-    
-    console.log('Quiz ID : ' + quizId + ' Level : ' + level);
-      var qid = quizId;
 
-    axios.get('/quiz/'+qid+'/'+level).then(function(response) {
-      console.log(response.data);
-      
-
-
-      $('#slickQuiz-'+qid).slickQuiz({
-        json: response.data,
-       });
-
-        MathJax.Hub.Queue(
-          ["Typeset",MathJax.Hub,document.getElementById('slickQuiz-'+qid)],
-          function() {
-             console.log('Done');
-          }
-        );
-
-    });
-
-    window.event.preventDefault();
-}
 
 
 
@@ -273,6 +248,7 @@ function changeLevel(quizId, level)
             _quizHeader            = _element + ' .quizHeader',
             _quizScore             = _element + ' .quizScore',
             _quizLevel             = _element + ' .quizLevel',
+            _changeLevel           = _element + ' .change-level',
 
             // Top Level Quiz Element Objects
             $quizStarter           = $(_quizStarter),
@@ -282,7 +258,8 @@ function changeLevel(quizId, level)
             $quizResultsCopy       = $(_quizResultsCopy),
             $quizHeader            = $(_quizHeader),
             $quizScore             = $(_quizScore),
-            $quizLevel             = $(_quizLevel)
+            $quizLevel             = $(_quizLevel),
+            $changeLevel           = $(_changeLevel)
         ;
 
 
@@ -379,11 +356,18 @@ function changeLevel(quizId, level)
         plugin.method = {
             // Sets up the questions and answers based on above array
             setupQuiz: function(options) { // use 'options' object to pass args
+
+                if(options.qv != null)
+                {
+                    quizValues = options.qv;
+                }    
+
                 var quizID = quizValues.info.id;
                 var key, keyNotch, kN;
                 key = internal.method.getKey (3); // how many notches == how many jQ animations you will run
                 keyNotch = internal.method.getKeyNotch; // a function that returns a jQ animation callback function
                 kN = keyNotch; // you specify the notch, you get a callback function for your animation
+
 
                 $quizName.hide().html(plugin.config.nameTemplateText
                     .replace('%name', quizValues.info.name) ).fadeIn(1000, kN(key,1));
@@ -394,13 +378,13 @@ function changeLevel(quizId, level)
 
                     for(i = 1; i<=levels; i++)
                     {
-                        levelsHtml.append($('<li><a href="#" \
-                                  onclick="changeLevel(' + quizID + ',' + i + ');">Level ' + i + '</a></li>')).fadeIn(1000, kN(key,2));
+                        levelsHtml.append($('<li><a class="change-level" href="#" data-id="' + quizID + '" data-level="' + i + '">Level ' + i + '</a></li>')).fadeIn(1000, kN(key,2));
                     }
 
                     $quizHeader.hide().append(levelsHtml).fadeIn(1000, kN(key,2));
 
-                   
+               
+
 
                 $quizResultsCopy.append(quizValues.info.results);
 
@@ -543,6 +527,7 @@ function changeLevel(quizId, level)
                         }
 
                         // Append question & answers to quiz
+
                         quiz.append(questionHTML);
 
                         count++;
@@ -550,6 +535,7 @@ function changeLevel(quizId, level)
                 }
 
                 // Add the quiz content to the page
+
                 $quizArea.append(quiz);
 
                 // Toggle the start button OR start the quiz if start button is disabled
@@ -558,6 +544,7 @@ function changeLevel(quizId, level)
                     plugin.method.startQuiz.apply (this, [{callback: plugin.config.animationCallbacks.startQuiz}]); // TODO: determine why 'this' is being passed as arg to startQuiz method
                     kN(key,3).apply (null, []);
                 } else {
+
                     $quizStarter.fadeIn(500, kN(key,3)); // 3d notch on key must be on both sides of if/else, otherwise key won't turn
                 }
 
@@ -914,6 +901,62 @@ function changeLevel(quizId, level)
                     plugin.method.startQuiz.apply (null, [{callback: plugin.config.animationCallbacks.startQuiz}]);
                 }
             });
+
+            $('.change-level').on('click', function (e) {
+                    e.preventDefault();
+
+                    console.log('Quiz ID : ' + $(this).data('id') + ' Level : ' + $(this).data('level'));
+                    
+                    var qid = $(this).data('id');
+                    var level = $(this).data('level')
+
+                    axios.get('/quiz/'+qid+'/'+level).then(function(response) {
+                      console.log(response.data);
+
+                     
+                      
+
+
+                    // Set via json option or quizJSON variable (see slickQuiz-config.js)
+                    quizValues = response.data;
+
+                    // Get questions, possibly sorted randomly
+                   
+                     questions = plugin.config.randomSortQuestions ?
+                                    quizValues.questions.sort(function() { return (Math.round(Math.random())-0.5); }) :
+                                    quizValues.questions;
+
+                    // Count the number of questions
+                     questionCount = questions.length;
+
+                     levels = quizValues.levels;
+
+                    // Select X number of questions to load if options is set
+                    if (plugin.config.numberOfQuestions && questionCount >= plugin.config.numberOfQuestions) {
+                        questions = questions.slice(0, plugin.config.numberOfQuestions);
+                        questionCount = questions.length;
+                    }
+
+
+
+                $('.quizDescription').remove();
+                $('.quiz-levels').remove();
+                $('.questions').remove();
+                $('.tryAgain').remove();   
+
+                      plugin.config.skipStartButton = true;
+                      plugin.init();
+
+                        MathJax.Hub.Queue(
+                          ["Typeset",MathJax.Hub,document.getElementById('slickQuiz-'+qid)],
+                          function() {
+                             console.log('Done');
+                          }
+                        );
+
+                    });
+
+                });
 
             // Bind "try again" button
             $(_element + ' ' + _tryAgainBtn).on('click', function(e) {
