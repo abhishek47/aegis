@@ -978,8 +978,8 @@ function insertAtCaret(text) {
                     var qid = $(this).data('id');
 
                 
-                    $('.questions li[style*="display: list-item;"]').fadeOut(100, function(){
-                         $('#'+qid).fadeIn(300, kN(key,1));
+                    $(_element + ' .questions li[style*="display: list-item;"]').fadeOut(100, function(){
+                         $(_element + ' #'+qid).fadeIn(300, kN(key,1));
                     });
 
                    
