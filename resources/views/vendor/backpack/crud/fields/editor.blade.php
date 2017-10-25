@@ -1,6 +1,13 @@
 <div  @include('crud::inc.field_wrapper_attributes') >
  <label>{!! $field['label'] !!}</label>
 
+ <div style="height:0px;overflow:hidden">
+     <form id="file-upload" method="POST" action="/image/upload" enctype="multipart/form-data">
+       <input type="file" id="fileInput" name="files" />
+     </form>
+ </div>
+
+
 <div id="editor" class="editor--toolbar">
       <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups"> 
         <div class="btn-group" role="group" aria-label="First group"> 
@@ -10,21 +17,15 @@
             <button type="button" title="Add Numbered List" data-toggle="tooltip" class="btn btn-default" onclick="addNList();return false;"><i class="fa fa-list-ol"></i></button> 
             <button type="button" title="Add Table" data-toggle="tooltip" class="btn btn-default" onclick="addTable();return false;"><i class="fa fa-table"></i></button> 
             <button type="button" title="Add Image" data-toggle="tooltip" class="btn btn-default" onclick="addImage();return false;"><i class="fa fa-photo"></i></button> 
-            <vue-core-image-upload
-            id="{{ $field['name'] }}"
-            class="btn btn-default"
-            :crop="false"
-            @imageuploaded="imageuploaded"
-            :max-file-size="5242880"
-            url="/image/upload">
-          </vue-core-image-upload>
+
+            <button type="button" title="Upload Image" data-toggle="tooltip" class="btn btn-default" onclick="chooseFile();">Upload Image</button>
             <button type="button" title="Add Example" data-toggle="tooltip" class="btn btn-default" onclick="addExample();return false;">E.g.</button>
             <button type="button" title="Add Solution" data-toggle="tooltip" class="btn btn-default" onclick="addSoln();return false;">Soln.</button>
             <button type="button" title="Add Theorem" data-toggle="tooltip" class="btn btn-default" onclick="addTheorem();return false;">Theorem</button>  
             <button type="button" title="Add Proof" data-toggle="tooltip" class="btn btn-default" onclick="addProof();return false;">Proof</button>
-            <button type="button" title="Add Problems Section" class="btn btn-default" data-toggle="modal" data-target="#myModal" ><i class="fa fa-question-circle"></i></button> 
             <button type="button" title="Add Definition" data-toggle="tooltip" class="btn btn-default" onclick="addDef();return false;">Df.</button> 
-             <button type="button" title="Add Table of Contents" data-toggle="tooltip" class="btn btn-default" onclick="addToc();return false;"><i class="fa fa-list-alt"></i></button> 
+             
+             
             <button type="button" title="Align to Center" data-toggle="tooltip" class="btn btn-default" onclick="addCenterAlign();return false;"><i class="fa fa-align-center"></i></button> 
             <button type="button" title="Add Box" data-toggle="tooltip" class="btn btn-default" onclick="addBox();return false;">Box</button> 
          </div> 
@@ -55,43 +56,17 @@
           </ul>
         </div>
       </div>
-	    <textarea id="marked-mathjax-input"  name="{{ $field['name'] }}" @include('crud::inc.field_attributes') rows="17" class="form-control">{{ old($field['name']) ? old($field['name']) : (isset($field['value']) ? $field['value'] : (isset($field['default']) ? $field['default'] : '' )) }} 
+      <textarea id="marked-mathjax-input"  name="{{ $field['name'] }}" @include('crud::inc.field_attributes') rows="17" class="form-control">{{ old($field['name']) ? old($field['name']) : (isset($field['value']) ? $field['value'] : (isset($field['default']) ? $field['default'] : '' )) }} 
       
-	    
-	    </textarea>
+      
+      </textarea>
 
     </div>
 
 
- <?php $quizzes = \App\Quiz::orderBy('name', 'asc')->get(); ?>
 
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Choose Quiz to Add</h4>
-      </div>
-      <div class="modal-body">
-        <div class="list-group">
-         @foreach($quizzes as $quiz)
-          <a href="#" onclick="addQuestion({{ $quiz->id }});" data-dismiss="modal" class="list-group-item" style="padding: 15px;font-size: 17px;">{{ $quiz->name }}</a>
-         @endforeach 
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-        	
+    
 
 
 
@@ -116,5 +91,30 @@
       @push('crud_fields_scripts')
       <script src="{{ asset('js/app.js') }}"></script> 
          <script type="text/javascript" src="/js/functions.js"></script>
+
+         <script>
+           function chooseFile() {
+              $("#fileInput").click();
+           }
+        </script>
+
+        <script type="text/javascript">
+          $(function() {
+             $("#fileInput").change(function (){
+
+                $("#file-upload").submit(function() {
+
+                    var formData = new FormData(this);
+
+                    $.post($(this).attr("action"), formData, function(data) {
+                        alert(data);
+                    });
+
+                    return false;
+                });
+          });
+
+           });
+        </script>
       @endpush
 @endif
