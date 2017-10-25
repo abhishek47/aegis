@@ -2,8 +2,10 @@
  <label>{!! $field['label'] !!}</label>
 
  <div style="height:0px;overflow:hidden">
-             <input type="file" id="fileInput" name="fileInput" />
-             </div>
+     <form id="file-upload" method="POST" action="/image/upload" enctype="multipart/form-data">
+       <input type="file" id="fileInput" name="files" />
+     </form>
+ </div>
 
 
 <div id="editor" class="editor--toolbar">
@@ -99,10 +101,20 @@
         <script type="text/javascript">
           $(function() {
              $("#fileInput").change(function (){
-               var fileName = $(this).val();
-               insertAtCaret('![alt text]('+ fileName + ' "Image Title")');
-             });
+
+                $("#file-upload").submit(function() {
+
+                    var formData = new FormData(this);
+
+                    $.post($(this).attr("action"), formData, function(data) {
+                        alert(data);
+                    });
+
+                    return false;
+                });
           });
+
+           });
         </script>
       @endpush
 @endif
