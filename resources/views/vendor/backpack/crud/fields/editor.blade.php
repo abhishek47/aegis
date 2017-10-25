@@ -1,4 +1,4 @@
-<div id="app" @include('crud::inc.field_wrapper_attributes') >
+<div  @include('crud::inc.field_wrapper_attributes') >
  <label>{!! $field['label'] !!}</label>
 
 <div id="editor" class="editor--toolbar">

@@ -16,9 +16,8 @@ class QuestionCrudController extends CrudController {
         	 [
 			'name' => 'q',
 			'label' => "Question"
-			],
-			['name' => 'a',
-			'label' => "Answer"]
+			]
+			
 
 
 	]);
@@ -26,7 +25,7 @@ class QuestionCrudController extends CrudController {
         	 [
 			'name' => 'q',
 			'label' => "Question",
-			'type' => 'simplemde'
+			'type' => 'editor2'
 			],
 			[ // Table
 			    'name' => 'a',
@@ -57,7 +56,7 @@ class QuestionCrudController extends CrudController {
 			'type' => 'textarea'],
 			['name' => 'solution',
 			'label' => "Solution",
-			'type' => 'editor'],
+			'type' => 'editor2'],
 			['name' => 'level',
 			'label' => "Level",
 			'type' => 'select_from_array',
@@ -76,7 +75,6 @@ class QuestionCrudController extends CrudController {
 
 	]);
 
-         $this->crud->allowAccess('show');
     }
 
 	public function store(Request $request)

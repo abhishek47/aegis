@@ -9,6 +9,9 @@ class Question extends Model
 {
      use CrudTrait;
 
+     protected $casts = [
+        'a' => 'array'
+    ];
 
      protected $fillable = ['q', 'a', 'select_any', 'correct', 'incorrect', 'quiz_id', 'level', 'solution'];
 
