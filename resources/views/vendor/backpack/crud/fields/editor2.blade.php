@@ -56,7 +56,7 @@
           </ul>
         </div>
       </div>
-	    <textarea id="marked-mathjax-input"  name="{{ $field['name'] }}" @include('crud::inc.field_attributes') rows="17" class="form-control">{{ old($field['name']) ? old($field['name']) : (isset($field['value']) ? $field['value'] : (isset($field['default']) ? $field['default'] : '' )) }} 
+	    <textarea id="marked-mathjax-input2"  name="{{ $field['name'] }}" @include('crud::inc.field_attributes') rows="17" class="form-control">{{ old($field['name']) ? old($field['name']) : (isset($field['value']) ? $field['value'] : (isset($field['default']) ? $field['default'] : '' )) }} 
       
 	    
 	    </textarea>
