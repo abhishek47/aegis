@@ -93,7 +93,7 @@
          <script type="text/javascript" src="/js/functions2.js"></script>
 
          <script>
-           function chooseFile() {
+           function chooseFile2() {
               $("#fileInput2").click();
            }
         </script>
