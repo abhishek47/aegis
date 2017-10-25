@@ -274,6 +274,7 @@ blockquote {
 }
 
 .slickQuiz ol.questions {
+    width: 80%;
     margin-top: 0px;
     margin-left: 0;
    float: left;
@@ -320,6 +321,24 @@ blockquote {
 .slickQuiz .quiz-levels {
     width: 160px;
     float: left;
+}
+
+.slickQuiz .quiz-question-links{
+    float: right;
+    list-style-type: none;
+}
+
+
+.slickQuiz .quiz-question-links li {
+
+    display: inline;
+
+}
+
+.slickQuiz .quiz-question-links li.active {
+
+    text-decoration: underline;
+
 }
 
 

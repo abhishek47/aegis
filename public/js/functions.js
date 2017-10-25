@@ -383,7 +383,7 @@ function insertAtCaret(text) {
                     $quizHeader.hide().append(levelsHtml).fadeIn(1000, kN(key,2));
 
                
-
+                  var skipToQ = $('<ol class="quiz-question-links"></ol>');    
 
                 $quizResultsCopy.append(quizValues.info.results);
 
@@ -399,10 +399,16 @@ function insertAtCaret(text) {
                 // Loop through questions object
                 for (i in questions) {
 
+
+
                     if (questions.hasOwnProperty(i)) {
                         var question = questions[i];
 
+
                         var questionHTML = $('<li class="' + questionClass +'" id="question' + (count - 1) + '"></li>');
+
+                        skipToQ.append($('<li><a class="change-question" id="ctoq' + (count - 1) + '" href="#" data-id="question' + (count - 1) + '">' + (count) + '</a></li>')).fadeIn(1000, kN(key,2));
+
 
                         if (plugin.config.displayQuestionCount) {
                             questionHTML.append('<div class="' + questionCountClass + '">' +
@@ -537,6 +543,8 @@ function insertAtCaret(text) {
 
                 $quizArea.append(quiz);
 
+                $quizName.hide().append(skipToQ).fadeIn(1000, kN(key,2));
+
                 // Toggle the start button OR start the quiz if start button is disabled
                 if (plugin.config.skipStartButton || $quizStarter.length == 0) {
                     $quizStarter.hide();
@@ -558,11 +566,13 @@ function insertAtCaret(text) {
                 kN = keyNotch; // you specify the notch, you get a callback function for your animation
 
                 function start(options) {
+
                     var firstQuestion = $(_element + ' ' + _questions + ' li').first();
                     if (firstQuestion.length) {
                         firstQuestion.fadeIn(500, function () {
                             if (options && options.callback) options.callback ();
                         });
+                        
                     }
                 }
 
@@ -956,6 +966,26 @@ function insertAtCaret(text) {
                     });
 
                 });
+
+            $('.change-question').on('click', function (e) {
+                    e.preventDefault();
+
+                    var key, keyNotch, kN;
+                    key = internal.method.getKey (2); // how many notches == how many jQ animations you will run
+                    keyNotch = internal.method.getKeyNotch; // a function that returns a jQ animation callback function
+                    kN = keyNotch; // you specify the notch, you get a callback function for your animation
+
+                    var qid = $(this).data('id');
+
+                
+                    $('.questions li[style*="display: list-item;"]').fadeOut(100, function(){
+                         $('#'+qid).fadeIn(300, kN(key,1));
+                    });
+
+                   
+
+           });
+
 
             // Bind "try again" button
             $(_element + ' ' + _tryAgainBtn).on('click', function(e) {
