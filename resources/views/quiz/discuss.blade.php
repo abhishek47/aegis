@@ -126,15 +126,24 @@ var simplemde = new SimpleMDE({ element: document.getElementById("comment-input"
 
   	 $('#question').html(text);
 
+  	 MathJax.Hub.Queue(
+              ["Typeset",MathJax.Hub,document.getElementById('solution')],
+              function() {
+                
+                   
+                    var text = $('#solution').html();		
 
-  	  var text = $('#solution').html();		
+  	  
+				  	 text = text.replace(/^&gt;/mg, '>');
+				     text = md.render(text) ;
 
-  	 text = text.replace(/^&gt;/mg, '>');
-     text = md.render(text) ;
+				     text = aegismarked(text);
 
-     text = aegismarked(text);
+				  	 $('#solution').html(text);
+              }
+            );
 
-  	 $('#solution').html(text);
+
 
   </script>
 
