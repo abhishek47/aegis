@@ -110,7 +110,9 @@ var Preview = {
             MathJax.Hub.Queue(
               ["Typeset",MathJax.Hub,document.getElementById('slickQuiz-'+qid)],
               function() {
-                 console.log('Done');
+                
+                   
+                  console.log('Done');
               }
             );
 

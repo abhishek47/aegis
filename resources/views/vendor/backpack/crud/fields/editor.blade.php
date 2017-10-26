@@ -102,19 +102,31 @@
           $(function() {
              $("#fileInput").change(function (){
 
-                $("#file-upload").submit(function() {
+                  console.log("FORM IS SUBMITTING");
 
-                    var formData = new FormData(this);
+                    var formData = new FormData();
 
-                    $.post($(this).attr("action"), formData, function(data) {
-                        alert(data);
-                    });
+                    formData.append('files', $('input[type=file]#fileInput')[0].files[0]);
 
-                    return false;
-                });
+                     console.log(formData); 
+
+                    $.ajax({
+                        url:'/image/upload',
+                        data: formData,
+                        async:false,
+                        type:'post',
+                        processData: false,
+                        contentType: false,
+                        success:function(res){
+                          insertAtCaret('![alt text]('+ res.src + ' "Image Title")');
+                        },
+                      });
+                   });
+
+                
           });
 
-           });
+         
         </script>
       @endpush
 @endif

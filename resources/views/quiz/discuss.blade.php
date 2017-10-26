@@ -29,11 +29,13 @@
 	  </div>
 	  <div class="panel-body" style="font-size: 17px;color: #000;">
 	    
-	    <h4>{{ $question->q }}</h4>
+	    <h4 id="question">{{ $question->q }}</h4>
 
 	    <p><b>Solution : </b></p>
 
-	   {{ $question->solution }}
+	    <div id="solution">
+	   		{{ $question->solution }}
+	   </div>
 	  </div>
 	</div>
 
@@ -111,5 +113,29 @@ var simplemde = new SimpleMDE({ element: document.getElementById("comment-input"
 
 
   <script type="text/javascript" src="/js/functions.js"></script>
+
+
+  <script type="text/javascript">
+  		
+  	 var text = $('#question').html();		
+
+  	 text = text.replace(/^&gt;/mg, '>');
+     text = md.render(text) ;
+
+     text = aegismarked(text);
+
+  	 $('#question').html(text);
+
+
+  	  var text = $('#solution').html();		
+
+  	 text = text.replace(/^&gt;/mg, '>');
+     text = md.render(text) ;
+
+     text = aegismarked(text);
+
+  	 $('#solution').html(text);
+
+  </script>
 
 @endsection
