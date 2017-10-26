@@ -131,7 +131,7 @@ var simplemde = new SimpleMDE({ element: document.getElementById("comment-input"
               function() {
                 
                    
-                    var text = $('#solution').html();		
+                    var text = $('#solution').text();		
 
   	  
 				  	 text = text.replace(/^&gt;/mg, '>');
