@@ -7,6 +7,15 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
+<meta property="og:image" content="https://aegisacademy.co.in/images/bg/bg4.png" />
+
+<meta property="og:description" content="Aegis Academy is started by young educators to provide high - quality education at affordable price. Almost every country conducts several exams to hunt extraordinary problem - solving skilled students.Olympiads are the most prestigious exam among them." />
+
+<meta property="og:url" content="https://aegisacademy.co.in/" />
+
+<meta property="og:title" content="Aegis Academy | If you love challenges, you are at the right place." />
+
+
 
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -16,10 +25,6 @@
 
 <!-- Favicon and Touch Icons -->
 <link href="/images/favicon.ico" rel="shortcut icon" type="image/ico">
-<link href="/images/apple-touch-icon.png" rel="apple-touch-icon">
-<link href="/images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
-<link href="/images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
-<link href="/images/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
 
 <!-- Stylesheet -->
  <!-- Styles -->
