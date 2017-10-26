@@ -448,7 +448,23 @@ function insertAtCaret(text) {
                             qanswers.sort(function() { return (Math.round(Math.random())-0.5); }) :
                             qanswers;
 
+                        if(answers.length == 1) 
+                        {
+                            console.log("SUBJECTIVE QUESTION");
 
+                            inputName     = $element.attr('id') + '_question' + (count - 1),
+
+                            optionId = inputName + '_' + 0;
+
+                            var optionInput = '<input style="border: 1px solid #2f2f2f;" class="form-control" placeholder="Enter your answer" type="text"  id="' + optionId + '" name="' + inputName +
+                                            '" />';
+
+                                var answerContent = $('<li></li>')
+                                    .append(optionInput);
+
+                                    answerHTML.append(answerContent);
+                        }  
+                        else { 
 
                         // prepare a name for the answer inputs based on the question
                         var selectAny     = question.select_any ? question.select_any : false,
@@ -495,6 +511,9 @@ function insertAtCaret(text) {
                                     .append(optionLabel);
                                 answerHTML.append(answerContent);
                             }
+                        }
+
+
                         }
 
                         // Append answers to question
@@ -642,49 +661,58 @@ function insertAtCaret(text) {
                     answers       = JSON.parse(questions[questionIndex].a),
                     selectAny     = questions[questionIndex].select_any ? questions[questionIndex].select_any : false;
 
-                answerLIs.addClass(incorrectResponseClass);
+                answerLIs.addClass(incorrectResponseClass); 
 
-                // Collect the true answers needed for a correct response
-                var trueAnswers = [];
-                for (i in answers) {
-                    if (answers.hasOwnProperty(i)) {
-                        var answer = answers[i],
-                            index  = parseInt(i, 10);
+                if(answers.length == 1)
+                {
+                    var correctResponse = answers[0].option == answerLIs.first().find('input:first-child').val();
+                } else {
+                     // Collect the true answers needed for a correct response
+                        var trueAnswers = [];
+                        for (i in answers) {
+                            if (answers.hasOwnProperty(i)) {
+                                var answer = answers[i],
+                                    index  = parseInt(i, 10);
 
-                        console.log(answer);    
-                        if (answer.correct) {
-                            trueAnswers.push(index);
-                            answerLIs.eq(index).removeClass(incorrectResponseClass).addClass(correctResponseClass);
+                                console.log(answer);    
+                                if (answer.correct) {
+                                    trueAnswers.push(index);
+                                    answerLIs.eq(index).removeClass(incorrectResponseClass).addClass(correctResponseClass);
+                                }
+                            }
                         }
-                    }
+
+                        // TODO: Now that we're marking answer LIs as correct / incorrect, we might be able
+                        // to do all our answer checking at the same time
+
+                        // NOTE: Collecting answer index for comparison aims to ensure that HTML entities
+                        // and HTML elements that may be modified by the browser / other scrips match up
+
+                        // Collect the answers submitted
+                        var selectedAnswers = [];
+                        answerSelects.each( function() {
+                            var id = $(this).attr('id');
+                            selectedAnswers.push(parseInt(id.replace(/(.*\_question\d{1,}_)/, ''), 10));
+                        });
+
+                        if (plugin.config.preventUnanswered && selectedAnswers.length === 0) {
+                            alert(plugin.config.preventUnansweredText);
+                            return false;
+                        }
+
+                        // Verify all/any true answers (and no false ones) were submitted
+                        var correctResponse = plugin.method.compareAnswers(trueAnswers, selectedAnswers, selectAny);
+
+                        
                 }
-
-                // TODO: Now that we're marking answer LIs as correct / incorrect, we might be able
-                // to do all our answer checking at the same time
-
-                // NOTE: Collecting answer index for comparison aims to ensure that HTML entities
-                // and HTML elements that may be modified by the browser / other scrips match up
-
-                // Collect the answers submitted
-                var selectedAnswers = [];
-                answerSelects.each( function() {
-                    var id = $(this).attr('id');
-                    selectedAnswers.push(parseInt(id.replace(/(.*\_question\d{1,}_)/, ''), 10));
-                });
-
-                if (plugin.config.preventUnanswered && selectedAnswers.length === 0) {
-                    alert(plugin.config.preventUnansweredText);
-                    return false;
-                }
-
-                // Verify all/any true answers (and no false ones) were submitted
-                var correctResponse = plugin.method.compareAnswers(trueAnswers, selectedAnswers, selectAny);
 
                 if (correctResponse) {
-                    questionLI.addClass(correctClass);
-                } else {
-                    questionLI.addClass(incorrectClass);
-                }
+                            questionLI.addClass(correctClass);
+                        } else {
+                            questionLI.addClass(incorrectClass);
+                        }
+
+               
 
                 // Toggle appropriate response (either for display now and / or on completion)
                 questionLI.find(correctResponse ? _correctResponse : _incorrectResponse).show();
