@@ -153,7 +153,7 @@ var Preview2 = {
   //    typesetting.  After it is done, call PreviewDone.
   //  
   CreatePreview: function () {
-    Preview.timeout = null;
+    Preview2.timeout = null;
     if (this.mjRunning) return;
     var text = this.textarea.value;
     if (text === this.oldtext) return;
