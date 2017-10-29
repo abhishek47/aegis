@@ -3,7 +3,7 @@
         <div class="display-table-cell">
           <div class="container banner-wrapper">
             <div class="row">
-              <div class="col-md-6 col-md-offset-6 text-right">
+              <div class="col-xs-6 col-md-6 col-xs-offset-6 col-md-offset-6 text-right">
                 <h1 class="text-white text-uppercase banner-title">If you love  <span class="text-theme-colored2">Challenging problems</span> you are at the right place</h1>
                 
               </div>

@@ -7,13 +7,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
-<meta property="og:image" content="https://aegisacademy.co.in/images/apple-icon-180x180.png" />
+<meta property="og:image" content="https://aegisacademy.co.in/images/bg/icon.png" />
 
 <meta property="og:description" content="Aegis Academy is started by young educators to provide high - quality education at affordable price. Almost every country conducts several exams to hunt extraordinary problem - solving skilled students.Olympiads are the most prestigious exam among them." />
 
 <meta property="og:url" content="https://aegisacademy.co.in/" />
 
-<meta property="og:title" content="Aegis Academy | If you love challenges, you are at the right place." />
+<meta property="og:title" content="Aegis Academy | Online Courses, Wiki Pages, Offline Courses - Aegis Academy is started by young educators to provide high - quality education at affordable price. Almost every country conducts several exams to hunt extraordinary problem - solving skilled students.Olympiads are the most prestigious exam among them." />
 
 
 
