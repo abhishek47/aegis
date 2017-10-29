@@ -380,7 +380,7 @@ function insertAtCaret(text) {
 
 
                 $quizName.hide().html(plugin.config.nameTemplateText
-                    .replace('%name', quizValues.info.name) ).fadeIn(1000, kN(key,1));
+                    .replace('%name', quizValues.info.name) );
                
                 var levelsHtml = $('<ol class="quiz-levels"></ol>');
             
@@ -570,9 +570,10 @@ function insertAtCaret(text) {
 
                 // Add the quiz content to the page
 
-                $quizArea.append(quiz);
+                $quizName.hide().append(skipToQ).fadeIn(500, kN(key,2));
 
-                $quizName.hide().append(skipToQ).fadeIn(1000, kN(key,2));
+                $quizArea.hide().append(quiz).fadeIn(500, kN(key,2));
+
 
                 // Toggle the start button OR start the quiz if start button is disabled
                 if (plugin.config.skipStartButton || $quizStarter.length == 0) {
@@ -649,6 +650,8 @@ function insertAtCaret(text) {
 
                     $quizArea.append($(_element + ' ' + _questions)).show();
 
+                    $('.sb-resp').remove();
+
                     kN(key,1).apply (null, []);
 
                     plugin.method.startQuiz({callback: plugin.config.animationCallbacks.startQuiz},$quizResults); // TODO: determine why $quizResults is being passed
@@ -676,6 +679,13 @@ function insertAtCaret(text) {
                 if(answers.length == 1)
                 {
                     var correctResponse = answers[0].option == answerLIs.first().find('input:first-child').val();
+                    if(correctResponse)
+                    {
+
+                    answerLIs.first().removeClass(incorrectResponseClass).addClass(correctResponseClass);
+                    }
+                    answerLIs.append('<li class="sb-resp" style="margin-top: 8px;"><b>Answer : </b>' + answers[0].option).fadeIn(200);
+
                 } else {
                      // Collect the true answers needed for a correct response
                         var trueAnswers = [];
