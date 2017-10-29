@@ -9,7 +9,7 @@
 	 MathJax.Hub.Queue(
               ["Typeset",MathJax.Hub,document.getElementById('solution')],
               function() {
-                  var text = $('#solution').html();
+                  var text = {{ $question->solution }}
 
                   text = md.render(text);
 
