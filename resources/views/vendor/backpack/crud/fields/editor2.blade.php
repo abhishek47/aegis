@@ -409,7 +409,7 @@ Preview2.callback.autoReset = true;  // make sure it can run more than once</scr
                         processData: false,
                         contentType: false,
                         success:function(res){
-                          insertAtCaret('![alt text]('+ res.src + ' "Image Title")');
+                          insertAtCaret2('![alt text]('+ res.src + ' "Image Title")');
                         },
                       });
                    });
