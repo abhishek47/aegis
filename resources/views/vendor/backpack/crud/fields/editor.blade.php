@@ -420,7 +420,7 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
               }
               .editor-preview.fullscreen {
                 position: fixed!important;
-              top: 95px;
+              top: 50px;
               left: 0;
               right: 0;
               bottom: 0;
