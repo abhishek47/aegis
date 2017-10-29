@@ -384,7 +384,7 @@ Preview2.callback.autoReset = true;  // make sure it can run more than once</scr
          <script type="text/javascript" src="/js/functions2.js"></script>
 
          <script>
-           function chooseFile() {
+           function chooseFile2() {
               $("#fileInput2").click();
            }
         </script>
