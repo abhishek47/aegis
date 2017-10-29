@@ -5,20 +5,36 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
 <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
+<link rel="stylesheet" type="text/css" href="/css/markdown.css">
+<link rel="stylesheet" type="text/css" href="/css/editor.css">
+
 <script type="text/javascript">
 	 MathJax.Hub.Queue(
               ["Typeset",MathJax.Hub,document.getElementById('solution')],
               function() {
-                  var text = {{ $question->solution }}
+              	var soln = document.getElementById('solution');
+                 text = soln.innerHTML;
+			    // replace occurrences of &gt; at the beginning of a new line
+			    // with > again, so Markdown blockquotes are handled correctly
+			    text = text.replace(/^&gt;/mg, '>');
+			     text = md.render(text) ;
 
-                  text = md.render(text);
+			    
 
-                  text = aegismarked(text);
-
-                  $('#solution').html(text);
+			     soln.innerHTML = aegismarked(text);
               }
             );
 </script>
+
+<style type="text/css">
+	#solution pre {
+		background: none;
+		padding: none;
+		text-align: left;
+		border: none;
+		font-size: 18px;
+	}
+</style>
 
 
 @endsection
