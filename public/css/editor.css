@@ -47,7 +47,7 @@ blockquote {
     cursor: pointer;
 }
 
-.definition, .example, .theorem, .box {
+.markdown-body .definition,.markdown-body .example, .markdown-body .theorem, .markdown-body .box {
     background-color: #f7f7f7;
 }
 

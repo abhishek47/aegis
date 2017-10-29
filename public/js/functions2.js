@@ -92,6 +92,16 @@ function addLine2(height)
         
 }
 
+function toggleFullscreen2()
+{
+    $('body').css('padding-top', '0');
+    $('.navbar').toggleClass('hidden');
+    $('#btn-fullscreen2').toggleClass('active');
+    $('#editor2').toggleClass('fullscreen');
+    $('#main--output2').toggleClass('fullscreen');
+    $('#editor--buttons2').toggleClass('fullscreen');
+}
+
 
 
 function insertAtCaret2(text) {
