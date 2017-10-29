@@ -89,6 +89,8 @@
 </div>
 </section>
 
+<br clear="visible-xs"> <br class="visible-xs"><br clear="visible-xs"> <br class="visible-xs">
+
  
 
 @endsection
