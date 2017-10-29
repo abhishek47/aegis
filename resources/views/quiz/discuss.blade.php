@@ -5,6 +5,20 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
 <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
+<script type="text/javascript">
+	 MathJax.Hub.Queue(
+              ["Typeset",MathJax.Hub,document.getElementById('solution')],
+              function() {
+                  var text = $('#solution').text();
+
+                  text = md.render(text);
+
+                  text = aegismarked(text);
+
+                  $('#solution').html(text);
+              }
+            );
+</script>
 
 
 @endsection
