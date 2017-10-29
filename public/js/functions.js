@@ -379,7 +379,7 @@ function insertAtCaret(text) {
                 kN = keyNotch; // you specify the notch, you get a callback function for your animation
 
 
-                $quizName.hide().html(plugin.config.nameTemplateText
+                $quizName.html(plugin.config.nameTemplateText
                     .replace('%name', quizValues.info.name) );
                
                 var levelsHtml = $('<ol class="quiz-levels"></ol>');
@@ -570,9 +570,9 @@ function insertAtCaret(text) {
 
                 // Add the quiz content to the page
 
-                $quizName.hide().append(skipToQ).fadeIn(500, kN(key,2));
+                $quizName.append(skipToQ).fadeIn(500, kN(key,2));
 
-                $quizArea.hide().append(quiz).fadeIn(500, kN(key,2));
+                $quizArea.append(quiz).fadeIn(500, kN(key,2));
 
 
                 // Toggle the start button OR start the quiz if start button is disabled
