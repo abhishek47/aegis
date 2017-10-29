@@ -197,6 +197,9 @@ var Preview = {
   //  The callback function is set up below, after the Preview object is set up.
   //
   Update: function () {
+    
+     $('#editor--area').toggleClass('hidden');
+     $('#main--output').toggleClass('hidden');
     if (this.timeout) {clearTimeout(this.timeout)}
     this.timeout = setTimeout(this.callback,this.delay);
   },
@@ -265,8 +268,6 @@ var Preview = {
 
 
 
-     $('#editor--area').toggleClass('hidden');
-     $('#main--output').toggleClass('hidden');
      
   },
   Escape: function (html, encode) {
