@@ -363,12 +363,12 @@ Preview2.callback.autoReset = true;  // make sure it can run more than once</scr
               }
               .editor-preview.fullscreen {
                 position: fixed!important;
-              top: 95px;
+              top: 50px;
               left: 0;
               right: 0;
               bottom: 0;
               height: auto;
-              z-index: 19999;
+              z-index: 9999;
               }
 
           </style>
