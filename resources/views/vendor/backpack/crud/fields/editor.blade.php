@@ -425,7 +425,7 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
               right: 0;
               bottom: 0;
               height: auto;
-              z-index: 19999;
+              z-index: 9999;
               }
 
           </style>
