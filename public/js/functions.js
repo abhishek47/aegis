@@ -683,8 +683,10 @@ function insertAtCaret(text) {
                     {
 
                     answerLIs.first().removeClass(incorrectResponseClass).addClass(correctResponseClass);
+                    } else {
+                         answerLIs.append('<li class="sb-resp" style="margin-top: 8px;"><b>Answer : </b>' + answers[0].option).fadeIn(200);
                     }
-                    answerLIs.append('<li class="sb-resp" style="margin-top: 8px;"><b>Answer : </b>' + answers[0].option).fadeIn(200);
+                   
 
                 } else {
                      // Collect the true answers needed for a correct response
