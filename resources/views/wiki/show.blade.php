@@ -138,8 +138,10 @@ var Preview = {
         var openingDiv = '<div id="section-'+id+'-body" class="collapse">'
         $(this).nextUntil('h2').wrapAll(openingDiv);
 
-        $(this).wrap('<a id="section-' + id + '" href="#section-' + id + '-body" data-toggle="collapse"><a>')
+        $(this).wrap('<a class="collapse--header" id="section-' + id + '" href="#section-' + id + '-body" data-toggle="collapse"><a>')
         
+        $('#section-'+id+' h2').append(' <i style="font-weight:normal;float:right;color: #b3b3b3;font-size: 20px; \
+          margin-right: 10px;" class="fa fa-chevron-down"></i>');
       
 
 
@@ -151,9 +153,10 @@ var Preview = {
         var openingDiv = '<div id="section-'+id+'-body" class="collapse">'
         $(this).nextUntil('h3').wrapAll(openingDiv);
 
-        $(this).wrap('<a id="section-' + id + '" href="#section-' + id + '-body" data-toggle="collapse"><a>')
+        $(this).wrap('<a class="collapse--header" id="section-' + id + '" href="#section-' + id + '-body" data-toggle="collapse"><a>')
         
-      
+        $('#section-'+id+' h3').append(' <i style="font-weight:normal;float:right;color: #b3b3b3;font-size: 20px; \
+          margin-right: 10px;" class="fa fa-chevron-down"></i>');
 
 
          id++;
