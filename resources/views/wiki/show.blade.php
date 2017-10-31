@@ -145,6 +145,19 @@ var Preview = {
 
          id++;
     });
+
+    $('#main--output h3').each(function(){
+
+        var openingDiv = '<div id="section-'+id+'-body" class="collapse">'
+        $(this).nextUntil('h3').wrapAll(openingDiv);
+
+        $(this).wrap('<a id="section-' + id + '" href="#section-' + id + '-body" data-toggle="collapse"><a>')
+        
+      
+
+
+         id++;
+    });
   },
   Escape: function (html, encode) {
     return html
