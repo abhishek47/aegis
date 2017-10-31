@@ -12,6 +12,7 @@
 
 
 <script>
+var inEdit = false;
 var Preview = {
   delay: 50,        // delay after keystroke before updating
   preview: null,     // filled in by Init below
@@ -124,8 +125,26 @@ var Preview = {
      
     
 
-    $('#editor--container').toggleClass('hidden');
+       if(inEdit)
+       {
+
+          $('#editor--container').toggleClass('hidden');
+       }
     $('#main--output').toggleClass('hidden');
+
+    var id = 0;
+    $('#main--output h2').each(function(){
+
+        var openingDiv = '<div id="section-'+id+'-body" class="collapse">'
+        $(this).nextUntil('h2').wrapAll(openingDiv);
+
+        $(this).wrap('<a id="section-' + id + '" href="#section-' + id + '-body" data-toggle="collapse"><a>')
+        
+      
+
+
+         id++;
+    });
   },
   Escape: function (html, encode) {
     return html
@@ -171,13 +190,13 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 </div>  
    <form method="POST" action="/wiki/update/{{ $wiki->id }}">
    {{ csrf_field() }}
-   <div id="editor--container" class="">
+   <div id="editor--container" class="hidden">
 
 
      <div>
        <div class="pull-right"> 
        	  <a href="#" class="btn btn-default btn-flat" onclick="toggleEditor()">Cancel</a> &nbsp;
-       	  <a href="#" class="btn btn-colored btn-theme-colored2 btn-flat" onclick="Preview.Update()">Preview</a> &nbsp;
+       	  <a href="#" class="btn btn-colored btn-theme-colored2 btn-flat" onclick="inEdit=true;Preview.Update()">Preview</a> &nbsp;
           <button type="submit" class="btn btn-colored btn-success btn-flat" >Update</button> &nbsp;
        </div>
      </div>
@@ -306,6 +325,10 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
   <script>
 Preview.Init();
 Preview.Update();
+</script>
+
+<script type="text/javascript">
+  
 </script>
 
 
