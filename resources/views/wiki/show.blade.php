@@ -132,16 +132,41 @@ var Preview = {
        }
     $('#main--output').toggleClass('hidden');
 
+    var width = $(window).width(); 
+        var height = $(window).height(); 
+
+       
+
     var id = 0;
     $('#main--output h2').each(function(){
 
-        var openingDiv = '<div id="section-'+id+'-body" class="collapse">'
-        $(this).nextUntil('h2').wrapAll(openingDiv);
 
-        $(this).wrap('<a class="collapse--header" id="section-' + id + '" href="#section-' + id + '-body" data-toggle="collapse"><a>')
+         if ((width >= 1024  ) && (height>=768)) {
+
+            var openingDiv = '<div id="section-'+id+'-body">'
+            $(this).nextUntil('h2').wrapAll(openingDiv);
+
+
+            $(this).attr('id', 'section-'+id);
+
+            $('#section-'+id).append(' <a onclick="editSection(' + id +')" style="font-weight:normal;float:right;color: #616161 !important;margin-right: 10px;font-size: 14px;cursor:pointer;"><i class="fa fa-edit"> Edit this Section</i></a>');
+        }
+        else {
+
+          var openingDiv = '<div id="section-'+id+'-body" class="collapse">'
+          $(this).nextUntil('h2').wrapAll(openingDiv);
+
+          $(this).wrap('<a  class="collapse--header" id="section-' + id + '" href="#section-' + id + '-body" data-toggle="collapse"><a>')
+          
+         
+
+          $('#section-'+id+' h2').append(' <i style="font-weight:normal;float:right;color: #b3b3b3;font-size: 20px; \
+            margin-right: 10px;" class="fa fa-chevron-down"></i>');
+
+            
+        }
+
         
-        $('#section-'+id+' h2').append(' <i style="font-weight:normal;float:right;color: #b3b3b3;font-size: 20px; \
-          margin-right: 10px;" class="fa fa-chevron-down"></i>');
       
 
 
@@ -150,13 +175,31 @@ var Preview = {
 
     $('#main--output h3').each(function(){
 
-        var openingDiv = '<div id="section-'+id+'-body" class="collapse">'
-        $(this).nextUntil('h3').wrapAll(openingDiv);
+        if ((width >= 1024  ) && (height>=768)) {
 
-        $(this).wrap('<a class="collapse--header" id="section-' + id + '" href="#section-' + id + '-body" data-toggle="collapse"><a>')
-        
-        $('#section-'+id+' h3').append(' <i style="font-weight:normal;float:right;color: #b3b3b3;font-size: 20px; \
-          margin-right: 10px;" class="fa fa-chevron-down"></i>');
+            var openingDiv = '<div id="section-'+id+'-body">'
+            $(this).nextUntil('h3').wrapAll(openingDiv);
+
+
+            $(this).attr('id', 'section-'+id);
+
+            $('#section-'+id).append(' <a onclick="editSection(' + id +')" style="font-weight:normal;float:right;color: #616161 !important;margin-right: 10px;cursor:pointer;font-size: 14px;"><i class="fa fa-edit"> Edit this Section</i></a>');
+        }
+        else {
+
+          var openingDiv = '<div id="section-'+id+'-body" class="collapse">'
+          $(this).nextUntil('h3').wrapAll(openingDiv);
+
+          $(this).wrap('<a class="collapse--header" id="section-' + id + '" href="#section-' + id + '-body" data-toggle="collapse"><a>')
+          
+         
+
+          $('#section-'+id+' h3').append(' <i style="font-weight:normal;float:right;color: #b3b3b3;font-size: 20px; \
+            margin-right: 10px;" class="fa fa-chevron-down"></i>');
+
+            
+        }
+
 
 
          id++;

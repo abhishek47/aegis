@@ -4,6 +4,27 @@ toggleEditor = function() {
   	}
 
 
+ function editSection(id)
+        {
+            console.log('editing');
+            var divHtml = $("#section-" + id + "-body").html();
+
+            // create a dynamic textarea
+            var editor = $('<div />');
+
+            var editableText = $("<textarea />");
+            editableText.attr('class', 'form-control');
+            editableText.attr('rows', '15');
+            editableText.val(divHtml);
+
+            editor.append(editableText);
+
+            editor.append('<button')
+            // replace the div with the textarea
+            $("#section-" + id + "-body").replaceWith(editableText);
+        }   
+
+
 
 function addHeader()
 {

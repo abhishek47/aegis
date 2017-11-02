@@ -44,6 +44,8 @@ const app = new Vue({
 	    	console.log(window.location);
 	    	window.location = '/wiki/' + id;
 	    }
+
+
 	  }
     
 });
