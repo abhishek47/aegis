@@ -6,11 +6,14 @@ toggleEditor = function() {
 
  function editSection(id)
         {
-            console.log('editing');
+            
             var divHtml = $("#section-" + id + "-body").html();
 
             // create a dynamic textarea
-            var editor = $('<div />');
+            var editor = $('<form />');
+            editor.attr('id', "section-" + id + "-body");
+            editor.attr('action', '/wiki/section/' + id);
+            editor.attr('method', 'POST');
 
             var editableText = $("<textarea />");
             editableText.attr('class', 'form-control');
@@ -19,10 +22,40 @@ toggleEditor = function() {
 
             editor.append(editableText);
 
-            editor.append('<button')
+            editor.append('<br><button class="btn btn-flat btn-primary" type="submit">Publish</button>');
+
+            editor.append('<button onclick="closeEditing(' + id + ')" class="btn btn-flat btn-success" style="margin-left: 10px;" >Cancel</button>');
             // replace the div with the textarea
-            $("#section-" + id + "-body").replaceWith(editableText);
-        }   
+            $("#section-" + id + "-body").replaceWith(editor);
+
+            $(editableText).blur(function() {
+                // Preserve the value of textarea
+                var html = $(this).val();
+                // create a dynamic div
+                var viewableText = $("<div>");
+                viewableText.attr('id', "section-" + id + "-body");
+                // set it's html 
+                viewableText.html(html);
+                // replace out the textarea
+                editor.replaceWith(viewableText);
+            });
+        }  
+
+
+
+function closeEditing(id)
+{
+     // Preserve the value of textarea
+        var editor = $("#section-" + id + "-body");
+        var html = $("#section-" + id + "-body textarea").val();
+        // create a dynamic div
+        var viewableText = $("<div>");
+        viewableText.attr('id', "section-" + id + "-body");
+        // set it's html 
+        viewableText.html(html);
+        // replace out the textarea
+        editor.replaceWith(viewableText);
+}         
 
 
 
@@ -204,7 +237,7 @@ function insertAtCaret(text) {
                 backButtonText: '',
                 completeQuizText: '',
                 tryAgainText: 'Try Again',
-                questionCountText: 'Question %current of %total | LEVEL %level',
+                questionCountText: 'Question %current of %total %level',
                 preventUnansweredText: 'You must select at least one answer.',
                 questionTemplateText:  '%count. %text',
                 scoreTemplateText: '%score / %total',
@@ -402,8 +435,12 @@ function insertAtCaret(text) {
 
                 $quizName.html(plugin.config.nameTemplateText
                     .replace('%name', quizValues.info.name) );
-               
-                var levelsHtml = $('<ol class="quiz-levels"></ol>');
+
+
+                
+                if(levels > 1)
+                {
+                    var levelsHtml = $('<ol class="quiz-levels"></ol>');
             
 
                     for(i = 1; i<=levels; i++)
@@ -412,6 +449,8 @@ function insertAtCaret(text) {
                     }
 
                     $quizHeader.hide().append(levelsHtml).fadeIn(1000, kN(key,2));
+                }
+                
 
                
                   var skipToQ = $('<ol class="quiz-question-links"></ol>');    
@@ -442,11 +481,21 @@ function insertAtCaret(text) {
 
 
                         if (plugin.config.displayQuestionCount) {
-                            questionHTML.append('<div class="' + questionCountClass + '">' +
+                           if(levels > 1)
+                           {
+                                questionHTML.append('<div class="' + questionCountClass + '">' +
                                 plugin.config.questionCountText
                                     .replace('%current', '<span class="current">' + count + '</span>')
                                     .replace('%total', '<span class="total">' +
-                                        questionCount + '</span>').replace('%level','<b>' + question.level + '</b>') + '</div>');
+                                        questionCount + '</span>').replace('%level',' | LEVEL <b>' + question.level + '</b>') + '</div>');
+                           }  else {
+                                 questionHTML.append('<div class="' + questionCountClass + '">' +
+                                plugin.config.questionCountText
+                                    .replace('%current', '<span class="current">' + count + '</span>')
+                                    .replace('%total', '<span class="total">' +
+                                        questionCount + '</span>').replace('%level','') + '</div>');
+                           }
+                            
                         }
 
                         var formatQuestion = '';
