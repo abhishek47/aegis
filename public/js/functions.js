@@ -6,7 +6,12 @@ toggleEditor = function() {
 
  function editSection(id)
         {
-            
+            var wid = $('#wid').text();
+
+            var startText = $('#section-'+id).text();
+            nid = id+1;
+            var endText = $('#section-'+nid).text();
+
             var divHtml = $("#section-" + id + "-body").html();
 
             // create a dynamic textarea
@@ -18,44 +23,51 @@ toggleEditor = function() {
             var editableText = $("<textarea />");
             editableText.attr('class', 'form-control');
             editableText.attr('rows', '15');
-            editableText.val(divHtml);
 
-            editor.append(editableText);
+             $.get('/wiki/' + wid + '/section/'+id).then(function(res, status)
+                {
 
-            editor.append('<br><button class="btn btn-flat btn-primary" type="submit">Publish</button>');
+                    editableText.val(res.data);
 
-            editor.append('<button onclick="closeEditing(' + id + ')" class="btn btn-flat btn-success" style="margin-left: 10px;" >Cancel</button>');
-            // replace the div with the textarea
-            $("#section-" + id + "-body").replaceWith(editor);
+                    editor.append(editableText);
 
-            $(editableText).blur(function() {
-                // Preserve the value of textarea
-                var html = $(this).val();
-                // create a dynamic div
-                var viewableText = $("<div>");
-                viewableText.attr('id', "section-" + id + "-body");
-                // set it's html 
-                viewableText.html(html);
-                // replace out the textarea
-                editor.replaceWith(viewableText);
-            });
+                    editor.append('<br><button class="btn btn-flat btn-primary" type="submit">Publish</button>');
+
+                    editor.append('<button onclick="closeEditing(' + id + ')" class="btn btn-flat btn-success" style="margin-left: 10px;" >Cancel</button>');
+                    // replace the div with the textarea
+                    $("#section-" + id + "-body").replaceWith(editor);
+
+                    $(editableText).blur(function() {
+                        // Preserve the value of textarea
+                        var html = $(this).val();
+                        // create a dynamic div
+                        var viewableText = $("<div>");
+                        viewableText.attr('id', "section-" + id + "-body");
+                        // set it's html 
+                        viewableText.html(divHtml);
+                        // replace out the textarea
+                        editor.replaceWith(viewableText);
+                    });
+
+                });
+
+
+             closeEditing = function(id)
+            {
+                 // Preserve the value of textarea
+                    // create a dynamic div
+                    var viewableText = $("<div>");
+                    viewableText.attr('id', "section-" + id + "-body");
+                    // set it's html 
+                    viewableText.html(divHtml);
+                    // replace out the textarea
+                    editor.replaceWith(viewableText);
+            }         
+
         }  
 
 
 
-function closeEditing(id)
-{
-     // Preserve the value of textarea
-        var editor = $("#section-" + id + "-body");
-        var html = $("#section-" + id + "-body textarea").val();
-        // create a dynamic div
-        var viewableText = $("<div>");
-        viewableText.attr('id', "section-" + id + "-body");
-        // set it's html 
-        viewableText.html(html);
-        // replace out the textarea
-        editor.replaceWith(viewableText);
-}         
 
 
 

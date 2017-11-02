@@ -81,4 +81,12 @@ class WikiController extends Controller
     	return redirect('/wiki/' . $wiki->id);
     }
 
+
+
+    public function getSection(Wiki $wiki, $section)
+    {
+
+        return response(['data'=> $wiki->body], 200);
+    }
+
 }

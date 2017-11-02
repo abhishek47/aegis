@@ -141,7 +141,7 @@ var Preview = {
     $('#main--output h2').each(function(){
 
 
-         if ((width >= 1024  ) && (height>=768)) {
+         if ((width >= 768  ) && (height>=768)) {
 
             var openingDiv = '<div id="section-'+id+'-body">'
             $(this).nextUntil('h2').wrapAll(openingDiv);
@@ -243,6 +243,8 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 <div class="container">
 <div class="page-header">
   <h2>{{ $wiki->title }}</h2>
+
+  <i class="hidden" id="wid">{{ $wiki->id }}</i>
 
 	<a href="#" id="edit" style="color: #313131;" onclick="toggleEditor()"><i class="fa fa-edit"></i> Edit this wiki</a> 
 
