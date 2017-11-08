@@ -38,10 +38,10 @@
             <a href="/courses/{{$course->id}}" class="btn btn-dark">Start Course</a>
           </div>
         </div>
-      
+          </div>
       
       @endforeach
-    </div>
+  
   </div>
 </section>
 {{ $onlineCourses->links() }}
