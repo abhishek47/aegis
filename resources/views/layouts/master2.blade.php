@@ -157,6 +157,7 @@
               </a>
               @if(auth()->check())
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/home">Home</a>
                 <a class="dropdown-item" href="#">Go Premium</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">My Courses</a>

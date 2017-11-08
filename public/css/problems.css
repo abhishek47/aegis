@@ -1,0 +1,8 @@
+.problem-of-week .card-body{
+	padding: 0.25rem;
+}
+
+.problem-of-week .slickQuiz {
+	margin-top: 0px;
+	border: none;
+}

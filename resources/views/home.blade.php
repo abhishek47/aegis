@@ -1,25 +1,48 @@
 @extends('layouts.master2')
 
+@section('css')
+
+   <link rel="stylesheet" type="text/css" href="/css/problems.css">
+
+@endsection
+
 @section('content')
 <section  class="pt-2">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div style="width: 100%;margin-bottom: 20px;">
-                            <h3 class="font-weight-bold">Practice Problems</h3>
-                            <hr>
-                        </div>
+                       
                         
                     </div>
-                    <div class="col-md-12" id="classrooms">
-                        <div class="card mb-3" style="">
-                          <div class="card-header text-light bg-primary" >Problem Category</div>
+                    <div class="col-md-12">
+                        <div class="card mb-3 problem-of-week">
+                          <div class="card-header text-light bg-primary" >
+                           <h4 class="font-weight-bold mb-0 float-left"> Problems of the Week </h4>
+                           <div class="btn-group float-right" data-toggle="buttons">
+                              <label class="btn btn-sm btn-outline-white text-light active mb-0">
+                                <input type="radio" name="options" id="option1" autocomplete="off" checked> Routine
+                              </label>
+                              <label class="btn btn-sm btn-outline-white text-light  mb-0">
+                                <input type="radio" name="options" id="option2" autocomplete="off"> Moderate
+                              </label>
+                              <label class="btn btn-sm btn-outline-white text-light  mb-0">
+                                <input type="radio" name="options" id="option3" autocomplete="off"> Challenging
+                              </label>
+                            </div>
+                          </div>
                           <div class="card-body">
-                            <h4 class="card-title">Primary Quesiton title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-
-                            <a href="classrooms.html" class="btn btn-primary">Submit Solution</a>
-                            <a href="classrooms.html" class="btn btn-dark">Discuss Solution</a>
+                            <div class="slickQuiz" id="slickQuiz-1" data-id="1">
+                                <h1 class="quizName"></h1>
+                                <div class="quizArea">
+                                    <div class="quizHeader"> 
+                                        <a class="startQuiz" href="">Get Started!</a> 
+                                    </div> 
+                                </div> 
+                                <div class="quizResults"> 
+                                    <h3 class="quizScore">You Scored: <span></span></h3> 
+                                    <h3 class="quizLevel"><strong>Ranking:</strong> <span></span></h3> 
+                                    <div class="quizResultsCopy"></div> 
+                                </div>
                           </div>
                         </div>
                     </div>
@@ -130,5 +153,35 @@
         </div>
     </div>
 </section>
+
+@endsection
+
+@section('js')
+
+<script type="text/javascript">
+
+        var qid = {{ $problemsId }};
+
+        axios.get('/quiz/'+qid).then(function(response) {
+          console.log(response.data);
+
+          $('#slickQuiz-'+qid).slickQuiz({
+            json: response.data
+           });
+
+            MathJax.Hub.Queue(
+              ["Typeset",MathJax.Hub,document.getElementById('slickQuiz-'+qid)],
+              function() {
+                
+                   
+                  console.log('Done');
+              }
+            );
+    });
+  
+
+</script>
+
+<script type="text/javascript" src="/js/problems.js"></script>
 
 @endsection

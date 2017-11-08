@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Wiki;
+use App\Quiz;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,7 +26,8 @@ class HomeController extends Controller
     public function index()
     {
        $wiki = Wiki::latest()->where('published', 1)->first();
-        return view('home', compact('wiki'));
+       $problemsId = Quiz::latest()->first()->id; 
+        return view('home', compact('wiki', 'problemsId'));
     }
 
     /**
