@@ -143,9 +143,7 @@
               <a class="nav-link" href="/courses">Courses</a>
             </li>
 
-             <li class="nav-item active">
-              <a class="nav-link" href="/practice">Practice</a>
-            </li>
+            
             
             <li class="nav-item active">
               <a class="nav-link" href="/books">Books</a>

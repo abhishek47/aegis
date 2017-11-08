@@ -120,13 +120,14 @@ a {
 
 }
 
-
 .tab-bar li.active {
 	border-bottom: 2px solid  #1A458E;
 }
-    .hidden {
-      display: none !important;
-    }
+
+
+.hidden {
+  display: none !important;
+}
 
 
 .modal {

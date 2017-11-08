@@ -21,7 +21,12 @@ class WikiCrudController extends CrudController {
 			],
 			['name' => 'body',
 			'label' => "Page Body",
-			'type' => 'editor']
+			'type' => 'editor'],
+			['name' => 'category_id',
+			'label' => "Wiki Category",
+			'type' => 'select_from_array',
+			'allows_null' => false,
+			'options' => [0 => 'General', 1 => 'Problematic']]
 
 
 	]);

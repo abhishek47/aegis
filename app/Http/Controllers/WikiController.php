@@ -20,13 +20,13 @@ class WikiController extends Controller
      
     public function index()
     {
-    	$wikis = Wiki::latest()->where('published', 1)->paginate(10);
+    	$wikis = Wiki::latest()->where('published', 1)->where('category_id', '!=', 1)->paginate(10);
     	return view('wiki.index', compact('wikis'));
     }
 
      public function problematic()
     {
-        $wikis = Wiki::latest()->where('published', 1)->paginate(10);
+        $wikis = Wiki::latest()->where('published', 1)->where('category_id',  1)->paginate(10);
         return view('wiki.problematic', compact('wikis'));
     }
 

@@ -10,7 +10,7 @@
 
     <ul class="nav nav-pills">
       <li class="nav-item">
-        <a class="nav-link active" href="#">Virtual</a>
+        <a class="nav-link active" href="#">Live</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Self-Paced</a>
