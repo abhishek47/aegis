@@ -31,7 +31,7 @@
                             </div>
                           </div>
                           <div class="card-body">
-                            <div class="slickQuiz" id="slickQuiz-1" data-id="1">
+                            <div class="slickQuiz" id="slickQuiz-{{$problemsId}}" data-id="{{$problemsId}}">
                                 <h1 class="quizName"></h1>
                                 <div class="quizArea">
                                     <div class="quizHeader"> 
