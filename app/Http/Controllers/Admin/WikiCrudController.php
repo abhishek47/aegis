@@ -26,7 +26,7 @@ class WikiCrudController extends CrudController {
 			'label' => "Wiki Category",
 			'type' => 'select_from_array',
 			'allows_null' => false,
-			'options' => [0 => 'General', 1 => 'Problematic']]
+			'options' => [0 => 'Topical', 1 => 'Problematic']]
 
 
 	]);

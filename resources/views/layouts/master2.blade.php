@@ -130,7 +130,7 @@
               </a>
              
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/wiki">General</a>
+                <a class="dropdown-item" href="/wiki">Topical</a>
                 <a class="dropdown-item" href="/wiki/problematic">Problematic</a>
               </div>
 
