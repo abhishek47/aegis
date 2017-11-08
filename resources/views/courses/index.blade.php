@@ -26,23 +26,28 @@
 
 <section class="pt-3">
   <div class="container">
-    <div class="row">
-      @foreach($onlineCourses as $index => $course)
-      
-      <div class="col-md-4" id="classrooms">
+    <?php $courseChunks = $onlineCourses->chunk(3); ?>
 
-        <div class="card text-light" style="background: {{ getColor($course->id) }};cursor: pointer;" @click="openLink('/courses/{{$course->id}}')">
-          <div class="card-body">
-            <h4 class="card-title">{{ $course->name }}</h4>
-            <p class="card-text">{{ $course->description }}</p>
-            <a href="/courses/{{$course->id}}" class="btn btn-dark">Start Course</a>
-          </div>
-        </div>
-          </div>
+        @foreach($courseChunks as $courseChunk)
+          <div class="row">
+          
+              @foreach($courseChunk as $index => $course)
+              
+                 <div class="col-md-4" id="classrooms">
+                    <div class="card text-light" style="background: {{ getColor($course->id) }};cursor: pointer;" @click="openLink('/courses/{{$course->id}}')">
+                      <div class="card-body">
+                        <h4 class="card-title">{{ $course->name }}</h4>
+                        <p class="card-text">{{ $course->description }}</p>
+                        <a href="/courses/{{$course->id}}" class="btn btn-dark">Start Course</a>
+                      </div>
+                    </div>
+                 </div>
+              
+              @endforeach
       
-      @endforeach
-  
-  </div>
+        </div>
+
+  @endforeach
 </section>
 {{ $onlineCourses->links() }}
 <br><br>
