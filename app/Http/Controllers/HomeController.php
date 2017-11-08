@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Wiki;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+       $wiki = Wiki::latest()->where('published', 1)->first();
+        return view('home', compact('wiki'));
     }
 
     /**

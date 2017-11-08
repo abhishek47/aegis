@@ -43,6 +43,12 @@ const app = new Vue({
 	    {
 	    	console.log(window.location);
 	    	window.location = '/wiki/' + id;
+	    },
+
+	    openLink(url)
+	    {
+	    	console.log(window.location);
+	    	window.location = url;
 	    }
 
 

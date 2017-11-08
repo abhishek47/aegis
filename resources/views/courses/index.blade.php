@@ -1,92 +1,53 @@
-@extends('layouts.master')
-
-
+@extends('layouts.master2')
 @section('content')
 
-		 <!-- Section: inner-header -->
-    <section class="inner-header divider layer-overlay overlay-theme-colored-7" data-bg-img="images/bg/bg1.jpg">
-      <div class="container short-banner-wrapper">
-        <!-- Section Content -->
-        <div class="section-content">
-          <div class="row"> 
-            <div class="col-md-6">
-              <h2 class="text-white font-36">Our Courses</h2>
-              <ol class="breadcrumb text-left mt-10 white">
-                <li><a href="#">Home</a></li>
-                <li class="active">Courses</li>
-              </ol>
-            </div>
+
+
+<section class="heading">
+  <div class="container pb-0">
+
+    <h2 style="font-weight: bold;float: left;margin-right: 15px;">Courses</h2>
+
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Virtual</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Self-Paced</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Offline</a>
+      </li>
+     
+    </ul>
+    <hr>
+  </div>
+</section>
+
+<section class="pt-3">
+  <div class="container">
+    <div class="row">
+      @foreach($onlineCourses as $index => $course)
+      
+      <div class="col-md-4" id="classrooms">
+
+        <div class="card text-light" style="background: {{ getColor($course->id) }};cursor: pointer;" @click="openLink('/courses/{{$course->id}}')">
+          <div class="card-body">
+            <h4 class="card-title">{{ $course->name }}</h4>
+            <p class="card-text">{{ $course->description }}</p>
+            <a href="/courses/{{$course->id}}" class="btn btn-dark">Start Course</a>
           </div>
         </div>
-      </div>
-    </section>
+      
+      
+      @endforeach
+    </div>
+  </div>
+</section>
+{{ $onlineCourses->links() }}
+<br><br>
 
-   
-
-
-    <!-- Section: Courses -->
-    <section id="courses" class="bg-silver-deep">
-      <div class="container pb-0">
-          <h2 class="text-uppercasetext-theme-colored mt-0 mt-sm-30">Online <span class="text-theme-colored2">Courses</span></h2>
-	            <div class="double-line-bottom-theme-colored-2"></div>
-        <div class="row mtli-row-clearfix">
-           @foreach($onlineCourses as $course)
-            <div class="item">
-              <div class="course-single-item bg-white border-1px clearfix mb-30 col-md-12">
-               
-                <div class="course-details clearfix p-20 pt-15">
-                  <div class="course-top-part pull-left mr-40">
-                    <a href="/courses/{{$course->id}}"><h3 class="mt-0 mb-5">{{ $course->name }}</h3></a>
-                    <ul class="list-inline">
-                      <li class="review-stars text-theme-colored2">
-                        {{ $course->type == 0 ? 'Offline' : 'Online' }}
-                      </li>
-                    </ul>
-                  </div>
-                  
-                  
-                </div>
-              </div>
-            </div>
-            
-           @endforeach
-        </div>
-      </div>
-    </section>
-    
-
-    @if(count($offlineCourses))
-     <!-- Section: Courses -->
-    <section id="courses" class="bg-silver-deep">
-      <div class="container pt-10">
-          <h2 class="text-uppercasetext-theme-colored mt-0 mt-sm-30">Offline <span class="text-theme-colored2">Courses</span></h2>
-	            <div class="double-line-bottom-theme-colored-2"></div>
-        <div class="row mtli-row-clearfix">
-           @foreach($offlineCourses as $course)
-
-              <div class="item">
-                <div class="course-single-item bg-white border-1px clearfix mb-30 col-md-12">
-                 
-                  <div class="course-details clearfix p-20 pt-15">
-                    <div class="course-top-part pull-left mr-40">
-                      <a href="/courses/{{$course->id}}"><h3 class="mt-0 mb-5">{{ $course->name }}</h3></a>
-                      <ul class="list-inline">
-                        <li class="review-stars text-theme-colored2">
-                          {{ $course->type == 0 ? 'Offline' : 'Online' }}
-                        </li>
-                      </ul>
-                    </div>
-                    
-                    
-                  </div>
-                </div>
-              </div>
-            
-           @endforeach
-        </div>
-      </div>
-    </section>
-@endif
+</section>
 
 
 

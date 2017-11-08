@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master2')
 
 @section('title')
   
@@ -247,7 +247,7 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
   <i class="hidden" id="wid">{{ $wiki->id }}</i>
 
 	<a href="#" id="edit" style="color: #313131;" onclick="toggleEditor()"><i class="fa fa-edit"></i> Edit this wiki</a> 
-
+  <hr>
 </div>  
    <form method="POST" action="/wiki/update/{{ $wiki->id }}">
    {{ csrf_field() }}

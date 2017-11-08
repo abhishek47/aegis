@@ -21,9 +21,7 @@ $s = 'oauth.';
 Route::get('/oauth/redirect/{provider}',   ['as' => $s . 'redirect',   'uses' => 'Auth\SocialController@getSocialRedirect']);
 Route::get('/oauth/handle/{provider}',     ['as' => $s . 'handle',     'uses' => 'Auth\SocialController@getSocialHandle']);
 
-Route::get('/home', function() {
-	return redirect('/');
-})->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/careers', 'PagesController@careers')->name('careers');
 Route::get('/contact', 'PagesController@contact')->name('contact');

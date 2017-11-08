@@ -3631,6 +3631,10 @@ var app = new Vue({
 		openWiki: function openWiki(id) {
 			console.log(window.location);
 			window.location = '/wiki/' + id;
+		},
+		openLink: function openLink(url) {
+			console.log(window.location);
+			window.location = url;
 		}
 	}
 

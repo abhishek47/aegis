@@ -9,7 +9,7 @@ class CoursesController extends Controller
 {
     public function index()
     {
-    	$onlineCourses = Course::where('type', 1)->latest()->get();
+    	$onlineCourses = Course::where('type', 1)->latest()->paginate(10);
         $offlineCourses = Course::where('type', 0)->latest()->get();
 
     	return view('courses.index', compact('onlineCourses', 'offlineCourses'));

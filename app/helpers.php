@@ -770,3 +770,17 @@ function get_string_between($string, $start, $end){
     $len = strpos($string, $end, $ini) - $ini;
     return substr($string, $ini, $len);
 }
+
+
+function getColor($id)
+{
+	if($id == 1)
+	{
+		return '#C0392B';
+	} else if( $id % 2 == 0)
+	{
+		return '#663399';
+	} else {
+		return '#019875';
+	}
+}
