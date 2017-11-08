@@ -11,7 +11,7 @@ class Wiki extends Model
    use CrudTrait;
    use RevisionableTrait;
 
-   protected $fillable = ['title', 'body'];
+   protected $fillable = ['title', 'body', 'category_id'];
 
 
    public function publishWiki($crud = false)
