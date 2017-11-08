@@ -6,3 +6,60 @@
 	margin-top: 0px;
 	border: none;
 }
+
+
+.quiz-question-links li{
+
+    border: 1px solid #1A458E;
+    width: 0px;
+    padding-left: 7px;
+    padding-right: 7px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 10px !important;
+
+}
+
+.quiz-question-links li a:hover {
+	text-decoration: none !important;
+	color: #fff !important;
+}
+
+.quiz-question-links li a:focus{
+	text-decoration: none !important;
+}
+
+.quiz-question-links li.active a {
+	color: #fff !important;
+	text-decoration: none !important;
+}
+
+.quiz-question-links li.active {
+	color: #fff !important;
+	text-decoration: none !important;
+	background:#1A458E;
+}
+
+.quiz-question-links li:hover  {
+	color: #fff !important;
+	text-decoration: none !important;
+	background:#1A458E;
+}
+
+.quiz-question-links li:hover a {
+	color: #fff !important;
+	text-decoration: none !important;
+}
+
+
+.week-selector {
+	background: transparent;
+	border: 1px solid #fff;
+	color: #fff !important;
+}
+
+.week-selector:focus {
+	background: transparent;
+	border: 1px solid #fff;
+	color: #fff !important;
+}

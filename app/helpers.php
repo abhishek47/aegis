@@ -784,3 +784,60 @@ function getColor($id)
 		return '#019875';
 	}
 }
+
+
+/**
+* Get array defining date ranges of each week in a month
+* @param int $year defaults to current
+* @param int $month defaults to current January = 1
+* @format string output format of date ranges
+* @return array
+*/
+function week_ranges($year = null, $month = null, $format = 'Y-m-d') {
+    $year = (int)$year;
+    $month = (int)$month;
+    
+    //Default to current month
+    if(!$year) $year = date('Y');
+    if(!$month) $month = date('n');
+    
+    $time = mktime(0, 0, 0, $month, 1, $year); //timestamp at beginning of month
+    $month_len = date('t', $time); //days in month
+    
+    //get day of week index for 1st of month
+    //1 = Monday, 2 = Tuesday, 7 = Sunday
+    $first_day = date('w', $time);
+    if($first_day == 0) $first_day = 7;
+    
+    /* date of first SUNDAY in month determines
+    end of the first week. Can then divide month */
+    $first_sunday = 7-$first_day+1;
+    
+    /* create array of date ranges
+    one per week */
+    $w = 1; //week index
+    $ranges[$w] = array(date($format, $time), date($format, mktime(0,0,0, $month, $first_sunday, $year)));
+    
+    //start iterating from start of wk2 (second monday)
+    $d = $first_sunday + 1;
+    while($d <= $month_len) {
+        $w++;
+        
+        //Monday of week $w
+        $monday = mktime(0,0,0, $month, $d, $year);
+        
+        //Sunday of same week ($w), OR
+        //last day of month (don't bust into next month)
+        $sunday = $d+6; //jump forward 6 days from Mon to Sun
+        if($sunday > $month_len) {
+            $sunday = $month_len; //restrain to correct month
+        }
+        $sunday = mktime(0,0,0, $month, $sunday, $year);
+        
+        
+        $ranges[$w] = array(date($format, $monday), date($format, $sunday));
+        $d += 7; //jump to following week for next loop iteration
+    }
+    
+    return $ranges;
+}

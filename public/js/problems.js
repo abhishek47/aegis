@@ -811,9 +811,15 @@
 
                     var qid = $(this).data('id');
 
-                
+                    $('.quiz-question-links li').each(function(index) {
+                        $(this).removeClass('active'); 
+                    });
+
+                    $(this).parent().addClass('active');
+
                     $(_element + ' .questions li[style*="display: list-item;"]').fadeOut(100, function(){
                          $(_element + ' #'+qid).fadeIn(300, kN(key,1));
+
                     });
 
                    

@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+
 <section  class="pt-2">
             <div class="container">
                 <div class="row">
@@ -17,7 +18,16 @@
                     <div class="col-md-12">
                         <div class="card mb-3 problem-of-week">
                           <div class="card-header text-light bg-primary" >
-                           <h4 class="font-weight-bold mb-0 float-left"> Problems of the Week </h4>
+                           <h4 class="font-weight-bold mb-0 mt-1 float-left"> Problems of the Week </h4>
+                           
+                           <form method="GET" class="float-right">
+                               <select name="week" class="week-selector form-control" onchange="this.form.submit()">
+
+                                   <option value="2017-11-1" {{ request('week') == '2017-11-1' ? 'selected' : '' }}>1st Week of November</option>
+                                    <option value="2017-11-2" {{ request('week') == '2017-11-2' ? 'selected' : '' }}>4th Week of October</option>
+                               </select>
+                           </form> 
+                           <!--
                            <div class="btn-group float-right" data-toggle="buttons">
                               <label class="btn btn-sm btn-outline-white text-light active mb-0">
                                 <input type="radio" name="options" id="option1" autocomplete="off" checked> Routine
@@ -29,6 +39,7 @@
                                 <input type="radio" name="options" id="option3" autocomplete="off"> Challenging
                               </label>
                             </div>
+                           --> 
                           </div>
                           <div class="card-body">
                             <div class="slickQuiz" id="slickQuiz-{{$problemsId}}" data-id="{{$problemsId}}">

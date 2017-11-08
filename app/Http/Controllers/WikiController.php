@@ -24,6 +24,12 @@ class WikiController extends Controller
     	return view('wiki.index', compact('wikis'));
     }
 
+     public function problematic()
+    {
+        $wikis = Wiki::latest()->where('published', 1)->paginate(10);
+        return view('wiki.problematic', compact('wikis'));
+    }
+
     public function create()
     {
     	$quizzes = Quiz::orderBy('name', 'asc')->get();

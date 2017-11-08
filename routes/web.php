@@ -30,6 +30,7 @@ Route::post('/account/update', 'HomeController@update')->name('account.update');
 Route::post('/account/password/update', 'HomeController@updatePassword')->name('account.password.update');
 
 Route::get('/wiki', 'WikiController@index')->name('wiki');
+Route::get('/wiki/problematic', 'WikiController@problematic')->name('wiki.problematic');
 Route::post('/wiki', 'WikiController@store')->name('wiki.store');
 Route::get('/wiki/create', 'WikiController@create')->name('wiki.create');
 Route::get('/wiki/{wiki}', 'WikiController@show')->name('wiki.show');
