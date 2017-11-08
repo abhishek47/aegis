@@ -29,8 +29,8 @@
     <?php $courseChunks = $onlineCourses->chunk(3); ?>
 
         @foreach($courseChunks as $courseChunk)
-          <div class="row">
-          
+          <div class="row mt-4">
+
               @foreach($courseChunk as $index => $course)
               
                  <div class="col-md-4" id="classrooms">
