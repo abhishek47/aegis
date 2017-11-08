@@ -372,8 +372,8 @@
                         if (plugin.config.perQuestionResponseMessaging || plugin.config.completionResponseMessaging) {
                             // Now let's append the correct / incorrect response messages
                             var responseHTML = $('<ul class="' + responsesClass + '"></ul>');
-                            responseHTML.append('<li class="' + correctResponseClass + '">' + question.correct + '</li>');
-                            responseHTML.append('<li class="' + incorrectResponseClass + '">' + question.incorrect + '</li>');
+                            responseHTML.append('<li class="' + correctResponseClass + ' correctAns">' + question.correct + '</li>');
+                            responseHTML.append('<li class="' + incorrectResponseClass + ' incorrectAns">' + question.incorrect + '</li>');
 
                             // Append responses to question
                             questionHTML.append(responseHTML);

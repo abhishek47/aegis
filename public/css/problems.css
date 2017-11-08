@@ -63,3 +63,16 @@
 	border: 1px solid #fff;
 	color: #fff !important;
 }
+
+
+
+.slickQuiz .correctAns, .slickQuiz .incorrectAns
+{
+	font-size: 22px;
+	font-weight: bold;
+	margin-left: 0px !important;
+}
+
+
+
+
