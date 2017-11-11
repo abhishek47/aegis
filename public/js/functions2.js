@@ -100,6 +100,18 @@ function toggleFullscreen2()
     $('#editor2').toggleClass('fullscreen');
     $('#main--output2').toggleClass('fullscreen');
     $('#editor--buttons2').toggleClass('fullscreen');
+    $('#saved-messages').toggleClass('fullscreen');
+}
+
+function toggleMessagesView()
+{ 
+
+   
+       $('#editor--area2').toggleClass('hidden');
+   
+    
+    
+    $('#saved-messages').toggleClass('hidden');
 }
 
 

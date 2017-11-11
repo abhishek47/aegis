@@ -59,11 +59,12 @@
         position: null,
         display: "table"
       }
-    }
+    },
+    linebreaks: { automatic: true }
   },
         showProcessingMessages: false,
         tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] },
-        TeX: { equationNumbers: {autoNumber: "AMS"}, extensions: ["AMSmath.js","AMSsymbols.js", "http://sonoisa.github.io/xyjax_ext/xypic.js"] },
+        TeX: { equationNumbers: {autoNumber: "AMS"}, extensions: ["AMSmath.js","AMSsymbols.js"] },
 
       });
     </script>
@@ -116,74 +117,74 @@
 <body class="">
 
   <div id="app">
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="background: #1A458E !important">
-      <div class="container">
-        <a class="navbar-brand" href="/">AEGIS</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-             <li class="nav-item active dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               Wikis
-              </a>
-             
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/wiki">Topical</a>
-                <a class="dropdown-item" href="/wiki/problematic">Problematic</a>
-              </div>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="background: #1A458E !important">
+        <div class="container">
+          <a class="navbar-brand" href="/">AEGIS</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item active dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Wikis
+                </a>
+               
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/wiki">Topical</a>
+                  <a class="dropdown-item" href="/wiki/problematic">Problematic</a>
+                </div>
 
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="/communities">Community</a>
-            </li>
-          
-            <li class="nav-item active">
-              <a class="nav-link" href="/courses">Courses</a>
-            </li>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/communities">Community</a>
+              </li>
+            
+              <li class="nav-item active">
+                <a class="nav-link" href="/courses">Courses</a>
+              </li>
 
-            
-            
-            <li class="nav-item active">
-              <a class="nav-link" href="/books">Books</a>
-            </li>
-            
-            
-          </ul>
-         
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-             <form class="form-inline my-2 my-lg-0">
-            <input style="height: 30px;border-radius: 35px;" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          </form>
-
-           <li class="nav-item active dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                My Account
-              </a>
-              @if(auth()->check())
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/home">Home</a>
-                <a class="dropdown-item" href="#">Go Premium</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">My Courses</a>
-                <a class="dropdown-item" href="#">Edit Profile</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Logout</a>
-              </div>
-              @else
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Login</a>
-                <a class="dropdown-item" href="#">Create Account</a>
-              </div>
-
-              @endif
-            </li>
+              
+              
+              <li class="nav-item active">
+                <a class="nav-link" href="/books">Books</a>
+              </li>
+              
+              
+            </ul>
            
-          </ul>
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+               <form class="form-inline my-2 my-lg-0">
+              <input style="height: 30px;border-radius: 35px;" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            </form>
+
+             <li class="nav-item active dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  My Account
+                </a>
+                @if(auth()->check())
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/home">Home</a>
+                  <a class="dropdown-item" href="#">Go Premium</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">My Courses</a>
+                  <a class="dropdown-item" href="#">Edit Profile</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Logout</a>
+                </div>
+                @else
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Login</a>
+                  <a class="dropdown-item" href="#">Create Account</a>
+                </div>
+
+                @endif
+              </li>
+             
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
 
 <div class="main-content">
@@ -203,7 +204,7 @@
   
 </div>
 
-
+</div>
 
       <!-- external javascripts -->
 <script src="{{ asset('js/app.js') }}"></script>

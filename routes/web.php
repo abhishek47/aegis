@@ -64,7 +64,22 @@ Route::get('/comment/{comment}/dislike', 'CommentsController@dislike');
 Route::post('/image/upload', 'ImageController@upload');
 
 
-Route::get('/courses', 'CoursesController@index');
+Route::get('/courses', 'ClassroomsController@index');
 Route::get('/courses/{course}', 'CoursesController@show');
 Route::get('/enroll/{course}', 'CoursesController@enroll');
+
+Route::get('/classrooms', 'ClassroomsController@index');
+Route::get('/classrooms/{classroom}', 'ClassroomsController@show');
+
+Route::get('/classrooms/{classroom}/chapter/{chapter}', 'ChaptersController@show');
+Route::get('/classrooms/{classroom}/chapter/{chapter}/homework', 'ChapterHomeworkController@index');
+Route::get('/classrooms/{classroom}/chapter/{chapter}/discuss', 'ChapterDiscussionController@index');
+Route::get('/classrooms/{classroom}/chapter/{chapter}/notes', 'ChapterNotesController@index');
+
+
+Route::post('/chapter/{chapter}/start', 'ChaptersController@start');
+Route::post('/chapter/{chapter}/close', 'ChaptersController@close');
+
+
+Route::post('/chapter-homework/{homework}/check', 'ChapterSolvingController@check');
 

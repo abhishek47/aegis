@@ -7,6 +7,17 @@ use Illuminate\Http\Request;
 
 class DiscussionsController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    
     public function index()
     {
     	$discussions = Discussion::latest()->paginate(10);

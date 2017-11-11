@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class CoursesController extends Controller
 {
+
+    
     public function index()
     {
     	$onlineCourses = Course::where('type', 1)->latest()->paginate(10);

@@ -29,7 +29,7 @@ body {
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 .main-content {
-  padding-top: 30px;
+  padding-top: 0px;
 }
 
 .footer > .container {
