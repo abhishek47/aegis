@@ -20,7 +20,6 @@
 
 			@foreach($wikis as $index => $wiki)
 
-           <section class="pt-3">
               <div class="container">
                 <div>
                   <div class="card bg-light" style="width: 100%;cursor: pointer;" @click="openWiki({{ $wiki->id }})">
@@ -43,7 +42,6 @@
 
 
      
-    </section>
 
 
 	            

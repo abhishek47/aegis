@@ -53,9 +53,7 @@
 	        <br><br>
 
 
-     
-    </section>
-
+   
 
 
 <!-- Modal -->

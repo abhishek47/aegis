@@ -66,13 +66,13 @@
               <li><a href="/contact">Contact</a></li>
               @else
               <li><a href="/">Home</a></li>
-              <li><a href="/courses">Courses</a>
+             <!-- <li><a href="/courses">Courses</a>
                 <ul class="dropdown" style="right: auto; display: none;">
                   <li><a href="/courses">Live Courses</a></li>
                   <li><a href="/courses/self">Self Paced Courses</a></li>
                   <li><a href="/courses/self">Offline Courses</a></li>
                 </ul>
-              </li>
+              </li> -->
               <li><a href="/discuss">Communities</a></li>
                <li><a href="/courses">Wiki Pages</a>
                 <ul class="dropdown" style="right: auto; display: none;">
