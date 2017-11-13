@@ -66,6 +66,7 @@
               <li><a href="/contact">Contact</a></li>
               @else
               <li><a href="/">Home</a></li>
+               <li><a href="/courses">Courses</a></li>
              <!-- <li><a href="/courses">Courses</a>
                 <ul class="dropdown" style="right: auto; display: none;">
                   <li><a href="/courses">Live Courses</a></li>
