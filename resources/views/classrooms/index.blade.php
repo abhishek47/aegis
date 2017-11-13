@@ -37,7 +37,7 @@
               @foreach($courseChunk as $index => $course)
               
                  <div class="col-md-4" id="classrooms">
-                    <div class="card text-light" style="background: {{ getColor($course->id) }};cursor: pointer;" @click="openLink('/courses/{{$course->id}}')">
+                    <div class="card text-light" style="background: {{ getColor($course->id) }};cursor: pointer;" @click="openLink('/classrooms/{{$course->id}}')">
                       <div class="card-body">
                         <h4 class="card-title">{{ $course->title }}</h4>
                         <p class="card-text">{{ $course->description }}</p>

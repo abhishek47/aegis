@@ -137,7 +137,7 @@
 
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="/communities">Community</a>
+                <a class="nav-link" href="/discuss">Community</a>
               </li>
             
               <li class="nav-item active">
@@ -146,9 +146,7 @@
 
               
               
-              <li class="nav-item active">
-                <a class="nav-link" href="/books">Books</a>
-              </li>
+            
               
               
             </ul>
@@ -167,10 +165,20 @@
                   <a class="dropdown-item" href="/home">Home</a>
                   <a class="dropdown-item" href="#">Go Premium</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">My Courses</a>
-                  <a class="dropdown-item" href="#">Edit Profile</a>
+                  <a class="dropdown-item" href="">My Courses</a>
+                  <a class="dropdown-item" href="/account">Edit Profile</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Logout</a>
+                 
+                  <a class="dropdown-item" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();" >
+                     Logout
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      {{ csrf_field() }}
+                  </form>
+            
                 </div>
                 @else
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">

@@ -7,8 +7,8 @@
 
     
     <section class="heading">
-     <div class="container pb-0">
-          <h2 style="font-weight: bold;">Daily Articles</h2>
+     <div class="container pb-0 pt-5">
+          <h2 style="font-weight: bold;">Topical Wiki Pages</h2>
           <hr>
 	     </div>        
     </section>   

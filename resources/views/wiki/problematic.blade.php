@@ -7,7 +7,7 @@
 
     
     <section class="heading">
-     <div class="container pb-0">
+     <div class="container pb-0 pt-5">
           <h2 style="font-weight: bold;" >Problematic Wikipages</h2>
           <hr>
           <div class="card card-body">
