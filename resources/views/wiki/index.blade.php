@@ -24,7 +24,7 @@
                 <div>
                   <div class="card bg-light" style="width: 100%;cursor: pointer;" @click="openWiki({{ $wiki->id }})">
                     <div class="card-body">
-                      <h4 class="card-title">{{ $wiki->title }}</h4>
+                      <h4 class="card-title text-dark">{{ $wiki->title }}</h4>
                      
                     </div>
                   </div>

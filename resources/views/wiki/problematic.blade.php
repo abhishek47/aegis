@@ -37,7 +37,7 @@
                 <div>
                   <div class="panel bg-light" style="width: 100%;cursor: pointer;" @click="openWiki({{ $wiki->id }})">
                     <div class="panel-body">
-                      <h4 class="panel-title text-dark">{{ $wiki->title }}</h4>
+                      <h4 class="card-title text-dark">{{ $wiki->title }}</h4>
                     </div>
                   </div>
                 </div>
