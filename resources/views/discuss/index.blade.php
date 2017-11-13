@@ -233,7 +233,7 @@ Preview2.callback.autoReset = true;  // make sure it can run more than once</scr
 
             .editor--toolbar textarea {
                   height: auto;
-                  min-height: 300px;
+                  min-height: 250px;
                   border: 1px solid #bbb;
                   border-bottom-left-radius: 4px;
                   border-bottom-right-radius: 4px;
@@ -262,7 +262,7 @@ Preview2.callback.autoReset = true;  // make sure it can run more than once</scr
                   background: #fafafa;
                   padding: 5px;
                   border: 1px solid #bbb;
-                  height: 500px;
+                  height: 250px;
                   width: 100%;
                   margin-bottom: 7px;
               }
@@ -286,9 +286,12 @@ Preview2.callback.autoReset = true;  // make sure it can run more than once</scr
 <section>
 
 	<div class="container">
-
-
-	<div class="panel panel-default">
+<div style="height:0px;overflow:hidden">
+     <form id="file-upload2" method="POST" action="/image/upload" enctype="multipart/form-data">
+       <input type="file" id="fileInput2" name="files" />
+     </form>
+ </div>
+	<div class="panel panel-default mt-5">
 	  <div class="panel-heading">
 	    <h3 class="panel-title" style="font-weight: bold;">Start New Discussion ( Put latex commands inside \$ \$ )</h3>
 	  </div>
@@ -305,11 +308,7 @@ Preview2.callback.autoReset = true;  // make sure it can run more than once</scr
 	     <div id="editor" class="editor--toolbar" style="margin-top: 20px;">
 	   	
     	<label>Description</label>
-	   <div style="height:0px;overflow:hidden">
-     <form id="file-upload2" method="POST" action="/image/upload" enctype="multipart/form-data">
-       <input type="file" id="fileInput2" name="files" />
-     </form>
- </div>
+	   
 
 
 <div id="editor2" class="editor--toolbar">
@@ -426,9 +425,9 @@ Preview2.callback.autoReset = true;  // make sure it can run more than once</scr
 	  <div class="panel-heading">
 	    <h3 class="panel-title" style="font-weight: bold;"><a href="/discuss/discussion:{{ $discussion->id }}">{{ $discussion->title }}</a></h3>
 	  </div>
-	  <div class="panel-body" style="font-size: 17px;color: #000;">
+	  <div class="panel-body" style="font-size: 17px !important;color: #000;">
 	    
-	    <h4>{{ substr($discussion->question, 0, 100) }}...</h4>
+	    {{ substr($discussion->question, 0, 100) }}...
 
 	   
 	  </div>

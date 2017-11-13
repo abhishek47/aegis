@@ -119,7 +119,7 @@ var Preview = {
      
     
 
-    $('#editor--container').toggleClass('hidden');
+    //$('#editor--container').toggleClass('hidden');
     $('#main--output').toggleClass('hidden');
   },
   Escape: function (html, encode) {
@@ -158,17 +158,19 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 	
 
 
-<div class="container">
+<div class="container mt-5">
 <div class="page-header">
   <h2>{{ $discussion->title }}</h2>
 
+
 @if($discussion->user_id == auth()->id())
-	<a href="#" id="edit" style="color: #313131;" onclick="toggleEditor()"><i class="fa fa-edit"></i> Edit this Discussion</a> 
+	<a href="#" id="edit" style="color: #313131;font-size: 12px;" onclick="toggleEditor()"><i class="fa fa-edit"></i> Edit this Discussion</a> 
 @endif
+<hr>
 </div>  
    <form method="POST" action="/discussion/update/{{ $discussion->id }}">
    {{ csrf_field() }}
-   <div id="editor--container" class="">
+   <div id="editor--container" class="hidden">
 
   
 
@@ -241,7 +243,7 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
           </ul>
         </div>
       </div>
-	    <textarea id="marked-mathjax-input" style="height: 1700px;" name="question" class="form-control">{{ $discussion->question }}
+	    <textarea id="marked-mathjax-input" class="" style="height: 1700px;" name="question" class="form-control">{{ $discussion->question }}
 	    </textarea>
 
     </div>
@@ -269,8 +271,8 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 
 
 
-	<div class="page-header">
-		<h4>Comments</h4>
+	<div class="page-header pt-3">
+		<h5>Comments</h45>
 	</div>
 
 
@@ -306,7 +308,7 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 	    {{ csrf_field() }}
 	   
     	<small>Note : Put latex commands inside \$ \$ </small>
-	    <textarea id="comment-input" name="comment" rows="5" class="form-control"></textarea>
+	    <textarea id="comment-input" name="comment" rows="2" style="max-height: 140px !important;" class="form-control"></textarea>
 	    
    		
        

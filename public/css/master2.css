@@ -477,3 +477,12 @@ a {
 .panel-danger > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #ebccd1;
 }
+
+.CodeMirror {
+    height: 140px !important;
+    min-height: 140px !important;
+}
+
+.CodeMirror-scroll {
+    min-height: 140px !important;
+}
