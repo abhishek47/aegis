@@ -25,12 +25,13 @@
                   <div class="card bg-light" style="width: 100%;cursor: pointer;" @click="openWiki({{ $wiki->id }})">
                     <div class="card-body">
                       <h4 class="card-title">{{ $wiki->title }}</h4>
-                      <p class="card-text">{{ $wiki->created_at->diffForHumans() }}</p>
+                     
                     </div>
                   </div>
                 </div>
               </div>
-            </section>
+              
+              <br><br>
             
            @endforeach
     
