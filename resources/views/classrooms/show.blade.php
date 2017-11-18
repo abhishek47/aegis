@@ -92,7 +92,7 @@
               @foreach($chapterChunk as $index => $chapter)
               
                  <div class="col-md-6" id="classrooms">
-                   <div class="course-single-item bg-white border-1px clearfix mb-30" style="cursor: pointer;" @click="openLink('/classrooms/{{$classroom->id}}')">
+                   <div class="course-single-item bg-white border-1px clearfix mb-30" style="cursor: pointer;" @click="openLink('/classrooms/{{ $chapter->classroom->id }}/chapter/{{ $chapter->id }}')">
               
                 <div class="course-details clearfix p-20 pt-15">
                   <div class="course-top-part pull-left mr-40">
