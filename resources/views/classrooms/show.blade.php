@@ -42,7 +42,7 @@
     </section>
 
 
-    <div style="background-color: #fafafa;min-height: 900px;">
+    <div style="background-color: #fff;min-height: 900px;">
 
   <div class="container pt-50">
 
