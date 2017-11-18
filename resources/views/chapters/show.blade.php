@@ -1,4 +1,4 @@
-@extends('layouts.master2')
+@extends('layouts.master')
 
 
 @section('css')
@@ -25,35 +25,26 @@
 
 
 @section('content')
+
+<section class="inner-header divider " style="background-color: #24324a !important" >
+      <div class="container pt-30 pb-30">
+        <!-- Section Content -->
+        <div class="section-content">
+          <div class="row"> 
+            <div class="col-md-6">
+              <h2 class="text-light font-36">{{ $chapter->title }}</h2>
+              <ol class="breadcrumb text-left mt-10 white">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Chapters</a></li>
+                <li><a href="#">{{ $chapter->title }}</a></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   
 
-
- <nav id="chapterTabs" class="navbar navbar-expand-lg navbar-light tab-bar {{ $chapter->status == 0 ? 'hidden' : '' }}">
-    <div class="container">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-       <li class="nav-item active">
-
-        <a class="nav-link" href="/classrooms/{{ $classroom->id }}/chapter/{{ $chapter->id }}">Session <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="/classrooms/{{ $classroom->id }}/chapter/{{ $chapter->id }}/homework">Homework </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/classrooms/{{ $classroom->id }}/chapter/{{ $chapter->id }}/notes">Notes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/classrooms/{{ $classroom->id }}/chapter/{{ $chapter->id }}/discuss">Discuss</a>
-      </li>
-    </ul>
-   
-  </div>
-  </div>
-</nav>
 
 
 
@@ -61,10 +52,7 @@
 
 	<div class="row">
 
-		<div style="width: 100%;margin-bottom: 20px;">
-		<h3 class="font-weight-bold">{{ $chapter->title }}</h3>
-		<hr>
-		</div>
+		
 
 		@if($chapter->status == 0)
 

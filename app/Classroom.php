@@ -16,6 +16,16 @@ class Classroom extends Model
     	return $this->hasMany(Chapter::class);
     }
 
+    public function likes()
+    {
+      return $this->hasMany(ClassroomLike::class);
+    }
+
+    public function enrollments()
+    {
+      return $this->hasMany(ClassroomEnrollment::class);
+    }
+
     public function manageChapters($crud = false)
    	{ 
    	 

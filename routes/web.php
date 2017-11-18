@@ -76,6 +76,9 @@ Route::get('/classrooms/{classroom}/chapter/{chapter}/homework', 'ChapterHomewor
 Route::get('/classrooms/{classroom}/chapter/{chapter}/discuss', 'ChapterDiscussionController@index');
 Route::get('/classrooms/{classroom}/chapter/{chapter}/notes', 'ChapterNotesController@index');
 
+Route::get('/classrooms/{classroom}/like', 'ClassroomLikeController@store');
+Route::get('/classrooms/{classroom}/unlike', 'ClassroomLikeController@destroy');
+
 
 Route::post('/chapter/{chapter}/start', 'ChaptersController@start');
 Route::post('/chapter/{chapter}/close', 'ChaptersController@close');

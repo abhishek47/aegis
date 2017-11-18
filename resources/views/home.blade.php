@@ -1,4 +1,4 @@
-@extends('layouts.master2')
+@extends('layouts.master')
 
 @section('css')
 
@@ -16,9 +16,9 @@
                         
                     </div>
                     <div class="col-md-12">
-                        <div class="card mb-3 problem-of-week">
-                          <div class="card-header text-light bg-primary" >
-                           <h4 class="font-weight-bold mb-0 mt-1 float-left"> Problems of the Week </h4>
+                        <div class="panel mb-3 problem-of-week" style="">
+                         <!-- <div class="panel-heading text-light bg-primary" >
+                           <h4 class="font-weight-bold mb-0 mt-1 pull-left"> Problems of the Week </h4>
                            
                            <form method="GET" class="float-right">
                                <select name="week" class="week-selector form-control" onchange="this.form.submit()">
@@ -27,7 +27,7 @@
                                     <option value="2017-11-2" {{ request('week') == '2017-11-2' ? 'selected' : '' }}>4th Week of October</option>
                                </select>
                            </form> 
-                           <!--
+                          
                            <div class="btn-group float-right" data-toggle="buttons">
                               <label class="btn btn-sm btn-outline-white text-light active mb-0">
                                 <input type="radio" name="options" id="option1" autocomplete="off" checked> Routine
@@ -39,8 +39,8 @@
                                 <input type="radio" name="options" id="option3" autocomplete="off"> Challenging
                               </label>
                             </div>
-                           --> 
-                          </div>
+                           
+                          </div> -->
                           <div class="card-body">
                             <div class="slickQuiz" id="slickQuiz-{{$problemsId}}" data-id="{{$problemsId}}">
                                 <h1 class="quizName"></h1>
@@ -66,20 +66,27 @@
 </section>
     
         
-        <section class="pt-3">
-            <div class="container">
-                <div>
-                    <div class="card text-light" style="width: 100%;background: #22313F;cursor: pointer;" 
-                     @click="openWiki({{ $wiki->id }})">
-                        <div class="card-body">
-                            <h4 class="card-title">{{ $wiki->title }}</h4>
-                            <p class="card-text">wiki of the week</p>
-                            <a href="/wiki/{{$wiki->id}}" class="btn btn-primary">Read Wiki</a>
-                        </div>
-                    </div>
-                </div>
+     
+    <section class="mb-30 wikiOfDay" style="cursor: pointer;" @click="openWiki({{$wiki->id}})">
+     <div class="container" style="padding-top: 0px;">
+      <div class="call-to-action pt-40 pb-40 mb-20 bg-theme-colored">
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-md-8">
+            <div class="icon-box icon-rounded-bordered left media mb-0 ml-60 ml-sm-0"> 
+            <a class="media-left pull-left flip hidden-xs" href="#"> <i class="pe-7s-notebook text-white border-1px p-20"></i></a>
+              <div class="media-body">
+                <h3 class="media-heading heading text-white font-12 wiki-label">Wiki of the Week</h3>
+                <p class="text-white wiki-title">{{ $wiki->title }}</p>
+              </div>
             </div>
-        </section>
+          </div>
+          <div class="col-sm-4 col-md-4 text-center"> 
+            <a href="/wiki/{{$wiki->id}}" class="btn btn-flat btn-default btn-xl mt-20">Read Wiki Page</a> 
+          </div>
+        </div>
+       </div>
+      </div>
+    </section>
 
 
 
@@ -121,49 +128,53 @@
 </section>
 -->
 
-        <section  class="pt-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div style="width: 100%;margin-bottom: 20px;">
-                            <h3 class="font-weight-bold">Latest Courses</h3>
-                            <hr>
-                        </div>
-                        
-                    </div>
-                    <div class="col-md-4" id="classrooms">
-                        <div class="card text-light" style="background: #C0392B;">
-                            <div class="card-body">
-                                <h4 class="card-title">Course Name</h4>
-                                <p class="card-text">The short course description</p>
-                                <a href="classroom.html" class="btn btn-dark">Start Course</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4" id="classrooms">
-                        <div class="card text-light" style="background: #663399;">
-                            <div class="card-body">
-                                <h4 class="card-title">Course Name</h4>
-                                <p class="card-text">The short course description</p>
-                                <a href="classroom.html" class="btn btn-dark">Start Course</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4" id="classrooms">
-                        <div class="card text-light" style="background: #019875;">
-                            <div class="card-body">
-                                <h4 class="card-title">Course Name</h4>
-                                <p class="card-text">The virtual classoom from AEGIS</p>
-                                <a href="classroom.html" class="btn btn-dark">Join Course</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
+         <section class="layer-overlay overlay-white-9" data-bg-img="images/bg/bg-pattern.png" style="background-image: url(&quot;images/bg/bg-pattern.png&quot;);">
+      <div class="container pb-40">
+         
+        <div class="section-content">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
+                <a href="/courses" class="icon icon-circled icon-lg" data-bg-color="#FC9928" style="background: rgb(252, 153, 40) !important;">
+                  <i class="pe-7s-study text-white font-48"></i>
+                </a>
+                <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="/courses">1. View Online Courses</a></h4>
+                <p class="">Choose from our huge library of courses, enroll into them and get into an interactive live learning session, like a real classroom.</p>
+              </div>
             </div>
+            <div class="col-md-3">
+              <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
+                <a href="/wiki" class="icon icon-circled icon-lg" data-bg-color="#43B14B" style="background: rgb(67, 177, 75) !important;">
+                  <i class="pe-7s-notebook text-white font-48"></i>
+                </a>
+                <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="/wiki">2. Read Our Wiki Pages</a></h4>
+                <p class="">Once you learn about the course through our live sessions, move to our wiki pages to read and sharpen the learnt knowledge.</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
+                <a href="/ajax/quiz-info.html" class="icon icon-circled icon-lg ajaxload-popup"  data-bg-color="#00C3CB" style="background: rgb(0, 195, 203) !important;">
+                  <i class="pe-7s-diamond text-white font-48"></i>
+                </a>
+                <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="/ajax/quiz-info.html" class="ajaxload-popup">3. Practice Questions</a></h4>
+                <p class="">Practice makes man perfect, hence we have a set of practice questions in each wiki page to practice that set of course.</p>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="icon-box hover-effect border-1px border-radius-10px text-center bg-white p-15 pt-40 pb-30">
+                <a href="/discuss" class="icon icon-circled icon-lg" data-bg-color="#EF5861" style="background: rgb(239, 88, 97) !important;">
+                  <i class="pe-7s-medal text-white font-48"></i>
+                </a>
+                <h4 class="icon-box-title text-uppercase letter-space-1 font-20 mt-15"><a href="/discuss">4. Post Your Doubts</a></h4>
+                <p class="">Afterall, if you still got doubts, visit our discuss section to post your queries and get it cleared from other experts around.</p>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
+
+
 
 @endsection
 
@@ -194,5 +205,7 @@
 </script>
 
 <script type="text/javascript" src="/js/problems.js"></script>
+
+
 
 @endsection

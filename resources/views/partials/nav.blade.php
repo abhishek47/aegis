@@ -1,5 +1,6 @@
 <!-- Header -->
   <header id="header" class="header">
+    
     <div class="header-top bg-theme-colored2 sm-text-center hidden-sm">
       <div class="container">
         <div class="row">
@@ -50,8 +51,8 @@
         </div>
       </div>
     </div>
-    
-    <div class="header-nav">
+   
+    <div class="header-nav" style="box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);">
       <div class="header-nav-wrapper navbar-scrolltofixed bg-white" style="z-index: auto; position: static; top: auto;">
         <div class="container">
           <nav id="menuzord-right" class="menuzord default menuzord-responsive"><em></em><em></em><em></em>
