@@ -200,7 +200,8 @@
     SimpleChat.prototype.messagesView = function(name, text, usedId) {
       var listItem, nameItem, textItem;
       listItem = jQuery("<li/>", {
-      	"class": "panel w-100  message-panel"
+      	"class": "panel w-100  message-panel",
+        "tabindex": 1
       });
       
       text = md.render(text);
