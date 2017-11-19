@@ -1,4 +1,5 @@
-@extends('layouts.master')
+
+@extends('layouts.classroom')
 
 
 @section('css')
@@ -26,31 +27,41 @@
 
 @section('content')
 
-<section class="inner-header divider " style="background-color: #24324a !important" >
-      <div class="container pt-30 pb-30">
-        <!-- Section Content -->
-        <div class="section-content">
-          <div class="row"> 
-            <div class="col-md-6">
-              <h2 class="text-light font-36">{{ $chapter->title }}</h2>
-              <ol class="breadcrumb text-left mt-10 white">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Chapters</a></li>
-                <li><a href="#">{{ $chapter->title }}</a></li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
+<div class="chat-left">
+   <h3>Chapter Summary</h3>
+
+   <p>{{ $chapter->description }}</p>
+
+  <a href="/classrooms/{{ $chapter->classroom->id }}" class="btn btn-danger btn-exit">Exit Session</a>
+
+  <div class="course-intro">
+       <h4>Course</h4>
+     <p class="course-name">{{ $chapter->classroom->title }}</p>
+
+  </div>
+</div>
+
+
   
 
+<div class="chat-right" >
+
+  <section class="chat-heading">
+
+    <h2>{{ $chapter->title }} <span><i class="fa fa-circle"></i> Session Live</span></h2>
+
+    <a href="/classrooms/{{ $chapter->classroom->id }}" class="icon-close"><i class="fa fa-close"></i></a>
+    
+  </section>
+ 
 
 
 
-<div class="pt-4 container">
 
-	<div class="row">
+<div class="pt-4" style="overflow: auto;background: #fafafa;">
+
+	<div class="row" style="">
 
 		
 
@@ -58,7 +69,7 @@
 
 			@include('chapters.status')
 
-		@endif		
+		@else		
 			
 			@if($chapter->status == 2)
 				<div class="card bg-info text-light" style="width: 100%;">
@@ -68,17 +79,34 @@
 				</div>
 			@endif
 
-			@include('chapters.transcript')
+		
+     @endif
 
+      @include('chapters.transcript')
 		
 	</div>
 
 </div>
 
+
+<div class="panel-footer fixed-bottom">
+    <form id="userMessageForm">
+        <textarea id="user-message" name="message"  type="text" class="form-control input-sm " rows="3" style="font-size: 17px;" placeholder="Your Message here..." ></textarea>
+       
+      </form>
+</div>
+
+</div>
+</div>
+
+
+
+
 @endsection
 
 
 @section('js')
+  
 
 	
 	<script type="text/javascript">
@@ -154,43 +182,49 @@
          
         };
       })(this));
+
+      $("#userMessageForm #user-message").keypress((function(_this) {
+        return function(e) {
+           if (event.keyCode == 13 || event.which == 13) {
+              var name, text;
+            
+              name = "{{ auth()->user()->name }}";
+              text = $("#userMessageForm textarea[name='message']").val();
+              $("#userMessageForm textarea[name='message']").val("");
+              return _this.newMessage(name, text);
+           }
+        };
+      })(this));
     }
 
     SimpleChat.prototype.messagesView = function(name, text, usedId) {
       var listItem, nameItem, textItem;
       listItem = jQuery("<li/>", {
-      	"class": "card w-100 mb-3"
+      	"class": "panel w-100  message-panel"
       });
-      listItemBody = jQuery("<div/>", {
-      	"class": "card-body"
-      })
-
-      listItemBody.appendTo(listItem);
-
+      
       text = md.render(text);
-      console.log(text);
       text = text.replace('>', '&gt;');
       text = text.replace('<', '&lt;');
       text = aegismarked(text);
-      console.log(text);
-      nameItem = jQuery("<h5/>", {
-        "class": "card-title name",
+      nameItem = jQuery("<div/>", {
+        "class": "panel-heading name",
         text: name
       });
       textItem = jQuery("<p/>", {
-        "class": "card-text text markdown-body",
+        "class": "panel-body text markdown-body",
         html: text
       });
-      listItem.prependTo("#messages #listMessages");
-      nameItem.appendTo(listItemBody);
-      textItem.appendTo(listItemBody);
+      listItem.appendTo("#messages #listMessages");
+      nameItem.appendTo(listItem);
+      textItem.appendTo(listItem);
 
       MathJax.Hub.Queue(
               ["Typeset",MathJax.Hub,document.getElementById('listMessages')],
               function() {
                 
                    
-                  console.log('Done');
+                 
               }
             );
 

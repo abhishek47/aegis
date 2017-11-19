@@ -1,15 +1,15 @@
-<div id="transcript" class="{{ $chapter->status == 0 ? 'hidden' : '' }}" style="width: 100%;">
+<div id="transcript" class="{{ $chapter->status == 0 ? 'hidden' : '' }}" style="">
 
 
 
-<div id="newMessage"  style="width: 100%;" class="{{ $chapter->status != 1 ? 'hidden' : '' }}">
+<div id="newMessage"  style="width: 100%;display: none;" class="{{ $chapter->status != 1 ? 'hidden' : '' }}">
  
   <div id="editor2" class="editor--toolbar" style="width: 100%">
     <div class="editor--buttons">
       <a title="Add Heading" data-toggle="tooltip" data-placement="bottom"   onclick="addHeader2();return false;"><i class="fa fa-header"></i></a>
       <a title="Add Link" data-toggle="tooltip" data-placement="bottom"    onclick="addLink2();return false;"><i class="fa fa-link"></i></a>
       <a title="Add List" data-toggle="tooltip" data-placement="bottom"    onclick="addList2();return false;"><i class="fa fa-list-ul"></i></a>
-      <a title="Add Numbered List" data-toggle="tooltip" data-placement="bottom"   onclick="addNList2();return false;"><i class="fa fa-list-ol"></i></button>
+      <a title="Add Numbered List" data-toggle="tooltip" data-placement="bottom"   onclick="addNList2();return false;"><i class="fa fa-list-ol"></i></a>
         <a title="Add Table" data-toggle="tooltip" data-placement="bottom"   onclick="addTable2();return false;"><i class="fa fa-table"></i></a>
         <i class="separator">|</i>
         <a title="Add Image from URL" data-toggle="tooltip" data-placement="bottom"   onclick="addImage2();return false;"><i class="fa fa-photo"></i></a>
@@ -81,13 +81,17 @@
   <button id="closeSession" type="button" class="btn btn-danger pull-right">Close Session</button>
 </div>
 
-<div id="messages" style="width: 100%;margin-bottom: 20px;margin-top: 10px;">
-<ul id="listMessages"  style="margin-left: 0;padding-left: 0;"></ul>
+<div id="messages" style="width: 100%;margin-bottom: 20px;padding-top: 10px;">
+<ul id="listMessages"  style="width:100%;margin-left: 0;padding-left: 0; margin-bottom: 105px;height: 1000px;overflow-y: scroll;position: absolute;padding-bottom: 150px;" ></ul>
 
 </div>
 
 
-</div>
+
+
+
+
+
 
 
  <div style="height:0px;overflow:hidden">

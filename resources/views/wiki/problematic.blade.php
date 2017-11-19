@@ -3,7 +3,7 @@
 
 @section('content')
     
-   <section class="inner-header divider" style="background-color: #24324a !important" >
+   <section class="inner-header divider " style="background-color: #24324a !important" >
       <div class="container pt-30 pb-30">
         <!-- Section Content -->
         <div class="section-content">

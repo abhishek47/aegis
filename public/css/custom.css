@@ -379,3 +379,135 @@ a.text-dark:focus, a.text-dark:hover {
   background-color: transparent;
   border: 0;
 }
+
+#transcript {
+  width: 100%;
+  padding: 25px;
+  padding-top: 0 !important;
+   background-color: #fafafa;
+}
+
+
+#messages {
+  margin-top: 0;
+  background-color: #fafafa;
+  overflow-x: hidden;
+}
+
+.message-panel {
+  border-radius: 0;
+  border:none;
+  box-shadow: none;
+  background-color: #fafafa;
+  margin-bottom: 4px;
+}
+
+.message-panel .panel-heading {
+   border-radius: 0;
+   background-color: #fafafa;
+   color: #000;
+   font-weight: bold;
+   font-size: 18px;
+   padding-top: 0;
+}
+
+.message-panel .panel-body {
+  font-size: 18px;
+  padding-top: 0;
+}
+
+
+.message-panel img {
+  max-width: 250px !important;
+
+}
+
+.fixed-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    box-shadow: 0 0 1px 1px rgba(20,23,28,.1), 0 3px 1px 0 rgba(20,23,28,.1);
+}
+
+.fixed-bottom textarea {
+  border: 1px solid #ccc;
+}
+
+
+.chat-left {
+  width: 20%;display: inline-block;float: left;height: 100%;position: absolute;top: 0;bottom: 0;left: 0;
+   background-color: #393D7D;
+   color: #fff;
+   padding: 10px;
+   padding-top: 0;
+}
+
+.chat-left h3  {
+  color: #fff;
+  font-weight: bold;
+}
+
+.chat-left p {
+  font-size: 16px;
+}
+
+.chat-left .btn-exit {
+  margin-top: 35px;
+  width: 100%;
+  border-radius: 0;
+
+}
+
+.chat-left .course-intro {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.chat-left .course-intro h4 {
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 4px;
+  font-size: 20px;
+}
+
+.chat-right {
+  width: 80%;display: inline-block;float: left;overflow:hidden; position:absolute; top: 0; right:0;bottom:0;
+  background-color: #fafafa;
+}
+
+
+.chat-heading {
+  height: 60px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.chat-heading h2{
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  color: #484848;
+  font-weight: bold;
+  float: left;
+  padding-top: 15px;
+  padding-left:  10px;
+}
+
+.chat-heading h2 span {
+  font-size: 16px;
+  color: green;
+}
+
+.chat-heading .icon-close {
+  float: right;
+  font-size: 20px;
+  margin-top: 12px;
+  margin-right: 15px;
+}
+
