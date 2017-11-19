@@ -82,6 +82,7 @@ Route::get('/classrooms/{classroom}/unlike', 'ClassroomLikeController@destroy');
 
 Route::post('/chapter/{chapter}/start', 'ChaptersController@start');
 Route::post('/chapter/{chapter}/close', 'ChaptersController@close');
+Route::post('/chapter/{chapter}/members/toggle', 'ChaptersController@toggleMembers');
 
 
 Route::post('/chapter-homework/{homework}/check', 'ChapterSolvingController@check');

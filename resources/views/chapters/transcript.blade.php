@@ -82,7 +82,7 @@
 </div>
 
 <div id="messages" style="width: 100%;margin-bottom: 20px;padding-top: 10px;">
-<ul id="listMessages"  style="width:100%;margin-left: 0;padding-left: 0; margin-bottom: 105px;height: 1000px;overflow-y: scroll;position: absolute;padding-bottom: 150px;" ></ul>
+<ul id="listMessages"  style="width:100%;margin-left: 0;padding-left: 0;height: 88%;overflow-y: scroll;position: absolute;padding-bottom: 150px;" ></ul>
 
 </div>
 

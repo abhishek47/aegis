@@ -49,7 +49,9 @@ const app = new Vue({
 	    {
 	    	console.log(window.location);
 	    	window.location = url;
-	    }
+	    },
+
+	   
 
 
 	  }

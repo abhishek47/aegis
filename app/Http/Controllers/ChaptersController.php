@@ -40,4 +40,18 @@ class ChaptersController extends Controller
 
     	return response([], 200);
     }
+
+
+     public function toggleMembers(Chapter $chapter)
+    {
+        $status = $chapter->view_members;
+        if($status)
+            $chapter->view_members = 0;
+        else
+            $chapter->view_members = 1;
+
+        $chapter->save();
+
+        return response(['data'=>$chapter->view_members], 200);
+    }
 }

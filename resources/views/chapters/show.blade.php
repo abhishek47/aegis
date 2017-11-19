@@ -28,12 +28,19 @@
 @section('content')
 
 
-<div class="chat-left">
-   <h3>Chapter Summary</h3>
+<div class="chat-left {{ $chapter->view_members ? '' : 'hidden' }}" >
 
-   <p>{{ $chapter->description }}</p>
+  <div class="users-heading">
+   <h3>Users Enrolled</h3>
 
-  <a href="/classrooms/{{ $chapter->classroom->id }}" class="btn btn-danger btn-exit">Exit Session</a>
+ 
+  </div>
+  
+  <ul id="members">
+    
+  </ul> 
+
+  
 
   <div class="course-intro">
        <h4>Course</h4>
@@ -45,13 +52,17 @@
 
   
 
-<div class="chat-right" >
+<div class="chat-right" style="width: {{ $chapter->view_members ? '80%' : '100%' }}">
 
   <section class="chat-heading">
 
     <h2>{{ $chapter->title }} <span><i class="fa fa-circle"></i> Session Live</span></h2>
 
+    @if(auth()->user()->hasRole('administrator'))
+      <a id="toggleMembers" class="icon-close"><i class="fa fa-eye"></i></a>
+      @endif
     <a href="/classrooms/{{ $chapter->classroom->id }}" class="icon-close"><i class="fa fa-close"></i></a>
+
     
   </section>
  
@@ -59,7 +70,7 @@
 
 
 
-<div class="pt-4" style="overflow: auto;background: #fafafa;">
+<div class="pt-4" id="class-messages" style="overflow: auto;background: #fafafa;">
 
 	<div class="row" style="">
 
@@ -91,7 +102,7 @@
 
 <div class="panel-footer fixed-bottom">
     <form id="userMessageForm">
-        <textarea id="user-message" name="message"  type="text" class="form-control input-sm " rows="3" style="font-size: 17px;" placeholder="Your Message here..." ></textarea>
+        <textarea id="user-message" name="message" class="form-control input-sm " rows="3" style="font-size: 17px;" placeholder="Your Message here..." ></textarea>
        
       </form>
 </div>
@@ -108,9 +119,78 @@
 @section('js')
   
 
+ 
+
 	
 	<script type="text/javascript">
 		 // Get a reference to the database service
+
+     function pasteIntoInput(el, text) {
+    el.focus();
+    if (typeof el.selectionStart == "number"
+            && typeof el.selectionEnd == "number") {
+        var val = el.value;
+        var selStart = el.selectionStart;
+        el.value = val.slice(0, selStart) + text + val.slice(el.selectionEnd);
+        el.selectionEnd = el.selectionStart = selStart + text.length;
+    } else if (typeof document.selection != "undefined") {
+        var textRange = document.selection.createRange();
+        textRange.text = text;
+        textRange.collapse(false);
+        textRange.select();
+    }
+}
+
+$.fn.selectRange = function(start, end) {
+    if(!end) end = start; 
+    return this.each(function() {
+        if (this.setSelectionRange) {
+            this.focus();
+            this.setSelectionRange(start, end);
+        } else if (this.createTextRange) {
+            var range = this.createTextRange();
+            range.collapse(true);
+            range.moveEnd('character', end);
+            range.moveStart('character', start);
+            range.select();
+        }
+    });
+};
+
+
+      var fireBaseMembers;
+
+      fireBaseMembers = new firebase.database().ref('/members/chapter-{{ $chapter->id }}');
+
+
+       @if($chapter->status == 1)
+
+          fireBaseMembers.push({name: '{{ auth()->user()->name }}', id: '{{auth()->id()}}' });
+
+        @endif
+
+       fireBaseMembers.on("child_added", function(snapshot) {
+
+           var membersList = $('#members');
+           var user = snapshot.val();
+            var listItem, nameItem;
+            listItem = jQuery("<li/>", {
+              "class": "member-item",
+              
+            });
+
+             nameItem = jQuery("<p/>", {
+              "class": "",
+              text: user.name
+            });
+
+             nameItem.appendTo(listItem);
+
+             listItem.appendTo(membersList);
+
+
+
+       });
 		
 		
 
@@ -128,18 +208,35 @@
          
           var message;
           message = snapshot.val();
-          if(message.text != '~end~')
+          if(message.text == '~end~')
           {
-          	 $('#status').addClass('hidden');
-  			 $('#newMessage').removeClass('hidden');
-	  		 $('#transcript').removeClass('hidden');	
-	  		 $('#chapterTabs').removeClass('hidden');
-          	 return _this.messagesView(message.name, message.text, message.user_id);
+          	$('#newMessage').addClass('hidden');
           }
-      	  else
+      	  else if(message.text == '~togglemembers-0~')
       	  {
-  	  		$('#newMessage').addClass('hidden');
+  	  		   $('.chat-left').addClass('hidden');
+             $('.chat-right').css('width', '100%');
+
       	  }	
+           else if(message.text == '~togglemembers-1~')
+          {
+             $('.chat-left').removeClass('hidden');
+             $('.chat-right').css('width', '80%');
+
+          } 
+
+          else {
+             $('#status').addClass('hidden');
+         $('#newMessage').removeClass('hidden');
+         $('#transcript').removeClass('hidden');  
+         $('#chapterTabs').removeClass('hidden');
+           var element = document.getElementById("listMessages");
+    element.scrollTop = element.scrollHeight;
+
+             return _this.messagesView(message.name, message.text, message.user_id, message.is_admin);
+             
+
+          }
         };
       })(this));
       $("#newMessage #sendBtn").click((function(_this) {
@@ -183,38 +280,73 @@
         };
       })(this));
 
+       $("#toggleMembers").click((function(_this) {
+        return function(e) {
+          var name, text;
+            axios.post('/chapter/{{ $chapter->id }}/members/toggle').then(function(res) {
+              console.log(res);
+              name = "{{ auth()->user()->name }}";
+              text = "~togglemembers-" + res.data.data + "~";
+              return _this.newMessage(name, text);
+            });
+           
+         
+        };
+      })(this));
+
       $("#userMessageForm #user-message").keypress((function(_this) {
         return function(e) {
            if (event.keyCode == 13 || event.which == 13) {
-              var name, text;
+
+          
+                if(event.shiftKey){
+                    pasteIntoInput(this, '');
+                } else {
+                     var name, text;
             
-              name = "{{ auth()->user()->name }}";
-              text = $("#userMessageForm textarea[name='message']").val();
-              $("#userMessageForm textarea[name='message']").val("");
-              return _this.newMessage(name, text);
+                      name = "{{ auth()->user()->name }}";
+                      text = $("#userMessageForm textarea[name='message']").val();
+                      $("#userMessageForm textarea[name='message']").val("").selectRange(0,0);
+                      event.preventDefault();
+                      return _this.newMessage(name, text);
+                }
+    
+             
            }
         };
       })(this));
     }
 
-    SimpleChat.prototype.messagesView = function(name, text, usedId) {
+    SimpleChat.prototype.messagesView = function(name, text, usedId, isAdmin) {
       var listItem, nameItem, textItem;
       listItem = jQuery("<li/>", {
       	"class": "panel w-100  message-panel",
-        "tabindex": 1
+        "tabindex": 1,
+
       });
       
       text = md.render(text);
       text = text.replace('>', '&gt;');
       text = text.replace('<', '&lt;');
       text = aegismarked(text);
-      nameItem = jQuery("<div/>", {
+
+      if(isAdmin)
+      {
+        nameItem = jQuery("<div/>", {
+        "class": "panel-heading name is-admin",
+        html: name + ' <a href="#" style="margin-left:10px;"><i class="fa fa-comment"></i> quote</a>'
+        });
+      }
+      else {
+        nameItem = jQuery("<div/>", {
         "class": "panel-heading name",
-        text: name
-      });
+        html: name + ' <a href="#" style="margin-left:10px;"><i class="fa fa-comment"></i> quote</a>'
+        });
+     }
       textItem = jQuery("<p/>", {
         "class": "panel-body text markdown-body",
-        html: text
+        html: text,
+        "white-space" : "pre"
       });
       listItem.appendTo("#messages #listMessages");
       nameItem.appendTo(listItem);
@@ -237,6 +369,7 @@
         name: name,
         text: text,
         user_id:  {{ auth()->user()->id }},
+        is_admin: {{  auth()->user()->hasRole('administrator') }},
         chapter_id: {{ $chapter->id }},
         created_at: Date.now()
       });
