@@ -72,7 +72,7 @@
 		@else		
 			
 			@if($chapter->status == 2)
-				<div class="alert alert-info" style="width: 100%;">
+				<div class="alert alert-info" style="width: 100%;padding-left: 10px;">
 				
 						<b>This chapter session is closed and the transcript is available for reference</b>
 				
