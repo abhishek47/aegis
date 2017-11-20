@@ -34,6 +34,8 @@ md.use(require("markdown-it-table-of-contents"), { "includeLevel" : [1,2,3] });
 md.use(require('markdown-it-decorate'));
 md.use(require('markdown-it-deflist'));
 
+md.use(require('markdown-it-emoji'));
+
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
  * all outgoing HTTP requests automatically have it attached. This is just
