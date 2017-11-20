@@ -297,7 +297,7 @@ $.fn.selectRange = function(start, end) {
 
           else {
 
-              $('#userMessageForm').removeClass('hidden'); 
+              $('.fixed-bottom').removeClass('hidden'); 
             
              $('#status').addClass('hidden');
              @if(auth()->user()->hasRole('administrator'))
