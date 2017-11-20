@@ -1,5 +1,5 @@
 
-@extends('layouts.classroom')
+@extends($chapter->status != 2 ? 'layouts.classroom' : 'layouts.master')
 
 
 @section('css')
@@ -40,82 +40,75 @@
 
 @section('content')
 
+@if($chapter->status != 2)
+        <div class="chat-left {{ $chapter->view_members && !auth()->user()->hasRole('administrator') ? '' : 'hidden' }}" >
 
-<div class="chat-left {{ $chapter->view_members && !auth()->user()->hasRole('administrator') ? '' : 'hidden' }}" >
+          <div class="users-heading">
+           <h3>Users Enrolled</h3>
 
-  <div class="users-heading">
-   <h3>Users Enrolled</h3>
+         
+          </div>
+          
+          <ul id="members">
+            
+          </ul> 
 
- 
-  </div>
-  
-  <ul id="members">
-    
-  </ul> 
-
-  
-
-
-</div>
+          
 
 
-  
-
-<div class="chat-right" style="width: {{ $chapter->view_members  && !auth()->user()->hasRole('administrator') ? '80%' : '100%' }}">
-
-  <section class="chat-heading">
-
-    <h2>{{ $chapter->title }} <!-- <span><i class="fa fa-circle"></i> Session Live</span> --></h2>
-
-    
-    <a href="/classrooms/{{ $chapter->classroom->id }}" class="icon-close"><i class="fa fa-close"></i></a>
-
-    
-  </section>
- 
+        </div>
 
 
+          
+
+        <div class="chat-right" style="width: {{ $chapter->view_members  && !auth()->user()->hasRole('administrator') ? '80%' : '100%' }}">
+
+          <section class="chat-heading">
+
+            <h2>{{ $chapter->title }} <!-- <span><i class="fa fa-circle"></i> Session Live</span> --></h2>
+
+            
+            <a href="/classrooms/{{ $chapter->classroom->id }}" class="icon-close"><i class="fa fa-close"></i></a>
+
+            
+          </section>
+         
 
 
-<div class="pt-4" id="class-messages" style="overflow: hidden;background: #fafafa;">
 
-	<div class="row" style="">
 
-		
+        <div class="pt-4" id="class-messages" style="overflow: hidden;background: #fafafa;">
 
-		@if($chapter->status == 0)
+        	<div class="row" style="">
 
-			@include('chapters.status')
+        		
 
-		@else		
-			
-			@if($chapter->status == 2)
-				<div class="alert alert-info" style="width: 100%;padding-left: 25px;">
-				
-						<b>This chapter session is closed and the transcript is available for reference</b>
-				
-				</div>
-			@endif
+        		@if($chapter->status == 0)
 
-		
-     @endif
+        			@include('chapters.status')
 
-      @include('chapters.transcript')
-		
-	</div>
+        	  @endif
 
-</div>
+              @include('chapters.transcript')
+        		
+        	</div>
 
-@if(!auth()->user()->hasRole('administrator') && $chapter->status == 1)
-<div class="panel-footer fixed-bottom">
-    <form id="userMessageForm">
-        <textarea id="user-message" name="message" class="form-control input-sm " rows="3" style="font-size: 17px;" placeholder="Your Message here..." ></textarea>
-       
-      </form>
-</div>
-  
+        </div>
+
+        @if(!auth()->user()->hasRole('administrator') && $chapter->status == 1)
+        <div class="panel-footer fixed-bottom">
+            <form id="userMessageForm">
+                <textarea id="user-message" name="message" class="form-control input-sm " rows="3" style="font-size: 17px;" placeholder="Your Message here..." ></textarea>
+               
+              </form>
+        </div>
+          
+        @endif
+
+
+@else        
+
 @endif
-
 
 
 
@@ -217,6 +210,7 @@ $.fn.selectRange = function(start, end) {
         }
     });
 };
+
 
 
       var fireBaseMembers;
@@ -556,10 +550,10 @@ $.fn.selectRange = function(start, end) {
 
 
            @if($chapter->status == 1)
-       @if(auth()->user()->hasRole('administrator'))
-        toggleFullscreen2()
-       @endif
-     @endif  
+             @if(auth()->user()->hasRole('administrator'))
+              toggleFullscreen2()
+             @endif
+           @endif  
 
          
         </script>
