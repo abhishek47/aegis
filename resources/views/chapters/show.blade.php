@@ -61,7 +61,7 @@
 
           
 
-        <div class="chat-right" style="width: {{ $chapter->view_members  && !auth()->user()->hasRole('administrator') ? '80%' : '100%' }}">
+        <div class="chat-right" style="width: {{ $chapter->view_members  && !auth()->user()->hasRole('administrator') ? '85%' : '100%' }}">
 
           <section class="chat-heading">
 
