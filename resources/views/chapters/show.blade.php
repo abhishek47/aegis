@@ -287,7 +287,9 @@ $.fn.selectRange = function(start, end) {
 
           else {
              $('#status').addClass('hidden');
-         $('#newMessage').removeClass('hidden');
+             @if(auth()->user()->hasRole('administrator'))
+             $('#newMessage').removeClass('hidden');
+             @endif
          $('#transcript').removeClass('hidden');  
          $('#chapterTabs').removeClass('hidden');
            var element = document.getElementById("listMessages");
