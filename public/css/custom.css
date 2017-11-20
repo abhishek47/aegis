@@ -394,6 +394,28 @@ a.text-dark:focus, a.text-dark:hover {
   overflow-x: hidden;
 }
 
+.messagesHolder {
+  width: 100%;margin-bottom: 20px;padding-top: 10px;
+}
+
+.messagesHolder #listMessages {
+  width:100%;margin-left: 0;padding-left: 0;height: 88%;overflow-y: scroll;position: absolute;padding-bottom: 150px;
+}
+
+.messagesHolder.is-admin #listMessages {
+  height: 100%;
+}
+
+.messagesHolder.is-admin {
+    width: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+
 .message-panel {
   border-radius: 0;
   border:none;

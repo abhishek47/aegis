@@ -2,7 +2,7 @@
 
 
 
-<div id="newMessage"  style="width: 100%;display: none;" class="{{ $chapter->status != 1 ? 'hidden' : '' }}">
+<div id="newMessage"  style="width: 100%;" class="{{ $chapter->status != 1 ? 'hidden' : '' }}">
  
   <div id="editor2" class="editor--toolbar" style="width: 100%">
     <div class="editor--buttons">
@@ -30,6 +30,11 @@
         <a title="Preview" data-toggle="tooltip" data-placement="bottom"   onclick="Preview2.Update();" ><i class="fa fa-eye"></i></a>
         <a title="Saved Messages" data-toggle="tooltip" data-placement="bottom"   onclick="toggleMessagesView();" ><i class="fa fa-list"></i></a>
         <a title="Fullscreen" id="btn-fullscreen2" data-toggle="tooltip" data-placement="bottom"   onclick="toggleFullscreen2();return false;" ><i class="fa fa-arrows-alt"></i></a>
+        @if(auth()->user()->hasRole('administrator'))
+      <a title="Toggle Members Visibility" id="toggleMembers" data-toggle="tooltip" data-placement="bottom" ><i class="fa fa-eye"></i></a>
+
+      <a title="Close Session" id="closeSession" data-toggle="tooltip" data-placement="bottom" ><i class="fa fa-close"></i></a>
+      @endif
         
         <!--  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Line
@@ -73,7 +78,7 @@
       position:absolute;
     top:0; left: 0"></div>
   </div>
-  <div id="saved-messages" class="hidden">
+  <div id="saved-messages" class="hidden  {{ auth()->user()->hasRole('administrator') ? 'is-admin' : ''  }}">
       <textarea id="marked-mathjax-input3"  class="form-control latex-editor-textarea" readonly="">{{ isset($chapter->messages) ? $chapter->messages->body : '' }}</textarea>
       
     </div>
@@ -81,8 +86,8 @@
   <button id="closeSession" type="button" class="btn btn-danger pull-right">Close Session</button>
 </div>
 
-<div id="messages" style="width: 100%;margin-bottom: 20px;padding-top: 10px;">
-<ul id="listMessages"  style="width:100%;margin-left: 0;padding-left: 0;height: 88%;overflow-y: scroll;position: absolute;padding-bottom: 150px;" ></ul>
+<div id="messages" class="messagesHolder {{ auth()->user()->hasRole('administrator') ? 'is-admin' : ''  }}" style="">
+<ul id="listMessages"  style="" ></ul>
 
 </div>
 

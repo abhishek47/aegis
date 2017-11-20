@@ -103,7 +103,7 @@
                  min-height: 1000px;
              }
 
-            #btn-fullscreen2.active{
+            #btn-fullscreen2.active, #toggleMembers.active{
                color: #2c3e50!important;
               border: 1px solid #ccc; 
             }

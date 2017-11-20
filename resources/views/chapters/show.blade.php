@@ -22,13 +22,26 @@
 	<link rel="stylesheet" type="text/css" href="/css/classroom.css">
 
 	<script src="/js/classroom.js"></script>
+
+  <style type="text/css">
+    .editor--toolbar.fullscreen {
+      width: 50% !important;
+    }
+     #saved-messages.fullscreen {
+
+      width: 50% !important;
+    }
+    .editor-preview.fullscreen {
+      width: 50% !important;
+    }
+  </style>
 @endsection
 
 
 @section('content')
 
 
-<div class="chat-left {{ $chapter->view_members ? '' : 'hidden' }}" >
+<div class="chat-left {{ $chapter->view_members && !auth()->user()->hasRole('administrator') ? '' : 'hidden' }}" >
 
   <div class="users-heading">
    <h3>Users Enrolled</h3>
@@ -42,25 +55,19 @@
 
   
 
-  <div class="course-intro">
-       <h4>Course</h4>
-     <p class="course-name">{{ $chapter->classroom->title }}</p>
 
-  </div>
 </div>
 
 
   
 
-<div class="chat-right" style="width: {{ $chapter->view_members ? '80%' : '100%' }}">
+<div class="chat-right" style="width: {{ $chapter->view_members  && !auth()->user()->hasRole('administrator') ? '80%' : '100%' }}">
 
   <section class="chat-heading">
 
     <h2>{{ $chapter->title }} <span><i class="fa fa-circle"></i> Session Live</span></h2>
 
-    @if(auth()->user()->hasRole('administrator'))
-      <a id="toggleMembers" class="icon-close"><i class="fa fa-eye"></i></a>
-      @endif
+    
     <a href="/classrooms/{{ $chapter->classroom->id }}" class="icon-close"><i class="fa fa-close"></i></a>
 
     
@@ -99,13 +106,15 @@
 
 </div>
 
-
+@if(!auth()->user()->hasRole('administrator'))
 <div class="panel-footer fixed-bottom">
     <form id="userMessageForm">
         <textarea id="user-message" name="message" class="form-control input-sm " rows="3" style="font-size: 17px;" placeholder="Your Message here..." ></textarea>
        
       </form>
 </div>
+  
+@endif
 
 </div>
 </div>
@@ -118,12 +127,29 @@
 
 @section('js')
   
-
+  
  
 
 	
 	<script type="text/javascript">
 		 // Get a reference to the database service
+
+
+      function deleteMessage(el)
+      {
+           var key = $(el).parent().data('id');
+
+          
+
+           var fireBase;
+
+          fireBase = new firebase.database().ref('/messages/chapter-{{ $chapter->id }}');
+
+           fireBase.child(key).$remove().then(function() {
+                 $('#' + key).remove();
+            });
+      }
+
 
      function pasteIntoInput(el, text) {
     el.focus();
@@ -214,15 +240,24 @@ $.fn.selectRange = function(start, end) {
           }
       	  else if(message.text == '~togglemembers-0~')
       	  {
+             @if(!auth()->user()->hasRole('administrator'))
   	  		   $('.chat-left').addClass('hidden');
              $('.chat-right').css('width', '100%');
+             @else
+               $('#toggleMembers').removeClass('active');
+             @endif
+             
 
       	  }	
            else if(message.text == '~togglemembers-1~')
           {
+            @if(!auth()->user()->hasRole('administrator'))
              $('.chat-left').removeClass('hidden');
              $('.chat-right').css('width', '80%');
-
+             @else
+              $('#toggleMembers').addClass('active');
+             @endif
+              
           } 
 
           else {
@@ -232,13 +267,25 @@ $.fn.selectRange = function(start, end) {
          $('#chapterTabs').removeClass('hidden');
            var element = document.getElementById("listMessages");
     element.scrollTop = element.scrollHeight;
-
-             return _this.messagesView(message.name, message.text, message.user_id, message.is_admin);
+              var key = snapshot.key;
+             return _this.messagesView(key, message.name, message.text, message.user_id, message.is_admin);
              
 
           }
         };
       })(this));
+
+       fireBase.on("child_removed", (function(_this) {
+        return function(snapshot) {
+         
+              var key = snapshot.key;
+              
+               $('#' + key).remove();
+
+          
+        };
+      })(this));
+
       $("#newMessage #sendBtn").click((function(_this) {
         return function(e) {
           var name, text;
@@ -293,6 +340,7 @@ $.fn.selectRange = function(start, end) {
          
         };
       })(this));
+      
 
       $("#userMessageForm #user-message").keypress((function(_this) {
         return function(e) {
@@ -315,11 +363,35 @@ $.fn.selectRange = function(start, end) {
            }
         };
       })(this));
+
+      $("#marked-mathjax-input2").keypress((function(_this) {
+        return function(e) {
+           if (event.keyCode == 13 || event.which == 13) {
+
+          
+                if(event.shiftKey){
+                    pasteIntoInput(this, '');
+                } else {
+                     var name, text;
+            
+                      name = "{{ auth()->user()->name }}";
+                      text = $("#marked-mathjax-input2").val();
+                      $("#marked-mathjax-input2").val("").selectRange(0,0);
+                      event.preventDefault();
+                      return _this.newMessage(name, text);
+                }
+    
+             
+           }
+        };
+      })(this));
     }
 
-    SimpleChat.prototype.messagesView = function(name, text, usedId, isAdmin) {
+    SimpleChat.prototype.messagesView = function(mid, name, text, usedId, isAdmin) {
+     
       var listItem, nameItem, textItem;
       listItem = jQuery("<li/>", {
+        "id": mid,
       	"class": "panel w-100  message-panel",
         "tabindex": 1,
 
@@ -333,8 +405,9 @@ $.fn.selectRange = function(start, end) {
       if(isAdmin)
       {
         nameItem = jQuery("<div/>", {
-        "class": "panel-heading name is-admin",
-        html: name + ' <a href="#" style="margin-left:10px;"><i class="fa fa-comment"></i> quote</a>'
+         "class": "panel-heading name is-admin",
+        html: name + ' <a href="#" style="margin-left:10px;"><i class="fa fa-comment"></i> quote</a>  <a onclick="deleteMessage(this)" style="margin-left:10px;color:red;cursor:pointer;"><i class="fa fa-trash"></i> delete</a>',
+        "data-id": mid
         });
       }
       else {
@@ -387,6 +460,9 @@ $.fn.selectRange = function(start, end) {
 
 
 
+
+
+
 	</script>
 
          <script type="text/javascript" src="/js/functions2.js"></script>
@@ -424,6 +500,13 @@ $.fn.selectRange = function(start, end) {
 
                 
           });
+
+
+           @if($chapter->status == 1)
+       @if(auth()->user()->hasRole('administrator'))
+        toggleFullscreen2()
+       @endif
+     @endif  
 
          
         </script>
