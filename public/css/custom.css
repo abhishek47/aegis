@@ -400,7 +400,7 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 .messagesHolder #listMessages {
-  width:100%;margin-left: 0;padding-left: 0;height: 88%;overflow-y: scroll;position: absolute;padding-bottom: 150px;
+  width:100%;margin-left: 0;padding-left: 0;height: 88%;overflow-y: scroll;position: absolute;padding-bottom: 25%;
 }
 
 .messagesHolder.is-admin #listMessages {
