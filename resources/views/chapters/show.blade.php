@@ -350,13 +350,20 @@ $.fn.selectRange = function(start, end) {
       })(this));
       $("#closeSession").click((function(_this) {
         return function(e) {
-          var name, text;
-          	axios.post('/chapter/{{ $chapter->id }}/close').then(function() {
-          		$('#newMessage').addClass('hidden');
-          		name = "{{ auth()->user()->name }}";
-	            text = "~end~";
-	            return _this.newMessage(name, text);
-          	});
+
+          var r = confirm("Are you sure, you want to close this session?");
+          if (r == true) {
+             var name, text;
+            axios.post('/chapter/{{ $chapter->id }}/close').then(function() {
+              $('#newMessage').addClass('hidden');
+              name = "{{ auth()->user()->name }}";
+              text = "~end~";
+              return _this.newMessage(name, text);
+            });
+          } else {
+              
+          }
+          
            
          
         };
