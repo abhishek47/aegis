@@ -106,7 +106,7 @@
 
 </div>
 
-@if(!auth()->user()->hasRole('administrator'))
+@if(!auth()->user()->hasRole('administrator') && $chapter->status == 1)
 <div class="panel-footer fixed-bottom">
     <form id="userMessageForm">
         <textarea id="user-message" name="message" class="form-control input-sm " rows="3" style="font-size: 17px;" placeholder="Your Message here..." ></textarea>
