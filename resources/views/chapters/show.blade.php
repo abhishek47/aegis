@@ -224,11 +224,10 @@ $.fn.selectRange = function(start, end) {
       fireBaseMembers = new firebase.database().ref('/members/chapter-{{ $chapter->id }}');
 
 
-       @if($chapter->status == 1)
+      
 
           fireBaseMembers.push({name: '{{ auth()->user()->name }}', id: '{{auth()->id()}}' });
-
-        @endif
+ 
 
        fireBaseMembers.on("child_added", function(snapshot) {
 
