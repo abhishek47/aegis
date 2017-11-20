@@ -74,9 +74,14 @@
  <link rel="stylesheet" type="text/css" href="/css/markdown.css">
    <link rel="stylesheet" type="text/css" href="/css/editor.css">
  
+
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
+      CommonHTML: { linebreaks: {automatic: true}},
+  SVG: { linebreaks: {automatic: true}},
+ 
        "HTML-CSS": {
+       linebreaks: {automatic: true},
     styles: {
       ".MathJax_Display": {
         width: null,

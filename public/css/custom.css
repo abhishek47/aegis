@@ -445,6 +445,7 @@ a.text-dark:focus, a.text-dark:hover {
   font-size: 18px;
   padding-top: 0;
   padding-bottom: 10px;
+  overflow-x: scroll;
 }
 
 
@@ -606,4 +607,8 @@ border-left: 1px solid #ccc;
     width: 200px;
     height: 40px;
   z-index: 999999;
+}
+
+.course-single-item {
+    border-top: 6px solid #1a458e !important;
 }
