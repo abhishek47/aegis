@@ -296,6 +296,8 @@ $.fn.selectRange = function(start, end) {
           } 
 
           else {
+
+            @if($chapter->status == 1)
              $('#status').addClass('hidden');
              @if(auth()->user()->hasRole('administrator'))
              $('#newMessage').removeClass('hidden');
@@ -306,7 +308,7 @@ $.fn.selectRange = function(start, end) {
     element.scrollTop = element.scrollHeight;
               var key = snapshot.key;
              return _this.messagesView(key, message.name, message.text, message.user_id, message.is_admin);
-             
+             @endif
 
           }
         };
