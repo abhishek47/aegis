@@ -95,15 +95,15 @@
 
         </div>
 
-        @if(!auth()->user()->hasRole('administrator') && $chapter->status == 1)
-        <div class="panel-footer fixed-bottom">
+        
+        <div class="panel-footer fixed-bottom {{ !auth()->user()->hasRole('administrator') && $chapter->status == 1 ? '' : 'hidden' }}">
             <form id="userMessageForm">
                 <textarea id="user-message" name="message" class="form-control input-sm " rows="3" style="font-size: 17px;" placeholder="Your Message here..." ></textarea>
                
               </form>
         </div>
           
-        @endif
+       
 
 
 @else        
@@ -297,6 +297,7 @@ $.fn.selectRange = function(start, end) {
 
           else {
 
+              $('#userMessageForm').removeClass('hidden'); 
             
              $('#status').addClass('hidden');
              @if(auth()->user()->hasRole('administrator'))
