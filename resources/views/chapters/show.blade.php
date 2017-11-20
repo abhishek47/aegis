@@ -269,7 +269,7 @@ $.fn.selectRange = function(start, end) {
           if(message.text == '~end~')
           {
           	$('#newMessage').addClass('hidden');
-            @if($chapter->status != 2)
+            @if($chapter->status == 1)
               location.reload();
             @endif
           }
