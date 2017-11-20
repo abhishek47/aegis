@@ -432,6 +432,7 @@ $.fn.selectRange = function(start, end) {
 
       });
       
+      text = text.replace(/^&gt;/mg, '>');
       text = md.render(text);
       text = text.replace('>', '&gt;');
       text = text.replace('<', '&lt;');
