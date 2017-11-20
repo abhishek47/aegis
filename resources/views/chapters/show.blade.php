@@ -145,7 +145,7 @@
 
           fireBase = new firebase.database().ref('/messages/chapter-{{ $chapter->id }}');
 
-           fireBase.child(key).$remove().then(function() {
+           fireBase.child(key).remove().then(function() {
                  $('#' + key).remove();
             });
       }
