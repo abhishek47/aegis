@@ -23,3 +23,23 @@
 	color: #5d5d5d;
 
 }
+
+
+.question-panel {
+	border-radius:  0;
+}
+
+.question-panel .panel-heading {
+	color: #fff;
+	font-weight: bold;
+	background-color: #1A458E !important;	
+}
+
+.question-panel .panel-footer {
+	background-color: #dedede;
+}
+
+.question-panel .panel-body {
+	font-size: 17px;
+	color: #000;
+}
