@@ -467,7 +467,7 @@ a.text-dark:focus, a.text-dark:hover {
 
 
 .chat-left {
-  width: 20%;display: inline-block;float: left;height: 100%;position: absolute;top: 0;bottom: 0;right: 0;
+  width: 15%;display: inline-block;float: left;height: 100%;position: absolute;top: 0;bottom: 0;right: 0;
    background-color: #fff;
    color: #fff;
    /*padding: 10px;*/
@@ -509,7 +509,7 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 .chat-right {
-  width: 80%;display: inline-block;float: left;overflow:hidden; position:absolute; top: 0; left:0;bottom:0;
+  width: 85%;display: inline-block;float: left;overflow:hidden; position:absolute; top: 0; left:0;bottom:0;
   background-color: #fafafa;
 }
 

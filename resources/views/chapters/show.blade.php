@@ -288,7 +288,7 @@ $.fn.selectRange = function(start, end) {
           {
             @if(!auth()->user()->hasRole('administrator'))
              $('.chat-left').removeClass('hidden');
-             $('.chat-right').css('width', '80%');
+             $('.chat-right').css('width', '85%');
              @else
               $('#toggleMembers').addClass('active');
              @endif
