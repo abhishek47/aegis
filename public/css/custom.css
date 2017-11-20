@@ -468,11 +468,12 @@ a.text-dark:focus, a.text-dark:hover {
 
 .chat-left {
   width: 20%;display: inline-block;float: left;height: 100%;position: absolute;top: 0;bottom: 0;right: 0;
-   background-color: #393D7D;
+   background-color: #fff;
    color: #fff;
    /*padding: 10px;*/
    padding-top: 0;
    overflow:hidden;
+   border-left: 1px solid #ccc;
 }
 
 .chat-left h3  {
@@ -481,7 +482,7 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 .chat-left p {
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .chat-left .btn-exit {
@@ -552,17 +553,18 @@ background-color: #fff;
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+border-left: 1px solid #ccc;
 }
 
 
 .users-heading h3{
   padding: 0;
   margin: 0;
-  font-size: 20px;
+  font-size: 16px;
   color: #fff;
   font-weight: bold;
   float: left;
-  padding-top: 15px;
+  padding-top: 20px;
   padding-left:  10px;
 }
 

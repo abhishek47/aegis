@@ -297,11 +297,13 @@ $.fn.selectRange = function(start, end) {
 
           else {
 
-              $('.fixed-bottom').removeClass('hidden'); 
+             
             
              $('#status').addClass('hidden');
              @if(auth()->user()->hasRole('administrator'))
              $('#newMessage').removeClass('hidden');
+            @else
+               $('.fixed-bottom').removeClass('hidden'); 
              @endif
          $('#transcript').removeClass('hidden');  
          $('#chapterTabs').removeClass('hidden');
