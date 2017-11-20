@@ -385,6 +385,7 @@ a.text-dark:focus, a.text-dark:hover {
   padding: 25px;
   padding-top: 0 !important;
    background-color: #fafafa;
+   overflow-x: hidden;
 }
 
 
