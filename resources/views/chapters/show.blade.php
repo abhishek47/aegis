@@ -442,7 +442,7 @@ $.fn.selectRange = function(start, end) {
         name: name,
         text: text,
         user_id:  {{ auth()->user()->id }},
-        is_admin: {{  auth()->user()->hasRole('administrator') }},
+        is_admin: {{  auth()->user()->hasRole('administrator') ? 1 : 0 }},
         chapter_id: {{ $chapter->id }},
         created_at: Date.now()
       });
