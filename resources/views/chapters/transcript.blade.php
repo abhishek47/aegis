@@ -2,7 +2,7 @@
 
 
 
-<div id="newMessage"  style="width: 100%;" class="{{ $chapter->status != 1 ? 'hidden' : '' }}">
+<div id="newMessage"  style="width: 100%;" class="{{ $chapter->status != 1 && !auth()->user()->hasRole('administrator') ? 'hidden' : '' }}">
  
   <div id="editor2" class="editor--toolbar" style="width: 100%">
     <div class="editor--buttons">
