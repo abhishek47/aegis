@@ -45,26 +45,46 @@
 
         </div>
 
-        <div class="page-header">
-          <h3>Transcript</h3>
-        </div>
 
-         <div class="course-single-item bg-white border-1px clearfix mb-30">
-          
-        <div class="course-details clearfix">
+        <ul id="myTab" class="nav nav-tabs boot-tabs">
+           <li class="active"><a href="#home" data-toggle="tab">Transcript</a></li>
+           <li><a href="#profile" data-toggle="tab">Homework</a></li>
+           <li><a href="#notes" data-toggle="tab">Notes</a></li>
+           <li><a href="#discuss" data-toggle="tab">Discuss</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content  mb-30">
+          <div class="tab-pane fade in active" id="home">
+             
+              <div class="course-single-item bg-white border-1px clearfix">
+                
+              <div class="course-details clearfix">
 
-                        <p class="course-description" style="font-size: 17px;">
-                            
-                              <ul id="transcriptMessages"  style="" ></ul>
+                  <p class="course-description" style="font-size: 17px;">
+                      
+                        <ul id="transcriptMessages"  style="" ></ul>
 
-                              
+                        
 
-                        </p>
+                  </p>
 
-                      </div>
+                </div>
 
 
-        </div>  
+              </div>  
+          </div>
+          <div class="tab-pane fade" id="profile">
+             @include('chapters.homework.index')
+          </div>
+          <div class="tab-pane fade" id="notes">
+            @include('chapters.notes.index')
+          </div>
+          <div class="tab-pane fade" id="discuss">
+            <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+          </div>
+        </div> 
+
+
+       
 
 
 
