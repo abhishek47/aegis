@@ -150,6 +150,31 @@
             });
       }
 
+       function quoteMessage(el)
+      {
+           var key = $(el).parent().data('id');
+
+           @if(auth()->user()->hasRole('administrator'))
+
+               var tex =  $('#'+key + ' .text').data('latex');
+
+               $("#marked-mathjax-input2").val("").selectRange(0,0);
+
+               
+
+               insertAtCaret2('<blockquote style="margin-bottom:4px;">' + '<b style="font-size:14px;">' + $('#'+key + ' .username').text() + '</b> : ' + tex + '</blockquote>\n ');
+
+           @else
+
+              var tex =  $('#'+key + ' .text').data('latex');
+
+               $("#user-message").val("").selectRange(0,0);
+
+               $("#user-message").val('<blockquote style="margin-bottom:4px;">' + '<b style="font-size:14px;">' + $('#'+key + ' .username').text() + '</b> : ' + tex + '</blockquote>\n ');
+
+           @endif
+      }
+
 
      function pasteIntoInput(el, text) {
     el.focus();
@@ -407,9 +432,9 @@ $.fn.selectRange = function(start, end) {
         nameItem = jQuery("<div/>", {
          "class": "panel-heading name",
          @if(auth()->user()->hasRole('administrator'))
-        html: '<span class="username">' + name + '</span>' + ' <a href="#" style="margin-left:10px;"><i class="fa fa-comment"></i> quote</a>  <a onclick="deleteMessage(this)" style="margin-left:10px;color:red;cursor:pointer;"><i class="fa fa-trash"></i> delete</a>',
+        html: '<span class="username">' + name + '</span>' + ' <a onclick="quoteMessage(this)" style="margin-left:10px;cursor:pointer;"><i class="fa fa-comment"></i> quote</a>  <a onclick="deleteMessage(this)" style="margin-left:10px;color:red;cursor:pointer;"><i class="fa fa-trash"></i> delete</a>',
         @else
-         html:  '<span class="username">' + name + '</span>' + ' <a href="#" style="margin-left:10px;"><i class="fa fa-comment"></i> quote</a>',
+         html:  '<span class="username">' + name + '</span>' + ' <a onclick="quoteMessage(this)" style="margin-left:10px;cursor:pointer;"><i class="fa fa-comment"></i> quote</a>',
 
         @endif
         "data-id": mid
@@ -418,13 +443,20 @@ $.fn.selectRange = function(start, end) {
       else {
         nameItem = jQuery("<div/>", {
         "class": "panel-heading name is-admin",
-        html: name + ' <a href="#" style="margin-left:10px;"><i class="fa fa-comment"></i> quote</a>'
+        @if(auth()->user()->hasRole('administrator'))
+         html: '<span class="username">' + name + '</span>' + ' <a onclick="quoteMessage(this)" style="margin-left:10px;cursor:pointer;"><i class="fa fa-comment"></i> quote</a>  <a onclick="deleteMessage(this)" style="margin-left:10px;color:red;cursor:pointer;"><i class="fa fa-trash"></i> delete</a>',
+        @else
+         html:  '<span class="username">' + name + '</span>' + ' <a onclick="quoteMessage(this)" style="margin-left:10px;cursor:pointer;"><i class="fa fa-comment"></i> quote</a>',
+
+        @endif
+        "data-id": mid
         });
      }
       textItem = jQuery("<p/>", {
         "class": "panel-body text markdown-body",
         html: text,
-        "white-space" : "pre"
+        "white-space" : "pre",
+        "data-latex": text
       });
       listItem.appendTo("#messages #listMessages");
       nameItem.appendTo(listItem);
