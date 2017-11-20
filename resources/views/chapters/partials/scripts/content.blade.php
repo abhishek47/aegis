@@ -31,7 +31,7 @@
           {
           	
              
-              return _this.messagesView(key, message.name, message.text, message.user_id, message.is_admin);
+              return _this.messagesView(key, message.name, message.text, message.user_id, message.is_admin, message.created_at);
           }
      
 
@@ -55,7 +55,7 @@
      
     }
 
-    SimpleChat.prototype.messagesView = function(mid, name, text, usedId, isAdmin) {
+    SimpleChat.prototype.messagesView = function(mid, name, text, usedId, isAdmin, createdAt) {
      
       var listItem, nameItem, textItem;
       listItem = jQuery("<li/>", {
@@ -75,14 +75,14 @@
       {
         nameItem = jQuery("<div/>", {
          "class": "panel-heading name",
-        html: '<span class="username">' + name + '</span>',
+        html: '<span class="username">' + name + '</span> <small>' +  moment(createdAt).format("M-D-YYYY h:mm:ss a")  + '</small>',
         "data-id": mid
         });
       }
       else {
         nameItem = jQuery("<div/>", {
         "class": "panel-heading name is-admin",
-        html: '<span class="username">' + name + '</span>',
+        html: '<span class="username">' + name + '</span> <small>' +  moment(createdAt).format("M-D-YYYY h:mm:ss a")  + '</small>',
         "data-id": mid
         });
      }

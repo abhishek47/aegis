@@ -13,3 +13,9 @@
 	margin-top: 0;
 	padding-top: 0;
 }
+
+
+#transcriptMessages .panel-heading small {
+	color: #5d5d5d;
+
+}
