@@ -402,17 +402,17 @@ $.fn.selectRange = function(start, end) {
       text = text.replace('<', '&lt;');
       text = aegismarked(text);
 
-      if(isAdmin)
+      if(!isAdmin)
       {
         nameItem = jQuery("<div/>", {
-         "class": "panel-heading name is-admin",
+         "class": "panel-heading name",
         html: name + ' <a href="#" style="margin-left:10px;"><i class="fa fa-comment"></i> quote</a>  <a onclick="deleteMessage(this)" style="margin-left:10px;color:red;cursor:pointer;"><i class="fa fa-trash"></i> delete</a>',
         "data-id": mid
         });
       }
       else {
         nameItem = jQuery("<div/>", {
-        "class": "panel-heading name",
+        "class": "panel-heading name is-admin",
         html: name + ' <a href="#" style="margin-left:10px;"><i class="fa fa-comment"></i> quote</a>'
         });
      }
