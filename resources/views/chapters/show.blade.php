@@ -358,7 +358,8 @@ $.fn.selectRange = function(start, end) {
               $('#newMessage').addClass('hidden');
               name = "{{ auth()->user()->name }}";
               text = "~end~";
-              return _this.newMessage(name, text);
+              _this.newMessage(name, text);
+              location.reload();
             });
           } else {
               
