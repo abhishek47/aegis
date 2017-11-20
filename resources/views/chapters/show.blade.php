@@ -65,7 +65,7 @@
 
   <section class="chat-heading">
 
-    <h2>{{ $chapter->title }} <span><i class="fa fa-circle"></i> Session Live</span></h2>
+    <h2>{{ $chapter->title }} <!-- <span><i class="fa fa-circle"></i> Session Live</span> --></h2>
 
     
     <a href="/classrooms/{{ $chapter->classroom->id }}" class="icon-close"><i class="fa fa-close"></i></a>
@@ -116,9 +116,19 @@
   
 @endif
 
+
+
+
 </div>
 </div>
 
+@if(auth()->user()->hasRole('administrator'))
+<div class="members-count-holder">
+    <div class="alert alert-success">
+      <b id="members-count"></b> Members Joined
+    </div>
+</div>
+@endif
 
 
 
@@ -134,7 +144,7 @@
 	<script type="text/javascript">
 		 // Get a reference to the database service
 
-
+      var membersJoined = 0;
       function deleteMessage(el)
       {
            var key = $(el).parent().data('id');
@@ -221,6 +231,10 @@ $.fn.selectRange = function(start, end) {
         @endif
 
        fireBaseMembers.on("child_added", function(snapshot) {
+
+            membersJoined = membersJoined+1;
+
+            $('#members-count').text(membersJoined);
 
            var membersList = $('#members');
            var user = snapshot.val();
@@ -332,6 +346,7 @@ $.fn.selectRange = function(start, end) {
           		$('#newMessage').removeClass('hidden');
           		$('#transcript').removeClass('hidden');
           		$('#chapterTabs').removeClass('hidden');
+              toggleFullscreen2();
           		name = "{{ auth()->user()->name }}";
 	            text = "The session has started!";
 	            return _this.newMessage(name, text);

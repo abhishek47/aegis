@@ -596,3 +596,12 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 #members .member-item p {
   margin-bottom: 0px;
 }
+
+.members-count-holder {
+     position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 200px;
+    height: 40px;
+  z-index: 999999;
+}
