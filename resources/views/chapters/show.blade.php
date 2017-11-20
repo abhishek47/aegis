@@ -269,7 +269,9 @@ $.fn.selectRange = function(start, end) {
           if(message.text == '~end~')
           {
           	$('#newMessage').addClass('hidden');
-            location.reload();
+            @if($chapter->status != 2)
+              location.reload();
+            @endif
           }
       	  else if(message.text == '~togglemembers-0~')
       	  {
@@ -282,7 +284,7 @@ $.fn.selectRange = function(start, end) {
              
 
       	  }	
-           else if(message.text == '~togglemembers-1~')
+          else if(message.text == '~togglemembers-1~')
           {
             @if(!auth()->user()->hasRole('administrator'))
              $('.chat-left').removeClass('hidden');
