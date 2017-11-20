@@ -125,7 +125,7 @@
 @if(auth()->user()->hasRole('administrator'))
 <div class="members-count-holder">
     <div class="alert alert-success">
-      <b id="members-count"></b> Members Joined
+      <b id="members-count">0</b> Members Joined
     </div>
 </div>
 @endif
