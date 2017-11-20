@@ -77,7 +77,7 @@
 
 
 
-<div class="pt-4" id="class-messages" style="overflow: auto;background: #fafafa;">
+<div class="pt-4" id="class-messages" style="overflow: hidden;background: #fafafa;">
 
 	<div class="row" style="">
 
