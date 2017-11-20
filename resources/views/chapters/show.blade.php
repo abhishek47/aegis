@@ -115,7 +115,7 @@
 </div>
 </div>
 
-@if(auth()->user()->hasRole('administrator'))
+@if(auth()->user()->hasRole('administrator') && $chapter->status == 1)
 <div class="members-count-holder">
     <div class="alert alert-success">
       <b id="members-count">0</b> Members Joined
