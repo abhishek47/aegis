@@ -3,6 +3,19 @@
 	<script type="text/javascript">
 		 // Get a reference to the database service
 
+     function snapshotToArray(snapshot) {
+    var returnArr = [];
+
+    snapshot.forEach(function(childSnapshot) {
+        var item = childSnapshot.val();
+        item.key = childSnapshot.key;
+
+        returnArr.push(item);
+    });
+
+    return returnArr;
+};
+
       var membersJoined = 0;
       function deleteMessage(el)
       {
@@ -116,6 +129,8 @@ $.fn.selectRange = function(start, end) {
 
        });
 		
+
+
 		
 
 		 (function() {
@@ -234,8 +249,31 @@ $.fn.selectRange = function(start, end) {
               name = "{{ auth()->user()->name }}";
               text = "~end~";
               _this.newMessage(name, text);
-              firebase.database().ref('status/chapter-' + {{ $chapter->id }}).set(2);
-              location.reload();
+              
+              firebase.database().ref('messages/chapter-' + {{ $chapter->id }}).once('value', function(snapshot) {
+                  var messages = snapshotToArray(snapshot);
+                 
+                
+                  firebase.database().ref('messages/chapter-' + {{ $chapter->id }}).once('value', function(snapshot) {
+                              var messages = snapshotToArray(snapshot);
+                             
+                              console.log(messages);
+                              $.ajax({
+                          type: 'POST',
+                          url: '/chapter/{{ $chapter->id }}/messages',
+                          data: {messages: JSON.stringify(messages)},
+                          dataType: 'json',
+                          headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+                          success: function(res){
+                             console.log(res);
+                              firebase.database().ref('status/chapter-' + {{ $chapter->id }}).set(2);
+                              location.reload();
+                          }
+                      });
+                          });
+
+              });
+              
             });
           } else {
               

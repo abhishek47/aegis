@@ -9,7 +9,7 @@ class ChapterMessage extends Model
 {
     use CrudTrait;
 
-    protected $fillable = ['body', 'chapter_id'];
+    protected $fillable = ['body', 'chapter_id', 'is_admin', 'name', 'text', 'user_id'];
 
 
     public function chapter()

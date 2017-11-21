@@ -73,19 +73,15 @@ class ChapterHomeworkCrudController extends CrudController {
 		    'options' => [0 => 0, 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7, 8 => 8, 9 => 9, 10 => 10],
 		    'allows_null' => false,],
 			[  // Select2
-			   'label' => "Classroom (Course)",
+			   'label' => "Chapter",
 			   'type' => 'select2',
-			   'name' => 'classroom_id', // the db column for the foreign key
-			   'entity' => 'classroom', // the method that defines the relationship in your Model
+			   'name' => 'chapter_id', // the db column for the foreign key
+			   'entity' => 'chapter', // the method that defines the relationship in your Model
 			   'attribute' => 'title', // foreign key attribute that is shown to user
-			   'model' => "App\Classroom", // foreign key model
+			   'model' => "App\Chapter", // foreign key model
 			   'allows_null' => false
 			],
-			 [
-			'name' => 'week',
-			'label' => "Week",
-			'type' => "number",
-			],
+			 
 
 
 	]);

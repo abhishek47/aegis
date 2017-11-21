@@ -54,4 +54,18 @@ class ChaptersController extends Controller
 
         return response(['data'=>$chapter->view_members], 200);
     }
+
+    public function saveTranscript(Chapter $chapter)
+    {
+        $messages = request()->get('messages');
+
+        foreach($messages as $message)
+        {
+            $chapter->messages()->create($message);
+        }
+
+        return response($messages, 200);
+    }
+
+
 }

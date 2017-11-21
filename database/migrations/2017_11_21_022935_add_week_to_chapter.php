@@ -15,6 +15,7 @@ class AddWeekToChapter extends Migration
     {
         Schema::table('chapters', function (Blueprint $table) {
             $table->integer('week')->default(1);
+            
         });
     }
 

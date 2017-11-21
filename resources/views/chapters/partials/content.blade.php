@@ -49,7 +49,7 @@
         <ul id="myTab" class="nav nav-tabs boot-tabs">
            <li class="active"><a href="#home" data-toggle="tab">Transcript</a></li>
            <li><a href="#notes" data-toggle="tab">Summary</a></li>
-           <li><a href="#profile" data-toggle="tab">Weekly Homework</a></li>
+           <li><a href="#profile" data-toggle="tab">Homework</a></li>
            <li><a href="#epp" data-toggle="tab">Extra Practice Problems</a></li>
         </ul>
         <div id="myTabContent" class="tab-content  mb-30">

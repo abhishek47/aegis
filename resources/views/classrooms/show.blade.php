@@ -86,8 +86,7 @@
 					                  	<li class="topic"><a href="/classrooms/{{ $chapter->classroom->id }}/chapter/{{ $chapter->id }}"><i class="fa fa-file-text-o"></i>  <span class="title">{{$chapter->title}}</span> <span class="status {{ $chapter->getStatusClass() }}" id="status-{{ $chapter->id }}">{{ $chapter->getStatusText() }}</span></a> <span class="duration">{{ $chapter->date }} | {{ $chapter->begin_time }}</span></li>
 					                   @endforeach	
 					                  </ul>
-					                  <br><br>
-					                  <p style="font-size: 15px;font-weight: bold;color: #1A458E;">Homework : <span class="homework-count"><span class="number">{{ $classroom->homeworks()->where('week', $i+1)->count() }}</span> Questions</span></p>
+					                  
 					                  @else
 					                  	<p class="no-topics">Topics to be added soon!</p>
 					                  @endif
@@ -178,48 +177,67 @@
                    
                   console.log('Done');
               });
+
+
+		  function snapshotToArray(snapshot) {
+    var messages = [];
+
+    snapshot.forEach(function(childSnapshot) {
+        var item = childSnapshot.val();
+        item.key = childSnapshot.key;
+
+        messages.push(item);
+    });
+
+    return messages;
+};
 	</script>
 
+	
+
 	@foreach($classroom->chapters as $chapter)
+
+		
+
 	 @if($chapter->status != 2)
-  <script type="text/javascript">
-     // Get a reference to the database service
-   
-     var fireBase{{ $chapter->id }} = new firebase.database().ref('/status/chapter-{{ $chapter->id }}');
-     var completed = false;
+			  <script type="text/javascript">
+			     // Get a reference to the database service
+			   
+			     var fireBase{{ $chapter->id }} = new firebase.database().ref('/status/chapter-{{ $chapter->id }}');
+			     var completed = false;
 
-     fireBase{{ $chapter->id }}.on("value", function(snapshot) {
-           	 
-           var status = snapshot.val();
-           console.log(status);
-           if(status == 0)
-           {
-           	 $('#status-'+{{ $chapter->id }}).html('Session Scheduled');
-           	   $('#status-'+{{ $chapter->id }}).addClass('scheduled');
-           } else if(status == 1)
-           {
-           	  $('#status-'+{{ $chapter->id }}).html('Session Started');
-           	  $('#status-'+{{ $chapter->id }}).removeClass('scheduled');
-           	   $('#status-'+{{ $chapter->id }}).addClass('live');
-           } else if (status == 2)  {
-           		$('#status-'+{{ $chapter->id }}).html('Session Completed');
-           		$('#status-'+{{ $chapter->id }}).removeClass('live');
-           		$('#status-'+{{ $chapter->id }}).addClass('completed');
-           } else {
+			     fireBase{{ $chapter->id }}.on("value", function(snapshot) {
+			           	 
+			           var status = snapshot.val();
+			           console.log(status);
+			           if(status == 0)
+			           {
+			           	 $('#status-'+{{ $chapter->id }}).html('Session Scheduled');
+			           	   $('#status-'+{{ $chapter->id }}).addClass('scheduled');
+			           } else if(status == 1)
+			           {
+			           	  $('#status-'+{{ $chapter->id }}).html('Session Started');
+			           	  $('#status-'+{{ $chapter->id }}).removeClass('scheduled');
+			           	   $('#status-'+{{ $chapter->id }}).addClass('live');
+			           } else if (status == 2)  {
+			           		$('#status-'+{{ $chapter->id }}).html('Session Completed');
+			           		$('#status-'+{{ $chapter->id }}).removeClass('live');
+			           		$('#status-'+{{ $chapter->id }}).addClass('completed');
+			           } else {
 
-           }
-        
-      });
+			           }
+			        
+			      });
 
-    
-    
-  
-   
+			    
+			    
+			  
+			   
 
 
 
-  </script>
-   @endif
+			  </script>
+  	 @endif
   @endforeach
 
 
