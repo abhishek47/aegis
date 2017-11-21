@@ -185,7 +185,7 @@
   <script type="text/javascript">
      // Get a reference to the database service
    
-     var fireBase{{ $chapter->id }} = new firebase.database().ref('/status/chapter-{{ $chapter->id }}/');
+     var fireBase{{ $chapter->id }} = new firebase.database().ref('/status/chapter-{{ $chapter->id }}');
      var completed = false;
 
      fireBase{{ $chapter->id }}.on("value", function(snapshot) {
@@ -210,7 +210,7 @@
            }
         
       });
-    
+
     
     
   
