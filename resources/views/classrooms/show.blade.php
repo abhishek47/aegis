@@ -201,7 +201,7 @@
            	  $('#status-'+{{ $chapter->id }}).html('Session Started');
            	  $('#status-'+{{ $chapter->id }}).removeClass('scheduled');
            	   $('#status-'+{{ $chapter->id }}).addClass('live');
-           } else if (status == 2) {} {
+           } else if (status == 2)  {
            		$('#status-'+{{ $chapter->id }}).html('Session Completed');
            		$('#status-'+{{ $chapter->id }}).removeClass('live');
            		$('#status-'+{{ $chapter->id }}).addClass('completed');
