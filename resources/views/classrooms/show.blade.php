@@ -181,10 +181,10 @@
 	</script>
 
 	@foreach($classroom->chapters as $chapter)
-
+	 @if($chapter->status != 2)
   <script type="text/javascript">
      // Get a reference to the database service
-
+   
      var fireBase{{ $chapter->id }} = new firebase.database().ref('/status/chapter-{{ $chapter->id }}/');
      var completed = false;
 
@@ -206,10 +206,11 @@
            		$('#status-'+{{ $chapter->id }}).removeClass('live');
            		$('#status-'+{{ $chapter->id }}).addClass('completed');
            } else {
-           	
+
            }
         
       });
+    
     
     
   
@@ -218,7 +219,7 @@
 
 
   </script>
-
+   @endif
   @endforeach
 
 
