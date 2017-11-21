@@ -22,6 +22,11 @@ class Chapter extends Model
       return $this->hasMany(ChapterHomework::class);
     }
 
+     public function extraproblems()
+    {
+      return $this->hasMany(ChapterExtraProblem::class);
+    }
+
     public function notes()
     {
       return $this->hasOne(ChapterNote::class);

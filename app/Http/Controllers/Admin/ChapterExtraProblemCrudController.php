@@ -5,12 +5,12 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Illuminate\Http\Request;
 
-class ChapterHomeworkCrudController extends CrudController {
+class ChapterExtraProblemCrudController extends CrudController {
 
 	public function setup() {
-        $this->crud->setModel("App\ChapterHomework");
-        $this->crud->setRoute("admin/chapter-homework");
-        $this->crud->setEntityNameStrings('Homework Question', 'Homework Questions');
+        $this->crud->setModel("App\ChapterExtraProblem");
+        $this->crud->setRoute("admin/extra-practice-problems");
+        $this->crud->setEntityNameStrings('Extra Practice Problem', 'Extra Practice Problems');
 
         $this->crud->setColumns([
         	 [
@@ -32,11 +32,6 @@ class ChapterHomeworkCrudController extends CrudController {
 			'label' => "Points",
 			'type' => 'number'
 			],
-			[
-			'name' => 'due_date',
-			'label' => "Due Date",
-			'type' => 'date'
-			],
 			[ // Table
 			    'name' => 'a',
 			    'label' => 'Answers',
@@ -53,22 +48,20 @@ class ChapterHomeworkCrudController extends CrudController {
 			    'max' => 1, // maximum rows allowed in the table
 			    'min' => 0 // minimum rows allowed in the table
 			],
-			['name' => 'select_any',
-			'label' => "For Multiple Answers (Select Single : checked, Select All : unchecked)",
-			'type' => 'checkbox'],
+			
 			['name' => 'correct',
 			'label' => "Response on Correct Answer",
 			'default' => '<span>Your Answer is Correct!</span>',
-			'type' => 'textarea'],
+			'type' => 'hidden'],
 			['name' => 'incorrect',
 			'label' => "Response on Incorrect Answer",
 			'default' => '<span>Your Answer is Incorrect!</span>',
-			'type' => 'textarea'],
+			'type' => 'hidden'],
 			['name' => 'solution',
 			'label' => "Solution",
 			'type' => 'editor2'],
-			['name' => 'level',
-			'label' => "Level",
+			['name' => 'section',
+			'label' => "Section",
 			'type' => 'select_from_array',
 		    'options' => [0 => 0, 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7, 8 => 8, 9 => 9, 10 => 10],
 		    'allows_null' => false,],
@@ -91,7 +84,7 @@ class ChapterHomeworkCrudController extends CrudController {
 	public function store(Request $request)
 	{
 		$request->validate(['q' => 'required', 'a' => 'required', 'correct' => 'required', 
-			                       'incorrect' => 'required', 'solution' => 'required', 'level' => 'required'
+			                       'incorrect' => 'required', 'solution' => 'required', 'section' => 'required'
 
 			]);
 		return parent::storeCrud();
@@ -100,7 +93,7 @@ class ChapterHomeworkCrudController extends CrudController {
 	public function update(Request $request)
 	{
 		$request->validate(['q' => 'required', 'a' => 'required', 'correct' => 'required', 
-			                       'incorrect' => 'required', 'solution' => 'required', 'level' => 'required'
+			                       'incorrect' => 'required', 'solution' => 'required', 'section' => 'required'
 
 			]);
 

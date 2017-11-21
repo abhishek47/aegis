@@ -87,4 +87,5 @@ Route::post('/chapter/{chapter}/messages', 'ChaptersController@saveTranscript');
 
 
 Route::post('/chapter-homework/{homework}/check', 'ChapterSolvingController@check');
+Route::post('/extra-practice-problems/{homework}/check', 'ChapterExtraProblemSolvingController@check');
 

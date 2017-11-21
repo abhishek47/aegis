@@ -52,6 +52,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(ChapterSolving::class);
     }
+    public function extraProblemSolvings()
+    {
+        return $this->hasMany(ChapterExtraProblemSolving::class);
+    }
 
     public function classroomLikes()
     {

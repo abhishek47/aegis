@@ -21,9 +21,9 @@ class ChapterHomework extends Model
     ];
 
 
-     protected $fillable = ['q', 'a', 'select_any', 'correct', 'incorrect', 'chapter_id', 'level', 'solution', 'points', 'due_date', 'week', 'classroom_id'];
+     protected $fillable = ['q', 'a', 'select_any', 'correct', 'incorrect', 'chapter_id', 'level', 'solution', 'points', 'due_date', 'classroom_id'];
 
-     protected $visible = ['id', 'q', 'a', 'select_any', 'correct', 'incorrect', 'level', 'points', 'due_date', 'week'];
+     protected $visible = ['id', 'q', 'a', 'select_any', 'correct', 'incorrect', 'level', 'points', 'due_date'];
 
      public function chapter()
      {

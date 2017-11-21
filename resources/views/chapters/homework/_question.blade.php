@@ -7,7 +7,7 @@
 	    @else
 	    	Score : {{ $homework->userSolution()->score }} / {{ $homework->points }} 
 	    @endif
-	   <!-- Due Date : {{ $homework->due_date }} -->	
+	    <span class="pull-right"> Due Date : {{ $homework->due_date->format('d/m/Y') }} </span>
 	    
     	
     </div>

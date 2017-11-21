@@ -47,10 +47,10 @@
 
 
         <ul id="myTab" class="nav nav-tabs boot-tabs">
-           <li class="active"><a href="#home" data-toggle="tab">Transcript</a></li>
-           <li><a href="#notes" data-toggle="tab">Summary</a></li>
-           <li><a href="#profile" data-toggle="tab">Homework</a></li>
-           <li><a href="#epp" data-toggle="tab">Extra Practice Problems</a></li>
+           <li class="active" style="width: 25%;"><a href="#home" data-toggle="tab">Transcript</a></li>
+           <li style="width: 25%;"><a href="#notes" data-toggle="tab">Summary</a></li>
+           <li style="width: 25%;"><a href="#profile" data-toggle="tab">Homework</a></li>
+           <li style="width: 25%;"><a href="#epp" data-toggle="tab">Extra Practice Problems</a></li>
         </ul>
         <div id="myTabContent" class="tab-content  mb-30">
           <div class="tab-pane fade in active" id="home">
@@ -79,7 +79,7 @@
             @include('chapters.notes.index')
           </div>
           <div class="tab-pane fade" id="epp">
-            <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+            @include('chapters.extraproblems.index')
           </div>
         </div> 
 

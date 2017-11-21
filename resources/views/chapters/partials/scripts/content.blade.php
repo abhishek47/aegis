@@ -142,6 +142,32 @@
   @endforeach
 
 
+   @foreach($chapter->extraproblems as $homework)
+
+    <div id="ex-buffer-{{ $homework->id }}" class="hidden"></div>
+    <div id="ex-solution-buffer-{{ $homework->id }}" class="hidden"></div>
+
+     <script type="text/javascript">
+    var text =  $('#ex-homework-question-{{ $homework->id  }}').text();
+    console.log(text);
+     text = text.replace(/^&gt;/mg, '>');
+    var text = md.render(text);
+      $('#ex-homework-question-{{ $homework->id  }}').html(aegismarked(text));
+    </script>
+
+    <script type="text/javascript">
+    var text =  $('#ex-homework-solution-{{ $homework->id  }}').text();
+    console.log(text);
+     text = text.replace(/^&gt;/mg, '>');
+    var text = md.render(text);
+      $('#ex-homework-solution-{{ $homework->id  }}').html(aegismarked(text));
+    </script>
+
+
+
+  @endforeach
+
+
   <script type="text/javascript">
     function submitAnswer(hid)
     {
@@ -158,6 +184,25 @@
           } else if(res.data.msg == 'incorrect')
           {
             $('#answer-response-'+hid).html('Your answer is Incorrect!You have ' + res.data.attempts + ' attempts left!'); 
+          }
+        });
+    }
+
+    function submitExtraProblemAnswer(hid)
+    {
+      var answer = $('#ex-answer-'+hid).val();
+
+      axios.post('/chapter-extra-problems/'+hid+'/check', {answer: answer})
+        .then(function(res){
+          console.log(res);
+          if(res.data.msg == 'correct')
+          {
+             $('#ex-answer-response-'+hid).html('Your answer is Correct!'); 
+             attempts = 3 - res.data.attempts;
+             $('#ex-solution-'+hid).html('<b>Problem Solved in ' +  attempts + ' attempts! Your answer : ' + answer + '');
+          } else if(res.data.msg == 'incorrect')
+          {
+            $('#ex-answer-response-'+hid).html('Your answer is Incorrect!'); 
           }
         });
     }
