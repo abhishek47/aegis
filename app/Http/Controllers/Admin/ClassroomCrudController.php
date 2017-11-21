@@ -35,6 +35,9 @@ class ClassroomCrudController extends CrudController {
 			'type' => 'editor'],
 			['name' => 'price',
 			'label' => "Fees (Enter 0 for free )",
+			'type' => 'number'],
+			['name' => 'weeks',
+			'label' => "No. of Weeks",
 			'type' => 'number']
 			
 			

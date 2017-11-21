@@ -9,7 +9,7 @@ class Chapter extends Model
 {
     use CrudTrait;
 
-    protected $fillable = ['title', 'description', 'duration', 'date', 'begin_time', 'classroom_id'];
+    protected $fillable = ['title', 'description', 'duration', 'date', 'begin_time', 'classroom_id', 'week', 'index'];
 
 
     public function messages()
@@ -49,15 +49,29 @@ class Chapter extends Model
    	{
    		if($this->status == 0)
    		{
-   			return 'Session not started';
+   			return 'Session Scheduled';
    		} else if($this->status == 1)
    		{
-   			return 'Session has started';
+   			return 'Session Live';
    		}else if($this->status == 2)
    		{
-   			return 'Session completed';
+   			return 'Session Completed';
    		}
    	}
+
+      public function getStatusClass()
+    {
+      if($this->status == 0)
+      {
+        return 'scheduled';
+      } else if($this->status == 1)
+      {
+        return 'live';
+      }else if($this->status == 2)
+      {
+        return 'completed';
+      }
+    }
 
    	public function getStatusButton()
    	{

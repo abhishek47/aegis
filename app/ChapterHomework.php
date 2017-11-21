@@ -21,13 +21,18 @@ class ChapterHomework extends Model
     ];
 
 
-     protected $fillable = ['q', 'a', 'select_any', 'correct', 'incorrect', 'chapter_id', 'level', 'solution', 'points', 'due_date'];
+     protected $fillable = ['q', 'a', 'select_any', 'correct', 'incorrect', 'chapter_id', 'level', 'solution', 'points', 'due_date', 'week', 'classroom_id'];
 
-     protected $visible = ['id', 'q', 'a', 'select_any', 'correct', 'incorrect', 'level', 'points', 'due_date'];
+     protected $visible = ['id', 'q', 'a', 'select_any', 'correct', 'incorrect', 'level', 'points', 'due_date', 'week'];
 
      public function chapter()
      {
      	return $this->belongsTo(Chapter::class);
+     }
+
+      public function classroom()
+     {
+        return $this->belongsTo(Classroom::class);
      }
 
 

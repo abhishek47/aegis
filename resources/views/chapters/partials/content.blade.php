@@ -5,10 +5,10 @@
         <div class="section-content">
           <div class="row"> 
             <div class="col-md-6">
-              <h2 class="text-light font-36">{{ $chapter->title }}</h2>
+              <h2 class="text-light font-36">{{ $chapter->classroom->title }}</h2>
               <ol class="breadcrumb text-left mt-10 white">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Chapters</a></li>
+                <li><a href="/classrooms/{{ $classroom->id }}">Topics</a></li>
+                <li><a href="/classrooms/{{ $classroom->id }}">Week 1</a></li>
                  <li><a href="#">{{ $chapter->title }}</a></li>
               </ol>
             </div>
@@ -30,7 +30,7 @@
         <div class="course-details clearfix p-20 pt-15">
 
                         <div class="course-top-part pull-left mr-40">
-                          <h3 class="mt-0 mb-5"><b>Chapter Summary</b></h3>
+                          <h3 class="mt-0 mb-5"><b>Topic Description</b></h3>
                         </div>
 
                        
@@ -48,9 +48,9 @@
 
         <ul id="myTab" class="nav nav-tabs boot-tabs">
            <li class="active"><a href="#home" data-toggle="tab">Transcript</a></li>
-           <li><a href="#profile" data-toggle="tab">Homework</a></li>
-           <li><a href="#notes" data-toggle="tab">Notes</a></li>
-           <li><a href="#discuss" data-toggle="tab">Discuss</a></li>
+           <li><a href="#notes" data-toggle="tab">Summary</a></li>
+           <li><a href="#profile" data-toggle="tab">Weekly Homework</a></li>
+           <li><a href="#epp" data-toggle="tab">Extra Practice Problems</a></li>
         </ul>
         <div id="myTabContent" class="tab-content  mb-30">
           <div class="tab-pane fade in active" id="home">
@@ -78,7 +78,7 @@
           <div class="tab-pane fade" id="notes">
             @include('chapters.notes.index')
           </div>
-          <div class="tab-pane fade" id="discuss">
+          <div class="tab-pane fade" id="epp">
             <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
           </div>
         </div> 

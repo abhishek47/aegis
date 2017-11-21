@@ -13,9 +13,13 @@ class ChapterCrudController extends CrudController {
         $this->crud->setEntityNameStrings('chapter', 'chapters');
 
         $this->crud->setColumns([
+        	[
+			'name' => 'index',
+			'label' => "Topic Number"
+			],
         	 [
 			'name' => 'title',
-			'label' => "Title",
+			'label' => "Title"
 
 			],
 			[
@@ -31,6 +35,11 @@ class ChapterCrudController extends CrudController {
 
 	]);
         $this->crud->addFields([
+        	 [
+			'name' => 'index',
+			'label' => "Topic Number",
+			'type' => "number",
+			],
         	 [
 			'name' => 'title',
 			'label' => "Title",
@@ -53,7 +62,12 @@ class ChapterCrudController extends CrudController {
 			'label' => "Duration ( in minutes )",
 			'type' => "number",
 			],
-			
+			 [
+			'name' => 'week',
+			'label' => "Week",
+			'type' => "number",
+			],
+
 			[  // Select2
 			   'label' => "Classroom",
 			   'type' => 'select2',
