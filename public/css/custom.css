@@ -445,7 +445,7 @@ a.text-dark:focus, a.text-dark:hover {
   font-size: 18px;
   padding-top: 0;
   padding-bottom: 10px;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 
