@@ -216,6 +216,7 @@ $.fn.selectRange = function(start, end) {
               toggleFullscreen2();
           		name = "{{ auth()->user()->name }}";
 	            text = "The session has started!";
+              firebase.database().ref('status/chapter-' + {{ $chapter->id }}).set(1);
 	            return _this.newMessage(name, text);
           	});
            
@@ -233,6 +234,7 @@ $.fn.selectRange = function(start, end) {
               name = "{{ auth()->user()->name }}";
               text = "~end~";
               _this.newMessage(name, text);
+              firebase.database().ref('status/chapter-' + {{ $chapter->id }}).set(2);
               location.reload();
             });
           } else {

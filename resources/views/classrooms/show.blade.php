@@ -185,21 +185,28 @@
   <script type="text/javascript">
      // Get a reference to the database service
 
-     var fireBase{{ $chapter->id }} = new firebase.database().ref('/messages/chapter-{{ $chapter->id }}');
-    
+     var fireBase{{ $chapter->id }} = new firebase.database().ref('/status/chapter-{{ $chapter->id }}/');
+     var completed = false;
 
-     fireBase{{ $chapter->id }}.once("child_added", function(snapshot) {
-           console.log("Session Started");	 
-           var message = snapshot.val();
-           if(message.text != '~end~')
+     fireBase{{ $chapter->id }}.on("value", function(snapshot) {
+           	 
+           var status = snapshot.val();
+
+           if(status == 0)
+           {
+           	 $('#status-'+{{ $chapter->id }}).html('Session Scheduled');
+           	   $('#status-'+{{ $chapter->id }}).addClass('scheduled');
+           } else if(status == 1)
            {
            	  $('#status-'+{{ $chapter->id }}).html('Session Started');
            	  $('#status-'+{{ $chapter->id }}).removeClass('scheduled');
            	   $('#status-'+{{ $chapter->id }}).addClass('live');
-           } else {
+           } else if (status == 2) {} {
            		$('#status-'+{{ $chapter->id }}).html('Session Completed');
            		$('#status-'+{{ $chapter->id }}).removeClass('live');
            		$('#status-'+{{ $chapter->id }}).addClass('completed');
+           } else {
+           	
            }
         
       });
