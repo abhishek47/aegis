@@ -191,7 +191,7 @@
      fireBase{{ $chapter->id }}.on("value", function(snapshot) {
            	 
            var status = snapshot.val();
-
+           console.log(status);
            if(status == 0)
            {
            	 $('#status-'+{{ $chapter->id }}).html('Session Scheduled');
