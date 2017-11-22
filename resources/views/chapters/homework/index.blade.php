@@ -1,9 +1,14 @@
-@foreach($chapter->homeworks as $index => $homework)
+@if($chapter->homeworks->count() == 0)
+  
+  <p><b>Homework Questions will be added soon!</b></p> 
 
-     @include('chapters.homework._question')
+@else
+  @foreach($chapter->homeworks as $index => $homework)
 
-@endforeach
+       @include('chapters.homework._question')
 
+  @endforeach
+@endif
 
 
 

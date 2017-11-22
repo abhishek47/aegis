@@ -1,4 +1,8 @@
+@if($chapter->extraproblems->count() == 0)
+  
+  <p><b>Extra Practice Questions will be added soon!</b></p> 
 
+@else
   <div class="panel-group accordion-theme-colored2 accordion-icon-left" id="accordion8" role="tablist" aria-multiselectable="true">
              @foreach($chapter->extraproblems->groupBy('section') as $index => $problems)
               <div class="panel panel-default">
@@ -22,7 +26,7 @@
 
               
             </div>
-   
+   @endif
 
 
 

@@ -159,6 +159,7 @@ $.fn.selectRange = function(start, end) {
              @if(!auth()->user()->hasRole('administrator'))
   	  		   $('.chat-left').addClass('hidden');
              $('.chat-right').css('width', '100%');
+             $('.pinnedMessage').css('width', '100%');
              @else
                $('.chat-left').addClass('hidden');
                $('#toggleMembers').removeClass('active');
@@ -171,6 +172,7 @@ $.fn.selectRange = function(start, end) {
             @if(!auth()->user()->hasRole('administrator'))
              $('.chat-left').removeClass('hidden');
              $('.chat-right').css('width', '85%');
+             $('.pinnedMessage').css('width', '85%');
              @else
               $('.chat-left').removeClass('hidden');
               $('#toggleMembers').addClass('active');
@@ -367,7 +369,7 @@ $.fn.selectRange = function(start, end) {
         nameItem = jQuery("<div/>", {
          "class": "panel-heading name",
          @if(auth()->user()->hasRole('administrator'))
-        html: '<span class="username">' + name + '</span>' + ' <a onclick="quoteMessage(this)" style="margin-left:10px;cursor:pointer;"><i class="fa fa-comment"></i> quote</a>  <a onclick="deleteMessage(this)" style="margin-left:10px;color:red;cursor:pointer;"><i class="fa fa-trash"></i> delete</a>',
+        html: '<span class="username">' + name + '</span>' + ' <a onclick="quoteMessage(this)" style="margin-left:10px;cursor:pointer;"><i class="fa fa-comment"></i> quote</a>  <a onclick="deleteMessage(this)" style="margin-left:10px;color:red;cursor:pointer;"><i class="fa fa-trash"></i> delete</a>   <a onclick="pinMessage(this)" style="margin-left:10px;color:blue;cursor:pointer;"><i class="fa fa-thumb-tack"></i> Pin</a>',
         @else
          html:  '<span class="username">' + name + '</span>' + ' <a onclick="quoteMessage(this)" style="margin-left:10px;cursor:pointer;"><i class="fa fa-comment"></i> quote</a>',
 
@@ -379,7 +381,7 @@ $.fn.selectRange = function(start, end) {
         nameItem = jQuery("<div/>", {
         "class": "panel-heading name is-admin",
         @if(auth()->user()->hasRole('administrator'))
-         html: '<span class="username">' + name + '</span>' + ' <a onclick="quoteMessage(this)" style="margin-left:10px;cursor:pointer;"><i class="fa fa-comment"></i> quote</a>  <a onclick="deleteMessage(this)" style="margin-left:10px;color:red;cursor:pointer;"><i class="fa fa-trash"></i> delete</a>',
+         html: '<span class="username">' + name + '</span>' + ' <a onclick="quoteMessage(this)" style="margin-left:10px;cursor:pointer;"><i class="fa fa-comment"></i> quote</a>  <a onclick="deleteMessage(this)" style="margin-left:10px;color:red;cursor:pointer;"><i class="fa fa-trash"></i> delete</a>  <a onclick="pinMessage(this)" style="margin-left:10px;color:blue;cursor:pointer;"><i class="fa fa-thumb-tack"></i> Pin</a>',
         @else
          html:  '<span class="username">' + name + '</span>' + ' <a onclick="quoteMessage(this)" style="margin-left:10px;cursor:pointer;"><i class="fa fa-comment"></i> quote</a>',
 

@@ -86,7 +86,11 @@
   <button id="closeSession" type="button" class="btn btn-danger pull-right">Close Session</button>
 </div>
 
+
 <div id="messages" class="messagesHolder {{ auth()->user()->hasRole('administrator') ? 'is-admin' : ''  }}" style="">
+<div class="pinnedMessage {{ auth()->user()->hasRole('administrator') ? 'is-admin' : ''  }}" style="width: {{ $chapter->view_members  && !auth()->user()->hasRole('administrator') ? '85%' : '100%' }}">
+  
+</div>
 <ul id="listMessages"  style="" ></ul>
 
 </div>

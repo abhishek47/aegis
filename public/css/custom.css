@@ -740,3 +740,35 @@ border-left: 1px solid #ccc;
     color: #f90;
 
   }
+
+   
+
+
+  .pinnedMessage {
+        height: 80px;
+    background-color: #fff;
+    position: fixed;
+    top: 58px;
+    left: 0;
+    z-index: 9999;
+      -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+
+ .pinnedMessage.is-admin {
+        height: 80px;
+    border: 1px solid;
+    background-color: #fff;
+    position: fixed;
+    left: auto;
+    top: 0;
+    right: 0;
+    width: 50% !important;
+    z-index: 9999;
+}
+
+#listMessages {
+  padding-top: 75px;
+}
