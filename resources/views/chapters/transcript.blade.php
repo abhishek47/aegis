@@ -78,7 +78,7 @@
       position:absolute;
     top:0; left: 0"></div>
   </div>
-  <div id="saved-messages" class="hidden  {{ auth()->user()->hasRole('administrator') ? 'is-admin' : ''  }}">
+  <div id="saved-messages" class="{{ auth()->user()->hasRole('administrator') ? 'is-admin' : ''  }}">
       <textarea id="marked-mathjax-input3"  class="form-control latex-editor-textarea" readonly="">{{ isset($chapter->messages) ? $chapter->messages->body : '' }}</textarea>
       
     </div>

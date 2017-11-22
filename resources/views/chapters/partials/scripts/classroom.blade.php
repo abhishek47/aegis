@@ -404,6 +404,20 @@ $.fn.selectRange = function(start, end) {
               }
             );
 
+      $('img').each( function() {
+         var $img = $(this)
+         if($img.parent().is('a'))
+         {
+
+            
+         } else {
+              href = $img.attr('src');
+              $img.wrap('<a href="' + href + '" class="img-expand" data-featherlight="image"></a>');
+         }
+      
+
+    });
+
       return listItem;
     };
 
@@ -491,3 +505,22 @@ $.fn.selectRange = function(start, end) {
           Preview2.Init();
           Preview2.Update();
           </script>
+
+
+          <style type="text/css">
+            #saved-messages.fullscreen {
+                position: fixed!important;
+             top: 50%;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              height: 500px;
+              z-index: 9999;
+              }
+
+              #saved-messages.fullscreen textarea
+             {
+                 height: auto;
+                 min-height: 500px;
+             }
+          </style>

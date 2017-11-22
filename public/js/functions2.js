@@ -107,7 +107,7 @@ function toggleMessagesView()
 { 
 
    
-       $('#editor--area2').toggleClass('hidden');
+      // $('#editor--area2').toggleClass('hidden');
    
     
     
