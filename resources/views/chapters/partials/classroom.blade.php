@@ -1,13 +1,22 @@
-  <div class="chat-left {{ $chapter->view_members && !auth()->user()->hasRole('administrator') ? '' : 'hidden' }}" >
+  <div class="chat-left {{ $chapter->view_members ? '' : 'hidden' }} {{ !auth()->user()->hasRole('administrator')  ? '' : 'is-admin' }}" >
 
           <div class="users-heading">
-           <h3>Users Enrolled</h3>
-
-         
+           @if(auth()->user()->hasRole('administrator'))
+           <h3>
+           <a href="#members" data-toggle="collapse">
+           Users Enrolled (<b id="members-count">0</b>)
+              
+             <span class="pull-right" style="margin-left: 5px;"><i class="fa fa-chevron-down"></i></span>
+          </a>
+           </h3>
+           @else
+            <h3>Users Enrolled</h3>
+            @endif
+          
           </div>
           
-          <ul id="members">
-            
+          <ul id="members" class="">
+              
           </ul> 
 
           

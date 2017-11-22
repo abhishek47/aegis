@@ -163,4 +163,23 @@
     margin-bottom: 20px;
 }
 
+.chat-left.is-admin {
+    width: 25%;
+    display: inline-block;
+    /* float: left; */
+    height: 40%;
+    border-bottom: 1px solid #000;
+    position: absolute;
+    top: none !important; 
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    color: #fff;
+    /* padding: 10px; */
+    padding-top: 0;
+    overflow: hidden;
+    border-left: 1px solid #ccc;
+    z-index: 9999;
+}
+
 

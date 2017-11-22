@@ -477,6 +477,25 @@ a.text-dark:focus, a.text-dark:hover {
    border-left: 1px solid #ccc;
 }
 
+.chat-left.is-admin {
+    width: 25%;
+    display: inline-block;
+    /* float: left; */
+        height: auto !important;
+        max-height: 40%;
+    position: absolute;
+    top: auto; 
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    color: #fff;
+    /* padding: 10px; */
+    padding-top: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    z-index: 9999;
+}
+
 .chat-left h3  {
   color: #fff;
   font-weight: bold;

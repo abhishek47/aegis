@@ -160,6 +160,7 @@ $.fn.selectRange = function(start, end) {
   	  		   $('.chat-left').addClass('hidden');
              $('.chat-right').css('width', '100%');
              @else
+               $('.chat-left').addClass('hidden');
                $('#toggleMembers').removeClass('active');
              @endif
              
@@ -171,6 +172,7 @@ $.fn.selectRange = function(start, end) {
              $('.chat-left').removeClass('hidden');
              $('.chat-right').css('width', '85%');
              @else
+              $('.chat-left').removeClass('hidden');
               $('#toggleMembers').addClass('active');
              @endif
               
