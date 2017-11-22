@@ -1,5 +1,5 @@
 <div class="panel panel-default question-panel" style="width: 100%;">
-    <div class="panel-heading">
+    <div class="panel-heading" style="padding: 7px;">
     	
     	Problem {{ $index+1 }} | 
 	    @if(!$homework->isSolved())		
@@ -18,13 +18,15 @@
 			{{ $homework->q }}
 			</div>
 			@if($homework->isSolved())
+			<br>
 			<b>Solution : </b>
 			<div class="panel panel-default solution">
 			  <div class="panel-body" id="ex-homework-solution-{{ $homework->id }}">{{ $homework->solution }}</div>
 			 </div>
 			@endif
 		</div>	
-		<p id="ex-answer-response-{{ $homework->id }}"></p>
+		<br>
+		<p style="font-weight: bold;font-size: 17px;" id="ex-answer-response-{{ $homework->id }}"></p>
 
 		
 			

@@ -9,7 +9,7 @@ class Classroom extends Model
 {
 	use CrudTrait;
 
-    protected $fillable = ['title', 'description', 'summary', 'price', 'weeks'];
+    protected $fillable = ['title', 'description', 'summary', 'price', 'weeks', 'contents', 'need', 'ready'];
 
     public function chapters()
     {
@@ -38,6 +38,34 @@ class Classroom extends Model
     public function homeworks()
     {
       return $this->hasMany(ChapterHomework::class);
+    }
+
+
+    public function setContentsAttribute($value)
+    {
+        $attribute_name = "contents";
+        $disk = "s3";
+        $destination_path = "uploads/files";
+
+        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
+    }
+
+     public function setNeedAttribute($value)
+    {
+        $attribute_name = "need";
+        $disk = "s3";
+        $destination_path = "uploads/files";
+
+        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
+    }
+
+     public function setReadyAttribute($value)
+    {
+        $attribute_name = "ready";
+        $disk = "s3";
+        $destination_path = "uploads/files";
+
+        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
     }
 
 }

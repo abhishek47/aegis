@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\ChapterExtraProblem;
 use App\ChapterExtraProblemSolving;
 use Illuminate\Http\Request;
 

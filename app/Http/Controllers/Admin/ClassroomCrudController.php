@@ -38,9 +38,29 @@ class ClassroomCrudController extends CrudController {
 			'type' => 'number'],
 			['name' => 'weeks',
 			'label' => "No. of Weeks",
-			'type' => 'number']
-			
-			
+			'type' => 'number'],
+			[   // Upload
+			    'name' => 'contents',
+			    'label' => 'Table of Contents',
+			    'type' => 'upload',
+			    'upload' => true,
+			    'disk' => 's3' // if you store files in the /public folder, please ommit this; if you store them in /storage or S3, please specify it;
+			],
+			[   // Upload
+			    'name' => 'need',
+			    'label' => 'Do i need it?',
+			    'type' => 'upload',
+			    'upload' => true,
+			    'disk' => 's3' // if you store files in the /public folder, please ommit this; if you store them in /storage or S3, please specify it;
+			],
+			[   // Upload
+			    'name' => 'ready',
+			    'label' => 'Are you ready?',
+			    'type' => 'upload',
+			    'upload' => true,
+			    'disk' => 's3' // if you store files in the /public folder, please ommit this; if you store them in /storage or S3, please specify it;
+			],		
+				
 
 
 	]);

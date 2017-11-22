@@ -55,6 +55,19 @@
                   <p class="course-description mt-10  markdown-body" id="classroom-summary" style="font-size: 16px;">{{ $classroom->summary }}
                   </p>
 
+
+                  <br>
+
+                  @if(!empty($classroom->contents))
+                  <a href="{{  Storage::url($classroom->contents) }}" target="_blank" class="btn btn-default btn-theme-colored btn-lg"><i class="fa fa-file-pdf-o"></i> Table of Contents</a>
+                  @endif
+                  @if(!empty($classroom->ready))
+                  <a href="{{  Storage::url($classroom->ready) }}" target="_blank" class="btn btn-default btn-theme-colored btn-lg"><i class="fa fa-file-pdf-o"></i> Are you Ready?</a>
+                  @endif
+                  @if(!empty($classroom->need))
+                  <a href="{{  Storage::url($classroom->need) }}" target="_blank" class="btn btn-default btn-theme-colored btn-lg"><i class="fa fa-file-pdf-o"></i> Do you need this?</a>
+                  @endif
+
                 </div>
 
 

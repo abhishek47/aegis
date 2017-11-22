@@ -22,6 +22,8 @@ class ChaptersController extends Controller
     
     public function show(Classroom $classroom, Chapter $chapter)
     {
+       
+        
     	return view('chapters.show', compact('classroom', 'chapter'));
     }
 

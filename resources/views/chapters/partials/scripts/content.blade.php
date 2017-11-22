@@ -192,7 +192,7 @@
     {
       var answer = $('#ex-answer-'+hid).val();
 
-      axios.post('/chapter-extra-problems/'+hid+'/check', {answer: answer})
+      axios.post('/extra-practice-problems/'+hid+'/check', {answer: answer})
         .then(function(res){
           console.log(res);
           if(res.data.msg == 'correct')

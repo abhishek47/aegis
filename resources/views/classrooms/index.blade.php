@@ -85,12 +85,8 @@
                   <div class="course-top-part pull-left mr-40">
                     <a href="/classrooms/{{$classroom->id}}"><h4 class="mt-0 mb-5"><b>{{ $classroom->title }}</b></h4></a>
                     <ul class="list-inline">
-                      <li class="review-stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
+                      <li style="font-weight: bold;">
+                          {{$classroom->weeks}} Weeks
                       </li>
                       <li>{{$classroom->likes()->count()}} <i class="fa fa-thumbs-o-up text-theme-colored2"></i></li>
                     </ul>
@@ -108,7 +104,7 @@
                       <span> Enrollments</span>
                     </li>
                      <li>
-                      <h6>{{$classroom->chapters()->first()->date}}</h6>
+                      <h6>{{isset($classroom->chapters()->first()->date)? $classroom->chapters()->first()->date :'Not Added'}}</h6>
                       <span>Start Date</span>
                     </li>
                    
@@ -127,150 +123,6 @@
 
 </div>
 
-<!--
-  <div class="container">
-    <div class="section-title pt-0 pb-0">
-          <div class="row">
-            <div class="col-md-12">
-              <h2 class="text-uppercase title">Upcomming <span class="text-theme-colored2">Courses</span></h2>
-              <div class="double-line-bottom-theme-colored-2"></div>
-            </div>
-          </div>
-        </div>
-</div>
-
-
-  <div class="container">
-    <?php $classroomChunks = $classrooms->chunk(3); ?>
-
-        @foreach($classroomChunks as $classroomChunk)
-          <div class="row mt-4">
-
-              @foreach($classroomChunk as $index => $classroom)
-              
-                 <div class="col-md-4" id="classrooms">
-                   <div class="course-single-item bg-white border-1px clearfix mb-30" @click="openLink('/classrooms/{{$classroom->id}}')">
-                <div class="course-thumb">
-                  <div class="price-tag">&#8377 {{ $classroom->price }}</div>
-                </div>
-                <div class="course-details clearfix p-20 pt-15">
-                  <div class="course-top-part pull-left mr-40">
-                    <a href="/classrooms/{{$classroom->id}}"><h4 class="mt-0 mb-5">{{ $classroom->title }}</h4></a>
-                    <ul class="list-inline">
-                      <li class="review-stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                      </li>
-                      <li>{{$classroom->likes()->count()}} <i class="fa fa-thumbs-o-up text-theme-colored2"></i></li>
-                    </ul>
-                  </div>
-                  
-                  <div class="clearfix"></div>
-                  <p class="course-description mt-20" style="font-size: 17px;">{{ substr($classroom->description, 0, 100) }}...</p>
-                  <ul class="list-inline course-meta mt-15">
-                    <li>
-                      <h6>{{ $classroom->chapters()->count() }}</h6>
-                      <span> Chapters</span>
-                    </li>
-                    <li>
-                      <h6>{{$classroom->enrollments()->count()}}</h6>
-                      <span> Enrollments</span>
-                    </li>
-                     <li>
-                      <h6>{{$classroom->chapters()->first()->date}}</h6>
-                      <span>Start Date</span>
-                    </li>
-                   
-                  </ul>
-                </div>
-              </div>
-                 </div>
-              
-              @endforeach
-      
-        </div>
-
-  @endforeach
-{{ $classrooms->links() }}
-<br><br>
-
-</div>
-
-
-<div class="container ">
-    <div class="section-title pt-0 pb-0">
-          <div class="row">
-            <div class="col-md-12">
-              <h2 class="text-uppercase title">Archived <span class="text-theme-colored2">Courses</span></h2>
-              <div class="double-line-bottom-theme-colored-2"></div>
-            </div>
-          </div>
-        </div>
-</div>
-
-
-<div class="container">
-    <?php $classroomChunks = $classrooms->chunk(3); ?>
-
-        @foreach($classroomChunks as $classroomChunk)
-          <div class="row mt-4">
-
-              @foreach($classroomChunk as $index => $classroom)
-              
-                 <div class="col-md-4" id="classrooms">
-                   <div class="course-single-item bg-white border-1px clearfix mb-30" @click="openLink('/classrooms/{{$classroom->id}}')">
-                <div class="course-thumb">
-                  <div class="price-tag">&#8377 {{ $classroom->price }}</div>
-                </div>
-                <div class="course-details clearfix p-20 pt-15">
-                  <div class="course-top-part pull-left mr-40">
-                    <a href="/classrooms/{{$classroom->id}}"><h4 class="mt-0 mb-5">{{ $classroom->title }}</h4></a>
-                    <ul class="list-inline">
-                      <li class="review-stars">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                      </li>
-                      <li>{{$classroom->likes()->count()}} <i class="fa fa-thumbs-o-up text-theme-colored2"></i></li>
-                    </ul>
-                  </div>
-                  
-                  <div class="clearfix"></div>
-                  <p class="course-description mt-20" style="font-size: 17px;">{{ substr($classroom->description, 0, 100) }}...</p>
-                  <ul class="list-inline course-meta mt-15">
-                    <li>
-                      <h6>{{ $classroom->chapters()->count() }}</h6>
-                      <span> Chapters</span>
-                    </li>
-                    <li>
-                      <h6>{{$classroom->enrollments()->count()}}</h6>
-                      <span> Enrollments</span>
-                    </li>
-                     <li>
-                      <h6>{{$classroom->chapters()->first()->date}}</h6>
-                      <span>Completed On</span>
-                    </li>
-                   
-                  </ul>
-                </div>
-              </div>
-                 </div>
-              
-              @endforeach
-      
-        </div>
-
-  @endforeach
-{{ $classrooms->links() }}
-<br><br>
-
-</div>
--->
  
 </div>
 
