@@ -120,6 +120,20 @@ var Preview = {
         });
     });
 
+
+           $('img').each( function() {
+               var $img = $(this)
+               if($img.parent().is('a'))
+               {
+
+                  
+               } else {
+                    href = $img.attr('src');
+                    $img.wrap('<a href="' + href + '" class="img-expand" data-featherlight="image"></a>');
+               }
+            
+
+          });
      
 
      
