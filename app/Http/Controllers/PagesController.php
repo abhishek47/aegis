@@ -20,7 +20,7 @@ class PagesController extends Controller
 
     public function index()
     {
-    	$wikiOfDay = Wiki::latest()->where('published', 1)->first();
+    	$wikiOfDay = Wiki::findOrFail(\DB::table('settings')->where('key', 'wiki_of_week')->value('value'));
         $wikis = Wiki::latest()->where('published', 1)->limit(3)->get();
         $courses = Course::latest()->get();
 

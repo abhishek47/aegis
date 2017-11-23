@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-       $wiki = Wiki::latest()->where('published', 1)->first();
+       $wiki = Wiki::findOrFail(\DB::table('settings')->where('key', 'wiki_of_week')->value('value'));
 
        if(request('week') == null)
        {
