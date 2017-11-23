@@ -37,4 +37,22 @@ class Wiki extends Model
    	 
    	   
    }
+
+   public function changeActiveWiki($crud = false)
+   { 
+     
+     if(\DB::table('settings')->where('key', 'wiki_of_week')->value('value') === $this->id)
+     {
+
+         return '<a class="btn btn-xs btn-success btn-disabled"  href="/wiki/active/'. $this->id .'" data-toggle="tooltip" title="Change wiki of week">Wiki of Week</a>';
+
+     } else {
+
+         return '<a class="btn btn-xs btn-danger"  href="/wiki/active/'. $this->id .'" data-toggle="tooltip" title="Change wiki of week">Wiki of Week</a>';
+
+     }
+
+     
+         
+   }
 }

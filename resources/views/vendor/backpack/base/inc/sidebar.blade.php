@@ -50,6 +50,7 @@
             </ul>
           </li>
 
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/setting') }}"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
 
            
 

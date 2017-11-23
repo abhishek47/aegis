@@ -35,6 +35,8 @@ class WikiCrudController extends CrudController {
 
          $this->crud->addButtonFromModelFunction('line', 'preview', 'previewWiki', 'end');
 
+         $this->crud->addButtonFromModelFunction('line', 'preview', 'changeActiveWiki', 'end');
+
          $this->crud->allowAccess('revisions');
 
          $this->crud->with('revisionHistory');

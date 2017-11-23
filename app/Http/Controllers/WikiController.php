@@ -73,6 +73,13 @@ class WikiController extends Controller
         return view('wiki.preview', compact('wiki', 'quizzes'));
     }
 
+    public function active(Wiki $wiki)
+    {
+        \DB::table('settings')->where('key', 'wiki_of_week')->update(['value' => $wiki->id]);
+       
+         return back();
+    }
+
 
     public function update(Request $request, Wiki $wiki)
     {

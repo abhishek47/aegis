@@ -180,6 +180,8 @@ return [
         Backpack\PermissionManager\PermissionManagerServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
 
+        Backpack\Settings\SettingsServiceProvider::class,
+
     ],
 
     /*

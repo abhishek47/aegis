@@ -40,6 +40,8 @@ Route::get('/wiki/preview/{wiki}', 'WikiController@preview')->name('wiki.show');
 Route::get('/wiki/publish/{wiki}', 'WikiController@publish')->name('wiki.publish');
 Route::post('/wiki/update/{wiki}', 'WikiController@update')->name('wiki.update');
 
+Route::get('/wiki/active/{wiki}', 'WikiController@active')->name('wiki.active');
+
 
 
 Route::get('/quiz/{quiz}', 'QuizController@get')->name('quiz.get');
