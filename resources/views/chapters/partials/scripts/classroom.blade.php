@@ -58,6 +58,19 @@
       }
 
 
+      function pinMessage(el)
+      {
+        var fireBasePinned;
+
+      fireBasePinned = new firebase.database().ref('/pinned/chapter-{{ $chapter->id }}');
+
+
+      
+
+          fireBaseMembers.push({name: '{{ auth()->user()->name }}', id: '{{auth()->id()}}' });
+      }
+
+
      function pasteIntoInput(el, text) {
     el.focus();
     if (typeof el.selectionStart == "number"

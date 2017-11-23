@@ -745,7 +745,7 @@ border-left: 1px solid #ccc;
 
 
   .pinnedMessage {
-        height: 80px;
+        height: 90px;
     background-color: #fff;
     position: fixed;
     top: 58px;
@@ -754,11 +754,25 @@ border-left: 1px solid #ccc;
       -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+padding-left: 6px;
+overflow-y: auto;
+}
+
+.pinnedMessage #pin-name {
+  font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+.pinnedMessage #pin-message {
+  color: #000;
+    font-size: 17px;
+    
 }
 
 
  .pinnedMessage.is-admin {
-        height: 80px;
+        height: 90px;
     border: 1px solid;
     background-color: #fff;
     position: fixed;
@@ -770,5 +784,5 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
 #listMessages {
-  padding-top: 75px;
+  padding-top: 85px;
 }
