@@ -3,6 +3,38 @@
 	<script type="text/javascript">
 		 // Get a reference to the database service
 
+      var fireBasePinned;
+
+      fireBasePinned = new firebase.database().ref('/pinned/chapter-{{ $chapter->id }}');
+
+     fireBasePinned.on("value", function(snapshot) {
+
+            message = snapshot.val();
+            text = message.message
+             text = text.replace(/^&gt;/mg, '>');
+              text = md.render(text);
+              text = text.replace('>', '&gt;');
+              text = text.replace('<', '&lt;');
+              text = aegismarked(text);
+
+
+            $('#pin-name').text(message.name);
+
+            $('#pin-message').html(text);
+
+             MathJax.Hub.Queue(
+              ["Typeset",MathJax.Hub,document.getElementById('pin-message')],
+              function() {
+                
+                   
+                 
+              }
+            );
+          
+
+
+       });
+
      function snapshotToArray(snapshot) {
     var returnArr = [];
 
@@ -60,14 +92,18 @@
 
       function pinMessage(el)
       {
+        var key = $(el).parent().data('id');
+
+        var name = $('#'+key + ' .username').text();
+        var message = $('#'+key + ' .text').data('latex');
         var fireBasePinned;
 
-      fireBasePinned = new firebase.database().ref('/pinned/chapter-{{ $chapter->id }}');
+        fireBasePinned = new firebase.database().ref('/pinned/chapter-{{ $chapter->id }}');
 
 
       
 
-          fireBaseMembers.push({name: '{{ auth()->user()->name }}', id: '{{auth()->id()}}' });
+          fireBasePinned.set({name: name, message: message });
       }
 
 

@@ -90,7 +90,7 @@
 <div id="messages" class="messagesHolder {{ auth()->user()->hasRole('administrator') ? 'is-admin' : ''  }}" style="">
 <div class="pinnedMessage {{ auth()->user()->hasRole('administrator') ? 'is-admin' : ''  }}" style="width: {{ $chapter->view_members  && !auth()->user()->hasRole('administrator') ? '85%' : '100%' }}">
 
- <h4 id="pin-name">Abhishek Wani <small style="color: grey;">pinned message</small></h4>
+ <h4 ><span id="pin-name">Abhishek Wani</span> <small style="color: grey;">pinned message</small></h4>
 
  <p id="pin-message">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
