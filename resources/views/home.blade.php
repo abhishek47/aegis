@@ -16,33 +16,32 @@
                         
                     </div>
                     <div class="col-md-12">
-                        <div class="panel mb-3 problem-of-week" style="">
-                         <!-- <div class="panel-heading text-light bg-primary" >
-                           <h4 class="font-weight-bold mb-0 mt-1 pull-left"> Problems of the Week </h4>
-                           
-                           <form method="GET" class="float-right">
+                      <div class="course-single-item bg-white border-1px clearfix mb-30 week-box problem-week" id="">
+              
+            <div class="course-details clearfix p-20 pt-15">
+
+                            <div class="course-top-part pull-left mr-40">
+                               <h4 class="font-weight-bold mb-0 mt-1 pull-left"><span class="p-week-title"> Problems of the Week</span>
+
+                               <form method="GET" class="pull-right">
                                <select name="week" class="week-selector form-control" onchange="this.form.submit()">
 
-                                   <option value="2017-11-1" {{ request('week') == '2017-11-1' ? 'selected' : '' }}>1st Week of November</option>
-                                    <option value="2017-11-2" {{ request('week') == '2017-11-2' ? 'selected' : '' }}>4th Week of October</option>
+                                  @foreach($weeks as $week)
+                                   <option value="{{ $week }}" {{ request('week') != null ? (request('week') == $week ? 'selected' : '') : $problemOfWeek->start_date == $week  ? 'selected' : '' }}>
+                                    Week of {{ \Carbon\Carbon::parse($week)->format('jS \o\f F, Y') }}</option>
+                                  @endforeach
+                                   
                                </select>
-                           </form> 
-                          
-                           <div class="btn-group float-right" data-toggle="buttons">
-                              <label class="btn btn-sm btn-outline-white text-light active mb-0">
-                                <input type="radio" name="options" id="option1" autocomplete="off" checked> Routine
-                              </label>
-                              <label class="btn btn-sm btn-outline-white text-light  mb-0">
-                                <input type="radio" name="options" id="option2" autocomplete="off"> Moderate
-                              </label>
-                              <label class="btn btn-sm btn-outline-white text-light  mb-0">
-                                <input type="radio" name="options" id="option3" autocomplete="off"> Challenging
-                              </label>
-                            </div>
+                           </form>  </h4>
                            
-                          </div> -->
-                          <div class="card-body">
-                            <div class="slickQuiz" id="slickQuiz-{{$problemsId}}" data-id="{{$problemsId}}">
+                           
+
+                            </div>
+
+                           
+                            
+                            <div class="clearfix"></div>
+                           <div class="slickQuiz" id="slickQuiz-{{$problemsId}}" data-id="{{$problemsId}}">
                                 <h1 class="quizName"></h1>
                                 <div class="quizArea">
                                     <div class="quizHeader"> 
@@ -55,8 +54,11 @@
                                     <div class="quizResultsCopy"></div> 
                                 </div>
                           </div>
-                        </div>
-                    </div>
+                          </div>
+
+
+            </div>
+                        
                 
                 
                 </div>

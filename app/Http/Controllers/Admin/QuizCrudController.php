@@ -19,7 +19,16 @@ class QuizCrudController extends CrudController {
 			'label' => "Quiz name"
 			],
 			['name' => 'main',
-			'label' => "Quiz Description"]
+			'label' => "Quiz Description"],
+			['name' => 'problemofweek',
+			'label' => "Is Problem of Week",
+			'type'  => 'checkbox'],
+			['name' => 'start_date',
+			'label' => "Week Start Date",
+			'type'  => 'date'],
+			['name' => 'end_date',
+			'label' => "Week End Date",
+			'type'  => 'date']
 
 
 	]);

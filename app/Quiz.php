@@ -10,7 +10,7 @@ class Quiz extends Model
 
 	use CrudTrait;
 
-    protected $fillable = ['name', 'main'];
+    protected $fillable = ['name', 'main', 'problemofweek', 'start_date', 'end_date'];
 
     protected $with = ['questions'];
 

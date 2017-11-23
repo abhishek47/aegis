@@ -1,21 +1,25 @@
-.problem-of-week .card-body{
+.problem-week {
+	border-top: 9px solid #1A458E !important;
+}
+
+.problem-week .card-body{
 	padding: 0.25rem;
 }
 
-.problem-of-week .slickQuiz {
+.problem-week .slickQuiz {
 	margin-top: 0px;
 	border: none;
 }
 
 
 .quiz-question-links li{
-
+  
     border: 1px solid #1A458E;
     width: 0px;
-    padding-left: 7px;
-    padding-right: 7px;
-    height: 30px;
-    border-radius: 50%;
+    padding-left: 8px;
+    padding-right: 8px;
+    height: 40px;
+    border-radius: 40%;
     margin-left: 10px !important;
 
 }
@@ -54,16 +58,23 @@
 
 .week-selector {
 	background: transparent;
-	border: 1px solid #fff;
-	color: #fff !important;
+	border: 1px solid #000;
+	color: #000 !important;
+	height: 25px;
 }
 
 .week-selector:focus {
 	background: transparent;
-	border: 1px solid #fff;
-	color: #fff !important;
+	border: 1px solid #000;
+	color: #000 !important;
 }
 
+.problem-week .slickQuiz ol.questions {
+    width: 100%;
+    margin-top: 0px;
+    margin-left: 0;
+    float: left;
+}
 
 
 .slickQuiz .correctAns, .slickQuiz .incorrectAns
@@ -75,5 +86,21 @@
 
 
 
+
+
+
+.p-week-title {
+	font-weight: bold;
+}
+
+
+.problem-week .slickQuiz .btn {
+	border-radius: 0;
+	margin: 2px;
+}
+
+.problem-week .slickQuiz .btn.btn-primary {
+	background-color: #1A458E !important;
+}
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Wiki;
 use App\Quiz;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -26,8 +27,28 @@ class HomeController extends Controller
     public function index()
     {
        $wiki = Wiki::latest()->where('published', 1)->first();
-       $problemsId = Quiz::latest()->first()->id; 
-        return view('home', compact('wiki', 'problemsId'));
+
+       if(request('week') == null)
+       {
+
+       $problemOfWeek = Quiz::where('start_date', '<=', Carbon::now()->toDateString())->where('end_date', '>=', Carbon::now()->toDateString())->first();
+       }
+       else {
+        $problemOfWeek = Quiz::where('start_date',  request('week'))->first();
+       }
+
+       $weeks = Quiz::where('problemofweek', 1)->where('start_date', '<=', Carbon::now()->toDateString())->orderBy('start_date')->pluck('start_date')->toArray();
+
+      
+
+       if(isset($problemOfWeek))
+       {
+          $problemsId = $problemOfWeek->id;
+          return view('home', compact('wiki', 'problemsId', 'problemOfWeek', 'weeks'));
+       } else {
+          return abort(500);
+       }
+       
     }
 
     /**
