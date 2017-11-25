@@ -45,7 +45,7 @@
                   
                   <div class="clearfix"></div>
                   <p class="course-description mt-10" style="font-size: 17px;">
-                      {!! \Config::get('live_course_desc') !!}
+                      {!! \Config::get('settings.live_course_desc') !!}
                   </p>
 
                 </div>
