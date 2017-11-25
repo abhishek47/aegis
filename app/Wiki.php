@@ -13,6 +13,11 @@ class Wiki extends Model
 
    protected $fillable = ['title', 'body', 'category_id'];
 
+   public function likes()
+   {
+      return $this->hasMany(WikiLike::class);
+   }
+
 
    public function publishWiki($crud = false)
    { 

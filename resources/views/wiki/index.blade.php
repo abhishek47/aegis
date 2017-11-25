@@ -24,7 +24,7 @@
 
 
 <div style="background-color: #fafafa;min-height: 900px;">
-
+<!--
   <div class="container pt-50">
 
   <div class="course-single-item bg-white border-1px clearfix mb-30">
@@ -59,7 +59,7 @@
   </div>
 
 </div>
-    
+    -->
       <div class="container">
       @foreach($wikis as $index => $wiki)
 
