@@ -44,7 +44,7 @@ class Wiki extends Model
      if(\Config::get('settings.wiki_of_week') == $this->id)
      {
 
-         return '<a class="btn btn-xs btn-success btn-disabled"  href="/wiki/active/'. $this->id .'" data-toggle="tooltip" title="Change wiki of week">Wiki of Week</a>';
+         return '<a class="btn btn-xs btn-success"  href="/wiki/active/'. $this->id .'" data-toggle="tooltip" title="Change wiki of week" disabled="disabled">Wiki of Week</a>';
 
      } else {
 
