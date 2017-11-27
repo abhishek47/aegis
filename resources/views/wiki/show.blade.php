@@ -108,7 +108,15 @@ var Preview = {
             json: response.data
            });
 
-            document.getElementById('slickQuiz-'+qid).innerHTML = this.Escape(document.getElementById('slickQuiz-'+qid).innerHTML)
+            var text = document.getElementById('slickQuiz-'+qid).innerHTML;
+
+           text = text.replace(!encode ? /&(?!#?\w+;)/g : /&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+         .replace(/'/g, '&#39;');
+
+          document.getElementById('slickQuiz-'+qid).innerHTML = text;
 
             MathJax.Hub.Queue(
               ["Typeset",MathJax.Hub,document.getElementById('slickQuiz-'+qid)],
