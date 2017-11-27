@@ -19,9 +19,10 @@ class QuizController extends Controller
         $this->middleware('auth');
     }
     
-    public function get(Quiz $quiz, $level = null)
+    public function get(Quiz $quiz, $level = 1)
     {
-    	if(!isset($level))
+        $levels = $quiz->questions->groupBy('level')->count();
+    	if($levels <= 1)
     	{
     		return $quiz->toJson();
     	} else {
