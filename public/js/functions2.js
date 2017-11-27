@@ -388,7 +388,7 @@ function insertAtCaret2(text) {
 
 
                 $quizName.hide().html(plugin.config.nameTemplateText
-                    .replace('%name', quizValues.info.name) ).fadeIn(1000, kN(key,1));
+                    .replace('%name', quizValues.info.main) ).fadeIn(1000, kN(key,1));
                
                 var levelsHtml = $('<ol class="quiz-levels"></ol>');
             
