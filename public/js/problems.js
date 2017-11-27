@@ -222,7 +222,7 @@
 
 
                 $quizName.html(plugin.config.nameTemplateText
-                    .replace('%name', quizValues.info.name) );
+                    .replace('%name', quizValues.info.main) );
 
 
                 
