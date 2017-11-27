@@ -121,8 +121,10 @@ var Preview = {
             MathJax.Hub.Queue(
               ["Typeset",MathJax.Hub,document.getElementById('slickQuiz-'+qid)],
               function() {
-                
-                   
+                  var text = document.getElementById('slickQuiz-'+qid).innerHTML;
+                  text = text.replace(/^&gt;/mg, '>');
+                  text = md.render(text) ;
+                  document.getElementById('slickQuiz-'+qid).innerHTML = text;
                   console.log('Done');
               }
             );
