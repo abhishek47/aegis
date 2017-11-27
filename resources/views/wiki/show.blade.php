@@ -108,6 +108,8 @@ var Preview = {
             json: response.data
            });
 
+            this.Escape($('#slickQuiz-'+qid).html());
+            
             MathJax.Hub.Queue(
               ["Typeset",MathJax.Hub,document.getElementById('slickQuiz-'+qid)],
               function() {
