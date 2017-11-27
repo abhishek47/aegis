@@ -108,23 +108,12 @@ var Preview = {
             json: response.data
            });
 
-            var text = document.getElementById('slickQuiz-'+qid).innerHTML;
-
-           text = text.replace(!false ? /&(?!#?\w+;)/g : /&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
-          .replace(/"/g, '&quot;')
-         .replace(/'/g, '&#39;');
-
-          document.getElementById('slickQuiz-'+qid).innerHTML = text;
+            
 
             MathJax.Hub.Queue(
               ["Typeset",MathJax.Hub,document.getElementById('slickQuiz-'+qid)],
               function() {
-                  var text = document.getElementById('slickQuiz-'+qid).innerHTML;
-                  text = text.replace(/^&gt;/mg, '>');
-                  text = md.render(text) ;
-                  document.getElementById('slickQuiz-'+qid).innerHTML = text;
+                  
                   console.log('Done');
               }
             );
