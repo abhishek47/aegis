@@ -110,7 +110,7 @@ var Preview = {
 
             var text = document.getElementById('slickQuiz-'+qid).innerHTML;
 
-           text = text.replace(!encode ? /&(?!#?\w+;)/g : /&/g, '&amp;')
+           text = text.replace(!false ? /&(?!#?\w+;)/g : /&/g, '&amp;')
           .replace(/</g, '&lt;')
           .replace(/>/g, '&gt;')
           .replace(/"/g, '&quot;')
