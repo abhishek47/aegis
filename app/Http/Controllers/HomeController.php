@@ -37,6 +37,11 @@ class HomeController extends Controller
         $problemOfWeek = Quiz::where('start_date',  request('week'))->first();
        }
 
+       if($problemOfWeek == null)
+       {
+          $problemOfWeek = Quiz::latest()->first();
+       }
+
        $weeks = Quiz::where('problemofweek', 1)->where('start_date', '<=', Carbon::now()->toDateString())->orderBy('start_date')->pluck('start_date')->toArray();
 
       

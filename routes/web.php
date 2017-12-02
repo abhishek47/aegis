@@ -45,6 +45,7 @@ Route::get('/wiki/{wiki}/like', 'WikiLikeController@store')->name('wiki.like');
 Route::get('/wiki/{wiki}/dislike', 'WikiLikeController@destroy')->name('wiki.like');
 
 
+
 Route::get('/quiz/{quiz}', 'QuizController@get')->name('quiz.get');
 Route::get('/quiz/{quiz}/{level}', 'QuizController@get')->name('quiz.get');
 
