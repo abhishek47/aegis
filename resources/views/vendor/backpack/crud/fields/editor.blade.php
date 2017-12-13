@@ -95,7 +95,8 @@
         <h4 class="modal-title">Choose Quiz to Add</h4>
       </div>
       <div class="modal-body">
-        <div class="list-group">
+        <div class="list-group" style="max-height: 350px;
+    overflow: auto;">
          @foreach($quizzes as $quiz)
           <a href="#" onclick="addQuestion({{ $quiz->id }});" data-dismiss="modal" class="list-group-item" style="padding: 15px;font-size: 17px;">{{ $quiz->main }}</a>
          @endforeach 
