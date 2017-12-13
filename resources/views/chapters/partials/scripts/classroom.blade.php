@@ -93,9 +93,13 @@
       {
            var key = $(el).parent().data('id');
 
-           fireBase = new firebase.database().ref('/messages/chapter-{{ $chapter->id }}/' + key);
+           fireBase = new firebase.database().ref('/messages/chapter-{{ $chapter->id }}/');
 
-           fireBase.set({allowed: 1});
+           fireBase.child(key).update({allowed: 1});
+
+           $('#'+mid + ' .acceptBox').hide();
+
+
            
       }
 
@@ -103,10 +107,13 @@
       {
            var key = $(el).parent().data('id');
 
-           fireBase = new firebase.database().ref('/messages/chapter-{{ $chapter->id }}/' + key);
+           fireBase = new firebase.database().ref('/messages/chapter-{{ $chapter->id }}/');
 
-           fireBase.set({allowed: 2});
+           fireBase.child(key).update({allowed: 2});
            
+           $('#'+mid + ' .acceptBox').hide();
+
+           $('#'+mid + ' .name').css('text-decoration', 'line-through');
       }
 
 
@@ -276,6 +283,35 @@ $.fn.selectRange = function(start, end) {
              
 
           }
+        };
+      })(this));
+
+      fireBase.on("child_changed", (function(_this) {
+        return function(snapshot) {
+          var message;
+          message = snapshot.val();
+
+          if(message.allowed == 1)
+          {
+
+             $('#status').addClass('hidden');
+
+             @if(auth()->user()->hasRole('administrator'))
+               $('#newMessage').removeClass('hidden');
+             @else
+               $('.fixed-bottom').removeClass('hidden'); 
+             @endif
+
+             $('#transcript').removeClass('hidden');  
+             $('#chapterTabs').removeClass('hidden');
+             var element = document.getElementById("listMessages");
+             element.scrollTop = element.scrollHeight;
+             var key = snapshot.key;
+
+             return _this.messagesView(key, message.name, message.text, message.user_id, message.is_admin);
+           
+          }
+          
         };
       })(this));
 
@@ -457,6 +493,7 @@ $.fn.selectRange = function(start, end) {
         @if(auth()->user()->hasRole('administrator'))
         
            acceptItem = jQuery('<div/>', {
+           class: "acceptBox",
            html: '<a onclick="acceptMessage(this)" style="margin-left:10px;cursor:pointer;color:green;"><i class="fa fa-check"></i> accept</a>  <a onclick="rejectMessage(this)" style="margin-left:10px;cursor:pointer;color:red;"><i class="fa fa-times"></i> reject</a>'
           });
         @endif 
