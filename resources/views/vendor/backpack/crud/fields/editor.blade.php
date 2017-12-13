@@ -97,7 +97,7 @@
       <div class="modal-body">
         <div class="list-group">
          @foreach($quizzes as $quiz)
-          <a href="#" onclick="addQuestion({{ $quiz->id }});" data-dismiss="modal" class="list-group-item" style="padding: 15px;font-size: 17px;">{{ $quiz->name }}</a>
+          <a href="#" onclick="addQuestion({{ $quiz->id }});" data-dismiss="modal" class="list-group-item" style="padding: 15px;font-size: 17px;">{{ $quiz->main }}</a>
          @endforeach 
         </div>
       </div>
