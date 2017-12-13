@@ -102,7 +102,7 @@ var Preview = {
         var qid = $(this).data('id');
 
         axios.get('/quiz/'+qid).then(function(response) {
-          console.log(response.data);
+      
 
           $('#slickQuiz-'+qid).slickQuiz({
             json: response.data
@@ -114,7 +114,7 @@ var Preview = {
               ["Typeset",MathJax.Hub,document.getElementById('slickQuiz-'+qid)],
               function() {
                   
-                  console.log('Done');
+                  
               }
             );
 
@@ -421,7 +421,7 @@ Preview.Update();
       e.preventDefault();
 
       $.get('/wiki/{{$wiki->id}}/like', function(data, status){
-         console.log(data);
+       
 
          if(data.msg == 'liked')
          {

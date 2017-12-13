@@ -535,14 +535,14 @@ function insertAtCaret(text) {
 
                         // Get the answers
                         var qanswers = JSON.parse(question.a);
-                        console.log(qanswers);
+                      
                         var answers = plugin.config.randomSortAnswers ?
                             qanswers.sort(function() { return (Math.round(Math.random())-0.5); }) :
                             qanswers;
 
                         if(answers.length == 1) 
                         {
-                            console.log("SUBJECTIVE QUESTION");
+                          
 
                             inputName     = $element.attr('id') + '_question' + (count - 1),
 
@@ -778,7 +778,7 @@ function insertAtCaret(text) {
                                 var answer = answers[i],
                                     index  = parseInt(i, 10);
 
-                                console.log(answer);    
+ 
                                 if (answer.correct) {
                                     trueAnswers.push(index);
                                     answerLIs.eq(index).removeClass(incorrectResponseClass).addClass(correctResponseClass);
@@ -1046,13 +1046,13 @@ function insertAtCaret(text) {
             $('.change-level').on('click', function (e) {
                     e.preventDefault();
 
-                    console.log('Quiz ID : ' + $(this).data('id') + ' Level : ' + $(this).data('level'));
+                    
                     
                     var qid = $(this).data('id');
                     var level = $(this).data('level')
 
                     axios.get('/quiz/'+qid+'/'+level).then(function(response) {
-                      console.log(response.data);
+                    
 
                      
                       
@@ -1091,7 +1091,7 @@ function insertAtCaret(text) {
                         MathJax.Hub.Queue(
                           ["Typeset",MathJax.Hub,document.getElementById('slickQuiz-'+qid)],
                           function() {
-                             console.log('Done');
+                            
                           }
                         );
 

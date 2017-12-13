@@ -91,7 +91,7 @@
   },
         showProcessingMessages: false,
         tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] },
-        TeX: { equationNumbers: {autoNumber: "AMS"}, extensions: ["AMSmath.js","AMSsymbols.js", "http://sonoisa.github.io/xyjax_ext/xypic.js"] },
+        TeX: { equationNumbers: {autoNumber: "AMS"}, extensions: ["AMSmath.js","AMSsymbols.js", "https://sonoisa.github.io/xyjax_ext/xypic.js"] },
 
       });
     </script>
@@ -165,7 +165,7 @@
       <div class="row">
         <div class="col-sm-6 col-md-3">
           <div class="widget dark">
-            <img class="mt-5 mb-20" alt="" src="/images/logo-white-footer.png">
+            <img class="mt-5 mb-20" alt="" src="/images/logo-wide.png">
             <p>Nashik, Maharashtra, India</p>
             <ul class="list-inline mt-5">
               <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-theme-colored2 mr-5"></i> <a class="text-gray" href="#">8800106866</a> </li>
