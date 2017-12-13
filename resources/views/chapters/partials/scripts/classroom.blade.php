@@ -89,6 +89,26 @@
            @endif
       }
 
+      function acceptMessage(el)
+      {
+           var key = $(el).parent().data('id');
+
+           fireBase = new firebase.database().ref('/messages/chapter-{{ $chapter->id }}/' + key);
+
+           fireBase.set({allowed: 1});
+           
+      }
+
+      function rejectMessage(el)
+      {
+           var key = $(el).parent().data('id');
+
+           fireBase = new firebase.database().ref('/messages/chapter-{{ $chapter->id }}/' + key);
+
+           fireBase.set({allowed: 2});
+           
+      }
+
 
       function pinMessage(el)
       {
@@ -437,7 +457,7 @@ $.fn.selectRange = function(start, end) {
         @if(auth()->user()->hasRole('administrator'))
         
            acceptItem = jQuery('<div/>', {
-           html: '<a onclick="acceptMessage(this)" style="margin-left:10px;cursor:pointer;color:green;"><i class="fa fa-check"></i> quote</a>  <a onclick="rejectMessage(this)" style="margin-left:10px;cursor:pointer;color:red;"><i class="fa fa-cross"></i> quote</a>'
+           html: '<a onclick="acceptMessage(this)" style="margin-left:10px;cursor:pointer;color:green;"><i class="fa fa-check"></i> accept</a>  <a onclick="rejectMessage(this)" style="margin-left:10px;cursor:pointer;color:red;"><i class="fa fa-times"></i> reject</a>'
           });
         @endif 
         
