@@ -221,8 +221,8 @@
                 kN = keyNotch; // you specify the notch, you get a callback function for your animation
 
 
-                $quizName.html(plugin.config.nameTemplateText
-                    .replace('%name', quizValues.info.main) );
+               $quizName.html(plugin.config.nameTemplateText
+                   .replace('%name', '') );
 
 
                 
