@@ -79,7 +79,7 @@ class QuestionCrudController extends CrudController {
 
 	public function store(Request $request)
 	{
-		$request->validate(['q' => 'required', 'a' => 'required', 'correct' => 'required', 
+		$request->validate(['q' => 'required',  'correct' => 'required', 
 			                       'incorrect' => 'required', 'solution' => 'required', 'level' => 'required'
 
 			]);
@@ -88,7 +88,7 @@ class QuestionCrudController extends CrudController {
 
 	public function update(Request $request)
 	{
-		$request->validate(['q' => 'required', 'a' => 'required', 'correct' => 'required', 
+		$request->validate(['q' => 'required',  'correct' => 'required', 
 			                       'incorrect' => 'required', 'solution' => 'required', 'level' => 'required'
 
 			]);
