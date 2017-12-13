@@ -29,6 +29,8 @@
 
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/questions') }}"><i class="fa fa-question"></i> <span>Questions</span></a></li>
 
+           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/problems-of-week') }}"><i class="fa fa-th-list"></i> <span>Problems Of Week</span></a></li>
+
           @role('administrator')
 
            <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/courses') }}"><i class="fa fa-video-camera"></i> <span>Courses</span></a></li>

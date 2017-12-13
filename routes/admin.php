@@ -10,3 +10,4 @@ CRUD::resource('chapter-homework', 'ChapterHomeworkCrudController');
 CRUD::resource('extra-practice-problems', 'ChapterExtraProblemCrudController');
 CRUD::resource('chapter-notes', 'ChapterNoteCrudController');
 CRUD::resource('wikis', 'WikiCrudController');
+CRUD::resource('problems-of-week', 'ProblemWeekCrudController');

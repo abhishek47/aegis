@@ -9,8 +9,8 @@ class QuizCrudController extends CrudController {
 
 	public function setup() {
         $this->crud->setModel("App\Quiz");
-        $this->crud->setRoute("admin/quiz");
-        $this->crud->setEntityNameStrings('quiz', 'quizzes');
+        $this->crud->setRoute("admin/problems-of-week");
+        $this->crud->setEntityNameStrings('problem', 'problems');
 
         $this->crud->setColumns(['name', 'main']);
         $this->crud->addFields([
@@ -20,7 +20,16 @@ class QuizCrudController extends CrudController {
 			],
 			['name' => 'main',
 			'label' => "Quiz Description"],
-			
+			['name' => 'problemofweek',
+			'label' => "Is Problem of Week",
+			'type'  => 'hidden',
+			'value' => 1],
+			['name' => 'start_date',
+			'label' => "Week Start Date",
+			'type'  => 'date'],
+			['name' => 'end_date',
+			'label' => "Week End Date",
+			'type'  => 'date']
 
 
 	]);
