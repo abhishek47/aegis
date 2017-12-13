@@ -97,7 +97,7 @@
 
            fireBase.child(key).update({allowed: 1});
 
-           $('#'+mid + ' .acceptBox').hide();
+           $('#'+key + ' .acceptBox').hide();
 
 
            
@@ -111,9 +111,9 @@
 
            fireBase.child(key).update({allowed: 2});
            
-           $('#'+mid + ' .acceptBox').hide();
+           $('#'+key + ' .acceptBox').hide();
 
-           $('#'+mid + ' .name').css('text-decoration', 'line-through');
+           $('#'+key + ' .name').css('text-decoration', 'line-through');
       }
 
 
@@ -290,28 +290,39 @@ $.fn.selectRange = function(start, end) {
         return function(snapshot) {
           var message;
           message = snapshot.val();
+          var key = snapshot.key;
 
-          if(message.allowed == 1)
-          {
+          @if(!auth()->user()->hasRole('administrator'))
+            if(message.allowed == 1)
+            {
+                if(message.user_id != {{ auth()->id() }})
+                {
 
-             $('#status').addClass('hidden');
+                   $('#status').addClass('hidden');
 
-             @if(auth()->user()->hasRole('administrator'))
-               $('#newMessage').removeClass('hidden');
-             @else
-               $('.fixed-bottom').removeClass('hidden'); 
-             @endif
+                   @if(auth()->user()->hasRole('administrator'))
+                     $('#newMessage').removeClass('hidden');
+                   @else
+                     $('.fixed-bottom').removeClass('hidden'); 
+                   @endif
 
-             $('#transcript').removeClass('hidden');  
-             $('#chapterTabs').removeClass('hidden');
-             var element = document.getElementById("listMessages");
-             element.scrollTop = element.scrollHeight;
-             var key = snapshot.key;
+                   $('#transcript').removeClass('hidden');  
+                   $('#chapterTabs').removeClass('hidden');
+                   var element = document.getElementById("listMessages");
+                   element.scrollTop = element.scrollHeight;
+                   var key = snapshot.key;
 
-             return _this.messagesView(key, message.name, message.text, message.user_id, message.is_admin);
-           
-          }
-          
+                   return _this.messagesView(key, message.name, message.text, message.user_id, message.is_admin);
+                 
+                } else {
+                   $('#'+key + ' .name').css('text-decoration', 'underline');
+                }
+            }
+            else if(message.allowed == 2) {
+               $('#'+key + ' .name').css('text-decoration', 'line-through');
+            }
+            
+          @endif  
         };
       })(this));
 
