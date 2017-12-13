@@ -494,7 +494,8 @@ $.fn.selectRange = function(start, end) {
         
            acceptItem = jQuery('<div/>', {
            class: "acceptBox",
-           html: '<a onclick="acceptMessage(this)" style="margin-left:10px;cursor:pointer;color:green;"><i class="fa fa-check"></i> accept</a>  <a onclick="rejectMessage(this)" style="margin-left:10px;cursor:pointer;color:red;"><i class="fa fa-times"></i> reject</a>'
+           html: '<a onclick="acceptMessage(this)" style="margin-left:10px;cursor:pointer;color:green;"><i class="fa fa-check"></i> accept</a>  <a onclick="rejectMessage(this)" style="margin-left:10px;cursor:pointer;color:red;"><i class="fa fa-times"></i> reject</a>',
+           "data-id": mid
           });
         @endif 
         
