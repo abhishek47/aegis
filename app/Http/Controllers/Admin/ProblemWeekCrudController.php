@@ -34,6 +34,8 @@ class ProblemWeekCrudController extends CrudController {
 
 	]);
 
+        $this->crud->addClause('where', 'problemofweek', '=', 1);
+
 
          $this->crud->with('questions');
 
