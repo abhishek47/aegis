@@ -435,12 +435,12 @@ $.fn.selectRange = function(start, end) {
         });
 
         @if(auth()->user()->hasRole('administrator'))
-        {
+        
            acceptItem = jQuery('<div/>', {
            html: '<a onclick="acceptMessage(this)" style="margin-left:10px;cursor:pointer;color:green;"><i class="fa fa-check"></i> quote</a>  <a onclick="rejectMessage(this)" style="margin-left:10px;cursor:pointer;color:red;"><i class="fa fa-cross"></i> quote</a>'
           });
-
-        }
+        @endif 
+        
       }
       else {
         nameItem = jQuery("<div/>", {
