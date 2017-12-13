@@ -407,7 +407,7 @@ $.fn.selectRange = function(start, end) {
 
     SimpleChat.prototype.messagesView = function(mid, name, text, usedId, isAdmin) {
      
-      var listItem, nameItem, textItem, acceptItem;
+      var listItem, nameItem, textItem, acceptItem = null;
       listItem = jQuery("<li/>", {
         "id": mid,
       	"class": "panel w-100  message-panel",
@@ -433,6 +433,14 @@ $.fn.selectRange = function(start, end) {
         @endif
         "data-id": mid
         });
+
+        @if(auth()->user()->hasRole('administrator'))
+        {
+           acceptItem = jQuery('<div/>', {
+           html: '<a onclick="acceptMessage(this)" style="margin-left:10px;cursor:pointer;color:green;"><i class="fa fa-check"></i> quote</a>  <a onclick="rejectMessage(this)" style="margin-left:10px;cursor:pointer;color:red;"><i class="fa fa-cross"></i> quote</a>'
+          });
+
+        }
       }
       else {
         nameItem = jQuery("<div/>", {
@@ -446,9 +454,7 @@ $.fn.selectRange = function(start, end) {
         "data-id": mid
         });
 
-        acceptItem = jQuery('<div/>', {
-           html: '<a onclick="acceptMessage(this)" style="margin-left:10px;cursor:pointer;color:green;"><i class="fa fa-check"></i> quote</a>  <a onclick="rejectMessage(this)" style="margin-left:10px;cursor:pointer;color:red;"><i class="fa fa-cross"></i> quote</a>'
-        });
+
      }
       textItem = jQuery("<p/>", {
         "class": "panel-body text markdown-body",
@@ -459,6 +465,11 @@ $.fn.selectRange = function(start, end) {
       listItem.appendTo("#messages #listMessages");
       nameItem.appendTo(listItem);
       textItem.appendTo(listItem);
+
+      if(acceptItem != null)
+      {
+        acceptItem.appendTo(listItem);
+      }
 
       MathJax.Hub.Queue(
               ["Typeset",MathJax.Hub,document.getElementById('listMessages')],
