@@ -113,7 +113,7 @@
            
            $('#'+key + ' .acceptBox').hide();
 
-           $('#'+key + ' .name').css('text-decoration', 'line-through');
+           $('#'+key + ' .username').css('text-decoration', 'line-through');
       }
 
 
@@ -315,11 +315,11 @@ $.fn.selectRange = function(start, end) {
                    return _this.messagesView(key, message.name, message.text, message.user_id, message.is_admin);
                  
                 } else {
-                   $('#'+key + ' .name').css('text-decoration', 'underline');
+                   $('#'+key + ' .username').css('text-decoration', 'underline');
                 }
             }
             else if(message.allowed == 2) {
-               $('#'+key + ' .name').css('text-decoration', 'line-through');
+               $('#'+key + ' .username').css('text-decoration', 'line-through');
             }
             
           @endif  
