@@ -2,7 +2,7 @@
 	
 	<script type="text/javascript">
 		 // Get a reference to the database service
-
+    
       var fireBasePinned;
 
       fireBasePinned = new firebase.database().ref('/pinned/chapter-{{ $chapter->id }}');
@@ -244,7 +244,15 @@ $.fn.selectRange = function(start, end) {
            var element = document.getElementById("listMessages");
     element.scrollTop = element.scrollHeight;
               var key = snapshot.key;
-             return _this.messagesView(key, message.name, message.text, message.user_id, message.is_admin);
+
+              @if(auth()->user()->hasRole('administrator'))
+                 return _this.messagesView(key, message.name, message.text, message.user_id, message.is_admin);
+              @else
+                if(message.allowed || message.user_id == {{ auth()->id() }})
+                {
+                   return _this.messagesView(key, message.name, message.text, message.user_id, message.is_admin);
+                }
+              @endif
              
 
           }
@@ -399,7 +407,7 @@ $.fn.selectRange = function(start, end) {
 
     SimpleChat.prototype.messagesView = function(mid, name, text, usedId, isAdmin) {
      
-      var listItem, nameItem, textItem;
+      var listItem, nameItem, textItem, acceptItem;
       listItem = jQuery("<li/>", {
         "id": mid,
       	"class": "panel w-100  message-panel",
@@ -436,6 +444,10 @@ $.fn.selectRange = function(start, end) {
 
         @endif
         "data-id": mid
+        });
+
+        acceptItem = jQuery('<div/>', {
+           html: '<a onclick="acceptMessage(this)" style="margin-left:10px;cursor:pointer;color:green;"><i class="fa fa-check"></i> quote</a>  <a onclick="rejectMessage(this)" style="margin-left:10px;cursor:pointer;color:red;"><i class="fa fa-cross"></i> quote</a>'
         });
      }
       textItem = jQuery("<p/>", {
@@ -480,6 +492,7 @@ $.fn.selectRange = function(start, end) {
         text: text,
         user_id:  {{ auth()->user()->id }},
         is_admin: {{  auth()->user()->hasRole('administrator') ? 1 : 0 }},
+        allowed: {{  auth()->user()->hasRole('administrator') ? 1 : 0 }},
         chapter_id: {{ $chapter->id }},
         created_at: Date.now()
       });
