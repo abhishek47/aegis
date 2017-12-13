@@ -5,7 +5,7 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Illuminate\Http\Request;
 
-class QuizCrudController extends CrudController {
+class ProblemWeekCrudController extends CrudController {
 
 	public function setup() {
         $this->crud->setModel("App\Quiz");
