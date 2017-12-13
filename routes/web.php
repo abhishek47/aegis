@@ -41,8 +41,7 @@ Route::get('/wiki/publish/{wiki}', 'WikiController@publish')->name('wiki.publish
 Route::post('/wiki/update/{wiki}', 'WikiController@update')->name('wiki.update');
 
 Route::get('/wiki/active/{wiki}', 'WikiController@active')->name('wiki.active');
-Route::get('/wiki/{wiki}/like', 'WikiLikeController@store')->name('wiki.like');
-Route::get('/wiki/{wiki}/dislike', 'WikiLikeController@destroy')->name('wiki.like');
+Route::get('/wiki/{wiki}/like', 'WikiLikesController@store');
 
 
 

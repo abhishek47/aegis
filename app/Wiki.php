@@ -19,6 +19,11 @@ class Wiki extends Model
    }
 
 
+   public function liked()
+   {
+      return $this->likes()->where('user_id', auth()->id())->exists();
+   }
+
    public function publishWiki($crud = false)
    { 
    	 if(auth()->user()->hasRole('administrator'))

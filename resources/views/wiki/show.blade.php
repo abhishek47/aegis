@@ -362,6 +362,18 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 </form>
 
 
+
+@if($wiki->liked())
+<a id="likeBtn" href="#" style="color: #337ab7;
+    font-size: 22px;"><i class="fa fa-thumbs-up"></i> {{ count($wiki->likes) }} Likes</a>
+@else
+<a id="likeBtn" href="#" style="color: #337ab7;
+    font-size: 22px;"><i class="fa fa-thumbs-o-up"></i> {{ count($wiki->likes) }} Likes</a>
+@endif
+
+<br><br>
+
+
   </div>         	
 
 
@@ -404,7 +416,22 @@ Preview.Update();
 </script>
 
 <script type="text/javascript">
-  
+  $('#likeBtn').click(function(e)
+  {
+      e.preventDefault();
+
+      $.get('/wiki/{{$wiki->id}}/like', function(data, status){
+         console.log(data);
+
+         if(data.msg == 'liked')
+         {
+            $('#likeBtn').html('<i class="fa fa-thumbs-up"></i> ' + data.likes + ' Likes');
+         } else {
+            $('#likeBtn').html('<i class="fa fa-thumbs-o-up"></i> ' + data.likes + ' Likes');
+         }
+
+      });
+  });
 </script>
 
 
