@@ -273,11 +273,11 @@ $.fn.selectRange = function(start, end) {
               var key = snapshot.key;
 
               @if(auth()->user()->hasRole('administrator'))
-                 return _this.messagesView(key, message.name, message.text, message.user_id, message.is_admin);
+                 return _this.messagesView(key, message.name, message.text, message.user_id, message.is_admin, message);
               @else
                 if(message.allowed || message.user_id == {{ auth()->id() }})
                 {
-                   return _this.messagesView(key, message.name, message.text, message.user_id, message.is_admin);
+                   return _this.messagesView(key, message.name, message.text, message.user_id, message.is_admin, message);
                 }
               @endif
              
@@ -472,7 +472,7 @@ $.fn.selectRange = function(start, end) {
       })(this));
     }
 
-    SimpleChat.prototype.messagesView = function(mid, name, text, usedId, isAdmin) {
+    SimpleChat.prototype.messagesView = function(mid, name, text, usedId, isAdmin, message) {
      
       var listItem, nameItem, textItem, acceptItem = null;
       listItem = jQuery("<li/>", {
@@ -502,12 +502,15 @@ $.fn.selectRange = function(start, end) {
         });
 
         @if(auth()->user()->hasRole('administrator'))
-        
+         if(message.allowed == 0)
+         {
            acceptItem = jQuery('<div/>', {
            class: "acceptBox",
            html: '<a onclick="acceptMessage(this)" style="margin-left:10px;cursor:pointer;color:green;"><i class="fa fa-check"></i> accept</a>  <a onclick="rejectMessage(this)" style="margin-left:10px;cursor:pointer;color:red;"><i class="fa fa-times"></i> reject</a>',
            "data-id": mid
           });
+
+           }
         @endif 
         
       }
