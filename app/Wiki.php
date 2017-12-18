@@ -26,7 +26,7 @@ class Wiki extends Model
 
    public function publishWiki($crud = false)
    { 
-   	 if(auth()->user()->hasRole('administrator'))
+   	 if(auth()->user()->can('publish'))
    	 {
    	  if($this->published)
    	  {
