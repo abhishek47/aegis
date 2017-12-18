@@ -39,7 +39,11 @@ class ProblemWeekCrudController extends CrudController {
 
          $this->crud->with('questions');
 
-         $this->crud->setEditView('quiz.edit');
+
+         $this->crud->addButtonFromModelFunction('line', 'questions', 'manageWeeklyQuestions', 'end');
+
+
+		  $this->crud->allowAccess('show');
     }
 
 	public function store(Request $request)

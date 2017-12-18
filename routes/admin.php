@@ -1,13 +1,26 @@
 <?php
 
 CRUD::resource('quiz', 'QuizCrudController');
-CRUD::resource('questions', 'QuestionCrudController');
+
+CRUD::resource('questions', 'QuestionCrudController')->with(function(){
+    // add extra routes to this resource
+    Route::get('questions/quiz:{quiz}', 'QuestionCrudController@get');
+    
+});
+
+CRUD::resource('weekly-questions', 'WeeklyQuestionCrudController')->with(function(){
+    // add extra routes to this resource
+    Route::get('weekly-questions/problem:{problem}', 'WeeklyQuestionCrudController@get');
+    
+});
+
 CRUD::resource('courses', 'CourseCrudController');
 CRUD::resource('classrooms', 'ClassroomCrudController');
 
 CRUD::resource('chapters', 'ChapterCrudController')->with(function(){
     // add extra routes to this resource
     Route::get('chapters/classroom:{classroom}', 'ChapterCrudController@getChapters');
+
 });
 
 

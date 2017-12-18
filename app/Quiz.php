@@ -21,6 +21,22 @@ class Quiz extends Model
     	return $this->hasMany(Question::class);
     } 
 
+     public function manageQuestions($crud = false)
+    { 
+     
+      
+        return '<a class="btn btn-xs btn-success" href="/admin/questions/quiz:' . $this->id . '" data-toggle="tooltip" title="Manage Questions">Questions</a>';
+       
+    }
+
+    public function manageWeeklyQuestions($crud = false)
+    { 
+     
+      
+        return '<a class="btn btn-xs btn-success" href="/admin/weekly-questions/problem:' . $this->id . '" data-toggle="tooltip" title="Manage Questions">Questions</a>';
+       
+    }
+
     /**
      * Convert the model instance to an array.
      *

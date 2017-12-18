@@ -26,9 +26,14 @@ class QuizCrudController extends CrudController {
 	]);
 
 
+         $this->crud->addButtonFromModelFunction('line', 'questions', 'manageQuestions', 'end');
+
          $this->crud->with('questions');
 
-         $this->crud->setEditView('quiz.edit');
+
+         $this->crud->allowAccess('show');
+
+
     }
 
 	public function store(Request $request)

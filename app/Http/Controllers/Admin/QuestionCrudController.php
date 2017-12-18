@@ -5,6 +5,8 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Illuminate\Http\Request;
 
+use App\Quiz;
+
 class QuestionCrudController extends CrudController {
 
 	public function setup() {
@@ -62,7 +64,26 @@ class QuestionCrudController extends CrudController {
 			'type' => 'select_from_array',
 		    'options' => [0 => 0, 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7, 8 => 8, 9 => 9, 10 => 10],
 		    'allows_null' => false,],
-			[  // Select2
+			
+
+
+	]);
+
+
+         if(request()->has('quiz'))
+        {
+        	$this->crud->addField([  // Select2
+			   'label' => "Quiz",
+			   'type' => 'select2',
+			   'name' => 'quiz_id', // the db column for the foreign key
+			   'entity' => 'quiz', // the method that defines the relationship in your Model
+			   'attribute' => 'main', // foreign key attribute that is shown to user
+			   'model' => "App\Quiz", // foreign key model
+			   'allows_null' => false,
+			   'value' => request('quiz')
+			]);
+        } else {
+        	$this->crud->addField([  // Select2
 			   'label' => "Quiz",
 			   'type' => 'select2',
 			   'name' => 'quiz_id', // the db column for the foreign key
@@ -70,11 +91,132 @@ class QuestionCrudController extends CrudController {
 			   'attribute' => 'main', // foreign key attribute that is shown to user
 			   'model' => "App\Quiz", // foreign key model
 			   'allows_null' => false
-			]
+			]);
+        }
 
 
-	]);
 
+         $this->crud->enableExportButtons();
+
+
+
+    }
+
+
+    /**
+     * Display all rows in the database for this entity.
+     *
+     * @return Response
+     */
+    public function get(Quiz $quiz)
+    {
+        $this->crud->hasAccessOrFail('list');
+
+        $this->crud->addClause('where', 'quiz_id', '=', $quiz->id);
+
+        $this->crud->setListView('admin.questions.list');
+
+        $this->data['crud'] = $this->crud;
+        $this->data['title'] = 'Questions' . ' | ' . $quiz->main;
+
+        // get all entries if AJAX is not enabled
+        if (! $this->data['crud']->ajaxTable()) {
+            $this->data['entries'] = $this->data['crud']->getEntries();
+        }
+
+        $this->data['quiz'] = $quiz;
+
+        // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
+        return view($this->crud->getListView(), $this->data);
+    }
+
+    /**
+     * Show the form for creating inserting a new row.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        $this->crud->hasAccessOrFail('create');
+
+
+        $this->crud->setRoute("admin/questions/quiz:".request('quiz'));
+
+        $this->crud->setCreateView('admin.questions.create');
+
+
+        // prepare the fields you need to show
+        $this->data['crud'] = $this->crud;
+        $this->data['saveAction'] = $this->getSaveAction();
+        $this->data['fields'] = $this->crud->getCreateFields();
+        $this->data['title'] = trans('backpack::crud.add').' '.$this->crud->entity_name;
+
+        $this->data['quiz'] = Quiz::findOrFail(request('quiz'));
+
+        // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
+        return view($this->crud->getCreateView(), $this->data);
+    }
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $id
+     *
+     * @return Response
+     */
+    public function edit($id)
+    {
+        $this->crud->hasAccessOrFail('update');
+
+        
+
+        $this->crud->setEditView('admin.questions.edit');
+
+        // get the info for that entry
+        $this->data['entry'] = $this->crud->getEntry($id);
+        $this->data['crud'] = $this->crud;
+        $this->data['saveAction'] = $this->getSaveAction();
+        $this->data['fields'] = $this->crud->getUpdateFields($id);
+        $this->data['title'] = trans('backpack::crud.edit').' '.$this->crud->entity_name;
+
+        $this->data['id'] = $id;
+
+        $this->data['quiz'] = $this->data['entry']->quiz;
+
+        $this->crud->setRoute("admin/questions/quiz:".$this->data['entry']->quiz->id);
+
+        // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
+        return view($this->crud->getEditView(), $this->data);
+    }
+
+     /**
+     * Redirect to the correct URL, depending on which save action has been selected.
+     * @param  [type] $itemId [description]
+     * @return [type]         [description]
+     */
+    public function performSaveAction($itemId = null)
+    {
+        $saveAction = \Request::input('save_action', config('backpack.crud.default_save_action', 'save_and_back'));
+        $itemId = $itemId ? $itemId : \Request::input('id');
+
+        switch ($saveAction) {
+            case 'save_and_new':
+                $redirectUrl = 'admin/questions/create?quiz=' . $this->crud->entry->quiz->id;
+                break;
+            case 'save_and_edit':
+                $redirectUrl = 'admin/questions'.'/'.$itemId.'/edit';
+                if (\Request::has('locale')) {
+                    $redirectUrl .= '?locale='.\Request::input('locale');
+                }
+                break;
+            case 'save_and_back':
+            default:
+                $redirectUrl = 'admin/questions/quiz:' . $this->crud->entry->quiz->id;
+                break;
+        }
+
+        return \Redirect::to($redirectUrl);
     }
 
 	public function store(Request $request)

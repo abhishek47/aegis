@@ -23,7 +23,8 @@
 
 		@include('crud::inc.grouped_errors')
 
-		  {!! Form::open(array('url' => $crud->route, 'method' => 'post', 'files'=>$crud->hasUploadFields('create'))) !!}
+		  {!! Form::open(array('url' => '/admin/chapters', 'method' => 'post', 'files'=>$crud->hasUploadFields('create'))) !!}
+		  
 		  <div class="box">
 
 		    <div class="box-header with-border">

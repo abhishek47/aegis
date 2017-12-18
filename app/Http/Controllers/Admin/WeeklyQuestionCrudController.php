@@ -5,14 +5,14 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use Illuminate\Http\Request;
 
-use App\Chapter;
+use App\Quiz;
 
-class ChapterExtraProblemCrudController extends CrudController {
+class WeeklyQuestionCrudController extends CrudController {
 
 	public function setup() {
-        $this->crud->setModel("App\ChapterExtraProblem");
-        $this->crud->setRoute("admin/extra-practice-problems");
-        $this->crud->setEntityNameStrings('Extra Practice Problem', 'Extra Practice Problems');
+        $this->crud->setModel("App\Question");
+        $this->crud->setRoute("admin/weekly-questions");
+        $this->crud->setEntityNameStrings('weekly question', 'weekly questions');
 
         $this->crud->setColumns([
         	 [
@@ -29,11 +29,6 @@ class ChapterExtraProblemCrudController extends CrudController {
 			'label' => "Question",
 			'type' => 'editor'
 			],
-			[
-			'name' => 'points',
-			'label' => "Points",
-			'type' => 'number'
-			],
 			[ // Table
 			    'name' => 'a',
 			    'label' => 'Answers',
@@ -47,80 +42,89 @@ class ChapterExtraProblemCrudController extends CrudController {
 						'label' => "Is Answer",
 						'type' => "checkbox"]
 			    ],
-			    'max' => 1, // maximum rows allowed in the table
+			    'max' => 4, // maximum rows allowed in the table
 			    'min' => 0 // minimum rows allowed in the table
 			],
-			
+			['name' => 'select_any',
+			'label' => "For Multiple Answers (Select Single : checked, Select All : unchecked)",
+			'type' => 'checkbox'],
 			['name' => 'correct',
 			'label' => "Response on Correct Answer",
 			'default' => '<span>Your Answer is Correct!</span>',
-			'type' => 'hidden'],
+			'type' => 'textarea'],
 			['name' => 'incorrect',
 			'label' => "Response on Incorrect Answer",
 			'default' => '<span>Your Answer is Incorrect!</span>',
-			'type' => 'hidden'],
+			'type' => 'textarea'],
 			['name' => 'solution',
 			'label' => "Solution",
 			'type' => 'editor2'],
-			['name' => 'section',
-			'label' => "Section",
+			['name' => 'level',
+			'label' => "Level",
 			'type' => 'select_from_array',
 		    'options' => [0 => 0, 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7, 8 => 8, 9 => 9, 10 => 10],
 		    'allows_null' => false,],
 			
-			 
 
 
 	]);
 
-        if(request()->has('chapter'))
+
+         if(request()->has('problem'))
         {
         	$this->crud->addField([  // Select2
-			   'label' => "Chapter",
+			   'label' => "problem",
 			   'type' => 'select2',
-			   'name' => 'chapter_id', // the db column for the foreign key
-			   'entity' => 'chapter', // the method that defines the relationship in your Model
-			   'attribute' => 'title', // foreign key attribute that is shown to user
-			   'model' => "App\Chapter", // foreign key model
+			   'name' => 'problem_id', // the db column for the foreign key
+			   'entity' => 'problem', // the method that defines the relationship in your Model
+			   'attribute' => 'main', // foreign key attribute that is shown to user
+			   'model' => "App\problem", // foreign key model
 			   'allows_null' => false,
-			   'value' => request('chapter')
+			   'value' => request('problem')
 			]);
         } else {
         	$this->crud->addField([  // Select2
-			   'label' => "Chapter",
+			   'label' => "problem",
 			   'type' => 'select2',
-			   'name' => 'chapter_id', // the db column for the foreign key
-			   'entity' => 'chapter', // the method that defines the relationship in your Model
-			   'attribute' => 'title', // foreign key attribute that is shown to user
-			   'model' => "App\Chapter", // foreign key model
+			   'name' => 'problem_id', // the db column for the foreign key
+			   'entity' => 'problem', // the method that defines the relationship in your Model
+			   'attribute' => 'main', // foreign key attribute that is shown to user
+			   'model' => "App\problem", // foreign key model
 			   'allows_null' => false
 			]);
         }
 
+
+
+         $this->crud->enableExportButtons();
+
+
+
     }
 
-   /**
+
+    /**
      * Display all rows in the database for this entity.
      *
      * @return Response
      */
-    public function get(Chapter $chapter)
+    public function get(Quiz $problem)
     {
         $this->crud->hasAccessOrFail('list');
 
-        $this->crud->addClause('where', 'chapter_id', '=', $chapter->id);
+        $this->crud->addClause('where', 'quiz_id', '=', $problem->id);
 
-        $this->crud->setListView('admin.chapters.edits.list');
+        $this->crud->setListView('admin.weeklyquestions.list');
 
         $this->data['crud'] = $this->crud;
-        $this->data['title'] = $this->crud->entity_name_plural . ' | ' . $chapter->title;
+        $this->data['title'] = 'weekly-questions' . ' | ' . $problem->main;
 
         // get all entries if AJAX is not enabled
         if (! $this->data['crud']->ajaxTable()) {
             $this->data['entries'] = $this->data['crud']->getEntries();
         }
 
-        $this->data['chapter'] = $chapter;
+        $this->data['problem'] = $problem;
 
         // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
         return view($this->crud->getListView(), $this->data);
@@ -136,9 +140,9 @@ class ChapterExtraProblemCrudController extends CrudController {
         $this->crud->hasAccessOrFail('create');
 
 
-        $this->crud->setRoute("admin/extra-practice-problems/chapter:".request('chapter'));
+        $this->crud->setRoute("admin/weekly-questions/problem:".request('problem'));
 
-        $this->crud->setCreateView('admin.chapters.edits.create');
+        $this->crud->setCreateView('admin.weeklyquestions.create');
 
 
         // prepare the fields you need to show
@@ -147,41 +151,10 @@ class ChapterExtraProblemCrudController extends CrudController {
         $this->data['fields'] = $this->crud->getCreateFields();
         $this->data['title'] = trans('backpack::crud.add').' '.$this->crud->entity_name;
 
-        $this->data['chapter'] = Chapter::findOrFail(request('chapter'));
-
-        $this->data['post_url'] = 'extra-practice-problems';
+        $this->data['problem'] = Quiz::findOrFail(request('problem'));
 
         // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
         return view($this->crud->getCreateView(), $this->data);
-    }
-
-     /**
-     * Redirect to the correct URL, depending on which save action has been selected.
-     * @param  [type] $itemId [description]
-     * @return [type]         [description]
-     */
-    public function performSaveAction($itemId = null)
-    {
-        $saveAction = \Request::input('save_action', config('backpack.crud.default_save_action', 'save_and_back'));
-        $itemId = $itemId ? $itemId : \Request::input('id');
-
-        switch ($saveAction) {
-            case 'save_and_new':
-                $redirectUrl = 'admin/'. 'extra-practice-problems' . '/create?chapter='. $this->crud->entry->chapter->id;
-                break;
-            case 'save_and_edit':
-                $redirectUrl = 'admin/extra-practice-problems'.'/'.$itemId.'/edit';
-                if (\Request::has('locale')) {
-                    $redirectUrl .= '?locale='.\Request::input('locale');
-                }
-                break;
-            case 'save_and_back':
-            default:
-                $redirectUrl = 'admin/'. 'extra-practice-problems' . '/chapter:' . $this->crud->entry->chapter->id;
-                break;
-        }
-
-        return \Redirect::to($redirectUrl);
     }
 
 
@@ -198,7 +171,7 @@ class ChapterExtraProblemCrudController extends CrudController {
 
         
 
-        $this->crud->setEditView('admin.chapters.edits.edit');
+        $this->crud->setEditView('admin.weeklyquestions.edit');
 
         // get the info for that entry
         $this->data['entry'] = $this->crud->getEntry($id);
@@ -209,22 +182,47 @@ class ChapterExtraProblemCrudController extends CrudController {
 
         $this->data['id'] = $id;
 
-        $this->data['chapter'] = $this->data['entry']->chapter;
+        $this->data['problem'] = $this->data['entry']->quiz;
 
-        $this->crud->setRoute("admin/extra-practice-problems/chapter:".$this->data['entry']->chapter->id);
-
-        $this->data['post_url'] = 'extra-practice-problems';
+        $this->crud->setRoute("admin/weekly-questions/problem:".$this->data['entry']->quiz->id);
 
         // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
         return view($this->crud->getEditView(), $this->data);
     }
 
+     /**
+     * Redirect to the correct URL, depending on which save action has been selected.
+     * @param  [type] $itemId [description]
+     * @return [type]         [description]
+     */
+    public function performSaveAction($itemId = null)
+    {
+        $saveAction = \Request::input('save_action', config('backpack.crud.default_save_action', 'save_and_back'));
+        $itemId = $itemId ? $itemId : \Request::input('id');
 
+        switch ($saveAction) {
+            case 'save_and_new':
+                $redirectUrl = 'admin/weekly-questions/create?problem=' . $this->crud->entry->quiz->id;
+                break;
+            case 'save_and_edit':
+                $redirectUrl = 'admin/weekly-questions'.'/'.$itemId.'/edit';
+                if (\Request::has('locale')) {
+                    $redirectUrl .= '?locale='.\Request::input('locale');
+                }
+                break;
+            case 'save_and_back':
+            default:
+                $redirectUrl = 'admin/weekly-questions/problem:' . $this->crud->entry->quiz->id;
+                break;
+        }
+
+        return \Redirect::to($redirectUrl);
+    }
 
 	public function store(Request $request)
 	{
-		$request->validate(['q' => 'required', 'a' => 'required', 'correct' => 'required', 
-			                       'incorrect' => 'required', 'solution' => 'required', 'section' => 'required'
+		$request->validate(['q' => 'required',  'correct' => 'required', 
+			                       'incorrect' => 'required', 'solution' => 'required', 'level' => 'required'
 
 			]);
 		return parent::storeCrud();
@@ -232,8 +230,8 @@ class ChapterExtraProblemCrudController extends CrudController {
 
 	public function update(Request $request)
 	{
-		$request->validate(['q' => 'required', 'a' => 'required', 'correct' => 'required', 
-			                       'incorrect' => 'required', 'solution' => 'required', 'section' => 'required'
+		$request->validate(['q' => 'required',  'correct' => 'required', 
+			                       'incorrect' => 'required', 'solution' => 'required', 'level' => 'required'
 
 			]);
 

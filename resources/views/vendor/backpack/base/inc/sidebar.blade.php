@@ -25,15 +25,15 @@
 
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/wikis') }}"><i class="fa fa-file"></i> <span>Wiki Pages</span></a></li>
 
-          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/quiz') }}"><i class="fa fa-th-list"></i> <span>Quizzes</span></a></li>
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/quiz') }}"><i class="fa fa-question-circle-o"></i> <span>Quizzes</span></a></li>
 
-          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/questions') }}"><i class="fa fa-question"></i> <span>Questions</span></a></li>
+        <!--  <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/questions') }}"><i class="fa fa-question"></i> <span>Questions</span></a></li> -->
 
-           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/problems-of-week') }}"><i class="fa fa-th-list"></i> <span>Problems Of Week</span></a></li>
+           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/problems-of-week') }}"><i class="fa fa-tasks"></i> <span>Problems Of Week</span></a></li>
 
           @role('administrator')
 
-           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/courses') }}"><i class="fa fa-video-camera"></i> <span>Courses</span></a></li>
+           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/courses') }}"><i class="fa fa-newspaper-o"></i> <span>General Courses</span></a></li>
 
 
               <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/classrooms') }}"><i class="fa fa-video-camera"></i> <span>Live Courses</span></a></li>
