@@ -36,21 +36,11 @@
            <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/courses') }}"><i class="fa fa-video-camera"></i> <span>Courses</span></a></li>
 
 
-             
-
-             
-
-              <li class="treeview">
-            <a href="#"><i class="fa fa-group"></i> <span>Virtual Classrooms</span> <i class="fa fa-angle-left pull-right"></i></a>
-            <ul class="treeview-menu">
               <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/classrooms') }}"><i class="fa fa-video-camera"></i> <span>Live Courses</span></a></li>
-             <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/chapters') }}"><i class="fa fa-video-camera"></i> <span>Chapters</span></a></li>
-              <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/chapter-messages') }}"><i class="fa fa-video-camera"></i> <span>Chapter Script</span></a></li>
-               <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/chapter-homework') }}"><i class="fa fa-video-camera"></i> <span>Homework Questions</span></a></li>
-               <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/extra-practice-problems') }}"><i class="fa fa-video-camera"></i> <span>Extra Practice Problems</span></a></li>
-                <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/chapter-notes') }}"><i class="fa fa-video-camera"></i> <span>Chapter Summary</span></a></li>
-            </ul>
-          </li>
+
+             
+
+             
 
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/setting') }}"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
 

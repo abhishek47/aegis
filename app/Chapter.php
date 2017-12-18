@@ -46,9 +46,15 @@ class Chapter extends Model
    	{ 
    	 
    	  
-	  	return '<a class="btn btn-xs btn-success" target="_blank"  href="/classrooms/' . $this->classroom->id . '/chapter/' . $this->id . '" data-toggle="tooltip" title="Enter Chapter Session">Enter Session</a>';
+	  	return '<a class="btn btn-xs btn-success" href="/classrooms/' . $this->classroom->id . '/chapter/' . $this->id . '" data-toggle="tooltip" title="Enter Chapter Session">Enter Session</a> 
+        <a class="btn btn-xs btn-primary" href="/admin/chapter-messages/chapter:' . $this->id . '" data-toggle="tooltip" title="Add Chapter Script">Script</a> 
+        <a class="btn btn-xs btn-warning" href="/admin/chapter-notes/chapter:' . $this->id . '" data-toggle="tooltip" title="Add Chapter Notes">Notes</a> 
+        <a class="btn btn-xs btn-info" href="/admin/chapter-homework/chapter:' . $this->id . '" data-toggle="tooltip" title="Add Chapter Homework">Homework</a> 
+        <a class="btn btn-xs btn-danger" href="/admin/extra-practice-problems/chapter:' . $this->id . '" data-toggle="tooltip" title="Add Extra  Problems">EPP</a>'; 
    	   
    	}
+
+
 
    	public function getStatusText()
    	{

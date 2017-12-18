@@ -30,9 +30,10 @@ class Classroom extends Model
    	{ 
    	 
    	  
-	  	return '<a class="btn btn-xs btn-success" target="_blank"  href="/classrooms/' . $this->id . '" data-toggle="tooltip" title="View Course Details">Chapters</a>';
+	  	return '<a class="btn btn-xs btn-success" href="/admin/chapters/classroom:' . $this->id . '" data-toggle="tooltip" title="View Course Details">Chapters</a>';
    	   
    	}
+
 
 
     public function homeworks()

@@ -58,6 +58,8 @@ class CourseCrudController extends CrudController {
          $this->crud->setShowView('admin.wikis.show');
     }
 
+    
+
 	public function store(Request $request)
 	{
 		$request->validate(['name' => 'required', 'body' => 'required', 'fees' => 'required', 
