@@ -59,6 +59,17 @@ class WeeklyQuestionCrudController extends CrudController {
 			['name' => 'solution',
 			'label' => "Solution",
 			'type' => 'editor2'],
+            ['name' => 'hint_1',
+            'label' => "Hint 1",
+            'type' => 'textarea'],
+            ['name' => 'hint_2',
+            'label' => "Hint 2",
+            'type' => 'textarea'],
+            ['name' => 'hint_3',
+            'label' => "Hint 3",
+            'type' => 'textarea'],
+            ['name' => 'source',
+            'label' => "Question Source"],
 			['name' => 'level',
 			'label' => "Level",
 			'type' => 'select_from_array',
@@ -75,10 +86,10 @@ class WeeklyQuestionCrudController extends CrudController {
         	$this->crud->addField([  // Select2
 			   'label' => "problem",
 			   'type' => 'select2',
-			   'name' => 'problem_id', // the db column for the foreign key
-			   'entity' => 'problem', // the method that defines the relationship in your Model
+			   'name' => 'quiz_id', // the db column for the foreign key
+			   'entity' => 'quiz', // the method that defines the relationship in your Model
 			   'attribute' => 'main', // foreign key attribute that is shown to user
-			   'model' => "App\problem", // foreign key model
+			   'model' => "App\Quiz", // foreign key model
 			   'allows_null' => false,
 			   'value' => request('problem')
 			]);
@@ -86,10 +97,10 @@ class WeeklyQuestionCrudController extends CrudController {
         	$this->crud->addField([  // Select2
 			   'label' => "problem",
 			   'type' => 'select2',
-			   'name' => 'problem_id', // the db column for the foreign key
-			   'entity' => 'problem', // the method that defines the relationship in your Model
+			   'name' => 'quiz_id', // the db column for the foreign key
+			   'entity' => 'quiz', // the method that defines the relationship in your Model
 			   'attribute' => 'main', // foreign key attribute that is shown to user
-			   'model' => "App\problem", // foreign key model
+			   'model' => "App\Quiz", // foreign key model
 			   'allows_null' => false
 			]);
         }
