@@ -38,6 +38,15 @@ md.use(require('markdown-it-deflist'));
 
 md.use(require('markdown-it-emoji'));
 
+
+import Echo from "laravel-echo"
+
+window.Echo = new Echo({
+    broadcaster: 'socket.io',
+    host: window.location.hostname + ':6001'
+});
+
+
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
  * all outgoing HTTP requests automatically have it attached. This is just

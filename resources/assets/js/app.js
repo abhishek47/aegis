@@ -18,6 +18,7 @@ window.Vue = require('vue');
 
 
 Vue.component('question', require('./components/Question.vue'));
+Vue.component('chats', require('./components/Chats.vue'));
 
 import VueCoreImageUpload from 'vue-core-image-upload';
 

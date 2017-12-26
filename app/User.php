@@ -31,6 +31,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $appends = ['profile_pic'];
+
+    public function getProfilePicAttribute()
+    {
+        return \Avatar::create($this->name)->toBase64();
+    }
 
     public function enrollments()
     {

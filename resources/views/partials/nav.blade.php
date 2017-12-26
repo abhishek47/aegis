@@ -82,6 +82,7 @@
                   <li><a href="/wiki/problematic">Problematic</a></li>
                 </ul>
               </li>
+               <li><a href="/chats">Chat</a></li>
               <li><a href="/account">My Account</a></li>
               @endguest
               <li class="scrollable-fix"></li>
