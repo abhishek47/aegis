@@ -31,7 +31,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    //protected $appends = ['profile_pic'];
+    protected $appends = ['profile_pic'];
 
     public function getProfilePicAttribute()
     {
