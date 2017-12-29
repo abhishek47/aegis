@@ -70802,7 +70802,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             axios.get('/chats/get', { 'friend_id': this.receiver.id }).then(function (response) {
 
-                self.messages = response.data.messages;
+                this.messages = response.data.messages;
 
                 $('#chats').animate({ scrollTop: $('#chats').prop("scrollHeight") }, 500);
             });
