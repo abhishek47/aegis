@@ -70867,9 +70867,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 var message = e.message;
 
-                self.messages.push(message);
+                this.messages.push(message);
 
-                self.newMessage = '';
+                this.newMessage = '';
 
                 $('#chats').animate({ scrollTop: $('#chats').prop("scrollHeight") }, 500);
             });
