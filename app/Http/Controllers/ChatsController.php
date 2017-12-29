@@ -15,7 +15,9 @@ class ChatsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { 
+
+
         $currentChat = Chat::latest()->first();
 
         if($currentChat != null)
@@ -34,7 +36,7 @@ class ChatsController extends Controller
         }
         
             $chats = Chat::where('to_id', $currentUser->id)->where('from_id', auth()->id())->latest()->get();
-            $chatsTo = Chat::where('to_id', $currentUser->id)->where('from_id', auth()->id())->latest()->get();
+            $chatsTo = Chat::where('from_id', $currentUser->id)->where('to_id', auth()->id())->latest()->get();
 
             $chats->merge($chatsTo);
 
@@ -53,6 +55,23 @@ class ChatsController extends Controller
     public function create()
     {
         //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Chat  $chat
+     * @return \Illuminate\Http\Response
+     */
+    public function get()
+    {
+            $chats = Chat::where('to_id', request('friend_id'))->where('from_id', auth()->id())->latest()->get();
+            $chatsTo = Chat::where('from_id', request('friend_id'))->where('to_id', auth()->id())->latest()->get();
+
+            $chats->merge($chatsTo);
+
+            return response(['messages' => $chats], 200);
+
     }
 
     /**

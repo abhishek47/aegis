@@ -92,6 +92,19 @@
                 Echo.leave('chats');
                 this.receiver = user;
                  this.joinRoom(this.getRoomId());
+
+                  axios.get('/chats/get', {'friend_id': this.receiver.id })
+                     .then(function(response){
+                        
+                        self.messages = response.data.messages;
+                        
+                       
+                        $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 500);
+
+                            
+
+                     });
+
             },
 
             getClass: function(message){

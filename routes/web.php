@@ -94,6 +94,7 @@ Route::post('/extra-practice-problems/{homework}/check', 'ChapterExtraProblemSol
 
 
 Route::get('/chats', 'ChatsController@index');
+Route::get('/chats/get', 'ChatsController@get');
 Route::post('/chats', 'ChatsController@store');
 
 
