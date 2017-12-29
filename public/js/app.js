@@ -70799,10 +70799,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             Echo.leave('chats');
             this.receiver = user;
             this.joinRoom(this.getRoomId());
+            var self = this;
+            axios.get('/chats/get', { 'friend_id': self.receiver.id }).then(function (response) {
 
-            axios.get('/chats/get', { 'friend_id': this.receiver.id }).then(function (response) {
-
-                this.messages = response.data.messages;
+                self.messages = response.data.messages;
 
                 $('#chats').animate({ scrollTop: $('#chats').prop("scrollHeight") }, 500);
             });
@@ -70845,52 +70845,51 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return found;
         },
         joinRoom: function joinRoom(roomId) {
-            var _this = this;
 
+            var self = this;
             Echo.join('chat.' + roomId).here(function (users) {
-                if (_this.contains(users, _this.receiver)) {
+                if (self.contains(users, self.receiver)) {
 
-                    _this.status = 'active';
+                    self.status = 'active';
                 } else {
-                    _this.status = _this.globalStatus;
+                    self.status = self.globalStatus;
                 }
             }).joining(function (user) {
 
-                if (_this.receiver.id == _this.user.id) {
-                    _this.status = 'active';
+                if (self.receiver.id == self.user.id) {
+                    self.status = 'active';
                 }
             }).leaving(function (user) {
-                if (_this.receiver.id == _this.user.id) {
-                    _this.status = _this.globalStatus;
+                if (self.receiver.id == self.user.id) {
+                    self.status = self.globalStatus;
                 }
             }).listen('NewMessage', function (e) {
 
                 var message = e.message;
 
-                this.messages.push(message);
+                self.messages.push(message);
 
-                this.newMessage = '';
+                self.newMessage = '';
 
                 $('#chats').animate({ scrollTop: $('#chats').prop("scrollHeight") }, 500);
             });
         },
         joinChats: function joinChats() {
-            var _this2 = this;
-
+            var self = this;
             Echo.join('chats').here(function (users) {
-                if (_this2.contains(users, _this2.receiver)) {
+                if (self.contains(users, self.receiver)) {
 
-                    _this2.globalStatus = 'online';
+                    self.globalStatus = 'online';
                 } else {
-                    _this2.globalStatus = 'offline';
+                    self.globalStatus = 'offline';
                 }
             }).joining(function (user) {
-                if (user.id == _this2.receiver.id) {
-                    _this2.globalStatus = 'online';
+                if (user.id == self.receiver.id) {
+                    self.globalStatus = 'online';
                 }
             }).leaving(function (user) {
-                if (user.id == _this2.receiver.id) {
-                    _this2.globalStatus = 'offline';
+                if (user.id == self.receiver.id) {
+                    self.globalStatus = 'offline';
                 }
             });
         }

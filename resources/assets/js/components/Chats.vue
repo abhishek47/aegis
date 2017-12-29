@@ -92,11 +92,11 @@
                 Echo.leave('chats');
                 this.receiver = user;
                  this.joinRoom(this.getRoomId());
-
-                  axios.get('/chats/get', {'friend_id': this.receiver.id })
+                 var self = this;
+                  axios.get('/chats/get', {'friend_id': self.receiver.id })
                      .then(function(response){
                         
-                        this.messages = response.data.messages;
+                        self.messages = response.data.messages;
                         
                        
                         $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 500);
@@ -156,37 +156,39 @@
             },
 
             joinRoom(roomId) {
+
+                  var self = this;
                 Echo.join('chat.'+roomId)
                     .here((users) => {
-                        if(this.contains(users, this.receiver))
+                        if(self.contains(users, self.receiver))
                         {
 
-                        this.status = 'active';
+                        self.status = 'active';
                         } else {
-                            this.status = this.globalStatus;
+                            self.status = self.globalStatus;
                         }
                     
                     })
                     .joining((user) => {
                        
-                            if(this.receiver.id == this.user.id)
+                            if(self.receiver.id == self.user.id)
                             {
-                             this.status = 'active';
+                             self.status = 'active';
                             } 
                         
                     })
                     .leaving((user) => {
-                         if(this.receiver.id == this.user.id)
+                         if(self.receiver.id == self.user.id)
                             {
-                             this.status = this.globalStatus;
+                             self.status = self.globalStatus;
                             } 
                     }).listen('NewMessage', function(e){
 
                         var message = e.message;
                         
-                        this.messages.push(message);   
+                        self.messages.push(message);   
 
-                        this.newMessage = '';
+                        self.newMessage = '';
 
                         $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 500);
 
@@ -195,29 +197,30 @@
 
             joinChats()
             {
+                  var self = this;
                  Echo.join('chats')
                     .here((users) => {
-                        if(this.contains(users, this.receiver))
+                        if(self.contains(users, self.receiver))
                         {
 
-                        this.globalStatus = 'online';
+                        self.globalStatus = 'online';
                         } else {
-                            this.globalStatus = 'offline'
+                            self.globalStatus = 'offline'
                         }
                     
                     })
                     .joining((user) => {
-                       if(user.id == this.receiver.id)
+                       if(user.id == self.receiver.id)
                         {
-                            this.globalStatus = 'online';
+                            self.globalStatus = 'online';
                         }
                             
                         
                     })
                     .leaving((user) => {
-                        if(user.id == this.receiver.id)
+                        if(user.id == self.receiver.id)
                         {
-                            this.globalStatus = 'offline';
+                            self.globalStatus = 'offline';
                         }
                     });
             }
