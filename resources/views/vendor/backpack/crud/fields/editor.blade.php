@@ -67,8 +67,10 @@
       <div id="editor--area" class="hidden">
       <textarea id="marked-mathjax-input" name="{{ $field['name'] }}" @include('crud::inc.field_attributes')  class="form-control hidden">{{ old($field['name']) ? old($field['name']) : (isset($field['value']) ? $field['value'] : (isset($field['default']) ? $field['default'] : '' )) }} 
       
+     
       
       </textarea>
+
       </div>
        </div>
 
@@ -244,6 +246,8 @@ var Preview = {
 
  
      this.SwapBuffers();
+
+
      
      $('.slickQuiz').each(function(i, obj) {
         var qid = $(this).data('id');
@@ -259,6 +263,7 @@ var Preview = {
               ["Typeset",MathJax.Hub,document.getElementById('slickQuiz-'+qid)],
               function() {
                  console.log('Done');
+
               }
             );
 
