@@ -22,17 +22,23 @@ class ChatsController extends Controller
 
         if($currentChat != null)
         {
+
             if($currentChat->sender->id == auth()->id())
             {
+            
                 $currentUser = $currentChat->receiver; 
+            
             } else {
+
                 $currentUser = $currentChat->sender; 
+            
             }
 
-            
-
+        
         } else {
+
             $currentUser = User::where('id', '!=', auth()->id())->first();
+
         }
         
             $chats = Chat::where('to_id', $currentUser->id)->where('from_id', auth()->id())->latest()->get();
