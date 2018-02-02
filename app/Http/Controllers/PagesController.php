@@ -24,7 +24,7 @@ class PagesController extends Controller
         $wikis = Wiki::latest()->where('published', 1)->limit(3)->get();
         $courses = Course::latest()->get();
 
-    	return view('welcome', compact('wikiOfDay', 'wikis', 'courses'));
+    	return view('v2.welcome', compact('wikiOfDay', 'wikis', 'courses'));
     }
 
     public function about()

@@ -60,9 +60,8 @@
             <ul class="menuzord-menu menuzord-right menuzord-indented scrollable" style="max-height: 400px;">
               @guest
               <li><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
               <li><a href="/courses">Courses</a></li>
-              <li><a href="/wiki">Wiki Pages</a></li>
+              <li><a href="/wiki">Wiki</a></li>
               <li><a href="/careers">Careers</a></li>
               <li><a href="/contact">Contact</a></li>
               @else
@@ -76,7 +75,7 @@
                 </ul>
               </li> -->
               <li><a href="/discuss">Communities</a></li>
-               <li><a href="/courses">Wiki Pages</a>
+               <li><a href="/courses">Wiki</a>
                 <ul class="dropdown" style="right: auto; display: none;">
                   <li><a href="/wiki">Topical</a></li>
                   <li><a href="/wiki/problematic">Problematic</a></li>
