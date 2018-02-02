@@ -153,11 +153,13 @@ we just copy that css and paste here you can also do that -->
                             </button>
                             <div class="collapse navbar-collapse" id="header1">
                                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                                    <li class="nav-item active"><a class="nav-link font-bold" href="#">Home</a></li>
-                                    <li class="nav-item"><a class="nav-link font-bold" href="#">About</a></li>
-                                    <li class="nav-item"><a class="nav-link font-bold" href="#">Contact</a></li>
+                                    <li class="nav-item active"><a class="nav-link font-bold" href="/">Home</a></li>
+                                    <li class="nav-item"><a class="nav-link font-bold" href="/about">About</a></li>
+                                    <li class="nav-item"><a class="nav-link font-bold" href="/contact">Contact</a></li>
+
+                                    <li class="nav-item"><a class="nav-link font-bold" href="/login">Sign In</a></li>
                                    
-                                    <li class="nav-item"><a class="btn btn-success" href="#">Create Account</a></li>
+                                    <li class="nav-item"><a class="btn btn-success" href="/register">Create Account</a></li>
                                 </ul>
                             </div>
                         </nav>
