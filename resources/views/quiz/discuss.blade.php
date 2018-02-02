@@ -205,18 +205,18 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 	@foreach($question->comments as $comment)
        
        <div class="panel panel-default">
-		  <div class="panel-heading">
-		    <h3 class="panel-title" style="font-weight: bold;">{{ $comment->user->name }} | {{ $comment->created_at->diffForHumans() }}</h3>
-		  </div>
+		  
 		  <div class="panel-body">
+         <h3 class="panel-title" style="font-weight: bold;">{{ $comment->user->name }} | {{ $comment->created_at->diffForHumans() }}</h3>
+    
 		    <div class="media"> 
 		      <div class="media-body" style="font-size: 16px;color: #000" id="comment-{{$comment->id}}"> {!! $comment->body !!} </div> 
-		      <br><br>
+		     
 		    </div>
+
+          <a href="/comment/{{$comment->id}}/like"><i class="fa fa-thumbs-up"></i> {{ $comment->likes }}</a> |  <a href="/comment/{{$comment->id}}/dislike"><i class="fa fa-thumbs-down"></i> {{ $comment->dislikes }}</a> 
 		  </div>
-		   <div class="panel-footer">
-		   	<a href="/comment/{{$comment->id}}/like"><i class="fa fa-thumbs-up"></i> {{ $comment->likes }}</a> |  <a href="/comment/{{$comment->id}}/dislike"><i class="fa fa-thumbs-down"></i> {{ $comment->dislikes }}</a> 
-		   </div>
+		  
 		</div>
 
 
