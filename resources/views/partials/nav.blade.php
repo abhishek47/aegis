@@ -74,13 +74,14 @@
                   <li><a href="/courses/self">Offline Courses</a></li>
                 </ul>
               </li> -->
-              <li><a href="/discuss">Communities</a></li>
+             
                <li><a href="/courses">Wiki</a>
                 <ul class="dropdown" style="right: auto; display: none;">
                   <li><a href="/wiki">Topical</a></li>
                   <li><a href="/wiki/problematic">Problematic</a></li>
                 </ul>
               </li>
+               <li><a href="/discuss">Discuss</a></li>
                <li><a href="/chats">Chat</a></li>
               <li><a href="/account">My Account</a></li>
               @endguest

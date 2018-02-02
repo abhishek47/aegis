@@ -26,17 +26,8 @@
       <div class="container">
         <div class="section-content">
           <div class="row">
-            <div class="col-sx-12 col-sm-4 col-md-4">
-              <div class="info p-20 bg-black-333">
-                <h4 class="text-uppercase text-white">{{ auth()->user()->name }}</h4>
-                <ul class="list angle-double-right m-0">
-                  <li class="mt-0 text-gray-silver"><strong class="text-gray-lighter">Email</strong><br> {{ auth()->user()->email }}</li>
-                  <li class="text-gray-silver"><strong class="text-gray-lighter">Joined Since </strong><br>{{ auth()->user()->created_at->diffForHumans() }}</li>
-                </ul>
-               
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-8 col-md-8">
+            
+            <div class="col-xs-12 col-sm-12 col-md-12">
               <form name="editprofile-form" method="post" action="/account/update">
                 {{ csrf_field() }}
                 <div class="icon-box mb-0 p-0">

@@ -292,9 +292,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#324de7', end
 }
 
 
-.topbar {
-  position: absolute !important;
-}
 
 
 .wrap-feature5-box .card-body {
@@ -332,4 +329,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#324de7', end
   .feature1 .wrap-feature-box-step:before {
     content: '';
 }
+}
+
+
+.hidden {
+  display: none;
 }

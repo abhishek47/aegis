@@ -166,7 +166,6 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 @if($discussion->user_id == auth()->id())
 	<a href="#" id="edit" style="color: #313131;font-size: 12px;" onclick="toggleEditor()"><i class="fa fa-edit"></i> Edit this Discussion</a> 
 @endif
-<hr>
 </div>  
    <form method="POST" action="/discussion/update/{{ $discussion->id }}">
    {{ csrf_field() }}
@@ -256,8 +255,8 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 
 
   <div id="main--output" class="markdown-body hidden">
-  <div class="preview" id="marked-mathjax-preview"></div>
-  <div class="preview" id="marked-mathjax-preview-buffer" 
+  <div class="preview" style="font-size: 20px;" id="marked-mathjax-preview"></div>
+  <div class="preview" style="font-size: 20px;" id="marked-mathjax-preview-buffer" 
        style="display:none;
               position:absolute; 
               top:0; left: 0"></div>
@@ -281,20 +280,20 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 	@foreach($discussion->comments as $comment)
        
        <div class="panel panel-default">
-		  <div class="panel-heading">
-		    <h3 class="panel-title" style="font-weight: bold;">{{ $comment->user->name }} | {{ $comment->created_at->diffForHumans() }}</h3>
-		  </div>
+		  
 		  <div class="panel-body">
+        <h3 class="panel-title" style="font-weight: bold;">{{ $comment->user->name }} | {{ $comment->created_at->diffForHumans() }}</h3>
+     
 		    <div class="media"> 
 		      <div class="media-body" style="font-size: 16px;color: #000" id="comment-{{$comment->id}}"> {!! $comment->body !!} </div> 
 		      
 
-		      <br><br>
+		      
 		    </div>
+
+          <a href="/solutions/{{$comment->id}}/like"><i class="fa fa-thumbs-up"></i> {{ $comment->likes }}</a> |  <a href="/solutions/{{$comment->id}}/dislike"><i class="fa fa-thumbs-down"></i> {{ $comment->dislikes }}</a> 
 		  </div>
-		   <div class="panel-footer">
-		   	<a href="/solutions/{{$comment->id}}/like"><i class="fa fa-thumbs-up"></i> {{ $comment->likes }}</a> |  <a href="/solutions/{{$comment->id}}/dislike"><i class="fa fa-thumbs-down"></i> {{ $comment->dislikes }}</a> 
-		   </div>
+		   
 		</div>
 
 

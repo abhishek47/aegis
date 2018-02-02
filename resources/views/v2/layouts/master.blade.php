@@ -63,8 +63,10 @@ we just copy that css and paste here you can also do that -->
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-<link href="/css/datedropper.min.css" rel="stylesheet" type="text/css" />
 <link href="/css/my-style.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" type="text/css" href="/css/markdown.css">
+   <link rel="stylesheet" type="text/css" href="/css/editor.css">
 
 
  <script type="text/x-mathjax-config">
@@ -108,6 +110,7 @@ we just copy that css and paste here you can also do that -->
 
     </script>
 
+    @yield('css')
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108413394-1"></script>
@@ -230,8 +233,13 @@ we just copy that css and paste here you can also do that -->
                                     </ul>
                                 </div>
                                 <ul class="navbar-nav ml-auto">
+                                 @guest
                                     <li class="nav-item search"><a class="nav-link" href="/register">JOIN NOW</a>
                                     </li>
+                                  @else
+                                    <li class="nav-item search"><a class="nav-link" href="/home"><i class="fa fa-sign-out"></i> Logout</a>
+                                    </li>
+                                  @endguest  
                                 </ul>
                             </div>
                         </nav>
@@ -248,7 +256,7 @@ we just copy that css and paste here you can also do that -->
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
-        <div class="page-wrapper">
+        <div class="page-wrapper" id="app">
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
@@ -370,7 +378,7 @@ we just copy that css and paste here you can also do that -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
 
-    <script src="/js/app                       .js"></script>
+   <script src="{{ asset('js/app.js') }}"></script>
 
 
     <script src="/js/landing/jquery.min.js"></script>
@@ -386,53 +394,13 @@ we just copy that css and paste here you can also do that -->
     <!-- ============================================================== -->
     <script src="/js/landing/owl.carousel.min.js"></script>
 
-    <script src="/js/datedropper.min.js"></script>
-
-    <script src="/js/v2/parsley.min.js"></script>
 
     <!-- include summernote css/js-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote-bs4.css" rel="stylesheet">
-    <script src="/js/v2/summernote-bs4.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
 
-    <script>
-    /*******************************/
-    // this is for the testimonial 3
-    /*******************************/
-    $('.testi3').owlCarousel({
-        loop: true,
-        margin: 30,
-        nav: false,
-        dots: false,              
-        autoplay: true,
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1,
-                nav: false
-            },
-            1170: {
-                items: 3
-            }
-        }
-    })
-    </script>
 
-
- 
-
-
-         <script type="text/javascript">
-           $.get("https://api.ipdata.co", function (response) {
-            $("#country-name").html(response.country_name);
-        }, "jsonp");
-        </script>
-
-        <script>
-        $('#datedropper1').dateDropper();
-        </script>
 
     @yield('js')
 </body>

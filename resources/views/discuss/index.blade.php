@@ -291,24 +291,66 @@ Preview2.callback.autoReset = true;  // make sure it can run more than once</scr
        <input type="file" id="fileInput2" name="files" />
      </form>
  </div>
-	<div class="panel panel-default mt-5">
-	  <div class="panel-heading">
-	    <h3 class="panel-title" style="font-weight: bold;">Start New Discussion ( Put latex commands inside \$ \$ )</h3>
-	  </div>
-	  <div class="panel-body">
-	  <form method="POST" action="/discuss">
-	    {{ csrf_field() }}
-	    
-	    <div class="form-group">
-	    	
-	    	<label>Title</label>
-	    	<input type="text" name="title" class="form-control">
-	    </div>
+	
 
-	     <div id="editor" class="editor--toolbar" style="margin-top: 20px;">
-	   	
-    	<label>Description</label>
+	<!-- <div>
+		<a href="#" class="btn btn-primary pull-left"><< Prev</a>
+		<a href="#" class="btn btn-primary pull-right">Next >></a>
+	</div> -->
+
+
+	
+
+	<div class="page-header" style="margin-top: 0;">
+		<h2>Recent Discussions</h2>
+	</div>
+
+
+
+
+	@foreach($discussions as $discussion)
+       
+       <div class="panel panel-default">
+	  
 	   
+	  
+	  <div class="panel-body" style="font-size: 17px !important;color: #000;">
+	     <h3 class="panel-title" style="font-weight: bold;margin-bottom: 8px;"><a href="/discuss/discussion:{{ $discussion->id }}">{{ $discussion->title }}</a></h3>
+	    {{ substr($discussion->question, 0, 100) }}...
+
+
+      <p class="text-muted" style="margin-top: 7px;margin-bottom: 0;">{{ $discussion->user->name }} | {{ $discussion->created_at->diffForHumans() }}</p>
+	   
+	  </div>
+	  
+	</div>
+
+
+	@endforeach
+
+
+	<div>
+		{{ $discussions->links() }}
+	</div>
+
+<div class="panel panel-default mt-5">
+    <div class="panel-heading">
+      <h3 class="panel-title" style="font-weight: bold;">Start New Discussion ( Put latex commands inside \$ \$ )</h3>
+    </div>
+    <div class="panel-body">
+    <form method="POST" action="/discuss">
+      {{ csrf_field() }}
+      
+      <div class="form-group">
+        
+        <label>Title</label>
+        <input type="text" name="title" class="form-control">
+      </div>
+
+       <div id="editor" class="editor--toolbar" style="margin-top: 20px;">
+      
+      <label>Description</label>
+     
 
 
 <div id="editor2" class="editor--toolbar">
@@ -394,57 +436,14 @@ Preview2.callback.autoReset = true;  // make sure it can run more than once</scr
        
        <br>
 
-    	<button class="btn btn-success" type="submit">Post Question</button>	
+      <button class="btn btn-success" type="submit">Post Question</button>  
 
 
        </form>
-	    
-	  </div>
+      
+    </div>
 
-	  </div>
-
-	<!-- <div>
-		<a href="#" class="btn btn-primary pull-left"><< Prev</a>
-		<a href="#" class="btn btn-primary pull-right">Next >></a>
-	</div> -->
-
-	<div class="clearfix"></div>
-	<br>
-	
-
-	<div class="page-header">
-		<h2>Recent Discussions</h2>
-	</div>
-
-
-
-
-	@foreach($discussions as $discussion)
-       
-       <div class="panel panel-default">
-	  <div class="panel-heading">
-	    <h3 class="panel-title" style="font-weight: bold;"><a href="/discuss/discussion:{{ $discussion->id }}">{{ $discussion->title }}</a></h3>
-	  </div>
-	  <div class="panel-body" style="font-size: 17px !important;color: #000;">
-	    
-	    {{ substr($discussion->question, 0, 100) }}...
-
-	   
-	  </div>
-	  <div class="panel-footer">
-	  	{{ $discussion->user->name }} | {{ $discussion->created_at->diffForHumans() }}
-	  </div>
-	</div>
-
-
-	@endforeach
-
-
-	<div>
-		{{ $discussions->links() }}
-	</div>
-
-
+    </div>
 
 
 	
