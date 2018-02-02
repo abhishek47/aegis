@@ -84,48 +84,14 @@
 			</div>
 		</div>
 
-		<div class="mini-spacer feature19 p-b-0">
-                    <div class="container">
-                        <!-- row  -->
-                        <div class="row">
-                       	 <div class="col-lg-6 text-center">
-                                <img src="images/about/1.png" alt="wrappixel" class="img-responsive" >
-                            </div>
 
-                            <div class="col-lg-6 align-self-center">
-                                <h2 class="title">About <b>AEGIS</b></h2>
-                                <h6 class="subtitle text-dark">Aegis Academy is started by young educators to provide high - quality education at affordable price. Almost every country conducts several exams to hunt extraordinary problem - solving skilled students.Olympiads are the most prestigious exam among them.</h6>
-
-                                <h6 class="subtitle text-dark">Preparation for olympiads is exciting and challenging. Due to lack of resources and high - quality education, many students coudn't hone their problem-skills. We are here to fill this gap</h6>
-
-                                <h6 class="subtitle text-dark">First, we are starting with the training for maths olympiads and other contests based on maths. Later, we shall add more subjects. We prepare the students for the following exams.</h6>
-                                
-                               
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-
-<div class="container">
-		<div class="mini-spacer card card-shadow bg-dark m-t-40"  @click="openWiki({{$wikiOfDay->id}})">
-                    <div class="card-body">
-                        <div class="d-flex p-10 p-t-0">
-                            <div class="display-7 align-self-center">
-                                <h2 class=""><a class="text-white" href="/wiki/{{$wikiOfDay->id}}">{{ substr($wikiOfDay->title, 0, 220) }}</a></h2>
-                                <h6 class="font-16 subtitle">Read our Wiki of the Week</h6>
-                            </div>
-                            <div class="ml-auto m-t-10 m-b-10"><a href="/wiki/{{$wikiOfDay->id}}" class="btn btn-info-gradiant btn-md btn-arrow"><span>Read Now <i class="fa fa-arrow-right"></i></span></a></div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-
-
-                <div class="bg-white feature5" style="background: url('/images/bg/bg-pattern.png');background-size: cover;margin-top: 120px;">
-                 <div class="overlay mini-spacer">
+		 <div class="bg-success-gradiant feature5" style="margin-top: 40px;" >
+                 <div class=" mini-spacer">
     <div class="container">
+
+    	<div class="text-center">
+    		<h2 class="title text-white m-b-40 font-bold">Exclusive Features</h2>
+    	</div>
         
         <!-- Row  -->
         <div class="row">
@@ -212,6 +178,47 @@
     </div>
     </div>
 </div>
+
+		<div class="mini-spacer feature19 p-b-0">
+                    <div class="container">
+                        <!-- row  -->
+                        <div class="row">
+                       	 <div class="col-lg-6 text-center">
+                                <img src="images/about/1.png" alt="wrappixel" class="img-responsive" >
+                            </div>
+
+                            <div class="col-lg-6 align-self-center">
+                                <h2 class="title">About <b>AEGIS</b></h2>
+                                <h6 class="subtitle text-dark">Aegis Academy is started by young educators to provide high - quality education at affordable price. Almost every country conducts several exams to hunt extraordinary problem - solving skilled students.Olympiads are the most prestigious exam among them.</h6>
+
+                                <h6 class="subtitle text-dark">Preparation for olympiads is exciting and challenging. Due to lack of resources and high - quality education, many students coudn't hone their problem-skills. We are here to fill this gap</h6>
+
+                                <h6 class="subtitle text-dark">First, we are starting with the training for maths olympiads and other contests based on maths. Later, we shall add more subjects. We prepare the students for the following exams.</h6>
+                                
+                               
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+<div class="container">
+		<div class="mini-spacer card card-shadow bg-dark m-t-40"  @click="openWiki({{$wikiOfDay->id}})">
+                    <div class="card-body">
+                        <div class="d-flex p-10 p-t-0">
+                            <div class="display-7 align-self-center">
+                                <h2 class=""><a class="text-white" href="/wiki/{{$wikiOfDay->id}}">{{ substr($wikiOfDay->title, 0, 220) }}</a></h2>
+                                <h6 class="font-16 subtitle">Read our Wiki of the Week</h6>
+                            </div>
+                            <div class="ml-auto m-t-10 m-b-10"><a href="/wiki/{{$wikiOfDay->id}}" class="btn btn-info-gradiant btn-md btn-arrow"><span>Read Now <i class="fa fa-arrow-right"></i></span></a></div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+
+
+               
 @endsection
 
 @section('js')
