@@ -70,7 +70,7 @@
 						</div>
 					</div>
 					<!-- Column -->
-					<div class="col-md-4 wrap-feature1-box">
+					<div class="col-md-4 wrap-feature1-box" id="features">
 						<div class="" data-aos="fade-left" data-aos-duration="1200">
 							<div class="card-body text-center">
 								<div class="icon-space"><img style="width: 80px;" src="/images/icons/graduate.png" alt="practice" /></div>
@@ -85,7 +85,7 @@
 		</div>
 
 
-		 <div class="bg-success-gradiant feature5" style="margin-top: 40px;" >
+		 <div class="bg-success-gradiant feature5" style="margin-top: 40px;"  >
                  <div class=" mini-spacer">
     <div class="container">
 
@@ -179,7 +179,7 @@
     </div>
 </div>
 
-		<div class="mini-spacer feature19 p-b-0">
+		<div class="mini-spacer feature19 p-b-0" style="margin-top: 60px;">
                     <div class="container">
                         <!-- row  -->
                         <div class="row">
@@ -202,7 +202,7 @@
                     </div>
                 </div>
 
-<div class="container">
+<div class="container" id="contact">
 		<div class="mini-spacer card card-shadow bg-dark m-t-40"  @click="openWiki({{$wikiOfDay->id}})">
                     <div class="card-body">
                         <div class="d-flex p-10 p-t-0">
@@ -216,6 +216,45 @@
                 </div>
                 </div>
 
+
+<div class="bg-success contact4 mini-spacer" style="margin-top: 140px;">
+                    <!-- Row  -->
+                    <div class="row">
+                        <div class="container">
+                            <div class="col-lg-6 contact-box">
+                                <div class="aos-init aos-animate" data-aos="fade-right" data-aos-duration="1200"> 
+                                    <h1 class="title font-bold text-white m-t-10">Contact Us</h1>
+                                    <form class="m-t-30 aos-init aos-animate" data-aos="fade-left" data-aos-duration="1200">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group m-t-15">
+                                                    <input class="form-control" type="text" placeholder="name">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-group m-t-15">
+                                                    <input class="form-control" type="email" placeholder="email address">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="form-group m-t-15">
+                                                    <textarea class="form-control" rows="3" placeholder="message"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 d-flex no-block m-t-20">
+                                                <button type="submit" class="btn bg-white text-inverse">Submit</span></button>
+                                                <span class="ml-auto text-white align-self-center"><i class="fa fa-phone m-r-10"></i>(+91) 8800106866</span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>    
+                            </div>
+                        </div>
+                        <div class="col-lg-6 right-image p-r-0"> 
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59990.65887208493!2d73.76846144556879!3d19.991040271901912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddd290b09914b3%3A0xcb07845d9d28215c!2sNashik%2C+Maharashtra!5e0!3m2!1sen!2sin!4v1508123275428" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen="" data-aos="fade-left" data-aos-duration="3000" class="aos-init aos-animate"></iframe>
+                        </div>    
+                    </div>
+                </div>
 
 
                

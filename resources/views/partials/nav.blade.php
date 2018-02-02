@@ -83,7 +83,6 @@
               </li>
                <li><a href="/discuss">Discuss</a></li>
                <li><a href="/chats">Chat</a></li>
-              <li><a href="/account">My Account</a></li>
               @endguest
               <li class="scrollable-fix"></li>
             </ul>

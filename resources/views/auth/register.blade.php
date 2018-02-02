@@ -47,12 +47,8 @@
 </head>
 <body>
 
-    <div class="limiter">
-        <div class="container-login100" style="    background: #9053c7;
-    background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
-    background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
-    background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
-    background: linear-gradient(-135deg, #c850c0, #4158d0);h">
+    <div class="limiter" style="background: url('/images/bg/bg-pattern.png');background-size: cover;">
+        <div class="container-login100" style="background: rgba(0, 173, 10, 0.7);background-size: cover;height: 100%;">
             <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
                 <form class="login100-form validate-form flex-sb flex-w" method="POST" action="{{ route('register') }}">
                     {{ csrf_field() }}

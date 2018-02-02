@@ -34,22 +34,22 @@ class PagesController extends Controller
 
     public function careers()
     {
-    	return view('pages.careers');
+    	return view('v2.pages.careers');
     }
 
     public function contact()
     {
-    	return view('pages.contact');
+    	return view('v2.pages.contact');
     }
 
     public function terms()
     {
-        return view('pages.terms');
+        return view('v2.pages.terms');
     }
 
     public function policy()
     {
-        return view('pages.policy');
+        return view('v2.pages.policy');
     }
 
 

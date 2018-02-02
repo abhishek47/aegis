@@ -388,3 +388,32 @@ color: #1A458E !important;
 
   }
 
+
+
+  /*******************
+contact 4
+*******************/
+.contact4 {
+  overflow: hidden;
+  position: relative; }
+  .contact4 .form-control {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: #ffffff; }
+    .contact4 .form-control:focus {
+      border-color: #ffffff; }
+  .contact4 input::-webkit-input-placeholder,
+  .contact4 textarea::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.7); }
+  .contact4 input:-ms-input-placeholder,
+  .contact4 textarea:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.7); }
+  .contact4 input::placeholder,
+  .contact4 textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7); }
+  .contact4 .right-image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0; }
+
