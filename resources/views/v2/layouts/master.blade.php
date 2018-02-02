@@ -143,112 +143,27 @@ we just copy that css and paste here you can also do that -->
         <!-- Top header  -->
         <!-- ============================================================== -->
         <div class="topbar">
-            <!-- ============================================================== -->
-            <!-- Header 16  -->
-            <!-- ============================================================== -->
-            <div class="header16 po-relative">
-                <!-- Topbar  -->
-                <div class="h16-topbar hidden-md-down">
+            <div class="header1 po-relative">
                     <div class="container">
-                        <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand hidden-lg-up" href="#">Top Menu</a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header16a" aria-controls="header16a" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="sl-icon-options"></span>
+                        <!-- Header 1 code -->
+                        <nav class="navbar navbar-expand-lg h1-nav">
+                            <a class="navbar-brand" href="#"><img style="width: 200px;" src="/images/logo-wide.png" alt="wrapkit"></a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header1" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="ti-menu"></span>
                             </button>
-                            <div class="collapse navbar-collapse" id="header16a">
-                                <ul class="navbar-nav font-14">
-                                    <li class="nav-item">Welcome to AEGIS <span class="text-dark">ACADEMY</span></li>
-                                </ul>
-                                <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-envelope"></i> info@aegisacademy.co.in</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-facebook-square"></i></a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-instagram"></i></a></li>
+                            <div class="collapse navbar-collapse" id="header1">
+                                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                                    <li class="nav-item active"><a class="nav-link font-bold" href="#">Home</a></li>
+                                    <li class="nav-item"><a class="nav-link font-bold" href="#">About</a></li>
+                                    <li class="nav-item"><a class="nav-link font-bold" href="#">Contact</a></li>
+                                   
+                                    <li class="nav-item"><a class="btn btn-success" href="#">Create Account</a></li>
                                 </ul>
                             </div>
                         </nav>
+                       
                     </div>
                 </div>
-                <!-- Infobar  -->
-                <div class="h16-infobar">
-                    <div class="container">
-                        <nav class="navbar navbar-expand-lg h16-info-bar">
-                            <a class="navbar-brand"><img style="width: 250px;" src="/images/logo-wide.png" alt="aegisacademy"/></a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#h16-info" aria-controls="h16-info" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="fa fa-info"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="h16-info">
-                                <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item">
-                                        <a class="nav-link">
-                                            <div class="display-6 m-r-10"><i class="icon-Over-Time text-info"></i></div>
-                                            <div><small>Mon to Sat - <span class="text-dark">9.00 AM - 6:00PM</span> <br/>Sunday - Closed</small></div>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link">
-                                            <div class="display-6 m-r-10"><i class="icon-Phone-2 text-info"></i></div>
-                                            <div><small>Learn with us</small>
-                                                <h5 class="font-bold"> (+91) 8800106866</h5></div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-                <!-- Navbar  -->
-                <div class="h16-navbar">
-                    <div class="container">
-                        <nav class="navbar navbar-expand-lg h16-nav">
-                            <a class="hidden-lg-up">Navigation</a>
-                            <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#header16" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="fa fa-bars"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="header16">
-                                <div class="hover-dropdown">
-                                    <ul class="navbar-nav">
-                                        <li class="nav-item {{ request()->is('/') ? 'active' : '' }}"> 
-                                            <a class="nav-link" href="/">Home</a>
-                                        </li>
-
-                                        <li class="nav-item {{ request()->is('/courses') ? 'active' : '' }}"> 
-                                            <a class="nav-link" href="/courses">Courses</a>
-                                        </li>
-
-                                        <li class="nav-item {{ request()->is('/wiki') ? 'active' : '' }}"> 
-                                            <a class="nav-link" href="/wiki">Wiki</a>
-                                        </li>
-
-                                        <li class="nav-item {{ request()->is('/discuss') ? 'active' : '' }}"> 
-                                            <a class="nav-link" href="/discuss">Discuss</a>
-                                        </li>
-
-                                         <li class="nav-item {{ request()->is('/chat') ? 'active' : '' }}"> 
-                                            <a class="nav-link" href="/chat">Chat</a>
-                                        </li>
-                                            
-                                    </ul>
-                                </div>
-                                <ul class="navbar-nav ml-auto">
-                                 @guest
-                                    <li class="nav-item search"><a class="nav-link" href="/register">JOIN NOW</a>
-                                    </li>
-                                  @else
-                                    <li class="nav-item search"><a class="nav-link" href="/home"><i class="fa fa-sign-out"></i> Logout</a>
-                                    </li>
-                                  @endguest  
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Header 16  -->
-            <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
         <!-- Top header  -->

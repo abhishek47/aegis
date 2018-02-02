@@ -1,0 +1,346 @@
+body {
+	background: #fff;
+}
+
+
+#editor textarea {
+   /* margin-top: 1ex; */
+    width: 100%;
+    padding: 14px;
+     border: 1px solid #d4d4d4;
+    box-shadow: 0 0 0 1px #f3f3f3;
+    font-size: 17px;
+}
+
+.preview h3 {
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #eaecef;
+}
+
+.preview {
+    padding: 3px; 
+    width: 99%;
+    margin-top:1ex;
+}
+
+blockquote {
+	clear: none;
+    padding: 16px;
+    margin-bottom: 24px;
+    background: #f7f7f7;
+    overflow: hidden;
+        margin: 0 0 1.6em;
+    
+    border: 1px solid #d4d4d4;
+    box-shadow: 0 0 0 1px #f3f3f3;
+}
+
+.editor--toolbar {
+    padding: 0px;
+    margin: 0px;
+}
+
+.editor--toolbar button, .editor--toolbar .btn {
+    background-color: #fcfcfc;
+    font-size: 15px;
+    padding: 10px; 
+    cursor: pointer;
+}
+
+.markdown-body .definition,.markdown-body .example, .markdown-body .theorem, .markdown-body .box {
+    background-color: #f7f7f7;
+}
+
+.theorem .proof, .example .solution {
+    border: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    border-radius: 0;
+}
+
+.table-of-contents {
+    clear: left;
+    padding: 16px;
+    margin-bottom: 40px;
+    background: #f7f7f7;
+    width: 376px;
+    border: 1px solid #d4d4d4;
+    box-shadow: 0 0 0 1px #f3f3f3;
+}
+
+.table-of-contents ul {
+    margin: 0;
+    font-size: 14px;
+    padding: 0;
+}
+
+.table-of-contents a {
+    color: #777;
+}
+
+.table-of-contents li {
+    
+    padding-top: 0px;
+}
+
+.table-of-contents li+li {
+ 
+    border-top: none;
+}
+
+
+
+.markdown-body li+li,  .markdown-body li{
+    margin-top: 0px;
+    padding-top: 5px;
+}
+
+.center {
+  text-align: center;
+}
+
+.markdown-body hr {
+    height: 1px;
+    padding: 0;
+    margin: 9px 0;
+    background-color: #989898;
+    border: 0;
+}
+
+.markdown-body ol {
+    list-style-type: decimal;
+}
+
+.markdown-body ul {
+    list-style-type: disc;
+}
+
+.markdown-body a {
+    color: #1A458E !important;
+}
+
+.dropdown-menu::before, .dropdown-menu::after {
+    
+   display: none;
+}
+
+
+
+
+
+/* BASE QUIZ STYLES */
+/* These styles ensure that the necessary elements are hidden for toggling */
+
+/* DO NOT EDIT UNLESS YOU KNOW WHAT YOU ARE DOING!! */
+
+.startQuiz,
+.nextQuestion,
+.backToQuestion,
+.questions li.question,
+.questions li.question .responses,
+.questions li.question .responses .correct,
+.questions li.question .responses .incorrect,
+.quizResults {
+    display: none;
+}
+
+/* If response messages are disabled or only shown on quiz completion,
+   nextQuestion button IS checkAnswer button - so it must be displayed */
+.nextQuestion.checkAnswer {
+    display: block;
+}
+
+.slickQuiz ol.questions,
+.slickQuiz ul.answers,
+.slickQuiz ul.responses,
+.slickQuiz ol.questions li,
+.slickQuiz ul.answers li,
+.slickQuiz ul.responses li {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Accessibility */
+.quizName span:first-child {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/* QUIZ STYLES */
+/* Styles to prettify the quiz page */
+
+
+.slickQuiz {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 15px;
+    border: 2px solid #ccc;
+    
+    background: #fff;
+    padding: 20px;
+    font-family: Trebuchet, Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    color: #353535;
+    line-height: 1.5em;
+}
+
+.slickQuiz h1,.slickQuiz h2,.slickQuiz h3,.slickQuiz h4, .slickQuiz h5,.slickQuiz h6 {font-weight: bold;}
+
+.slickQuiz h1 {
+    font-size: 26px;
+    margin: 0 0 20px;
+    color: #1a458e;
+
+}
+.slickQuiz h2 {
+    font-size: 22px;
+    margin: 15px 0;
+}
+.slickQuiz h3 {
+    font-size: 18px;
+    margin: 15px 0 10px;
+}
+.slickQuiz h4 {
+    font-size: 16px;
+    margin: 10px 0;
+}
+.slickQuiz h5 {
+    font-size: 14px;
+    margin: 10px 0 5px;
+}
+.slickQuiz h6 {
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+.slickQuiz strong { font-weight: bold; }
+.slickQuiz em { font-style: italic; }
+.slickQuiz ul { list-style-type: circle; }
+.slickQuiz ol { list-style-type: decimal; }
+.slickQuiz ol li { list-style-type: square; margin-left: 20px; }
+
+.slickQuiz .button {
+    float: left;
+    width: auto;
+    padding: 5px 15px;
+    color: #ffffff !important;
+    background-color:#1a458e;
+    border: 1px solid #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.slickQuiz .button:hover {
+    background-color:darkslategray;
+}
+
+.slickQuiz .startQuiz {
+    margin-top: 40px;
+}
+
+.slickQuiz .tryAgain {
+    float: none;
+    margin: 20px 0;
+}
+
+/* clearfix */
+.slickQuiz .quizArea, .quizResults {
+    zoom: 1;
+}
+.slickQuiz .quizArea:before,.slickQuiz .quizArea:after,.slickQuiz .quizResults:before,.slickQuiz .quizResults:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    font-size: 0;
+}
+.slickQuiz .quizArea:after,.slickQuiz .quizResults:after {
+    clear: both;
+}
+
+.slickQuiz .questionCount {
+    font-size: 14px;
+    font-style: italic;
+}
+.slickQuiz .questionCount span {
+    font-weight: bold;
+}
+
+.slickQuiz ol.questions {
+    width: 80%;
+    margin-top: 0px;
+    margin-left: 0;
+   float: left;
+}
+.slickQuiz ol.questions li {
+    margin-left: 0;
+}
+
+.slickQuiz ul.answers {
+    margin-left: 0px;
+    margin-bottom: 20px;
+}
+
+.slickQuiz ul.responses li {
+    margin: 10px 20px 20px;
+}
+.slickQuiz ul.responses li p span {
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
+}
+.slickQuiz .complete ul.answers li.correct,.slickQuiz ul.responses li.correct p span {
+    border: 1px solid #6C9F2E;
+    padding: 5px;
+    background: #6C9F2E;
+    color: #000;
+}
+.slickQuiz ul.responses li.incorrect p span {
+    color: #B5121B;
+}
+
+.slickQuiz .quizResults h3 {
+    margin: 0;
+}
+.slickQuiz .quizResults h3 span {
+    font-weight: normal;
+    font-style: italic;
+}
+.slickQuiz .quizResultsCopy {
+    clear: both;
+    margin-top: 20px;
+}
+
+.slickQuiz .quiz-levels {
+    width: 160px;
+    float: left;
+}
+
+.slickQuiz .quiz-question-links{
+    float: right;
+    list-style-type: none;
+}
+
+
+.slickQuiz .quiz-question-links li {
+
+    display: inline;
+
+}
+
+.slickQuiz .quiz-question-links li.active {
+
+    text-decoration: underline;
+
+}
+
+
+
+

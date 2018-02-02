@@ -8,21 +8,33 @@
 		<div id="slider2" class="carousel bs-slider slide  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="7000">
 			<!-- Wrapper For Slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="carousel-item active">
-					<!-- Slide Background --><img src="/images/bg/bg4.png" alt="We are Digital Educational Agency" class="slide-image" />
+				<div class="carousel-item active" style="background: url('/images/bg/bg-pattern.png'); background-size: cover;height: 500px;">
+				 <div class="overlay" style="height: 500px;background: rgba(0, 173, 10, 0.7);">
+					<!-- Slide Background -->
 					<!-- Slide Text Layer -->
-					<div class="slide-text slide_style_right">
-						<div class="col-sm-12">
+					<div class="slide-text">
+						<div class="col-sm-7">
 							
-							<h2 style="width: 54%;" data-animation="animated zoomInRight" class="title text-white float-right">IF YOU LOVE <span class="text-primary-gradiant">CHALLENGING</span> PROBLEMS YOU ARE AT THE RIGHT PLACE</h2> </div>
+							<h2  data-animation="animated zoomInRight" class="title text-white">IF YOU LOVE <span class="text-primary-gradiant">CHALLENGING</span> PROBLEMS YOU ARE AT THE RIGHT PLACE</h2> </div>
+
+
 							
 						
 							</div>
+
+							
+								
+								<img class="hero" src="/images/hero.png">
+							
+							
+
+
+							
 						</div>
 						<!-- End of Slide -->
 						
 						<!-- End of Wrapper For Slides -->
-						
+						</div>
 					</div>
 				</div>
 				<!-- End Slider -->
@@ -32,7 +44,7 @@
 		<!-- ============================================================== -->
 		<!-- End Slider 1  -->
 		<!-- ============================================================== -->
-		<div class="mini-spacer feature1" style="background-color: #F9F9F6;">
+		<div class="mini-spacer feature1" >
 			<div class="container">
 				
 				<!-- Row  -->

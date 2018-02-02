@@ -15,6 +15,26 @@ This is for Header
 /*******************
 Header 16
 *******************/
+
+
+/*******************
+Header 1
+*******************/
+.h1-nav {
+  padding: 10px 0; }
+  .h1-nav .navbar-nav .nav-item {
+    margin: 0 20px; }
+    .h1-nav .navbar-nav .nav-item .nav-link {
+      padding: 12px 0px;
+      color: #000;
+      font-weight: 500; }
+      .h1-nav .navbar-nav .nav-item .nav-link:hover {
+        color: #2cdd9b; }
+    .h1-nav .navbar-nav .nav-item:last-child {
+      margin-right: 0px; }
+
+
+
 .h16-topbar {
   border-bottom: 1px solid rgba(120, 130, 140, 0.13); }
   .h16-topbar .navbar-brand {
@@ -124,6 +144,10 @@ slide 2
 .slider2 .bs-slider-overlay {
   background: rgba(32, 35, 43, 0.8); }
 
+  .slider2 .slide-image, .slider3 .slide-image {
+    height: 540px;
+  }
+
 .slider2 .slider-control span {
   width: 53px;
   height: 53px;
@@ -141,7 +165,7 @@ slide 2
 
 .slider2 h2 {
   line-height: 42px;
-  font-size: 46px;font-weight: bold;line-height: 56px; }
+  font-size: 46px;font-weight: bold;line-height: 66px; }
 
 .slider2 p {
   line-height: 24px;
@@ -321,3 +345,18 @@ color: #1A458E !important;
 .hidden {
   display: none;
 }
+
+
+
+.hero {
+  width: 30%;
+  position: fixed;
+  z-index: 1000;
+  top: 50px;
+
+  right: 15%;
+
+
+
+}
+

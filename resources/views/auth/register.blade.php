@@ -1,101 +1,161 @@
-@extends('layouts.auth')
 
 
-@section('css')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Aegis Academy | Online Courses, Wiki Pages, Offline Courses</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================--><!-- Favicon and Touch Icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/auth/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/auth/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/auth/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/auth/vendor/animate/animate.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/auth/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/auth/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/auth/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/auth/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/auth/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/auth/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
 
-<style type="text/css">
-  html { height: 100%; }
-</style>
+    <div class="limiter">
+        <div class="container-login100" style="    background: #9053c7;
+    background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
+    background: linear-gradient(-135deg, #c850c0, #4158d0);h">
+            <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
+                <form class="login100-form validate-form flex-sb flex-w" method="POST" action="{{ route('register') }}">
+                    {{ csrf_field() }}
+                    <span class="login100-form-title p-b-53">
+                        Sign Un With
+                    </span>
 
-@endsection
+                    <a href="{{ route('oauth.redirect', ['provider' => 'facebook']) }}"  class="btn-face m-b-20">
+                        <i class="fa fa-facebook-official"></i>
+                        Facebook
+                    </a>
 
-@section('content')
-<section style="height: 83vh;padding-bottom: 0px;margin-bottom: 0px;">
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading bg-theme-colored2 text-white">Create New Account</div>
+                    <a href="{{ route('oauth.redirect', ['provider' => 'google']) }}" class="btn-google m-b-20">
+                        <img src="/auth/images/icons/icon-google.png" alt="GOOGLE">
+                        Google
+                    </a>
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
+                    <div class="p-t-31 p-b-9">
+                        <span class="txt1">
+                            Full Name
+                        </span>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate = "E-mail is required">
+                        <input class="input100" type="text" name="name" >
+                        <span class="focus-input100"></span>
+                    </div>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                    <div class="p-t-31 p-b-9">
+                        <span class="txt1">
+                            E-mail Address
+                        </span>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate = "E-mail is required">
+                        <input class="input100" type="email" name="email" >
+                        <span class="focus-input100"></span>
+                    </div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                    <div class="p-t-13 p-b-9">
+                        <span class="txt1">
+                            Password
+                        </span>
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                       
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                        <input class="input100" type="password" name="password" >
+                        <span class="focus-input100"></span>
+                    </div>
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                    <div class="p-t-13 p-b-9">
+                        <span class="txt1">
+                            Confirm Password
+                        </span>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                       
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate = "Password Confirmation is required">
+                        <input class="input100" type="password" name="password_confirmation" >
+                        <span class="focus-input100"></span>
+                    </div>
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                    <div class="container-login100-form-btn m-t-17">
+                        <button type="submit" class="login100-form-btn">
+                            Create Account
+                        </button>
+                    </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                    <div class="w-full text-center p-t-55">
+                        <span class="txt2">
+                            Already a member?
+                        </span>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary btn-theme-colored btn-flat">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-
-                         <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                        <div class="socialSignup">
-                          <a href="{{ route('oauth.redirect', ['provider' => 'google']) }}" class="btn btn-primary fbGoogle"><i class="fa fa-google-plus"></i> &nbsp; Sign Up with Google</a> <br class="visible-xs"><br class="visible-xs">
-                          <a href="{{ route('oauth.redirect', ['provider' => 'facebook']) }}" class="btn btn-primary fbSignup"><i class="fa fa-facebook"></i> &nbsp; Sign Up with Facebook</a>
-                        </div>
-                        </div>
-                    </form>
-                </div>
+                        <a href="/login" class="txt2 bo1">
+                            Sign in now
+                        </a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
-</section>
 
 
-<br clear="visible-xs"> <br class="visible-xs"><br clear="visible-xs"> <br class="visible-xs">
-<br clear="visible-xs"> <br class="visible-xs"><br clear="visible-xs"> <br class="visible-xs">
+    <div id="dropDownSelect1"></div>
 
-@endsection
+<!--===============================================================================================-->
+    <script src="/auth/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+    <script src="/auth/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+    <script src="/auth/vendor/bootstrap/js/popper.js"></script>
+    <script src="/auth/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+    <script src="/auth/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+    <script src="/auth/vendor/daterangepicker/moment.min.js"></script>
+    <script src="/auth/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+    <script src="/auth/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+    <script src="/auth/js/main.js"></script>
+   
+</body>
+</html>
+
+
+
