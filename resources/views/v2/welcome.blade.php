@@ -50,7 +50,7 @@
 				<!-- Row  -->
 				<div class="row">
 					<!-- Column -->
-					<div class="col-md-4 wrap-feature1-box wrap-feature-box-step">
+					<a href="/courses" class="col-md-4 wrap-feature1-box wrap-feature-box-step">
 						<div class="" data-aos="fade-right" data-aos-duration="1200">
 							<div class="card-body text-center">
 								<div class="icon-space"><img style="width: 80px;" src="/images/icons/online.png" alt="online" /></div>
@@ -58,9 +58,9 @@
 								<p class="m-t-20  text-dark">Enroll into our curated courses and virtual classrooms and get yourself clear with your concepts.</p>
 							</div>
 						</div>
-					</div>
+					</a>
 					<!-- Column -->
-					<div class="col-md-4 wrap-feature1-box wrap-feature-box-step">
+					<a href="/wiki" class="col-md-4 wrap-feature1-box wrap-feature-box-step">
 						<div class="" data-aos="fade-up" data-aos-duration="1200">
 							<div class="card-body text-center">
 								<div class="icon-space"><img style="width: 80px;" src="/images/icons/book.png" alt="wiki" /></div>
@@ -68,9 +68,9 @@
 								<p class="m-t-20  text-dark">Read our uniquely made wiki pages and sharpen your knowledge of your learnt topics.</p>
 							</div>
 						</div>
-					</div>
+					</a>
 					<!-- Column -->
-					<div class="col-md-4 wrap-feature1-box" id="features">
+					<a href="/home" class="col-md-4 wrap-feature1-box" id="features">
 						<div class="" data-aos="fade-left" data-aos-duration="1200">
 							<div class="card-body text-center">
 								<div class="icon-space"><img style="width: 80px;" src="/images/icons/graduate.png" alt="practice" /></div>
@@ -78,14 +78,14 @@
 								<p class="m-t-20  text-dark">Once you learn practice is must hence we provide an intensive set of practice problems to learn.</p>
 							</div>
 						</div>
-					</div>
+					</a>
 					
 				</div>
 			</div>
 		</div>
 
 
-		 <div class="bg-success-gradiant feature5" style="margin-top: 40px;"  >
+		 <div class="bg-success-gradiant feature5" style="margin-top: 40px;background: rgba(0, 173, 10, 0.7)"  >
                  <div class=" mini-spacer">
     <div class="container">
 
@@ -217,7 +217,7 @@
                 </div>
 
 
-<div class="bg-success contact4 mini-spacer" style="margin-top: 140px;">
+<div class="contact4 mini-spacer" style="margin-top: 140px;background: rgba(0, 173, 10, 0.7);">
                     <!-- Row  -->
                     <div class="row">
                         <div class="container">
