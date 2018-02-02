@@ -157,14 +157,14 @@ var Preview = {
 
 
          if ((width >= 768  ) && (height>=768)) {
-
+/* 
             var openingDiv = '<div id="section-'+id+'-body">'
             $(this).nextUntil('h2').wrapAll(openingDiv);
 
 
             $(this).attr('id', 'section-'+id);
 
-          /*  $('#section-'+id).append(' <a onclick="editSection(' + id +')" style="font-weight:normal;float:right;color: #616161 !important;margin-right: 10px;font-size: 14px;cursor:pointer;"><i class="fa fa-edit"> Edit this Section</i></a>');*/
+           $('#section-'+id).append(' <a onclick="editSection(' + id +')" style="font-weight:normal;float:right;color: #616161 !important;margin-right: 10px;font-size: 14px;cursor:pointer;"><i class="fa fa-edit"> Edit this Section</i></a>');*/
         }
         else {
 
@@ -191,14 +191,14 @@ var Preview = {
     $('#main--output h3').each(function(){
 
         if ((width >= 1024  ) && (height>=768)) {
-
+/* 
             var openingDiv = '<div id="section-'+id+'-body">'
             $(this).nextUntil('h3').wrapAll(openingDiv);
 
 
             $(this).attr('id', 'section-'+id);
 
-            $('#section-'+id).append(' <a onclick="editSection(' + id +')" style="font-weight:normal;float:right;color: #616161 !important;margin-right: 10px;cursor:pointer;font-size: 14px;"><i class="fa fa-edit"> Edit this Section</i></a>');
+            $('#section-'+id).append(' <a onclick="editSection(' + id +')" style="font-weight:normal;float:right;color: #616161 !important;margin-right: 10px;cursor:pointer;font-size: 14px;"><i class="fa fa-edit"> Edit this Section</i></a>'); */ 
         }
         else {
 
