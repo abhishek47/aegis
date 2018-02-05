@@ -8,7 +8,7 @@
       </div>
       <div class="card-body text-dark classroom-description">
         
-          <h3 class="m-b-0"><b>What are Live Courses?</b></h3>
+          <h3 class="m-b-10"><b>What are Live Courses?</b></h3>
      
         
         
