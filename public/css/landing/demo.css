@@ -422,7 +422,7 @@ contact 4
 
 
 
-    .classroom-description p {
+    .classroom-description p span{
       font-family: "Montserrat", sans-serif !important;
     }
 
