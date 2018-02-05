@@ -29,6 +29,6 @@ class ClassroomsController extends Controller
 
     public function show(Classroom $classroom)
     {
-    	return view('classrooms.show', compact('classroom'));
+    	return view('v2.courses.show', compact('classroom'));
     }
 }

@@ -1,5 +1,5 @@
 
-@extends($chapter->status != 2 ? 'layouts.classroom' : 'layouts.master')
+@extends($chapter->status != 2 ? 'layouts.classroom' : 'v2.layouts.master')
 
 
 @section('css')

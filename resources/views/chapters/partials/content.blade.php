@@ -1,36 +1,17 @@
 
-<section class="inner-header divider " style="background-color: #24324a !important" >
-      <div class="container pt-30 pb-30">
-        <!-- Section Content -->
-        <div class="section-content">
-          <div class="row"> 
-            <div class="col-md-6">
-              <h2 class="text-light font-36">{{ $chapter->classroom->title }}</h2>
-              <ol class="breadcrumb text-left mt-10 white">
-                <li><a href="/classrooms/{{ $classroom->id }}">Topics</a></li>
-                <li><a href="/classrooms/{{ $classroom->id }}">Week 1</a></li>
-                 <li><a href="#">{{ $chapter->title }}</a></li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-
-
-    <div style="background-color: #fff;min-height: 900px;">
+    <div class="mini-spacer bg-light" style="min-height: 1000px;">
 
   <div class="container pt-50">
 
-        <div class="course-single-item bg-white border-1px clearfix mb-30">
-          <div class="course-thumb">
-                        <div class="price-tag">Info</div>
-                      </div>
-        <div class="course-details clearfix p-20 pt-15">
+        <div class="card card-shadow">
+        
+        <div class="card-header bg-info"></div> 
+
+        <div class="card-body">
 
                         <div class="course-top-part pull-left mr-40">
-                          <h3 class="mt-0 mb-5"><b>Topic Description</b></h3>
+                          <h3 class="mt-0 m-b-10"><b>Topic Description</b></h3>
                         </div>
 
                        
@@ -46,20 +27,19 @@
         </div>
 
 
-        <ul id="myTab" class="nav nav-tabs boot-tabs">
-           <li class="active" style="width: 25%;"><a href="#home" data-toggle="tab">Transcript</a></li>
-           <li style="width: 25%;"><a href="#notes" data-toggle="tab">Summary</a></li>
-           <li style="width: 25%;"><a href="#profile" data-toggle="tab">Homework</a></li>
-           <li style="width: 25%;"><a href="#epp" data-toggle="tab">Extra Practice Problems</a></li>
+        <ul id="myTab" class="nav nav-tabs">
+           <li class="nav-item" style="width: 25%;"><a class="nav-link" href="#home" data-toggle="tab">Transcript</a></li>
+           <li class="nav-item" style="width: 25%;"><a class="nav-link" href="#notes" data-toggle="tab">Summary</a></li>
+           <li class="nav-item" style="width: 25%;"><a class="nav-link" href="#profile" data-toggle="tab">Homework</a></li>
+           <li class="nav-item" style="width: 25%;"><a class="nav-link" href="#epp" data-toggle="tab">Extra Practice Problems</a></li>
         </ul>
-        <div id="myTabContent" class="tab-content  mb-30">
+        <div id="myTabContent" class="tab-content tabcontent-border">
           <div class="tab-pane fade in active" id="home">
              
               <div class="course-single-item bg-white border-1px clearfix">
                 
               <div class="course-details clearfix">
 
-                  <p class="course-description" style="font-size: 17px;">
                       
                         <ul id="transcriptMessages"  style="" ></ul>
 

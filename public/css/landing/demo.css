@@ -426,3 +426,173 @@ contact 4
       font-family: "Montserrat", sans-serif !important;
     }
 
+
+
+
+.week-box{
+  border-top: none !important;
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 6px;
+  box-shadow: -2px 2px 6px 1px rgba(0,0,0,.05);
+}
+
+
+.week-box .course-top-part{
+  width: 100%;
+  margin-bottom: 14px;
+}
+.week-box .course-top-part h4 {
+  width: 100%;
+  padding-bottom: 8px;
+  color: #42495b;
+  font-size: 22px;
+    border-bottom: 1px solid #ebebeb;
+ }
+
+
+ .topics {
+  position: relative;
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+  padding-left: 0;
+   list-style: none;
+    
+ }
+
+ .topics .topic {
+  width: 90%;
+
+      border-bottom: 1px solid #ebebeb;
+
+    padding-bottom: 7px;
+    font-size: 16px;
+    padding-top: 5px;
+ }
+
+ .topics .topic .title {
+  width: 100%;
+    padding: 3px 0;
+    color: #000 !important;
+ }
+
+  .topics .topic i {
+    color: #f90;
+  }
+
+
+ .topics .topic  {
+    color: #000 !important;
+ }
+
+ .topics-done-count {
+      float: right;
+    color: #f90;
+    font-size: 20px;
+}
+ 
+
+ .topics .topic .duration {
+     float: right;
+    color: #1A458E !important;
+    font-size: 14px;
+    padding-top: 5px;
+ }
+
+  .topics .topic .status {
+    border: 1px solid #1A458E;
+    padding: 3px;
+    color: #1A458E;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+     font-size: 12px;
+  }
+
+   .topics .topic .status.live {
+        border: 1px solid #33bd13;
+    padding: 3px;
+    color: #ffffff;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #33bd13;
+   }
+
+   .topics .topic .status.completed {
+        border: 1px solid #1A458E;
+        padding: 3px;
+        color: #ffffff;
+        border-radius: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 12px;
+        font-weight: bold;
+        background-color: #1A458E;
+   }
+
+
+  .no-topics {
+    color: #f90;
+
+  }
+
+   
+
+
+  .pinnedMessage {
+        height: 90px;
+    background-color: #fff;
+    position: fixed;
+    top: 58px;
+    left: 0;
+    z-index: 9999;
+      -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+padding-left: 6px;
+overflow-y: auto;
+}
+
+.pinnedMessage #pin-name {
+  font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+.pinnedMessage #pin-message {
+  color: #000;
+    font-size: 17px;
+    
+}
+
+
+ .pinnedMessage.is-admin {
+        height: 90px;
+    border: 1px solid;
+    background-color: #fff;
+    position: fixed;
+    left: auto;
+    top: 0;
+    right: 0;
+    width: 50% !important;
+    z-index: 9999;
+}
+
+#listMessages {
+  padding-top: 85px;
+}
+
+.nav-tabs .nav-item .nav-link, .nav-tabs .nav-link {
+    
+    text-align: center;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #495057;
+    background-color: #fff;
+    border-color: #ddd #ddd #fff;
+}
