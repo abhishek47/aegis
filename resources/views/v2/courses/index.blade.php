@@ -6,7 +6,7 @@
       <div class="card-header bg-info">
         
       </div>
-      <div class="card-body text-dark classroom-description">
+      <div class="card-body  classroom-description">
         
           <h3 class="m-b-10"><b>What are Live Courses?</b></h3>
      
