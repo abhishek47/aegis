@@ -8,7 +8,7 @@
       </div>
       <div class="card-body">
         
-          <h3 class="mt-0 mb-5"><b>What are Live Courses?</b></h3>
+          <h3 class="m-b-0"><b>What are Live Courses?</b></h3>
      
         
         
