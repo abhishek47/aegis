@@ -420,3 +420,9 @@ contact 4
     bottom: 0;
     top: 0; }
 
+
+
+    .classroom-description p {
+      font-family: "Montserrat", sans-serif !important;
+    }
+

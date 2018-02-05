@@ -6,15 +6,14 @@
       <div class="card-header bg-info">
         
       </div>
-      <div class="card-body">
+      <div class="card-body text-dark classroom-description">
         
           <h3 class="m-b-0"><b>What are Live Courses?</b></h3>
      
         
         
-        <p class="course-description" style="font-size: 17px;">
           {!! \Config::get('settings.live_course_desc') !!}
-        </p>
+       
       </div>
     </div>
     <?php $classroomChunks = $classrooms->chunk(3); ?>
