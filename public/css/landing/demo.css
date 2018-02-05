@@ -33,6 +33,9 @@ Header 1
     .h1-nav .navbar-nav .nav-item:last-child {
       margin-right: 0px; }
 
+      .h1-nav .navbar-nav .nav-item.active a {
+        color: #2cdd9b; 
+      }
 
 
 .h16-topbar {

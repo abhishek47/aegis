@@ -49,7 +49,7 @@ class HomeController extends Controller
        if(isset($problemOfWeek))
        {
           $problemsId = $problemOfWeek->id;
-          return view('home', compact('wiki', 'problemsId', 'problemOfWeek', 'weeks'));
+          return view('v2.home', compact('wiki', 'problemsId', 'problemOfWeek', 'weeks'));
        } else {
           return abort(500);
        }

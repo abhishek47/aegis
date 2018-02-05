@@ -153,12 +153,47 @@ we just copy that css and paste here you can also do that -->
                             </button>
                             <div class="collapse navbar-collapse" id="header1">
                                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                                    <li class="nav-item active"><a class="nav-link font-bold" href="#features">Features</a></li>
-                                    <li class="nav-item"><a class="nav-link font-bold" href="#contact">Contact</a></li>
+                                    @guest    
+                                        <li class="nav-item active"><a class="nav-link font-bold" href="#features">Features</a></li>
+                                        <li class="nav-item"><a class="nav-link font-bold" href="#contact">Contact</a></li>
 
-                                    <li class="nav-item"><a class="nav-link font-bold" href="/login">Sign In</a></li>
-                                   
-                                    <li class="nav-item"><a class="btn btn-success" href="/register">Create Account</a></li>
+                                        <li class="nav-item"><a class="nav-link font-bold" href="/login">Sign In</a></li>
+                                       
+                                        <li class="nav-item"><a class="btn btn-success" href="/register">Create Account</a></li>
+                                    @else
+                                        <li class="nav-item {{ request()->is('home') ? 'active' : ''}}"><a class="nav-link font-bold" href="/home">Home</a></li>
+                                        <li class="nav-item {{ request()->is('courses') ? 'active' : ''}}"><a class="nav-link font-bold" href="/courses">Courses</a></li>
+
+                                        <li class="nav-item {{ request()->is('wiki') ? 'active' : ''}}"><a class="nav-link font-bold" href="/wiki">Wiki</a></li>
+
+                                        <li class="nav-item {{ request()->is('discuss') ? 'active' : ''}}"><a class="nav-link font-bold" href="/discuss">Discuss</a></li>
+
+                                       <li class="nav-item {{ request()->is('chat') ? 'active' : ''}}"><a class="nav-link font-bold" href="/chat">Chat</a></li>
+
+
+                                       <li class="nav-item dropdown"> 
+                                            <a class="nav-link dropdown-toggle" href="#" id="h6-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              {{ auth()->user()->name }} <i class="fa fa-angle-down m-l-5"></i>
+                                            </a>
+                                            <ul class="b-none dropdown-menu font-14 animated fadeInUp">
+                                                <li><a class="dropdown-item" href="/account">Edit Profile</a></li>
+                                                <li class="divider" role="separator"></li>
+                                                
+                                                <li> <a  class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form></li>
+                                            </ul>
+                                         </li>
+                                        
+
+                                    @endauth
+
                                 </ul>
                             </div>
                         </nav>

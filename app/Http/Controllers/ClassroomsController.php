@@ -23,7 +23,7 @@ class ClassroomsController extends Controller
     {
     	$classrooms = Classroom::latest()->paginate(10);
 
-    	return view('classrooms.index', compact('classrooms'));
+    	return view('v2.courses.index', compact('classrooms'));
     }
 
 
