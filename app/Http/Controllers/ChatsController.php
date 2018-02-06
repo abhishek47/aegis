@@ -58,7 +58,7 @@ class ChatsController extends Controller
 
             $chats = mergeCollection($chats, $chatsTo);
 
-            $chats = $chats->sortBy('created_at');
+           // $chats = $chats->sortBy('created_at');
 
            
             $people = User::where('id', '!=', auth()->id())->orderBy('name')->get();
@@ -90,7 +90,7 @@ class ChatsController extends Controller
 
             $chats = mergeCollection($chats, $chatsTo);
 
-            $chats = $chats->sortBy('created_at');
+            //$chats = $chats->sortBy('id');
 
             return response(['messages' => $chats], 200);
 
