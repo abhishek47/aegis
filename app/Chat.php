@@ -14,7 +14,7 @@ class Chat extends Model
 
     public function getRoomIdAttribute()
     {
-    	return max($this->sender->id, $this->receiver->id) . '' . min($this->sender->id, $this->receiver->id);
+    	return max($this->sender->id, $this->receiver->id) . '-' . min($this->sender->id, $this->receiver->id);
     }
 
     public function sender()
