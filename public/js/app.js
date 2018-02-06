@@ -70567,10 +70567,12 @@ var staticRenderFns = [
         staticStyle: { background: "#fff", margin: "10px" }
       },
       [
-        _c("img", {
-          staticStyle: { width: "190px", margin: "auto", display: "block" },
-          attrs: { src: "/images/logo-wide.png" }
-        })
+        _c("a", { attrs: { href: "/home" } }, [
+          _c("img", {
+            staticStyle: { width: "190px", margin: "auto", display: "block" },
+            attrs: { src: "/images/logo-wide.png" }
+          })
+        ])
       ]
     )
   },

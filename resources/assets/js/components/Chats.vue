@@ -4,9 +4,9 @@
             <div class="fade aside aside-sm" id="content-aside">
                 <div class="d-flex flex-column w-xl b-r dark modal-dialog" id="chat-nav">
                     <div class="white p-2" style="background: #fff;margin: 10px;">
-                      <img src="/images/logo-wide.png" style="width: 190px;
+                     <a href="/home"> <img src="/images/logo-wide.png" style="width: 190px;
     margin: auto;
-    display: block;">
+    display: block;"></a>
                     </div>
                     <div class="navbar box-shadow">
                         <div class="input-group flex">
