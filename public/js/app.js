@@ -70007,6 +70007,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             messages: this.chats
         };
     },
+
+
+    watch: {
+        messages: function messages(val, oldVal) {
+
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('chats')], function () {});
+        }
+    },
+
     mounted: function mounted() {
         console.log('Component mounted.');
     },
@@ -70121,22 +70130,377 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     self.globalStatus = 'offline';
                 }
             });
-        },
-        checkDOMChange: function checkDOMChange() {
-            // check for any new element being inserted here,
-            // or a particular node being modified
-
-            // call the function again after 100 milliseconds
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('chats')], function () {});
         }
     }
+
 });
 
 /***/ }),
 /* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports={render:function(){},staticRenderFns:[]}
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "d-flex flex", attrs: { "data-plugin": "chat" } },
+    [
+      _c(
+        "div",
+        { staticClass: "fade aside aside-sm", attrs: { id: "content-aside" } },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "d-flex flex-column w-xl b-r dark modal-dialog",
+              attrs: { id: "chat-nav" }
+            },
+            [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "scrollable hover" }, [
+                _c(
+                  "div",
+                  { staticClass: "list inset" },
+                  [
+                    _c("div", { staticClass: "p-2 px-3 text-muted text-sm" }, [
+                      _vm._v("People")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(_vm.people, function(user) {
+                      return _c(
+                        "div",
+                        {
+                          staticClass: "list-item",
+                          class: user.id == _vm.receiver.id ? "light" : "",
+                          staticStyle: { cursor: "pointer" },
+                          attrs: { "data-id": "item-1" },
+                          on: {
+                            click: function($event) {
+                              _vm.openChats(user)
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "span",
+                            { staticClass: "w-40 avatar circle grey" },
+                            [
+                              _c("i", {
+                                staticClass: "on b-white avatar-right"
+                              }),
+                              _vm._v(" "),
+                              _c("img", {
+                                attrs: {
+                                  src: user.profile_pic.encoded,
+                                  alt: "."
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "list-body" }, [
+                            _c("a", {
+                              staticClass: "item-title _500",
+                              attrs: { href: "#" },
+                              domProps: { textContent: _vm._s(user.name) }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass:
+                                  "item-except text-sm text-muted h-1x"
+                              },
+                              [_vm._v("New Message")]
+                            ),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "item-tag tag hide" })
+                          ]),
+                          _vm._v(" "),
+                          _c("div")
+                        ]
+                      )
+                    })
+                  ],
+                  2
+                ),
+                _vm._v(" "),
+                _vm._m(1)
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "p-3 mt-auto" }, [
+                _c("span", { staticClass: "text-sm text-muted" }, [
+                  _vm._v("Messages: "),
+                  _c("span", {
+                    domProps: { textContent: _vm._s(_vm.chats.length) }
+                  })
+                ])
+              ])
+            ]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-flex flex", attrs: { id: "content-body" } }, [
+        _c(
+          "div",
+          {
+            staticClass: "d-flex flex-column flex",
+            attrs: { id: "chat-list" }
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "navbar flex-nowrap white lt box-shadow" },
+              [
+                _vm._m(2),
+                _c("span", { staticClass: "text-md text-ellipsis flex" }, [
+                  _c("span", {
+                    domProps: { textContent: _vm._s(_vm.receiver.name) }
+                  }),
+                  _vm._v(" "),
+                  _c("span", {
+                    staticStyle: { "font-size": "12px", color: "green" },
+                    domProps: { textContent: _vm._s(_vm.status) }
+                  })
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "scrollable hover", attrs: { id: "chats" } },
+              [
+                _c("div", { staticClass: "p-3" }, [
+                  _c(
+                    "div",
+                    { staticClass: "chat-list" },
+                    _vm._l(_vm.messages, function(message) {
+                      return _c(
+                        "div",
+                        {
+                          staticClass: "chat-item",
+                          attrs: { "data-class": _vm.getClass(message) }
+                        },
+                        [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "avatar w-40",
+                              attrs: { href: "#" }
+                            },
+                            [
+                              _c("img", {
+                                attrs: {
+                                  src: message.sender.profile_pic.encoded,
+                                  alt: "."
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "chat-body" }, [
+                            _c("div", {
+                              staticClass: "chat-content rounded msg",
+                              domProps: { textContent: _vm._s(message.message) }
+                            }),
+                            _vm._v(" "),
+                            _c("div", {
+                              staticClass: "chat-date date",
+                              domProps: {
+                                textContent: _vm._s(message.created_at)
+                              }
+                            })
+                          ])
+                        ]
+                      )
+                    })
+                  )
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "p-3 white lt b-t mt-auto",
+                attrs: { id: "chat-form" }
+              },
+              [
+                _c("div", { staticClass: "input-group" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.newMessage,
+                        expression: "newMessage"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder: "Say something",
+                      id: "newField"
+                    },
+                    domProps: { value: _vm.newMessage },
+                    on: {
+                      keyup: function($event) {
+                        if (
+                          !("button" in $event) &&
+                          _vm._k($event.keyCode, "enter", 13)
+                        ) {
+                          return null
+                        }
+                        _vm.sendMessage()
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.newMessage = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "input-group-btn" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn white b-a no-shadow",
+                        attrs: { type: "button", id: "newBtn" },
+                        on: {
+                          click: function($event) {
+                            _vm.toggleKeyboard()
+                          }
+                        }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-keyboard-o text-success"
+                        })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "input-group-btn" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn white b-a no-shadow",
+                        attrs: { type: "button", id: "newBtn" },
+                        on: {
+                          click: function($event) {
+                            _vm.sendMessage()
+                          }
+                        }
+                      },
+                      [_c("i", { staticClass: "fa fa-send text-success" })]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(3)
+              ]
+            )
+          ]
+        )
+      ])
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "navbar box-shadow" }, [
+      _c("div", { staticClass: "input-group flex" }, [
+        _c("input", {
+          staticClass: "form-control px-0 no-bg no-border no-shadow search",
+          attrs: { type: "text", placeholder: "Search", required: "" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "input-group-btn" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn no-bg no-border no-shadow",
+              attrs: { type: "button" }
+            },
+            [_c("i", { staticClass: "fa fa-search text-muted" })]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "no-result hide" }, [
+      _c("div", { staticClass: "p-4 text-center" }, [_vm._v("No Results")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "mr-1 d-md-none",
+        attrs: {
+          "data-toggle": "modal",
+          "data-target": "#content-aside",
+          "data-modal": ""
+        }
+      },
+      [
+        _c("span", { staticClass: "btn btn-sm btn-icon primary" }, [
+          _c("i", { staticClass: "fa fa-th" })
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-2", attrs: { id: "keyboard" } }, [
+      _c("div", { staticClass: "btn-group" }, [
+        _c(
+          "button",
+          { staticClass: "btn btn-default", attrs: { type: "button" } },
+          [_vm._v("α")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-default", attrs: { type: "button" } },
+          [_vm._v("β")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-default", attrs: { type: "button" } },
+          [_vm._v("γ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-default", attrs: { type: "button" } },
+          [_vm._v("δ")]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {

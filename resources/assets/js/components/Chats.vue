@@ -36,7 +36,7 @@
                     <div class="scrollable hover" id="chats">
                         <div class="p-3">
                             <div class="chat-list">
-                                <div v-for="message in messages"  v-on="change: checkDOMChange" class="chat-item" :data-class="getClass(message)">
+                                <div v-for="message in messages" class="chat-item" :data-class="getClass(message)">
                                     <a href="#" class="avatar w-40"><img :src="message.sender.profile_pic.encoded" alt="."></a>
                                     <div class="chat-body">
                                         <div class="chat-content rounded msg" v-text="message.message"></div>
@@ -83,6 +83,21 @@
                 receiver: this.currentuser,
                 newMessage: '',
                 messages: this.chats
+            }
+        },
+
+        watch: {
+            messages: function(val, oldVal){
+
+                  MathJax.Hub.Queue(
+                          ["Typeset",MathJax.Hub,document.getElementById('chats')],
+                          function() {
+                            
+                               
+                             
+                          }
+                        );
+
             }
         },
 
@@ -252,25 +267,10 @@
                         }
                     });
             },
-
-                     checkDOMChange()
-                    {
-                        // check for any new element being inserted here,
-                        // or a particular node being modified
-
-                        // call the function again after 100 milliseconds
-                          MathJax.Hub.Queue(
-                          ["Typeset",MathJax.Hub,document.getElementById('chats')],
-                          function() {
-                            
-                               
-                             
-                          }
-                        );
-
-                    }
         }
-    }
+
+        }            
+    
 </script>
 
 
