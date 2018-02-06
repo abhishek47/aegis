@@ -70025,7 +70025,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         this.joinRoom(this.getRoomId());
 
-        checkDOMChange();
+        $("#chats").bind("DOMNodeInserted", function () {
+            alert("child is appended");
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('chats')], function () {});
+        });
     },
 
 

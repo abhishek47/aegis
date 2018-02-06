@@ -111,7 +111,17 @@
 
              this.joinRoom(this.getRoomId());
 
-             checkDOMChange();
+             $("#chats").bind("DOMNodeInserted",function(){
+                alert("child is appended");
+                MathJax.Hub.Queue(
+                          ["Typeset",MathJax.Hub,document.getElementById('chats')],
+                          function() {
+                            
+                               
+                             
+                          }
+                        );
+            });
 
 
         },
