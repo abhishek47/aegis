@@ -57,7 +57,7 @@
                     <div class="p-3 white lt b-t mt-auto" id="chat-form" >
                         <div class="input-group">
                             <span class="input-group-btn"><button @click="toggleKeyboard();" class="btn white b-a no-shadow" type="button" id="newBtn"><i class="fa fa-keyboard-o text-success"></i></button></span>
-                            <input type="text"  class="form-control" v-model="newMessage" @focus="toggleKeyboard()"   @keyup.enter="sendMessage();" placeholder="Say something" id="newField"> 
+                            <input type="text"  class="form-control" v-model="newMessage"    @keyup.enter="sendMessage();" placeholder="Say something" id="newField"> 
                             <span class="input-group-btn"><button @click="sendMessage();" class="btn white b-a no-shadow" type="button" id="newBtn"><i class="fa fa-send text-success"></i></button></span></div>
 
 
@@ -90,7 +90,7 @@
                 receiver: this.currentuser,
                 newMessage: '',
                 messages: this.chats,
-                keyboardEnabled: false,
+                keyboardEnabled: true,
                 userSearch: ''
             }
         },
@@ -106,7 +106,6 @@
         mounted() {
             console.log('Component mounted.');
 
-              $('#keyboard').hide();
 
         },
 

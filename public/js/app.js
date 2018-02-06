@@ -70012,7 +70012,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             receiver: this.currentuser,
             newMessage: '',
             messages: this.chats,
-            keyboardEnabled: false,
+            keyboardEnabled: true,
             userSearch: ''
         };
     },
@@ -70024,8 +70024,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     mounted: function mounted() {
         console.log('Component mounted.');
-
-        $('#keyboard').hide();
     },
     created: function created() {
 
@@ -70422,9 +70420,6 @@ var render = function() {
                     },
                     domProps: { value: _vm.newMessage },
                     on: {
-                      focus: function($event) {
-                        _vm.toggleKeyboard()
-                      },
                       keyup: function($event) {
                         if (
                           !("button" in $event) &&
