@@ -36,7 +36,7 @@
                     <div class="scrollable hover" id="chats">
                         <div class="p-3">
                             <div class="chat-list">
-                                <div v-for="message in messages" class="chat-item" :data-class="getClass(message)">
+                                <div v-for="message in messages"  v-on="change: checkDOMChange" class="chat-item" :data-class="getClass(message)">
                                     <a href="#" class="avatar w-40"><img :src="message.sender.profile_pic.encoded" alt="."></a>
                                     <div class="chat-body">
                                         <div class="chat-content rounded msg" v-text="message.message"></div>
@@ -268,7 +268,6 @@
                           }
                         );
 
-                        setTimeout( checkDOMChange, 100 );
                     }
         }
     }
