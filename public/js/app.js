@@ -69993,6 +69993,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -70006,7 +70012,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             receiver: this.currentuser,
             newMessage: '',
             messages: this.chats,
-            keyboardEnabled: false
+            keyboardEnabled: false,
+            userSearch: ''
         };
     },
 
@@ -70147,7 +70154,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 $('#keyboard').show();
                 this.keyboardEnabled = true;
             }
-        }
+        },
+        searchUser: function searchUser() {}
     }
 
 });
@@ -70177,6 +70185,42 @@ var render = function() {
             [
               _vm._m(0),
               _vm._v(" "),
+              _c("div", { staticClass: "navbar box-shadow" }, [
+                _c("div", { staticClass: "input-group flex" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.userSearch,
+                        expression: "userSearch"
+                      }
+                    ],
+                    staticClass:
+                      "form-control px-0 no-bg no-border no-shadow search",
+                    attrs: {
+                      type: "text",
+                      placeholder: "Search",
+                      required: ""
+                    },
+                    domProps: { value: _vm.userSearch },
+                    on: {
+                      keyup: function($event) {
+                        _vm.searchUser()
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.userSearch = $event.target.value
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm._m(1)
+                ])
+              ]),
+              _vm._v(" "),
               _c("div", { staticClass: "scrollable hover" }, [
                 _c(
                   "div",
@@ -70205,10 +70249,6 @@ var render = function() {
                             "span",
                             { staticClass: "w-40 avatar circle grey" },
                             [
-                              _c("i", {
-                                staticClass: "on b-white avatar-right"
-                              }),
-                              _vm._v(" "),
                               _c("img", {
                                 attrs: {
                                   src: user.profile_pic.encoded,
@@ -70245,7 +70285,7 @@ var render = function() {
                   2
                 ),
                 _vm._v(" "),
-                _vm._m(1)
+                _vm._m(2)
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "p-3 mt-auto" }, [
@@ -70273,7 +70313,7 @@ var render = function() {
               "div",
               { staticClass: "navbar flex-nowrap white lt box-shadow" },
               [
-                _vm._m(2),
+                _vm._m(3),
                 _c("span", { staticClass: "text-md text-ellipsis flex" }, [
                   _c("span", {
                     domProps: { textContent: _vm._s(_vm.receiver.name) }
@@ -70348,41 +70388,6 @@ var render = function() {
               },
               [
                 _c("div", { staticClass: "input-group" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newMessage,
-                        expression: "newMessage"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      placeholder: "Say something",
-                      id: "newField"
-                    },
-                    domProps: { value: _vm.newMessage },
-                    on: {
-                      keyup: function($event) {
-                        if (
-                          !("button" in $event) &&
-                          _vm._k($event.keyCode, "enter", 13)
-                        ) {
-                          return null
-                        }
-                        _vm.sendMessage()
-                      },
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.newMessage = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
                   _c("span", { staticClass: "input-group-btn" }, [
                     _c(
                       "button",
@@ -70402,6 +70407,44 @@ var render = function() {
                       ]
                     )
                   ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.newMessage,
+                        expression: "newMessage"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder: "Say something",
+                      id: "newField"
+                    },
+                    domProps: { value: _vm.newMessage },
+                    on: {
+                      focus: function($event) {
+                        _vm.toggleKeyboard()
+                      },
+                      keyup: function($event) {
+                        if (
+                          !("button" in $event) &&
+                          _vm._k($event.keyCode, "enter", 13)
+                        ) {
+                          return null
+                        }
+                        _vm.sendMessage()
+                      },
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.newMessage = $event.target.value
+                      }
+                    }
+                  }),
                   _vm._v(" "),
                   _c("span", { staticClass: "input-group-btn" }, [
                     _c(
@@ -70506,24 +70549,33 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "navbar box-shadow" }, [
-      _c("div", { staticClass: "input-group flex" }, [
-        _c("input", {
-          staticClass: "form-control px-0 no-bg no-border no-shadow search",
-          attrs: { type: "text", placeholder: "Search", required: "" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "input-group-btn" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn no-bg no-border no-shadow",
-              attrs: { type: "button" }
-            },
-            [_c("i", { staticClass: "fa fa-search text-muted" })]
-          )
-        ])
-      ])
+    return _c(
+      "div",
+      {
+        staticClass: "white p-2",
+        staticStyle: { background: "#fff", margin: "10px" }
+      },
+      [
+        _c("img", {
+          staticStyle: { width: "190px", margin: "auto", display: "block" },
+          attrs: { src: "/images/logo-wide.png" }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "input-group-btn" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn no-bg no-border no-shadow",
+          attrs: { type: "button" }
+        },
+        [_c("i", { staticClass: "fa fa-search text-muted" })]
+      )
     ])
   },
   function() {

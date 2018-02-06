@@ -3,15 +3,20 @@
 <div class="d-flex flex" data-plugin="chat">
             <div class="fade aside aside-sm" id="content-aside">
                 <div class="d-flex flex-column w-xl b-r dark modal-dialog" id="chat-nav">
+                    <div class="white p-2" style="background: #fff;margin: 10px;">
+                      <img src="/images/logo-wide.png" style="width: 190px;
+    margin: auto;
+    display: block;">
+                    </div>
                     <div class="navbar box-shadow">
                         <div class="input-group flex">
-                            <input type="text" class="form-control px-0 no-bg no-border no-shadow search" placeholder="Search" required=""> <span class="input-group-btn"><button class="btn no-bg no-border no-shadow" type="button"><i class="fa fa-search text-muted"></i></button></span></div>
+                            <input type="text" @keyup="searchUser()" v-model="userSearch" class="form-control px-0 no-bg no-border no-shadow search" placeholder="Search" required=""> <span class="input-group-btn"><button class="btn no-bg no-border no-shadow" type="button"><i class="fa fa-search text-muted"></i></button></span></div>
                     </div>
                     <div class="scrollable hover">
                         <div class="list inset">
                             <div class="p-2 px-3 text-muted text-sm">People</div>
 
-                            <div v-for="user in people" class="list-item" @click="openChats(user)" style="cursor: pointer;" v-bind:class="user.id == receiver.id ? 'light' : ''" data-id="item-1"><span class="w-40 avatar circle grey"><i class="on b-white avatar-right"></i> <img :src="user.profile_pic.encoded" alt="."></span>
+                            <div v-for="user in people" class="list-item" @click="openChats(user)" style="cursor: pointer;" v-bind:class="user.id == receiver.id ? 'light' : ''" data-id="item-1"><span class="w-40 avatar circle grey"> <img :src="user.profile_pic.encoded" alt="."></span>
                                 <div class="list-body"><a href="#"  class="item-title _500" v-text="user.name"></a>
                                     <div class="item-except text-sm text-muted h-1x">New Message</div>
                                     <div class="item-tag tag hide"></div>
@@ -49,9 +54,10 @@
                             
                         </div>
                     </div>
-                    <div class="p-3 white lt b-t mt-auto" id="chat-form">
+                    <div class="p-3 white lt b-t mt-auto" id="chat-form" >
                         <div class="input-group">
-                            <input type="text"  class="form-control" v-model="newMessage"  @keyup.enter="sendMessage();" placeholder="Say something" id="newField"> <span class="input-group-btn"><button @click="toggleKeyboard();" class="btn white b-a no-shadow" type="button" id="newBtn"><i class="fa fa-keyboard-o text-success"></i></button></span>
+                            <span class="input-group-btn"><button @click="toggleKeyboard();" class="btn white b-a no-shadow" type="button" id="newBtn"><i class="fa fa-keyboard-o text-success"></i></button></span>
+                            <input type="text"  class="form-control" v-model="newMessage" @focus="toggleKeyboard()"   @keyup.enter="sendMessage();" placeholder="Say something" id="newField"> 
                             <span class="input-group-btn"><button @click="sendMessage();" class="btn white b-a no-shadow" type="button" id="newBtn"><i class="fa fa-send text-success"></i></button></span></div>
 
 
@@ -84,7 +90,8 @@
                 receiver: this.currentuser,
                 newMessage: '',
                 messages: this.chats,
-                keyboardEnabled: false
+                keyboardEnabled: false,
+                userSearch: ''
             }
         },
 
@@ -297,6 +304,10 @@
                     this.keyboardEnabled = true;
                 }
                 
+            },
+
+            searchUser(){
+
             }
         }
 
