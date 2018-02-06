@@ -91,14 +91,7 @@
         watch: {
             messages: function(val, oldVal){
 
-                  MathJax.Hub.Queue(
-                          ["Typeset",MathJax.Hub,document.getElementById('chats')],
-                          function() {
-                            
-                               
-                             
-                          }
-                        );
+                  
 
             }
         },
@@ -120,6 +113,17 @@
 
         },
 
+        updated() {
+            MathJax.Hub.Queue(
+                          ["Typeset",MathJax.Hub,document.getElementById('chats')],
+                          function() {
+                            
+                               
+                             
+                          }
+                        );
+        },
+
         methods: {
             openChats(user) {
                 Echo.leave('chat.'+this.getRoomId());
@@ -136,7 +140,14 @@
                        
                         $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 500);
 
-                        
+                        MathJax.Hub.Queue(
+                          ["Typeset",MathJax.Hub,document.getElementById('chats')],
+                          function() {
+                            
+                               
+                             
+                          }
+                        );
                        
                                         
 

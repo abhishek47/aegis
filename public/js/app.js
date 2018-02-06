@@ -70012,10 +70012,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     watch: {
-        messages: function messages(val, oldVal) {
-
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('chats')], function () {});
-        }
+        messages: function messages(val, oldVal) {}
     },
 
     mounted: function mounted() {
@@ -70028,6 +70025,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.joinChats();
 
         this.joinRoom(this.getRoomId());
+    },
+    updated: function updated() {
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('chats')], function () {});
     },
 
 
@@ -70044,6 +70044,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 self.messages = response.data.messages;
 
                 $('#chats').animate({ scrollTop: $('#chats').prop("scrollHeight") }, 500);
+
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('chats')], function () {});
             });
         },
 
