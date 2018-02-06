@@ -70018,11 +70018,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     mounted: function mounted() {
         console.log('Component mounted.');
-
-        $("#chats").bind("DOMNodeInserted", function () {
-            alert("child is appended");
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('chats')], function () {});
-        });
     },
     created: function created() {
 
@@ -70131,6 +70126,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     self.globalStatus = 'offline';
                 }
             });
+        },
+        addCode: function addCode(button) {
+            console.log(button.data('code'));
         }
     }
 
@@ -70404,7 +70402,50 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(3)
+                _c("div", { staticClass: "mt-2", attrs: { id: "keyboard" } }, [
+                  _c("div", { staticClass: "btn-group" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-default",
+                        attrs: { type: "button", "data-code": "$\\alpha$" },
+                        on: {
+                          click: function($event) {
+                            _vm.addCode(this)
+                          }
+                        }
+                      },
+                      [_vm._v("α")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-default",
+                        attrs: { type: "button" }
+                      },
+                      [_vm._v("β")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-default",
+                        attrs: { type: "button" }
+                      },
+                      [_vm._v("γ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-default",
+                        attrs: { type: "button" }
+                      },
+                      [_vm._v("δ")]
+                    )
+                  ])
+                ])
               ]
             )
           ]
@@ -70466,38 +70507,6 @@ var staticRenderFns = [
         ])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-2", attrs: { id: "keyboard" } }, [
-      _c("div", { staticClass: "btn-group" }, [
-        _c(
-          "button",
-          { staticClass: "btn btn-default", attrs: { type: "button" } },
-          [_vm._v("α")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-default", attrs: { type: "button" } },
-          [_vm._v("β")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-default", attrs: { type: "button" } },
-          [_vm._v("γ")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-default", attrs: { type: "button" } },
-          [_vm._v("δ")]
-        )
-      ])
-    ])
   }
 ]
 render._withStripped = true

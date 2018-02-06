@@ -57,7 +57,7 @@
 
                          <div id="keyboard" class="mt-2">
                              <div class="btn-group">
-                              <button type="button" class="btn btn-default">&alpha;</button>
+                              <button type="button" @click="addCode(this)" data-code="$\alpha$" class="btn btn-default">&alpha;</button>
                               <button type="button" class="btn btn-default">&beta;</button>
                               <button type="button" class="btn btn-default">&gamma;</button>
                               <button type="button" class="btn btn-default">&delta;</button>
@@ -104,17 +104,7 @@
         mounted() {
             console.log('Component mounted.');
 
-              $("#chats").bind("DOMNodeInserted",function(){
-                alert("child is appended");
-                MathJax.Hub.Queue(
-                          ["Typeset",MathJax.Hub,document.getElementById('chats')],
-                          function() {
-                            
-                               
-                             
-                          }
-                        );
-            });
+             
 
         },
 
@@ -273,6 +263,12 @@
                         }
                     });
             },
+
+
+            addCode(button)
+            {
+                console.log(button.data('code'));
+            }
         }
 
         }            
