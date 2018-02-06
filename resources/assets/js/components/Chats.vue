@@ -131,14 +131,15 @@
                        
                         $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 500);
 
-                        MathJax.Hub.Queue(
+                        this.$nextTick(function(){ MathJax.Hub.Queue(
                           ["Typeset",MathJax.Hub,document.getElementById('chats')],
                           function() {
                             
                                
                              
                           }
-                        );
+                        );})
+                       
                                         
 
                      });
@@ -167,7 +168,14 @@
 
                         $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 500);
 
-                         
+                         this.$nextTick(function(){ MathJax.Hub.Queue(
+                          ["Typeset",MathJax.Hub,document.getElementById('chats')],
+                          function() {
+                            
+                               
+                             
+                          }
+                        );})
                                        
                             
 
