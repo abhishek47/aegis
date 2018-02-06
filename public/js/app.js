@@ -70078,7 +70078,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         getRoomId: function getRoomId() {
 
-            return "" + Math.max(this.user.id, this.receiver.id) + Math.min(this.user.id, this.receiver.id);;
+            return "" + Math.max(this.user.id, this.receiver.id) + '-' + Math.min(this.user.id, this.receiver.id);;
         },
         contains: function contains(users, user) {
             var found = false;

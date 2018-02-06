@@ -195,7 +195,7 @@
                
                
 
-                return "" + Math.max(this.user.id, this.receiver.id) + Math.min(this.user.id, this.receiver.id);;
+                return "" + Math.max(this.user.id, this.receiver.id) + '-' + Math.min(this.user.id, this.receiver.id);;
 
             },
 
