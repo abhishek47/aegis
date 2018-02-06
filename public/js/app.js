@@ -70030,6 +70030,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 self.messages = response.data.messages;
 
                 $('#chats').animate({ scrollTop: $('#chats').prop("scrollHeight") }, 500);
+
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('chats')], function () {});
             });
         },
 
@@ -70052,6 +70054,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 self.newMessage = '';
 
                 $('#chats').animate({ scrollTop: $('#chats').prop("scrollHeight") }, 500);
+
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('chats')], function () {});
             });
         },
         getRoomId: function getRoomId() {
@@ -70097,6 +70101,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 self.newMessage = '';
 
                 $('#chats').animate({ scrollTop: $('#chats').prop("scrollHeight") }, 500);
+
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('chats')], function () {});
             });
         },
         joinChats: function joinChats() {

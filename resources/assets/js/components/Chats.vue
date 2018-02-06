@@ -112,7 +112,15 @@
                        
                         $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 500);
 
+                        MathJax.Hub.Queue(
+                          ["Typeset",MathJax.Hub,document.getElementById('chats')],
+                          function() {
                             
+                               
+                             
+                          }
+                        );
+                                        
 
                      });
 
@@ -140,6 +148,15 @@
 
                         $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 500);
 
+                          MathJax.Hub.Queue(
+                          ["Typeset",MathJax.Hub,document.getElementById('chats')],
+                          function() {
+                            
+                               
+                             
+                          }
+                        );
+                                       
                             
 
                      });
@@ -202,6 +219,16 @@
                         self.newMessage = '';
 
                         $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 500);
+
+                          MathJax.Hub.Queue(
+                          ["Typeset",MathJax.Hub,document.getElementById('chats')],
+                          function() {
+                            
+                               
+                             
+                          }
+                        );
+                                       
 
                     });
             },
