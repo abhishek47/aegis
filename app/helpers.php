@@ -841,3 +841,18 @@ function week_ranges($year = null, $month = null, $format = 'Y-m-d') {
     
     return $ranges;
 }
+
+
+
+public function mergeCollection(Collection $col1, Collection $col2)
+ {
+ 	foreach ($col2 as $item)
+	{
+		if ( !$col1->contains($item->getKey()))
+		{
+			$col1->add($item);
+		}
+	}
+	
+	return $col1;
+}

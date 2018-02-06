@@ -56,7 +56,7 @@ class ChatsController extends Controller
             $chats = Chat::where('to_id', $currentUser->id)->where('from_id', auth()->id())->get();
             $chatsTo = Chat::where('from_id', $currentUser->id)->where('to_id', auth()->id())->get();
 
-            $chats->concat($chatsTo);
+            $chats = mergeCollection($chats, $chatsTo);
 
             $chats = $chats->sortBy('created_at');
 
