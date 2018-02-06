@@ -83,10 +83,10 @@ class ChatsController extends Controller
      */
     public function get()
     {
-            $chats = Chat::where('to_id', request('friend_id'))->where('from_id', auth()->id())->get();
-            $chatsTo = Chat::where('from_id', request('friend_id'))->where('to_id', auth()->id())->get();
+            $chats = Chat::where('to_id', request('friend_id'))->orWhere('from_id', request('friend_id'))
+                            ->where('from_id', auth()->id())->orWhere('to_id', auth()->id())->get();
 
-            $chats->merge($chatsTo);
+         
 
             return response(['messages' => $chats], 200);
 
