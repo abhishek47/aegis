@@ -51,7 +51,8 @@
                     </div>
                     <div class="p-3 white lt b-t mt-auto" id="chat-form">
                         <div class="input-group">
-                            <input type="text" class="form-control" v-model="newMessage"  @keyup.enter="sendMessage();" placeholder="Say something" id="newField"> <span class="input-group-btn"><button @click="sendMessage();" class="btn white b-a no-shadow" type="button" id="newBtn"><i class="fa fa-send text-success"></i></button></span></div>
+                            <input type="text" class="form-control" v-model="newMessage"  @keyup.enter="sendMessage();" placeholder="Say something" id="newField"> <span class="input-group-btn"><button @click="toggleKeyboard();" class="btn white b-a no-shadow" type="button" id="newBtn"><i class="fa fa-keyboard-o text-success"></i></button></span>
+                            <span class="input-group-btn"><button @click="sendMessage();" class="btn white b-a no-shadow" type="button" id="newBtn"><i class="fa fa-send text-success"></i></button></span></div>
                     </div>
                    
                 </div>

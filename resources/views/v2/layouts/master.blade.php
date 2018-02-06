@@ -179,7 +179,7 @@ we just copy that css and paste here you can also do that -->
 
                                         <li class="nav-item {{ request()->is('discuss') ? 'active' : ''}}"><a class="nav-link font-bold" href="/discuss">Discuss</a></li>
 
-                                       <li class="nav-item {{ request()->is('chat') ? 'active' : ''}}"><a class="nav-link font-bold" href="/chat">Chat</a></li>
+                                       <li class="nav-item {{ request()->is('chat') ? 'active' : ''}}"><a class="nav-link font-bold" target="_blank" href="/chats">Chat</a></li>
 
 
                                        <li class="nav-item dropdown"> 

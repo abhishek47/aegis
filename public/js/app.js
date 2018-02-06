@@ -69981,6 +69981,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -70340,6 +70341,26 @@ var render = function() {
                       }
                     }
                   }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "input-group-btn" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn white b-a no-shadow",
+                        attrs: { type: "button", id: "newBtn" },
+                        on: {
+                          click: function($event) {
+                            _vm.toggleKeyboard()
+                          }
+                        }
+                      },
+                      [
+                        _c("i", {
+                          staticClass: "fa fa-keyboard-o text-success"
+                        })
+                      ]
+                    )
+                  ]),
                   _vm._v(" "),
                   _c("span", { staticClass: "input-group-btn" }, [
                     _c(
