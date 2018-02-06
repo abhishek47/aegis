@@ -69999,6 +69999,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -70382,6 +70383,8 @@ var render = function() {
                 attrs: { id: "chat-form" }
               },
               [
+                _vm._m(4),
+                _vm._v(" "),
                 _c("div", { staticClass: "input-group" }, [
                   _c("span", { staticClass: "input-group-btn" }, [
                     _c(
@@ -70598,6 +70601,17 @@ var staticRenderFns = [
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _vm._v("Put all latex commands inside "),
+      _c("span", { staticClass: "tex2jax_ignore" }, [_vm._v("$")]),
+      _vm._v(" symbol.Ex. : "),
+      _c("span", { staticClass: "tex2jax_ignore" }, [_vm._v("$\\alpha$")])
+    ])
   }
 ]
 render._withStripped = true
