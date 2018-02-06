@@ -70265,14 +70265,11 @@ var render = function() {
                               domProps: { textContent: _vm._s(user.name) }
                             }),
                             _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticClass:
-                                  "item-except text-sm text-muted h-1x"
-                              },
-                              [_vm._v("New Message")]
-                            ),
+                            _c("div", {
+                              staticClass:
+                                "item-except text-sm text-muted h-1x",
+                              domProps: { textContent: _vm._s(user.email) }
+                            }),
                             _vm._v(" "),
                             _c("div", { staticClass: "item-tag tag hide" })
                           ]),

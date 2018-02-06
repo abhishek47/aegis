@@ -18,7 +18,7 @@
 
                             <div v-for="user in people" class="list-item" @click="openChats(user)" style="cursor: pointer;" v-bind:class="user.id == receiver.id ? 'light' : ''" data-id="item-1"><span class="w-40 avatar circle grey"> <img :src="user.profile_pic.encoded" alt="."></span>
                                 <div class="list-body"><a href="#"  class="item-title _500" v-text="user.name"></a>
-                                    <div class="item-except text-sm text-muted h-1x">New Message</div>
+                                    <div class="item-except text-sm text-muted h-1x" v-text="user.email"></div>
                                     <div class="item-tag tag hide"></div>
                                 </div>
                                 <div></div>
