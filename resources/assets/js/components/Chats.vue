@@ -53,6 +53,16 @@
                         <div class="input-group">
                             <input type="text" class="form-control" v-model="newMessage"  @keyup.enter="sendMessage();" placeholder="Say something" id="newField"> <span class="input-group-btn"><button @click="toggleKeyboard();" class="btn white b-a no-shadow" type="button" id="newBtn"><i class="fa fa-keyboard-o text-success"></i></button></span>
                             <span class="input-group-btn"><button @click="sendMessage();" class="btn white b-a no-shadow" type="button" id="newBtn"><i class="fa fa-send text-success"></i></button></span></div>
+
+
+                         <div id="keyboard" class="mt-2">
+                             <div class="btn-group">
+                              <button type="button" class="btn btn-default">&alpha;</button>
+                              <button type="button" class="btn btn-default">&beta;</button>
+                              <button type="button" class="btn btn-default">&gamma;</button>
+                              <button type="button" class="btn btn-default">&delta;</button>
+                            </div>
+                         </div>   
                     </div>
                    
                 </div>

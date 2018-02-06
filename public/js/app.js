@@ -69982,6 +69982,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -70377,7 +70387,9 @@ var render = function() {
                       [_c("i", { staticClass: "fa fa-send text-success" })]
                     )
                   ])
-                ])
+                ]),
+                _vm._v(" "),
+                _vm._m(3)
               ]
             )
           ]
@@ -70439,6 +70451,38 @@ var staticRenderFns = [
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-2", attrs: { id: "keyboard" } }, [
+      _c("div", { staticClass: "btn-group" }, [
+        _c(
+          "button",
+          { staticClass: "btn btn-default", attrs: { type: "button" } },
+          [_vm._v("α")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-default", attrs: { type: "button" } },
+          [_vm._v("β")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-default", attrs: { type: "button" } },
+          [_vm._v("γ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-default", attrs: { type: "button" } },
+          [_vm._v("δ")]
+        )
+      ])
+    ])
   }
 ]
 render._withStripped = true
