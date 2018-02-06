@@ -75,14 +75,14 @@
     
         
           <div class="container" id="contact">
-    <div class="mini-spacer card card-shadow bg-dark m-t-40"  @click="openWiki({{$wiki->id}})">
+    <div class="card card-shadow bg-dark m-t-40"  @click="openWiki({{$wiki->id}})">
                     <div class="card-body">
                         <div class="d-flex p-10 p-t-0">
                             <div class="display-7 align-self-center">
                                 <h2 class=""><a class="text-white" href="/wiki/{{$wiki->id}}">{{ substr($wiki->title, 0, 220) }}</a></h2>
-                                <h6 class="font-16 subtitle">Wiki of the Week</h6>
+                                <p class="font-20">{!! substr($wiki->body, 0, 320) !!}</p>
                             </div>
-                            <div class="ml-auto m-t-10 m-b-10"><a href="/wiki/{{$wiki->id}}" class="btn btn-info-gradiant btn-md btn-arrow"><span>Read Now <i class="fa fa-arrow-right"></i></span></a></div>
+                            
                         </div>
                     </div>
                 </div>

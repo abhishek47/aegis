@@ -2,7 +2,7 @@
     
 <div class="d-flex flex" data-plugin="chat">
             <div class="fade aside aside-sm" id="content-aside">
-                <div class="d-flex flex-column w-xl b-r white modal-dialog" id="chat-nav">
+                <div class="d-flex flex-column w-xl b-r dark modal-dialog" id="chat-nav">
                     <div class="navbar box-shadow">
                         <div class="input-group flex">
                             <input type="text" class="form-control px-0 no-bg no-border no-shadow search" placeholder="Search" required=""> <span class="input-group-btn"><button class="btn no-bg no-border no-shadow" type="button"><i class="fa fa-search text-muted"></i></button></span></div>
