@@ -51,16 +51,17 @@
                     </div>
                     <div class="p-3 white lt b-t mt-auto" id="chat-form">
                         <div class="input-group">
-                            <input type="text" class="form-control" v-model="newMessage"  @keyup.enter="sendMessage();" placeholder="Say something" id="newField"> <span class="input-group-btn"><button @click="toggleKeyboard();" class="btn white b-a no-shadow" type="button" id="newBtn"><i class="fa fa-keyboard-o text-success"></i></button></span>
+                            <input type="text"  class="form-control" v-model="newMessage"  @keyup.enter="sendMessage();" placeholder="Say something" id="newField"> <span class="input-group-btn"><button @click="toggleKeyboard();" class="btn white b-a no-shadow" type="button" id="newBtn"><i class="fa fa-keyboard-o text-success"></i></button></span>
                             <span class="input-group-btn"><button @click="sendMessage();" class="btn white b-a no-shadow" type="button" id="newBtn"><i class="fa fa-send text-success"></i></button></span></div>
 
 
                          <div id="keyboard" class="mt-2">
                              <div class="btn-group">
-                              <button type="button" @click="addCode(this)" data-code="$\alpha$" class="btn btn-default">&alpha;</button>
-                              <button type="button" class="btn btn-default">&beta;</button>
-                              <button type="button" class="btn btn-default">&gamma;</button>
-                              <button type="button" class="btn btn-default">&delta;</button>
+                              <button type="button" @click="addCode('$\\alpha$')"  class="btn btn-default">&alpha;</button>
+                              <button type="button" @click="addCode('$\\beta$')" class="btn btn-default">&beta;</button>
+                              <button type="button" @click="addCode('$\\gamma$')" class="btn btn-default">&gamma;</button>
+                              <button type="button" @click="addCode('$\\delta$')" class="btn btn-default">&delta;</button>
+                              <button type="button" @click="addCode('$\\int_{a}^{b} x^2 dx$')" class="btn btn-default">&int;</button>
                             </div>
                          </div>   
                     </div>
@@ -265,9 +266,12 @@
             },
 
 
-            addCode(button)
+            addCode(code)
             {
-                console.log(button.data('code'));
+                console.log(code);
+                $('#newField').val(function() {
+                    return this.value + ' ' + code;
+                });
             }
         }
 

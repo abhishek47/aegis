@@ -69992,6 +69992,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -70127,8 +70128,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
             });
         },
-        addCode: function addCode(button) {
-            console.log(button.data('code'));
+        addCode: function addCode(code) {
+            console.log(code);
+            $('#newField').val(function () {
+                return this.value + ' ' + code;
+            });
         }
     }
 
@@ -70408,10 +70412,10 @@ var render = function() {
                       "button",
                       {
                         staticClass: "btn btn-default",
-                        attrs: { type: "button", "data-code": "$\\alpha$" },
+                        attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            _vm.addCode(this)
+                            _vm.addCode("$\\alpha$")
                           }
                         }
                       },
@@ -70422,7 +70426,12 @@ var render = function() {
                       "button",
                       {
                         staticClass: "btn btn-default",
-                        attrs: { type: "button" }
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.addCode("$\\beta$")
+                          }
+                        }
                       },
                       [_vm._v("β")]
                     ),
@@ -70431,7 +70440,12 @@ var render = function() {
                       "button",
                       {
                         staticClass: "btn btn-default",
-                        attrs: { type: "button" }
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.addCode("$\\gamma$")
+                          }
+                        }
                       },
                       [_vm._v("γ")]
                     ),
@@ -70440,9 +70454,28 @@ var render = function() {
                       "button",
                       {
                         staticClass: "btn btn-default",
-                        attrs: { type: "button" }
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.addCode("$\\delta$")
+                          }
+                        }
                       },
                       [_vm._v("δ")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-default",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.addCode("$\\int_{a}^{b} x^2 dx$")
+                          }
+                        }
+                      },
+                      [_vm._v("∫")]
                     )
                   ])
                 ])
