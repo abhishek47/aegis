@@ -83,7 +83,8 @@
                  globalStatus: 'offline',
                 receiver: this.currentuser,
                 newMessage: '',
-                messages: this.chats
+                messages: this.chats,
+                keyboardEnabled: false
             }
         },
 
@@ -105,7 +106,7 @@
         mounted() {
             console.log('Component mounted.');
 
-             
+              $('#keyboard').hide();
 
         },
 
@@ -275,7 +276,15 @@
 
             toggleKeyboard()
             {
-                $('#keyboard').fadeOut(500);
+                if(this.keyboardEnabled)
+                {
+                    $('#keyboard').hide();
+                    this.keyboardEnabled = false;
+                } else {
+                    $('#keyboard').show();
+                    this.keyboardEnabled = true;
+                }
+                
             }
         }
 

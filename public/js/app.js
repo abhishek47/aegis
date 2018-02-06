@@ -70005,7 +70005,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             globalStatus: 'offline',
             receiver: this.currentuser,
             newMessage: '',
-            messages: this.chats
+            messages: this.chats,
+            keyboardEnabled: false
         };
     },
 
@@ -70019,6 +70020,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     mounted: function mounted() {
         console.log('Component mounted.');
+
+        $('#keyboard').hide();
     },
     created: function created() {
 
@@ -70134,7 +70137,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             $('#newField').focus();
         },
         toggleKeyboard: function toggleKeyboard() {
-            $('#keyboard').fadeOut(500);
+            if (this.keyboardEnabled) {
+                $('#keyboard').hide();
+                this.keyboardEnabled = false;
+            } else {
+                $('#keyboard').show();
+                this.keyboardEnabled = true;
+            }
         }
     }
 
