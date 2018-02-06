@@ -53,12 +53,11 @@ class ChatsController extends Controller
 
         }
         
-            $chats = Chat::where('to_id', $currentUser->id)->where('from_id', auth()->id())->get();
-            $chatsTo = Chat::where('from_id', $currentUser->id)->where('to_id', auth()->id())->get();
+            $chats = Chat::where('to_id', $currentUser->id)->orWhere('from_id', $currentUser->id)
+                            ->where('from_id', auth()->id())->orWhere('to_id', auth()->id())->get();
+            
 
-            $chatsTo->merge($chats);
-
-            $chats = $chatsTo;
+           
 
             $people = User::where('id', '!=', auth()->id())->orderBy('name')->get();
 
