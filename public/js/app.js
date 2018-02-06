@@ -70015,6 +70015,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.joinChats();
 
         this.joinRoom(this.getRoomId());
+
+        checkDOMChange();
     },
 
 
@@ -70054,8 +70056,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 self.newMessage = '';
 
                 $('#chats').animate({ scrollTop: $('#chats').prop("scrollHeight") }, 500);
-
-                MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('chats')], function () {});
             });
         },
         getRoomId: function getRoomId() {
@@ -70101,8 +70101,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 self.newMessage = '';
 
                 $('#chats').animate({ scrollTop: $('#chats').prop("scrollHeight") }, 500);
-
-                MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('chats')], function () {});
             });
         },
         joinChats: function joinChats() {
@@ -70123,7 +70121,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     self.globalStatus = 'offline';
                 }
             });
-        }
+        },
+        checkDOMChange: function (_checkDOMChange) {
+            function checkDOMChange() {
+                return _checkDOMChange.apply(this, arguments);
+            }
+
+            checkDOMChange.toString = function () {
+                return _checkDOMChange.toString();
+            };
+
+            return checkDOMChange;
+        }(function () {
+            // check for any new element being inserted here,
+            // or a particular node being modified
+
+            // call the function again after 100 milliseconds
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('chats')], function () {});
+
+            setTimeout(checkDOMChange, 100);
+        })
     }
 });
 

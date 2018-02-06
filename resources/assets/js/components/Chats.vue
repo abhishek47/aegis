@@ -95,6 +95,10 @@
              this.joinChats();   
 
              this.joinRoom(this.getRoomId());
+
+             checkDOMChange();
+
+
         },
 
         methods: {
@@ -148,14 +152,7 @@
 
                         $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 500);
 
-                          MathJax.Hub.Queue(
-                          ["Typeset",MathJax.Hub,document.getElementById('chats')],
-                          function() {
-                            
-                               
-                             
-                          }
-                        );
+                         
                                        
                             
 
@@ -220,14 +217,7 @@
 
                         $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 500);
 
-                          MathJax.Hub.Queue(
-                          ["Typeset",MathJax.Hub,document.getElementById('chats')],
-                          function() {
-                            
-                               
-                             
-                          }
-                        );
+                        
                                        
 
                     });
@@ -261,7 +251,25 @@
                             self.globalStatus = 'offline';
                         }
                     });
-            }
+            },
+
+                     checkDOMChange()
+                    {
+                        // check for any new element being inserted here,
+                        // or a particular node being modified
+
+                        // call the function again after 100 milliseconds
+                          MathJax.Hub.Queue(
+                          ["Typeset",MathJax.Hub,document.getElementById('chats')],
+                          function() {
+                            
+                               
+                             
+                          }
+                        );
+
+                        setTimeout( checkDOMChange, 100 );
+                    }
         }
     }
 </script>
