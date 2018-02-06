@@ -70113,6 +70113,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }
             }).listen('NewMessage', function (e) {
 
+                console.log(e.message);
+
+                var message = e.message;
+
+                self.messages.push(message);
+
+                self.newMessage = '';
+
+                $('#chats').animate({ scrollTop: $('#chats').prop("scrollHeight") }, 500);
+            });
+
+            Echo.channel('chat.' + roomId).listen('NewMessage', function (data) {
+
+                console.log(e.message);
+
                 var message = e.message;
 
                 self.messages.push(message);

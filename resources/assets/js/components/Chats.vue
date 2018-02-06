@@ -241,6 +241,8 @@
                             } 
                     }).listen('NewMessage', function(e){
 
+                        console.log(e.message);
+
                         var message = e.message;
                         
                         self.messages.push(message);   
@@ -253,6 +255,21 @@
                                        
 
                     });
+
+
+                    Echo.channel('chat.'+roomId)
+                        .listen('NewMessage', (data) => {
+
+                           console.log(e.message);
+
+                        var message = e.message;
+                        
+                        self.messages.push(message);   
+
+                        self.newMessage = '';
+
+                        $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 500);
+                        });
             },
 
             joinChats()
