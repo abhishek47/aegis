@@ -70018,17 +70018,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     mounted: function mounted() {
         console.log('Component mounted.');
+
+        $("#chats").bind("DOMNodeInserted", function () {
+            alert("child is appended");
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('chats')], function () {});
+        });
     },
     created: function created() {
 
         this.joinChats();
 
         this.joinRoom(this.getRoomId());
-
-        $("#chats").bind("DOMNodeInserted", function () {
-            alert("child is appended");
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('chats')], function () {});
-        });
     },
 
 
@@ -70044,10 +70044,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 self.messages = response.data.messages;
 
                 $('#chats').animate({ scrollTop: $('#chats').prop("scrollHeight") }, 500);
-
-                this.$nextTick(function () {
-                    MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('chats')], function () {});
-                });
             });
         },
 
@@ -70070,10 +70066,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 self.newMessage = '';
 
                 $('#chats').animate({ scrollTop: $('#chats').prop("scrollHeight") }, 500);
-
-                this.$nextTick(function () {
-                    MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('chats')], function () {});
-                });
             });
         },
         getRoomId: function getRoomId() {

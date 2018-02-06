@@ -102,16 +102,9 @@
         },
 
         mounted() {
-            console.log('Component mounted.')
-        },
+            console.log('Component mounted.');
 
-        created() {
-             
-             this.joinChats();   
-
-             this.joinRoom(this.getRoomId());
-
-             $("#chats").bind("DOMNodeInserted",function(){
+              $("#chats").bind("DOMNodeInserted",function(){
                 alert("child is appended");
                 MathJax.Hub.Queue(
                           ["Typeset",MathJax.Hub,document.getElementById('chats')],
@@ -122,6 +115,15 @@
                           }
                         );
             });
+
+        },
+
+        created() {
+             
+             this.joinChats();   
+
+             this.joinRoom(this.getRoomId());
+
 
 
         },
@@ -141,14 +143,7 @@
                        
                         $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 500);
 
-                        this.$nextTick(function(){ MathJax.Hub.Queue(
-                          ["Typeset",MathJax.Hub,document.getElementById('chats')],
-                          function() {
-                            
-                               
-                             
-                          }
-                        );})
+                        
                        
                                         
 
@@ -178,14 +173,7 @@
 
                         $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 500);
 
-                         this.$nextTick(function(){ MathJax.Hub.Queue(
-                          ["Typeset",MathJax.Hub,document.getElementById('chats')],
-                          function() {
-                            
-                               
-                             
-                          }
-                        );})
+                         
                                        
                             
 
