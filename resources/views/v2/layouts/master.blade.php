@@ -164,7 +164,18 @@ we just copy that css and paste here you can also do that -->
                                         <li class="nav-item {{ request()->is('home') ? 'active' : ''}}"><a class="nav-link font-bold" href="/home">Home</a></li>
                                         <li class="nav-item {{ request()->is('courses') ? 'active' : ''}}"><a class="nav-link font-bold" href="/courses">Courses</a></li>
 
-                                        <li class="nav-item {{ request()->is('wiki') ? 'active' : ''}}"><a class="nav-link font-bold" href="/wiki">Wiki</a></li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link font-bold" dropdown-toggle" href="#" id="h6-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Wiki <i class="fa fa-angle-down m-l-5"></i></a>
+
+                                            <ul class="b-none dropdown-menu font-14 animated fadeInUp">
+                                                <li><a class="dropdown-item" href="/wiki">Topical Wiki</a></li>
+                                                <li class="divider" role="separator"></li>
+                                                 <li><a class="dropdown-item" href="/wiki/problematic">Problematic Wiki</a></li>
+                                                
+                                                
+                                            </ul>
+
+                                        </li>
 
                                         <li class="nav-item {{ request()->is('discuss') ? 'active' : ''}}"><a class="nav-link font-bold" href="/discuss">Discuss</a></li>
 

@@ -32,7 +32,7 @@
 		
 	</div>
 	<div class="panel-footer">
-	   <div class="float-left" id="solution-{{ $homework->id }}">
+   <div class="" id="solution-{{ $homework->id }}">
 	     @if($homework->overDueDate())
 
 	     	<b>The deadline for submission has passed!</b>

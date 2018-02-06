@@ -9,7 +9,7 @@
                 <div class="panel-heading" role="tab" id="headingOne8">
                   <h5 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#accordion8" href="#collapseOne8" aria-expanded="true" aria-controls="collapseOne8">
-                      EPP {{$index}}
+                      EPP {{$index}} <i class="fa fa-chevron-down"></i>
                     </a>
                   </h5>
                 </div>

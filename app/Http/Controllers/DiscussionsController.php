@@ -21,12 +21,12 @@ class DiscussionsController extends Controller
     public function index()
     {
     	$discussions = Discussion::latest()->paginate(10);
-    	return view('discuss.index', compact('discussions'));
+    	return view('v2.discuss.index', compact('discussions'));
     }
 
     public function show(Discussion $discussion)
     {
-    	return view('discuss.show', compact('discussion'));
+    	return view('v2.discuss.show', compact('discussion'));
     }
 
 

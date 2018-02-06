@@ -60,7 +60,7 @@
 	background: transparent;
 	border: 1px solid #000;
 	color: #000 !important;
-	height: 25px;
+	height: 25px !important;
 }
 
 .week-selector:focus {
@@ -76,6 +76,10 @@
     float: left;
 }
 
+.slickQuiz {
+	padding: 0px;
+	border: none;
+}
 
 .slickQuiz .correctAns, .slickQuiz .incorrectAns
 {

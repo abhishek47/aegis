@@ -21,13 +21,13 @@ class WikiController extends Controller
     public function index()
     {
     	$wikis = Wiki::latest()->where('published', 1)->where('category_id', 0)->paginate(10);
-    	return view('wiki.index', compact('wikis'));
+    	return view('v2.wiki.index', compact('wikis'));
     }
 
      public function problematic()
     {
         $wikis = Wiki::latest()->where('published', 1)->where('category_id',  1)->paginate(10);
-        return view('wiki.problematic', compact('wikis'));
+        return view('v2.wiki.problematic', compact('wikis'));
     }
 
     public function create()
@@ -64,7 +64,7 @@ class WikiController extends Controller
     public function show(Wiki $wiki)
     {
     	$quizzes = Quiz::orderBy('name', 'asc')->get();
-    	return view('wiki.show', compact('wiki', 'quizzes'));
+    	return view('v2.wiki.show', compact('wiki', 'quizzes'));
     }
 
     public function preview(Wiki $wiki)

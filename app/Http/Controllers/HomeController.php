@@ -63,7 +63,7 @@ class HomeController extends Controller
      */
     public function account()
     {
-        return view('account.edit');
+        return view('v2.profile');
     }
 
 

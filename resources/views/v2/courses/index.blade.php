@@ -8,11 +8,12 @@
       </div>
       <div class="card-body  classroom-description">
         
-          <h3 class="m-b-10"><b>What are Live Courses?</b></h3>
+          <h2 class="card-title"><a class="text-dark m-b-10" data-toggle="collapse" href="#desc"><b>What are Live Courses <i class="fa fa-chevron-down"></i></b></a></h2>
      
         
-        
-          {!! \Config::get('settings.live_course_desc') !!}
+          <div class="collapse" id="desc">
+           {!! \Config::get('settings.live_course_desc') !!}
+          </div>
        
       </div>
     </div>

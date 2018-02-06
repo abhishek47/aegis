@@ -1,18 +1,13 @@
 @extends('v2.layouts.master')
 
-@section('title')
-  
-  {{ $wiki->title }} | Aegis Academy
-
-@endsection
-
-
 @section('css')
 
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+
 
 <script>
-var inEdit = false;
 var Preview = {
   delay: 50,        // delay after keystroke before updating
   preview: null,     // filled in by Init below
@@ -85,6 +80,7 @@ var Preview = {
   PreviewDone: function () {
     this.mjRunning = false;
 
+    
 
     text = this.buffer.innerHTML;
     // replace occurrences of &gt; at the beginning of a new line
@@ -102,123 +98,29 @@ var Preview = {
         var qid = $(this).data('id');
 
         axios.get('/quiz/'+qid).then(function(response) {
-      
+          console.log(response.data);
 
           $('#slickQuiz-'+qid).slickQuiz({
             json: response.data
            });
 
-            
-
             MathJax.Hub.Queue(
               ["Typeset",MathJax.Hub,document.getElementById('slickQuiz-'+qid)],
               function() {
-                  
-                  
+                 console.log('Done');
               }
             );
 
         });
     });
 
-
-           $('img').each( function() {
-               var $img = $(this)
-               if($img.parent().is('a'))
-               {
-
-                  
-               } else {
-                    href = $img.attr('src');
-                    $img.wrap('<a href="' + href + '" class="img-expand" data-featherlight="image"></a>');
-               }
-            
-
-          });
      
 
      
     
 
-       if(inEdit)
-       {
-
-          $('#editor--container').toggleClass('hidden');
-       }
+    //$('#editor--container').toggleClass('hidden');
     $('#main--output').toggleClass('hidden');
-
-    var width = $(window).width(); 
-        var height = $(window).height(); 
-
-       
-
-    var id = 0;
-    $('#main--output h2').each(function(){
-
-
-         if ((width >= 768  ) && (height>=768)) {
-
-           /*   var openingDiv = '<div id="section-'+id+'-body">'
-            $(this).nextUntil('h2').wrapAll(openingDiv);
-
-
-            $(this).attr('id', 'section-'+id);
-
-          $('#section-'+id).append(' <a onclick="editSection(' + id +')" style="font-weight:normal;float:right;color: #616161 !important;margin-right: 10px;font-size: 14px;cursor:pointer;"><i class="fa fa-edit"> Edit this Section</i></a>');*/
-        }
-        else {
-
-          var openingDiv = '<div id="section-'+id+'-body" class="collapse">'
-          $(this).nextUntil('h2').wrapAll(openingDiv);
-
-          $(this).wrap('<a  class="collapse--header" id="section-' + id + '" href="#section-' + id + '-body" data-toggle="collapse"><a>')
-          
-         
-
-          $('#section-'+id+' h2').append(' <i style="font-weight:normal;float:right;color: #b3b3b3;font-size: 20px; \
-            margin-right: 10px;" class="fa fa-chevron-down"></i>');
-
-            
-        }
-
-        
-      
-
-
-         id++;
-    });
-
-    $('#main--output h3').each(function(){
-
-        if ((width >= 1024  ) && (height>=768)) {
-
-          /*   var openingDiv = '<div id="section-'+id+'-body">'
-            $(this).nextUntil('h3').wrapAll(openingDiv);
-
-
-            $(this).attr('id', 'section-'+id);
-
-            $('#section-'+id).append(' <a onclick="editSection(' + id +')" style="font-weight:normal;float:right;color: #616161 !important;margin-right: 10px;cursor:pointer;font-size: 14px;"><i class="fa fa-edit"> Edit this Section</i></a>'); */
-        }
-        else {
-
-          var openingDiv = '<div id="section-'+id+'-body" class="collapse">'
-          $(this).nextUntil('h3').wrapAll(openingDiv);
-
-          $(this).wrap('<a class="collapse--header" id="section-' + id + '" href="#section-' + id + '-body" data-toggle="collapse"><a>')
-          
-         
-
-          $('#section-'+id+' h3').append(' <i style="font-weight:normal;float:right;color: #b3b3b3;font-size: 20px; \
-            margin-right: 10px;" class="fa fa-chevron-down"></i>');
-
-            
-        }
-
-
-
-         id++;
-    });
   },
   Escape: function (html, encode) {
     return html
@@ -252,31 +154,29 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 
 @endsection
 
-
 @section('content')
+	
+<section class="bg-light mini-spacer" style="min-height: 1000px;">
 
-<div class="bg-light mini-spacer" style="min-height: 1000px;">
 <div class="container">
+<div class="page-header">
+  <h2 class="title font-bold text-dark m-t-0">{{ $discussion->title }}</h2>
 
-  <h2 class="title font-bold m-b-10 m-t-0">{{ $wiki->title }}</h2>
 
-  <i class="hidden" id="wid">{{ $wiki->id }}</i>
-
-  <a  href="#" id="edit" style="color: #313131;" onclick="toggleEditor()"><i class="fa fa-edit"></i> Edit this wiki</a> 
-
-<div class="card card-shadow m-t-20">
-
-<div class="card-body">
- 
-   <form method="POST" action="/wiki/update/{{ $wiki->id }}">
+@if($discussion->user_id == auth()->id())
+	<a href="#" id="edit" style="color: #313131;font-size: 12px;" onclick="toggleEditor()"><i class="fa fa-edit"></i> Edit this Discussion</a> 
+@endif
+</div>  
+   <form method="POST" action="/discussion/update/{{ $discussion->id }}">
    {{ csrf_field() }}
    <div id="editor--container" class="hidden">
 
+  
 
      <div>
        <div class="pull-right"> 
        	  <a href="#" class="btn btn-default btn-flat text-dark" onclick="toggleEditor()">Cancel</a> &nbsp;
-       	  <a href="#" class="btn btn-colored btn-theme-colored2 btn-flat text-dark" onclick="inEdit=true;Preview.Update()">Preview</a> &nbsp;
+       	  <a href="#" class="btn btn-colored btn-theme-colored2 btn-flat text-dark" onclick="Preview.Update()">Preview</a> &nbsp;
           <button type="submit" class="btn btn-colored btn-success btn-flat" >Update</button> &nbsp;
        </div>
      </div>
@@ -294,6 +194,7 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
             <button type="button" title="Add Numbered List" data-toggle="tooltip" class="btn btn-default text-dark" onclick="addNList();return false;"><i class="fa fa-list-ol"></i></button> 
             <button type="button" title="Add Table" data-toggle="tooltip" class="btn btn-default text-dark" onclick="addTable();return false;"><i class="fa fa-table"></i></button> 
             <button type="button" title="Add Image" data-toggle="tooltip" class="btn btn-default text-dark" onclick="addImage();return false;"><i class="fa fa-photo"></i></button> 
+            <button type="button" title="Upload Image" data-toggle="tooltip" class="btn btn-default text-dark" onclick="uploadImage();return false;"><i class="fa fa-file-image-o"></i></button> 
             <vue-core-image-upload
             class="btn btn-default text-dark"
             :crop="false"
@@ -306,8 +207,7 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
             <button type="button" title="Add Example" data-toggle="tooltip" class="btn btn-default text-dark" onclick="addExample();return false;">E.g.</button>
             <button type="button" title="Add Solution" data-toggle="tooltip" class="btn btn-default text-dark" onclick="addSoln();return false;">Soln.</button>
             <button type="button" title="Add Theorem" data-toggle="tooltip" class="btn btn-default text-dark" onclick="addTheorem();return false;">Theorem</button>  
-            <button type="button" title="Add Proof" data-toggle="tooltip" class="btn btn-default text-dark" onclick="addProof();return false;">Proof</button>
-             <button type="button" title="Add Problems Section" class="btn btn-default text-dark" data-toggle="modal" data-target="#myModal" ><i class="fa fa-question-circle"></i></button> 
+            <button type="button" title="Add Proof" data-toggle="tooltip" class="btn btn-default text-dark" onclick="addProof();return false;">Proof</button> 
          </div> 
          <div class="btn-group" role="group" aria-label="Third group"> 
             <button type="button" title="Add Definition" data-toggle="tooltip" class="btn btn-default text-dark" onclick="addDef();return false;">Df.</button> 
@@ -342,7 +242,7 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
           </ul>
         </div>
       </div>
-	    <textarea id="marked-mathjax-input" style="height: 1700px;" name="comment" class="form-control">{{ $wiki->body }}
+	    <textarea id="marked-mathjax-input" class="" style="height: 1700px;" name="question" class="form-control">{{ $discussion->question }}
 	    </textarea>
 
     </div>
@@ -354,9 +254,9 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 
 
 
-  <div id="main--output" style="width: 100%;" class="markdown-body hidden">
-  <div class="preview text-dark" id="marked-mathjax-preview"></div>
-  <div class="preview text-dark" id="marked-mathjax-preview-buffer" 
+  <div id="main--output" class="markdown-body hidden">
+  <div class="preview text-dark" style="font-size: 20px;" id="marked-mathjax-preview"></div>
+  <div class="preview text-dark" style="font-size: 20px;" id="marked-mathjax-preview-buffer" 
        style="display:none;
               position:absolute; 
               top:0; left: 0"></div>
@@ -365,56 +265,65 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 
 </form>
 
+       	
 
 
 
-  
-  </div>
-  </div>
 
-  @if($wiki->liked())
-<a id="likeBtn" href="#" class="text-primary" style="
-    font-size: 22px;"><i class="fa fa-thumbs-up"></i> {{ count($wiki->likes) }} Likes</a>
-@else
-<a id="likeBtn" href="#" class="text-primary" style="
-    font-size: 22px;"><i class="fa fa-thumbs-o-up"></i> {{ count($wiki->likes) }} Likes</a>
-@endif
-
-
-  </div>         	
-</div>
-
-
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Choose Quiz to Add</h4>
-      </div>
-      <div class="modal-body">
-        <div class="list-group">
-         @foreach($quizzes as $quiz)
-          <a href="#" onclick="addQuestion({{ $quiz->id }});" data-dismiss="modal" class="list-group-item" style="padding: 15px;font-size: 17px;">{{ $quiz->name }}</a>
-         @endforeach 
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-          
+	<div class="page-header pt-3">
+		<h5 class="font-bold">Comments</h45>
+	</div>
 
 
 
+
+	@foreach($discussion->comments as $comment)
+       
+       <div class="panel panel-default">
+		  
+		  <div class="panel-body">
+        <h3 class="panel-title text-dark font-medium" >{{ $comment->user->name }} | {{ $comment->created_at->diffForHumans() }}</h3>
+     
+		    
+		      <div class="m-t-10 m-b-10" style="font-size: 16px;color: #000" id="comment-{{$comment->id}}"> {!! $comment->body !!} </div> 
+		      
+
+		      
+		    
+
+          <a class="text-danger" href="/solutions/{{$comment->id}}/like"><i class="fa fa-thumbs-up"></i> {{ $comment->likes }}</a> |  <a class="text-dark" href="/solutions/{{$comment->id}}/dislike"><i class="fa fa-thumbs-down"></i> {{ $comment->dislikes }}</a> 
+		  </div>
+		   
+		</div>
+
+
+	@endforeach
+
+
+
+
+	    
+	  <form method="POST" action="/solutions/{{ $discussion->id }}">
+	    {{ csrf_field() }}
+	   
+    	<small>Note : Put latex commands inside \$ \$ </small>
+	    <textarea id="comment-input" name="comment" rows="2" style="max-height: 140px !important;" class="form-control"></textarea>
+	    
+   		
+       
+
+    	<button class="btn btn-success" type="submit">Post Comment</button>	
+
+    	<br><br>
+
+       </form>
+	   
+
+	</div>
+
+</section>
 @endsection
+
 
 @section('js')
   
@@ -423,28 +332,18 @@ Preview.Init();
 Preview.Update();
 </script>
 
-<script type="text/javascript">
-  $('#likeBtn').click(function(e)
-  {
-      e.preventDefault();
+ <script type="text/javascript" src="/js/functions.js"></script>
 
-      $.get('/wiki/{{$wiki->id}}/like', function(data, status){
-       
-
-         if(data.msg == 'liked')
-         {
-            $('#likeBtn').html('<i class="fa fa-thumbs-up"></i> ' + data.likes + ' Likes');
-         } else {
-            $('#likeBtn').html('<i class="fa fa-thumbs-o-up"></i> ' + data.likes + ' Likes');
-         }
-
-      });
-  });
+ <script>
+var simplemde = new SimpleMDE({ element: document.getElementById("comment-input") });
 </script>
 
 
-
- <script type="text/javascript" src="/js/functions.js"></script>
+<script type="text/javascript">
+	@foreach($discussion->comments as $comment)
+	$('#comment-{{$comment->id}}').html(md.render($('#comment-{{$comment->id}}').html()));
+	@endforeach
+</script>
 
  <script>
 $(document).ready(function(){
@@ -452,7 +351,4 @@ $(document).ready(function(){
 });
 </script>
 
-
-
 @endsection
-

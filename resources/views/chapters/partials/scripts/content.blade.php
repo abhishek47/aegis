@@ -52,7 +52,7 @@
       var listItem, nameItem, textItem;
       listItem = jQuery("<li/>", {
         "id": mid,
-      	"class": "panel w-100  message-panel",
+      	"class": "panel w-100  message-panel text-dark",
         "tabindex": 1,
 
       });
@@ -66,20 +66,20 @@
       if(!isAdmin)
       {
         nameItem = jQuery("<div/>", {
-         "class": "panel-heading name",
+         "class": "panel-heading name  text-info",
         html: '<span class="username">' + name + '</span> <small>' +  moment(createdAt).format("M-D-YYYY h:mm:ss a")  + '</small>',
         "data-id": mid
         });
       }
       else {
         nameItem = jQuery("<div/>", {
-        "class": "panel-heading name is-admin",
-        html: '<span class="username">' + name + '</span> <small>' +  moment(createdAt).format("M-D-YYYY h:mm:ss a")  + '</small>',
+        "class": "panel-heading name is-admin  text-danger font-bold",
+        html: '<span class="username">' + name + '</span> <small class="text-muted">' +  moment(createdAt).format("M-D-YYYY h:mm:ss a")  + '</small>',
         "data-id": mid
         });
      }
       textItem = jQuery("<p/>", {
-        "class": "panel-body text markdown-body",
+        "class": "panel-body text markdown-body font-medium",
         html: text,
         "white-space" : "pre",
         "data-latex": text

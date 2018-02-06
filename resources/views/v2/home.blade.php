@@ -16,10 +16,10 @@
                     
                     <div class="col-md-12">
                       <div class="card card-shadow " id="">
-                        <div class="card-header bg-info">
+                        <div class="card-header bg-info" style="padding: 3px;">
                                
                             </div>
-                        <div class="card-body">
+                        <div class="card-body font-light">
 
                             
                                

@@ -36,7 +36,7 @@ class QuizController extends Controller
 
     public function discuss(Quiz $quiz, Question $question)
     {
-    	return view('quiz.discuss', compact('quiz', 'question'));
+    	return view('v2.quiz.discuss', compact('quiz', 'question'));
     }
 
 
