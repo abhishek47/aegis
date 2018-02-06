@@ -844,7 +844,7 @@ function week_ranges($year = null, $month = null, $format = 'Y-m-d') {
 
 
 
-function mergeCollection(Collection $col1, Collection $col2)
+function mergeCollection($col1, $col2)
  {
  	foreach ($col2 as $item)
 	{
