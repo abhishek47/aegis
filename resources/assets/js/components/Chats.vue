@@ -125,6 +125,7 @@
                 Echo.leave('chat.'+this.getRoomId());
                 Echo.leave('chats');
                 this.receiver = user;
+                this.joinChats();   
                  this.joinRoom(this.getRoomId());
                  var self = this;
                   axios.get('/chats/get', {'friend_id': self.receiver.id })
