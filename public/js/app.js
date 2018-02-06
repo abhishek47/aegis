@@ -70130,9 +70130,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         addCode: function addCode(code) {
             console.log(code);
-            $('#newField').val(function () {
-                return this.value + ' ' + code;
-            });
+            this.newMessage = this.newMessage + code;
+            $('#newField').focus();
+        },
+        toggleKeyboard: function toggleKeyboard() {
+            $('#keyboard').fadeOut(500);
         }
     }
 

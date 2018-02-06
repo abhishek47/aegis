@@ -269,9 +269,13 @@
             addCode(code)
             {
                 console.log(code);
-                $('#newField').val(function() {
-                    return this.value + ' ' + code;
-                });
+                this.newMessage = this.newMessage + code;
+                $('#newField').focus();
+            },
+
+            toggleKeyboard()
+            {
+                $('#keyboard').fadeOut(500);
             }
         }
 
