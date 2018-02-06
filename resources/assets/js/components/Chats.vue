@@ -128,9 +128,9 @@
                 this.joinChats();   
                  this.joinRoom(this.getRoomId());
                  var self = this;
-                  axios.get('/chats/get', {'friend_id': self.receiver.id })
+                  axios.get('/chats/get?friend_id='+self.receiver.id)
                      .then(function(response){
-                        
+                        console.log(response.data);
                         self.messages = response.data.messages;
                         
                        

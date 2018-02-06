@@ -70039,8 +70039,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.joinChats();
             this.joinRoom(this.getRoomId());
             var self = this;
-            axios.get('/chats/get', { 'friend_id': self.receiver.id }).then(function (response) {
-
+            axios.get('/chats/get?friend_id=' + self.receiver.id).then(function (response) {
+                console.log(response.data);
                 self.messages = response.data.messages;
 
                 $('#chats').animate({ scrollTop: $('#chats').prop("scrollHeight") }, 500);

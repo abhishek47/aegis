@@ -53,8 +53,8 @@ class ChatsController extends Controller
 
         }
         
-            $chats = Chat::where('to_id', $currentUser->id)->where('from_id', auth()->id())->latest()->get();
-            $chatsTo = Chat::where('from_id', $currentUser->id)->where('to_id', auth()->id())->latest()->get();
+            $chats = Chat::where('to_id', $currentUser->id)->where('from_id', auth()->id())->get();
+            $chatsTo = Chat::where('from_id', $currentUser->id)->where('to_id', auth()->id())->get();
 
             $chats->merge($chatsTo);
 
@@ -83,8 +83,8 @@ class ChatsController extends Controller
      */
     public function get()
     {
-            $chats = Chat::where('to_id', request('friend_id'))->where('from_id', auth()->id())->latest()->get();
-            $chatsTo = Chat::where('from_id', request('friend_id'))->where('to_id', auth()->id())->latest()->get();
+            $chats = Chat::where('to_id', request('friend_id'))->where('from_id', auth()->id())->get();
+            $chatsTo = Chat::where('from_id', request('friend_id'))->where('to_id', auth()->id())->get();
 
             $chats->merge($chatsTo);
 
