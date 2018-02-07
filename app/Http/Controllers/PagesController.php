@@ -34,7 +34,7 @@ class PagesController extends Controller
 
     public function careers()
     {
-    	return view('v2.pages.careers');
+    	return view('pages.careers');
     }
 
     public function contact()
