@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Wiki;
 use App\Course;
 use Illuminate\Http\Request;
+use App\Mail\ContactMessage;
 
 class PagesController extends Controller
 {
@@ -50,6 +51,13 @@ class PagesController extends Controller
     public function policy()
     {
         return view('v2.pages.policy');
+    }
+
+
+    public function sendMail()
+    {
+        \Mail::to('waniabhishek47@gmail.com')->send(new ContactMessage(request('name'), request('email'), request('message')));
+        return back();
     }
 
 

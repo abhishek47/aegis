@@ -224,26 +224,27 @@
                             <div class="col-lg-6 contact-box">
                                 <div class="aos-init aos-animate" data-aos="fade-right" data-aos-duration="1200"> 
                                     <h1 class="title font-bold text-white m-t-10">Contact Us</h1>
-                                    <form class="m-t-30 aos-init aos-animate" data-aos="fade-left" data-aos-duration="1200">
+                                    <form class="m-t-30 aos-init aos-animate" method="POST" action="/send-mail" data-aos="fade-left" data-aos-duration="1200">
+                                        {{ csrf_field() }}
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="form-group m-t-15">
-                                                    <input class="form-control" type="text" placeholder="name">
+                                                    <input class="form-control" name="name" type="text" placeholder="name">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group m-t-15">
-                                                    <input class="form-control" type="email" placeholder="email address">
+                                                    <input class="form-control" name="email" type="email" placeholder="email address">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group m-t-15">
-                                                    <textarea class="form-control" rows="3" placeholder="message"></textarea>
+                                                    <textarea class="form-control" name="message" rows="3" placeholder="message"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 d-flex no-block m-t-20">
                                                 <button type="submit" class="btn bg-white text-inverse">Submit</span></button>
-                                                <span class="ml-auto text-white align-self-center"><i class="fa fa-phone m-r-10"></i>(+91) 8800106866</span>
+                                                
                                             </div>
                                         </div>
                                     </form>

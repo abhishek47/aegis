@@ -17,6 +17,9 @@ Route::get('/privacy-policy', 'PagesController@policy');
 
 Auth::routes();
 
+Route::post('/send-mail', 'PagesController@sendMail');
+
+
 $s = 'oauth.';
 Route::get('/oauth/redirect/{provider}',   ['as' => $s . 'redirect',   'uses' => 'Auth\SocialController@getSocialRedirect']);
 Route::get('/oauth/handle/{provider}',     ['as' => $s . 'handle',     'uses' => 'Auth\SocialController@getSocialHandle']);

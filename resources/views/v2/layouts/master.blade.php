@@ -287,23 +287,12 @@ we just copy that css and paste here you can also do that -->
                        <div class="d-flex no-block">
                             <div class="display-7 m-r-20 align-self-top"><i class="icon-Location-2"></i></div>
                             <div class="info">
-                                <p>Nashik, Maharashtra 
+                                <p>Lucknow, Uttar Pradesh 
                                 <br/>
                                 India</p>
                            </div>
                        </div>
-                       <div class="d-flex no-block">
-                            <div class="display-7 m-r-20 align-self-top"><i class="icon-Over-Time"></i></div>
-                            <div class="info">
-                                <span class="font-medium text-muted db  m-t-5">9.00 AM - 6:00PM</span>
-                            </div>
-                       </div>
-                       <div class="d-flex no-block">
-                            <div class="display-7 m-r-20 align-self-top"><i class="icon-Phone-2"></i></div>
-                            <div class="info">
-                                <span class="font-medium text-muted db  m-t-5"> (+91) 8800106866</span>
-                            </div>
-                       </div>
+                       
                        <div class="d-flex no-block">
                             <div class="display-7 m-r-20 align-self-top"><i class="icon-Mail"></i></div>
                             <div class="info">
