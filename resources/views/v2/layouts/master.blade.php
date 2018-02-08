@@ -147,7 +147,7 @@ we just copy that css and paste here you can also do that -->
                     <div class="container">
                         <!-- Header 1 code -->
                         <nav class="navbar navbar-expand-lg h1-nav">
-                            <a class="navbar-brand" href="#"><img style="width: 200px;" src="/images/logo-wide.png" alt="wrapkit"></a>
+                            <a class="navbar-brand" href="/"><img style="width: 200px;" src="/images/logo-wide.png" alt="wrapkit"></a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header1" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="ti-menu"></span>
                             </button>
