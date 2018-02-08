@@ -6,6 +6,7 @@ use App\Wiki;
 use App\Course;
 use Illuminate\Http\Request;
 use App\Mail\ContactMessage;
+use App\Mail\JobApplication;
 
 class PagesController extends Controller
 {
@@ -35,7 +36,7 @@ class PagesController extends Controller
 
     public function careers()
     {
-    	return view('pages.careers');
+    	return view('v2.pages.careers');
     }
 
     public function contact()
@@ -56,7 +57,23 @@ class PagesController extends Controller
 
     public function sendMail()
     {
-        \Mail::to('waniabhishek47@gmail.com')->send(new ContactMessage(request('name'), request('email'), request('message')));
+        \Mail::to('sharma.prashant109@gmail.com')->send(new ContactMessage(request('name'), request('email'), request('message')));
+        return back();
+    }
+
+    public function applyJob()
+    {
+        $file = request()->file('resume');
+
+        $imageName = 'uploads/' . uniqid();
+
+        \Storage::disk('s3')->put($imageName, file_get_contents($file));
+        \Storage::disk('s3')->setVisibility($imageName, 'public');
+
+        $url = \Storage::disk('s3')->url($imageName);
+
+        \Mail::to('waniabhishek47@gmail.com')
+            ->send(new JobApplication(request('name'), request('email'), request('phone'), request('post'), $url));
         return back();
     }
 

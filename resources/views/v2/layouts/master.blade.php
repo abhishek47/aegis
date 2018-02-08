@@ -274,8 +274,7 @@ we just copy that css and paste here you can also do that -->
                         <ul class="general-listing">
                             <li><a href="/"><i class="fa fa-circle"></i> Home</a></li>
                             <li><a href="/about"><i class="fa fa-circle"></i> About</a></li>
-                            <li><a href="/courses"><i class="fa fa-circle"></i> Courses</a></li>
-                            <li><a href="/wiki"><i class="fa fa-circle"></i> Wiki</a></li>
+                            <li><a href="/careers"><i class="fa fa-circle"></i> Careers</a></li>
                             <li><a href="/terms-of-service"><i class="fa fa-circle"></i> Terms Of Service</a></li>
                             <li><a href="/privacy-policy"><i class="fa fa-circle"></i> Privacy Policy</a></li>
     

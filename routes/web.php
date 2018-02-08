@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::post('/send-mail', 'PagesController@sendMail');
 
+Route::post('/apply-job', 'PagesController@applyJob');
+
 
 $s = 'oauth.';
 Route::get('/oauth/redirect/{provider}',   ['as' => $s . 'redirect',   'uses' => 'Auth\SocialController@getSocialRedirect']);

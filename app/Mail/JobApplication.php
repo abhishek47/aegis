@@ -7,24 +7,28 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ContactMessage extends Mailable
+class JobApplication extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $name;
     public $email;
-    public $message;
+    public $phone;
+    public $post;
+    public $url;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name, $email, $message)
+    public function __construct($name, $email, $phone, $post, $url)
     {
-       $this->name = $name;
-       $this->email = $email;
-       $this->message = $message;
+        $this->name = $name;
+        $this->email = $email;
+        $this->phone = $phone;
+        $this->post = $post;
+        $this->url = $url;
     }
 
     /**
@@ -34,6 +38,6 @@ class ContactMessage extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.contact');
+        return $this->markdown('emails.apply');
     }
 }
