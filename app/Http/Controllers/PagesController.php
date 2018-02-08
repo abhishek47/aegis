@@ -72,7 +72,7 @@ class PagesController extends Controller
 
         $url = \Storage::disk('s3')->url($imageName);
 
-        \Mail::to('waniabhishek47@gmail.com')
+        \Mail::to('sharma.prashant109@gmail.com')
             ->send(new JobApplication(request('name'), request('email'), request('phone'), request('post'), $url));
         return back();
     }
