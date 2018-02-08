@@ -89,43 +89,45 @@
                                                 <h4 class="modal-title">Apply @ AEGIS</h4>
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                             </div>
-                                            <div class="modal-body">
-                                                <form class="text-dark" method="POST" action="/apply-job" enctype="multipart/form-data">
-                                                    {{ csrf_field() }}
-                                                    <div class="form-group">
-                                                        <label for="recipient-name" class="control-label">Name:</label>
-                                                        <input type="text" class="form-control" name="name">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="recipient-name" class="control-label">E-mail Address:</label>
-                                                        <input type="email" class="form-control" name="email">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="recipient-name" class="control-label">Phone:</label>
-                                                        <input type="number" class="form-control" name="phone">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="recipient-name" class="control-label">Post:</label>
-                                                        <select class="form-control" name="post">
-                                                        	<option value="Content Writer">Content Writer</option>
-                                                        	<option value="Online/Offline Teacher">Online/Offline Teacher</option>
-                                                        	<option value="Software Engineer">Software Engineer</option>
-                                                        	<option value="Marketing & Sales">Marketing &amp; Sales</option>
-                                                        </select>
-                                                    </div>
+                                             <form class="text-dark" method="POST" action="/apply-job" enctype="multipart/form-data">
+	                                            <div class="modal-body">
+	                                               
+	                                                    {{ csrf_field() }}
+	                                                    <div class="form-group">
+	                                                        <label for="recipient-name" class="control-label">Name:</label>
+	                                                        <input type="text" class="form-control" name="name">
+	                                                    </div>
+	                                                    <div class="form-group">
+	                                                        <label for="recipient-name" class="control-label">E-mail Address:</label>
+	                                                        <input type="email" class="form-control" name="email">
+	                                                    </div>
+	                                                    <div class="form-group">
+	                                                        <label for="recipient-name" class="control-label">Phone:</label>
+	                                                        <input type="number" class="form-control" name="phone">
+	                                                    </div>
+	                                                    <div class="form-group">
+	                                                        <label for="recipient-name" class="control-label">Post:</label>
+	                                                        <select class="form-control" name="post">
+	                                                        	<option value="Content Writer">Content Writer</option>
+	                                                        	<option value="Online/Offline Teacher">Online/Offline Teacher</option>
+	                                                        	<option value="Software Engineer">Software Engineer</option>
+	                                                        	<option value="Marketing & Sales">Marketing &amp; Sales</option>
+	                                                        </select>
+	                                                    </div>
 
-                                                     <div class="form-group">
-                                                        <label for="recipient-name" class="control-label">Resume/CV:</label>
-                                                        <input type="file" class="form-control" name="resume">
-                                                    </div>
-                                                    
-                                               
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-inverse waves-effect" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Send Application</button>
-                                                 </form>
-                                            </div>
+	                                                     <div class="form-group">
+	                                                        <label for="recipient-name" class="control-label">Resume/CV:</label>
+	                                                        <input type="file" class="form-control" name="resume">
+	                                                    </div>
+	                                                    
+	                                               
+	                                            </div>
+	                                            <div class="modal-footer">
+	                                                <button type="button" class="btn btn-inverse waves-effect" data-dismiss="modal">Close</button>
+	                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Send Application</button>
+	                                               
+	                                            </div>
+                                              </form>
                                         </div>
                                     </div>
                                 </div>
