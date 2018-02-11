@@ -165,7 +165,7 @@ They may also suggest problems for inclusion.
            
              
                
-           <div class="card card-shadow" style="width: 100%;cursor: pointer;" @click="openWiki({{ $wiki->id }})">
+           <div class="card card-shadow" style="width: 100%;cursor: pointer;" onclick="openWiki({{ $wiki->id }})">
                  
                  <div class="card-body"> 
                  <h2  class="title font-medium m-t-0"><a class="text-dark" href="/wiki/{{ $wiki->id }}"></a>{{ $wiki->title }}</h2> 

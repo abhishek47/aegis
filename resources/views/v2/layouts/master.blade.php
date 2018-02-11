@@ -349,7 +349,19 @@ we just copy that css and paste here you can also do that -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 
+    <script type="text/javascript">
+        function openWiki(id)
+        {
+            console.log(window.location);
+            window.location = '/wiki/' + id;
+        }
 
+        function openLink(url)
+        {
+            console.log(window.location);
+            window.location = url;
+        }
+    </script>
 
 
     @yield('js')
