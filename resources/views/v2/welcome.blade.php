@@ -252,7 +252,8 @@
                             </div>
                         </div>
                         <div class="col-lg-6 right-image p-r-0 hidden-md-down"> 
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59990.65887208493!2d73.76846144556879!3d19.991040271901912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddd290b09914b3%3A0xcb07845d9d28215c!2sNashik%2C+Maharashtra!5e0!3m2!1sen!2sin!4v1508123275428" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen="" data-aos="fade-left" data-aos-duration="3000" class="aos-init aos-animate"></iframe>
+                        
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113911.06895074832!2d80.87247304382487!3d26.84882791060741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd991f32b16b%3A0x93ccba8909978be7!2sLucknow%2C+Uttar+Pradesh!5e0!3m2!1sen!2sin!4v1518373507146" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen="" data-aos="fade-left" data-aos-duration="3000" class="aos-init aos-animate"></iframe>
                         </div>    
                     </div>
                 </div>
