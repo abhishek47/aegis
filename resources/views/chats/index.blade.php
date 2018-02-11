@@ -82,7 +82,7 @@
 <div id="content" class="app-content box-shadow-0" role="main">
    
     <div class="content-main d-flex flex" id="content-main">
-        <chats :chats="{{ $chats }}" :user="{{ auth()->user() }}" :people="{{ $people }}" :currentuser="{{ $currentUser }}"></chats>
+       <!-- <chats :chats="{{ $chats }}" :user="{{ auth()->user() }}" :people="{{ $people }}" :currentuser="{{ $currentUser }}"></chats> -->
     </div>
     <div class="content-footer white hide" id="content-footer">
         <div class="d-flex p-3"><span class="text-sm text-muted flex">&copy; Copyright. AEGIS</span>

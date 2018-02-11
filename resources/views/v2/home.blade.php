@@ -80,7 +80,7 @@
                         <div class="d-flex p-10 p-t-0">
                             <div class="display-7 align-self-center">
                                 <h2 class=""><a class="text-white" href="/wiki/{{$wiki->id}}">{{ substr($wiki->title, 0, 220) }}</a></h2>
-                                <p class="font-20">{!! substr($wiki->body, 0, 320) !!}</p>
+                                <p class="font-20">Read our Wiki of the Week</p>
                             </div>
                             
                         </div>

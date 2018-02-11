@@ -13,7 +13,9 @@ class Question extends Model
 
      protected $fillable = ['q', 'a', 'select_any', 'correct', 'incorrect', 'quiz_id', 'level', 'solution'];
 
-      protected $visible = ['id', 'q', 'a', 'select_any', 'correct', 'incorrect', 'level'];
+      protected $visible = ['id', 'q', 'a', 'select_any', 'correct', 'incorrect', 'level', 'solved', 'solved_correct', 'user_answers'];
+
+      protected $appends = ['solved', 'solved_correct', 'user_answers'];
 
      public function quiz()
      {
@@ -23,6 +25,32 @@ class Question extends Model
      public function comments()
      {
      	return $this->hasMany(Comment::class)->orderBy('created_at', 'desc');
+     }
+
+
+     public function getSolvedAttribute()
+     {
+          return auth()->user()->solvedQuestions->contains($this);
+     }
+
+     public function getSolvedCorrectAttribute()
+     {
+          if($this->solved)
+          {
+               return auth()->user()->solvedQuestions()->where('question_id', $this->id)->first()->pivot->correct;
+          } else {
+               return false;
+          }
+     }
+
+      public function getUserAnswersAttribute()
+     {
+          if($this->solved)
+          {
+               return auth()->user()->solvedQuestions()->where('question_id', $this->id)->first()->pivot->selectedAnswers;
+          } else {
+               return [];
+          }
      }
 
      

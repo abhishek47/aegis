@@ -17,7 +17,7 @@ class PagesController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('terms', 'policy');
+        $this->middleware('guest')->except('terms', 'policy', 'careers');
     }
 
     public function index()
@@ -57,7 +57,7 @@ class PagesController extends Controller
 
     public function sendMail()
     {
-        \Mail::to('sharma.prashant109@gmail.com')->send(new ContactMessage(request('name'), request('email'), request('message')));
+        \Mail::to('info@aegisacademy.co.in')->send(new ContactMessage(request('name'), request('email'), request('message')));
         return back();
     }
 
@@ -72,7 +72,7 @@ class PagesController extends Controller
 
         $url = \Storage::disk('s3')->url($imageName);
 
-        \Mail::to('sharma.prashant109@gmail.com')
+        \Mail::to('info@aegisacademy.co.in')
             ->send(new JobApplication(request('name'), request('email'), request('phone'), request('post'), $url));
         return back();
     }

@@ -110,6 +110,12 @@ we just copy that css and paste here you can also do that -->
 
     </script>
 
+    <style type="text/css">
+        body {
+            min-width: 0;
+        }
+    </style>
+
     @yield('css')
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -149,7 +155,7 @@ we just copy that css and paste here you can also do that -->
                         <nav class="navbar navbar-expand-lg h1-nav">
                             <a class="navbar-brand" href="/"><img style="width: 200px;" src="/images/logo-wide.png" alt="wrapkit"></a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header1" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="ti-menu"></span>
+                                <span class="fa fa-bars"></span>
                             </button>
                             <div class="collapse navbar-collapse" id="header1">
                                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
@@ -162,6 +168,7 @@ we just copy that css and paste here you can also do that -->
                                         <li class="nav-item"><a class="btn btn-success" href="/register">Create Account</a></li>
                                     @else
                                         <li class="nav-item {{ request()->is('home') ? 'active' : ''}}"><a class="nav-link font-bold" href="/home">Home</a></li>
+                                         <li class="nav-item {{ request()->is('careers') ? 'active' : ''}}"><a class="nav-link font-bold" href="/careers">Careers</a></li>
                                         <li class="nav-item {{ request()->is('courses') ? 'active' : ''}}"><a class="nav-link font-bold" href="/courses">Courses</a></li>
 
                                         <li class="nav-item dropdown">
@@ -355,6 +362,9 @@ we just copy that css and paste here you can also do that -->
 
 
     @yield('js')
+
+
+    
 </body>
 
 </html>

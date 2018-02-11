@@ -2860,4 +2860,29 @@ File: scss
   .wrap-feature30-box {
     position: relative; }
   .dropdown-submenu > .dropdown-menu.show {
-    display: block; } }
+    display: block; } 
+
+
+  .banner-innerpage .title{
+    font-size: 34px;
+  
+  }
+  .hero {
+    display: none;
+  }
+
+ .carousel-item {
+  height: 120px !important;
+ }
+
+.slider2 h2 {
+  margin-top: 0;
+}
+
+
+  }
+
+
+
+
+

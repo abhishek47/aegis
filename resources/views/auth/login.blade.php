@@ -49,7 +49,7 @@
 
     <div class="limiter" style="background: url('/images/bg/bg-pattern.png');background-size: cover;">
         <div class="container-login100" style="background: rgba(0, 173, 10, 0.7);background-size: cover;height: 100%;">
-            <div class="overlay" > 
+            
                 <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
                     <form class="login100-form validate-form flex-sb flex-w" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
@@ -82,7 +82,7 @@
                                 Password
                             </span>
 
-                            <a href="#" class="txt2 bo1 m-l-5">
+                            <a href="{{ route('password.request') }}" class="txt2 bo1 m-l-5">
                                 Forgot?
                             </a>
                         </div>
@@ -105,10 +105,14 @@
                             <a href="/register" class="txt2 bo1">
                                 Sign up now
                             </a>
+                              &nbsp; | &nbsp; 
+                             <a href="/" class="txt2 bo1">
+                                Go Home
+                            </a>
                         </div>
                     </form>
                 </div>
-            </div>
+            
         </div>
     </div>
 

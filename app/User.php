@@ -73,4 +73,9 @@ class User extends Authenticatable
         return $this->hasMany(ClassroomLike::class);
     }
 
+
+    public function solvedQuestions()
+    {
+        return $this->belongsToMany(Question::class)->withPivot('correct', 'selectedAnswers');
+    }
 }

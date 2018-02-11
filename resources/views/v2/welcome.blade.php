@@ -9,25 +9,25 @@
 			<!-- Wrapper For Slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="carousel-item active" style="background: url('/images/bg/bg-pattern.png'); background-size: cover;height: 500px;">
-				 <div class="overlay" style="height: 500px;background: rgba(0, 173, 10, 0.7);">
+				 <div class="overlay" style="height: 500px;background: rgba(0, 173, 10, 0.7);
+    ">
 					<!-- Slide Background -->
 					<!-- Slide Text Layer -->
 					<div class="slide-text">
-						<div class="col-sm-7">
+                     <div class="row">
+						<div class="col-sm-7 float-left">
 							
 							<h2  data-animation="animated zoomInRight" class="title text-white">IF YOU LOVE <span class="text-primary-gradiant">CHALLENGING</span> PROBLEMS YOU ARE AT THE RIGHT PLACE</h2> </div>
 
 
 							
-						
-							</div>
-
-							
+		
+							<div class="col-sm-3 float-left">
 								
 								<img class="hero" src="/images/hero.png">
 							
-							
-
+							</div>
+                        </div>
 
 							
 						</div>
@@ -251,7 +251,7 @@
                                 </div>    
                             </div>
                         </div>
-                        <div class="col-lg-6 right-image p-r-0"> 
+                        <div class="col-lg-6 right-image p-r-0 hidden-md-down"> 
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59990.65887208493!2d73.76846144556879!3d19.991040271901912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddd290b09914b3%3A0xcb07845d9d28215c!2sNashik%2C+Maharashtra!5e0!3m2!1sen!2sin!4v1508123275428" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen="" data-aos="fade-left" data-aos-duration="3000" class="aos-init aos-animate"></iframe>
                         </div>    
                     </div>

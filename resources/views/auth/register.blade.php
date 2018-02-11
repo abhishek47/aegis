@@ -124,6 +124,11 @@
                         <a href="/login" class="txt2 bo1">
                             Sign in now
                         </a>
+
+                        &nbsp; | &nbsp; 
+                             <a href="/" class="txt2 bo1">
+                                Go Home
+                            </a>
                     </div>
                 </form>
             </div>

@@ -250,8 +250,12 @@
                     if (questions.hasOwnProperty(i)) {
                         var question = questions[i];
 
+                        console.log(question.solved);
+                         
 
-                        var questionHTML = $('<li class="' + questionClass +'" id="question' + (count - 1) + '"></li>');
+                        var questionHTML = $('<li data-id="'+  question.id   + '" class="' + questionClass +'" id="question' + (count - 1) + '"></li>');
+
+
 
                         skipToQ.append($('<li><a class="change-question" id="ctoq' + (count - 1) + '" href="#" data-id="question' + (count - 1) + '">' + (count) + '</a></li>')).fadeIn(1000, kN(key,2));
 
@@ -293,6 +297,9 @@
                         // Get the answers
                         var qanswers = JSON.parse(question.a);
                         console.log(qanswers);
+
+                       
+
                         var answers = plugin.config.randomSortAnswers ?
                             qanswers.sort(function() { return (Math.round(Math.random())-0.5); }) :
                             qanswers;
@@ -330,11 +337,20 @@
                             if (answers.hasOwnProperty(i)) {
                                 answer   = answers[i],
                                 optionId = inputName + '_' + i.toString();
-                                
-                                // If question has >1 true answers and is not a select any, use checkboxes; otherwise, radios
-                                var input = '<input id="' + optionId + '" name="' + inputName +
+                                    
+                                    if(question.solved && JSON.parse(question.user_answers) == i) 
+                                    {
+                                        var input = '<input checked id="' + optionId + '" name="' + inputName +
                                             '" type="' + inputType + '" /> ';
-                                
+                                    }
+                                    else {
+                                 
+                              
+                                     var input = '<input id="' + optionId + '" name="' + inputName +
+                                            '" type="' + inputType + '" /> ';
+                                }
+                              
+                               
                                 if(i == 0)
                                 {
                                     posLabel = 'A';
@@ -395,13 +411,91 @@
 
                         } else {
                             questionHTML.append('<a href="#" class="btn btn-primary mr-1 ' + nextQuestionClass + '">' + nextText + '</a>');
+                            if(!question.solved) {
                             questionHTML.append('<a href="#" class="btn btn-primary mr-1 ' + checkAnswerClass + '">' + plugin.config.checkAnswerText + '</a>');
+                            }
                             questionHTML.append('<a target="_blank" href="/quiz/' + quizID + '/question:' + question.id + '/discuss" class="btn btn-dark">Discuss Solution</a>');
                         }
 
                         // Append question & answers to quiz
 
                         quiz.append(questionHTML);
+
+
+
+                        if(question.solved){
+                            console.log('Solved :' + question.solved);
+                            questionHTML.addClass(completeClass);
+
+                            answerLIs     = questionHTML.find(_answers + ' li'),
+                            answerSelects = answerLIs.find('input:checked'),
+                            answers       = JSON.parse(question.a),
+                            selectAny     = question.select_any ? question.select_any : false;
+
+                answerLIs.addClass(incorrectResponseClass); 
+
+                if(answers.length == 1)
+                {
+                    var correctResponse = answers[0].option == question.userAnswers[0];
+                    if(correctResponse)
+                    {
+
+                    answerLIs.first().removeClass(incorrectResponseClass).addClass(correctResponseClass);
+                    } else {
+                         answerLIs.append('<li class="sb-resp" style="margin-top: 8px;"><b>Answer : </b>' + answers[0].option).css('display', 'inline-block');
+                    }
+                   
+
+                } else {
+                     // Collect the true answers needed for a correct response
+                        var trueAnswers = [];
+                        for (i in answers) {
+                            if (answers.hasOwnProperty(i)) {
+                                var answer = answers[i],
+                                    index  = parseInt(i, 10);
+
+                                       
+                                if (answer.correct) {
+                                    trueAnswers.push(index);
+                                    answerLIs.eq(index).removeClass(incorrectResponseClass).addClass(correctResponseClass);
+                                }
+
+
+                            }
+                        }
+
+                        // TODO: Now that we're marking answer LIs as correct / incorrect, we might be able
+                        // to do all our answer checking at the same time
+
+                        // NOTE: Collecting answer index for comparison aims to ensure that HTML entities
+                        // and HTML elements that may be modified by the browser / other scrips match up
+
+                        // Collect the answers submitted
+                        var selectedAnswers = question.userAnswers;
+                        
+
+
+                        // Verify all/any true answers (and no false ones) were submitted
+                        var correctResponse = plugin.method.compareAnswers(trueAnswers, selectedAnswers, selectAny);
+
+                        
+                }
+
+
+                        questionHTML.find('input').prop('disabled', true);
+                        questionHTML.find(_responses).css('display', 'block');
+                        questionHTML.find(_nextQuestionBtn).css('display', 'inline-block');
+                        
+
+                        if(question.solved_correct)
+                        {
+                            questionHTML.find(_responses).find('.'+correctResponseClass).css('display', 'block');
+                        } else {
+                            questionHTML.find(_responses).find('.'+incorrectResponseClass).css('display', 'block');
+                        }
+
+                        
+                        }
 
                         count++;
                     }
@@ -510,6 +604,7 @@
                     answerLIs     = questionLI.find(_answers + ' li'),
                     answerSelects = answerLIs.find('input:checked'),
                     questionIndex = parseInt(questionLI.attr('id').replace(/(question)/, ''), 10),
+                    questionId = parseInt(questionLI.attr('data-id'), 10),
                     answers       = JSON.parse(questions[questionIndex].a),
                     selectAny     = questions[questionIndex].select_any ? questions[questionIndex].select_any : false;
 
@@ -569,10 +664,12 @@
 
                 if (correctResponse) {
                             questionLI.addClass(correctClass);
+
                         } else {
                             questionLI.addClass(incorrectClass);
                         }
 
+                 axios.post('/questions/solve', { 'id': questionId, 'userAnswers' : selectedAnswers, 'correct' : correctResponse});
                
 
                 // Toggle appropriate response (either for display now and / or on completion)

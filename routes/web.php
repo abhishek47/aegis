@@ -103,3 +103,6 @@ Route::get('/chats/get', 'ChatsController@get');
 Route::post('/chats', 'ChatsController@store');
 
 
+Route::post('/questions/solve', 'QuestionController@solve');
+
+
