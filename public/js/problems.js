@@ -36,7 +36,7 @@
                 randomSortQuestions: false,
                 randomSortAnswers: false,
                 preventUnanswered: false,
-                disableScore: false,
+                disableScore: true,
                 disableRanking: true,
                 scoreAsPercentage: false,
                 perQuestionResponseMessaging: true,
