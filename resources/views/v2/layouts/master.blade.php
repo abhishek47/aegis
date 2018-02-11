@@ -86,7 +86,7 @@ we just copy that css and paste here you can also do that -->
   },
         showProcessingMessages: false,
         tex2jax: { inlineMath: [['$','$'],['\\(','\\)']] },
-        TeX: { equationNumbers: {autoNumber: "AMS"}, extensions: ["AMSmath.js","AMSsymbols.js","fast-preview.js"] },
+        TeX: { equationNumbers: {autoNumber: "AMS"}, extensions: ["AMSmath.js","AMSsymbols.js"] },
 
       });
     </script>
