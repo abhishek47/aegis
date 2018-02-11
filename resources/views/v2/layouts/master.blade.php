@@ -168,7 +168,7 @@ we just copy that css and paste here you can also do that -->
                                         <li class="nav-item"><a class="btn btn-success" href="/register">Create Account</a></li>
                                     @else
                                         <li class="nav-item {{ request()->is('home') ? 'active' : ''}}"><a class="nav-link font-bold" href="/home">Home</a></li>
-                                         <li class="nav-item {{ request()->is('careers') ? 'active' : ''}}"><a class="nav-link font-bold" href="/careers">Careers</a></li>
+                                         
                                         <li class="nav-item {{ request()->is('courses') ? 'active' : ''}}"><a class="nav-link font-bold" href="/courses">Courses</a></li>
 
                                         <li class="nav-item dropdown">
@@ -251,7 +251,7 @@ we just copy that css and paste here you can also do that -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
 
-        @guest
+        
         <!-- ============================================================== -->
         <!-- footer 4  -->
         <!-- ============================================================== -->
@@ -261,7 +261,7 @@ we just copy that css and paste here you can also do that -->
             <div class="container">
                 <div class="row">
                     <!-- Column -->
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-7 col-md-4">
                         <p class="p-t-10">Aegis Academy is started by young educators to provide high - quality education at affordable price. Almost every country conducts several exams to hunt extraordinary problem - solving skilled students.</p>
                         <p>Get the best for yourself by choosing AEGIS!</p>
                         <div class="m-t-20 m-b-30">
@@ -277,7 +277,7 @@ we just copy that css and paste here you can also do that -->
                         </div>
                     </div>
                     <!-- Column -->
-                    <div class="col-lg-2 col-md-6">
+                    <div class="col-lg-2 col-md-4">
                         <ul class="general-listing">
                             <li><a href="/"><i class="fa fa-circle"></i> Home</a></li>
                             <li><a href="/about"><i class="fa fa-circle"></i> About</a></li>
@@ -289,7 +289,7 @@ we just copy that css and paste here you can also do that -->
                     </div>
                     <!-- Column -->
                     <!-- Column -->
-                    <div class="col-lg-3 col-md-6 info-box">
+                    <div class="col-lg-3 col-md-4 info-box">
                        <div class="d-flex no-block">
                             <div class="display-7 m-r-20 align-self-top"><i class="icon-Location-2"></i></div>
                             <div class="info">
@@ -308,16 +308,7 @@ we just copy that css and paste here you can also do that -->
                     </div>
                     <!-- Column -->
                     <!-- Column -->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="subscribe-box">
-                            <div class="display-4 text-white"><i class="icon-Mail-3"></i></div>
-                            <p>Join AEGIS and gain access to our extensive practice problems. It's absolutely free </p>
-                            <form>
-                                <div class="m-b-20"><input class="form-control" placeholder="enter email"></div>
-                                <button class="btn btn-danger-gradiant">JOIN US</button>
-                            </form>
-                        </div>
-                    </div>
+                  
                 </div>
             </div>
         </div>
@@ -326,7 +317,7 @@ we just copy that css and paste here you can also do that -->
         <!-- footer 4  -->
         <!-- ============================================================== -->
 
-        @endguest
+       
     </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
