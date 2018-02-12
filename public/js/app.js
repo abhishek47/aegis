@@ -70885,7 +70885,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             query: '',
             results: [],
             selectedUser: [],
-            chatThreads: this.threads,
+            chatThreads: this.threads.length != 0 ? this.threads : [],
             messages: this.chats
 
         };

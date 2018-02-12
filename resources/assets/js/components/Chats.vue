@@ -174,7 +174,7 @@
                 query: '',
                 results: [],
                 selectedUser: [],
-                chatThreads: this.threads,
+                chatThreads: this.threads.length != 0 ? this.threads : [],
                    messages: this.chats
 
             }

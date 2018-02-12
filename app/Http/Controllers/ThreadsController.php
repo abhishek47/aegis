@@ -31,7 +31,7 @@ class ThreadsController extends Controller
 
         $threads = Thread::where('user_1', auth()->id())->orWhere('user_2', auth()->id())->latest()->get();
        
-        if(count($threads))
+        if(count($threads) > 0)
         {
             $chats = $threads->first()->messages;
         } else {
