@@ -35,7 +35,7 @@ class ThreadsController extends Controller
         {
             $chats = $threads->first()->messages;
         } else {
-            $chats = [];
+            $chats = null;
         }
         
 

@@ -89,7 +89,7 @@
 <div id="content" class="app-content box-shadow-0" role="main">
    
     <div class="content-main d-flex flex" id="content-main">
-      <chats :threads="{{ $threads }}" :user="{{ auth()->user() }}" :chats="{{ $chats }}"  ></chats> 
+      <chats :threads="{{ $threads }}" :user="{{ auth()->user() }}" :chats="{{ isset($chats) ? $chats : 1 }}"  ></chats> 
     </div>
     <div class="content-footer white hide" id="content-footer">
         <div class="d-flex p-3"><span class="text-sm text-muted flex">&copy; Copyright. AEGIS</span>
