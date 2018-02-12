@@ -98,9 +98,13 @@ Route::post('/chapter-homework/{homework}/check', 'ChapterSolvingController@chec
 Route::post('/extra-practice-problems/{homework}/check', 'ChapterExtraProblemSolvingController@check');
 
 
-Route::get('/chats', 'ChatsController@index');
-Route::get('/chats/get', 'ChatsController@get');
-Route::post('/chats', 'ChatsController@store');
+Route::get('/chats', 'ThreadsController@index');
+Route::post('/threads', 'ThreadsController@store');
+Route::get('/threads/{thread}', 'ThreadsController@get');
+Route::post('/threads/{thread}/respond', 'ThreadsController@respond');
+Route::get('/threads/{thread}/cancel', 'ThreadsController@destroy');
+Route::get('/messages/{thread}', 'MessagesController@index');
+Route::post('/messages/{thread}', 'MessagesController@store');
 
 
 Route::post('/questions/solve', 'QuestionController@solve');

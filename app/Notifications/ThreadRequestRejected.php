@@ -7,18 +7,22 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class NewMessageNotification extends Notification
+use Illuminate\Notifications\Messages\BroadcastMessage;
+
+class ThreadRequestRejected extends Notification
 {
     use Queueable;
+    
+    public $thread;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($thread)
     {
-        //
+        $this->thread = $thread;
     }
 
     /**
@@ -29,7 +33,7 @@ class NewMessageNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['broadcast'];
     }
 
     /**
@@ -58,4 +62,17 @@ class NewMessageNotification extends Notification
             //
         ];
     }
-}
+
+    /**
+     * Get the broadcastable representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return BroadcastMessage
+     */
+    public function toBroadcast($notifiable)
+    {
+        return new BroadcastMessage([
+           
+            'thread' => $this->thread
+        ]);
+    }

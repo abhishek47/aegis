@@ -16,7 +16,7 @@ Broadcast::channel('App.User.{id}', function ($user, $id) {
 });
 
 
-Broadcast::channel('chat.{roomId}', function ($user, $roomId) {
+Broadcast::channel('thread.{roomId}', function ($user, $roomId) {
     return ['id' => $user->id, 'name' => $user->name];
 });
 

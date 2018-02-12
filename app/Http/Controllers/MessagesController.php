@@ -2,40 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Chat;
 use App\User;
 use App\Thread;
-use Illuminate\Http\Request;
+use App\Message;
 use App\Events\NewMessage;
+use Illuminate\Http\Request;
+use App\Notifications\NewChatMessage;
 
-class ChatsController extends Controller
+class MessagesController extends Controller
 {
-
-     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    { 
-
-
-        $threads = Thread::latest()->get();
-
-        
-
-        return view('chats.index', compact('threads'));
+    public function index(Thread $thread)
+    {
+        return response(['messages' => $thread->messages], 200);
     }
 
     /**
@@ -49,46 +32,30 @@ class ChatsController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Chat  $chat
-     * @return \Illuminate\Http\Response
-     */
-    public function get(Thread $thread)
-    {
-            
-
-            //$chats = $chats->sortBy('id');
-
-            return response(['thread' => $thread], 200);
-
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Thread $thread)
     {
-        $message = Chat::create(['from_id' => auth()->id(), 'to_id' => request('to_id'), 'message' => request('message')]);
+        $message = Message::create(['sender_id' => auth()->id(), 'receiver_id' => request('receiver_id'), 
+              'message' => request('message'), 'thread_id' => $thread->id]);
 
-        $message->load(['sender', 'receiver']);
+       User::findOrFail(request('receiver_id'))->notify(new NewChatMessage($message));
 
         broadcast(new NewMessage($message))->toOthers();
 
         return response(['message' => $message], 200);
-
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Chat  $chat
+     * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function show(Chat $chat)
+    public function show(Message $message)
     {
         //
     }
@@ -96,10 +63,10 @@ class ChatsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Chat  $chat
+     * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function edit(Chat $chat)
+    public function edit(Message $message)
     {
         //
     }
@@ -108,10 +75,10 @@ class ChatsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Chat  $chat
+     * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Chat $chat)
+    public function update(Request $request, Message $message)
     {
         //
     }
@@ -119,10 +86,10 @@ class ChatsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Chat  $chat
+     * @param  \App\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Chat $chat)
+    public function destroy(Message $message)
     {
         //
     }

@@ -8,17 +8,21 @@
     margin: auto;
     display: block;"></a>
                     </div>
+                    <div>
+                         <a class="nav-link mt-2" data-toggle="modal" data-target="#addFriend"><span class="btn btn-sm btn-block btn-rounded danger"><i class="fa fa-plus float-left"></i> New</span></a>
+                    </div>
                     <div class="navbar box-shadow">
                         <div class="input-group flex">
-                            <input type="text" @keyup="searchUser()" v-model="userSearch" class="form-control px-0 no-bg no-border no-shadow search" placeholder="Search" required=""> <span class="input-group-btn"><button class="btn no-bg no-border no-shadow" type="button"><i class="fa fa-search text-muted"></i></button></span></div>
+                            <input type="text"  class="form-control px-0 no-bg no-border no-shadow search" placeholder="Search" required=""> <span class="input-group-btn"><button class="btn no-bg no-border no-shadow" type="button"><i class="fa fa-search text-muted"></i></button></span></div>
                     </div>
                     <div class="scrollable hover">
-                        <div class="list inset">
-                            <div class="p-2 px-3 text-muted text-sm">People</div>
 
-                            <div v-for="user in people" class="list-item" @click="openChats(user)" style="cursor: pointer;" v-bind:class="user.id == receiver.id ? 'light' : ''" data-id="item-1"><span class="w-40 avatar circle grey"> <img :src="user.profile_pic.encoded" alt="."></span>
-                                <div class="list-body"><a href="#"  class="item-title _500" v-text="user.name"></a>
-                                    <div class="item-except text-sm text-muted h-1x" v-text="user.email"></div>
+                        <div class="list inset">
+                            <div class="p-2 px-3 text-muted text-sm">Inbox</div>
+
+                            <div v-for="thread in chatThreads" class="list-item" @click="openChats(thread)" style="cursor: pointer;" v-bind:class="thread.id == currentThread.id ? 'light' : ''" data-id="item-1"><span class="w-40 avatar circle grey"> <img :src="thread.second_user.profile_pic.encoded" alt="."></span>
+                                <div class="list-body"><a href="#"  class="item-title _500" v-text="thread.second_user.name"></a>
+                                    <div class="item-except text-sm text-muted h-1x" v-text="thread.second_user.email"></div>
                                     <div class="item-tag tag hide"></div>
                                 </div>
                                 <div></div>
@@ -30,19 +34,45 @@
                             <div class="p-4 text-center">No Results</div>
                         </div>
                     </div>
-                    <div class="p-3 mt-auto"><span class="text-sm text-muted">Messages: <span v-text="chats.length"></span></span></div>
+                    <div class="p-3 mt-auto"><span class="text-sm text-muted">Messages: <span v-text="threads.length"></span></span></div>
                 </div>
             </div>
             <div class="d-flex flex" id="content-body">
-                <div class="d-flex flex-column flex" id="chat-list">
-                    <div class="navbar flex-nowrap white lt box-shadow"><a data-toggle="modal" data-target="#content-aside" data-modal class="mr-1 d-md-none"><span class="btn btn-sm btn-icon primary"><i class="fa fa-th"></i> </span></a><span class="text-md text-ellipsis flex"><span v-text="receiver.name"></span> <span style="font-size: 12px;color:green;" v-text="status"></span></span>
+                <div class="d-flex flex-column flex" id="chat-list" v-if="threads.length != 0">
+                    <div class="navbar flex-nowrap white lt box-shadow"><a data-toggle="modal" data-target="#content-aside" data-modal class="mr-1 d-md-none"><span class="btn btn-sm btn-icon primary"><i class="fa fa-th"></i> </span></a><span class="text-md text-ellipsis flex"><span v-text="currentThread.second_user.name"></span> <span style="font-size: 12px;color:green;" v-text="status"></span></span>
                         
                     </div>
-                    <div class="scrollable hover" id="chats">
+
+                    <div v-if="currentThread.accepted != 1">
+                        <div class="d-flex flex-column flex  align-items-center"  v-if="currentThread.requestor.id == user.id">
+                            
+                            <h3 style="margin-top: 35vh;">Your friend request to <span class="font-weight-bold" v-text="currentThread.acceptor.name"></span> is not yet accepted!</h3>
+
+                            <p style="font-size:18px;">You cannot send messages until the request is accepted!</p>
+
+                       
+                            <a :href="'/threads/'+currentThread.id+'/cancel'" class="btn btn-primary">Cancel Request</a>
+                                   
+                        </div>
+
+                        <div class="d-flex flex-column flex  align-items-center"  v-else>
+                            <h3 style="margin-top: 35vh;"><span class="font-weight-bold" v-text="currentThread.requestor.name"></span> sent you a friend request!</h3>
+
+                            <p style="font-size:18px;">You cannot send messages until the request is accepted!</p>
+
+                            
+                            <div>
+                                <button @click="acceptRequest()"  class="btn btn-primary">Accept</button>
+                                <button @click="rejectRequest()"  class="btn btn-danger">Reject</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="scrollable hover" v-else id="chats">
                         <div class="p-3">
                             <div class="chat-list">
-                                <div v-for="message in messages" class="chat-item" :data-class="getClass(message)">
-                                    <a href="#" class="avatar w-40"><img :src="message.sender.profile_pic.encoded" alt="."></a>
+                               <div v-for="message in messages" class="chat-item" :data-class="getClass(message)">
+                                    <a href="#" class="avatar w-40"><img :src="message.sender_id == user.id ? currentThread.first_user.profile_pic.encoded : currentThread.second_user.profile_pic.encoded" alt="."></a>
                                     <div class="chat-body">
                                         <div class="chat-content rounded msg" v-text="message.message"></div>
                                         <div class="chat-date date" v-text="message.created_at"></div>
@@ -54,7 +84,7 @@
                             
                         </div>
                     </div>
-                    <div class="p-3 white lt b-t mt-auto" id="chat-form" >
+                    <div class="p-3 white lt b-t mt-auto" id="chat-form" v-if="currentThread.accepted == 1" >
                         <p>Put all latex commands inside <span class="tex2jax_ignore">$</span> symbol.Ex. : <span class="tex2jax_ignore">$\alpha$</span></p>
                         <div class="input-group">
                             <span class="input-group-btn"><button @click="toggleKeyboard();" class="btn white b-a no-shadow" type="button" id="newBtn"><i class="fa fa-keyboard-o text-success"></i></button></span>
@@ -74,47 +104,175 @@
                     </div>
                    
                 </div>
+                 <div class="d-flex flex-column flex chat-start align-items-center" id="chat-start" v-else>
+
+                    <h3 style="margin-top: 45vh;">You have no chat threads yet!</h3>
+
+                    <p  style="font-size:18px;">Start adding your friends and talk mathematics here!</p>
+
+               
+                    <a href="#addFriend" data-toggle="modal" class="btn btn-primary">Add Friend</a>
+                  
+
+                 </div>
+            </div>
+
+             <div id="addFriend" class="modal" data-backdrop="true" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Friend</h5>
+                    </div>
+                    
+                    <div class="modal-body  p-lg">
+                        <div class="form-group">
+                            <label>Enter user's name or email to add</label>
+                            <div>
+                              <input type="text" placeholder="Search user" v-model="query" v-on:keyup="autoComplete" class="form-control">
+                              <div class="panel-footer" v-if="results.length">
+                               <ul class="list-group">
+                                <li class="list-group-item" v-for="result in results">
+                                 <div @click="chooseUser(result)" style="cursor: pointer;">
+                                  {{ result.name }} <br>
+                                  <small>{{ result.email }}</small>
+                                 </div>
+                                </li>
+                               </ul>
+                              </div>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">Close</button> 
+                        <button type="button" @click="addFriend()" class="btn danger p-x-md" data-dismiss="modal">Add</button>
+                    </div>
+
+                </div>
             </div>
         </div>
+        </div>
+
+
+       
 </template>
 
 <script>
     export default {
 
-        props: ['user', 'chats', 'people', 'currentuser'],
+        props: ['user', 'threads', 'chats'],
 
         data() {
             return {
-                chatName: this.people[0].name,
+                chatName: this.threads.length != 0 ? this.threads[0].second_user.name : [],
                 status: 'offline',
-                 globalStatus: 'offline',
-                receiver: this.currentuser,
+                globalStatus: 'offline',
+                currentThread: this.threads.length != 0 ? this.threads[0] : [],
                 newMessage: '',
-                messages: this.chats,
+             
                 keyboardEnabled: true,
-                userSearch: ''
-            }
-        },
-
-        watch: {
-            messages: function(val, oldVal){
-
-                  
+                userSearch: '',
+                query: '',
+                results: [],
+                selectedUser: [],
+                chatThreads: this.threads,
+                   messages: this.chats
 
             }
         },
+
 
         mounted() {
             console.log('Component mounted.');
-            console.log(this.receiver);
+            
+
 
         },
 
         created() {
              
-             this.joinChats();   
+             console.log('Threads : ' + this.threads);
 
-             this.joinRoom(this.getRoomId());
+             if(this.currentThread != [])
+             {
+                this.joinChats();   
+                this.joinRoom(this.getRoomId());
+
+                
+             }
+             
+             if(!Push.Permission.has())
+             {
+                 Push.create("AEGIS Academy", {
+                    body: "You will recieve message notifications here",
+                    icon: '../images/fav.png',
+                    timeout: 4000,
+                    onClick: function () {
+                        window.focus();
+                        this.close();
+                    }
+                });
+             }
+
+             Echo.private('App.User.' + this.user.id)
+                .notification((notification) => {
+                     console.log(notification.type);
+                    if(notification.type == 'App\\Notifications\\NewChatMessage')
+                    {
+
+
+                    var message = notification.message;
+                        
+                        self = this;
+                        Push.create(message.sender_name, {
+                            body: message.message,
+                            icon: '../images/fav.png',
+                            timeout: 4000,
+                            onClick: function () {
+                                window.focus();
+                                self.openChats(notification.thread);
+                                this.close();
+                            }
+                        });
+
+                     } else if(notification.type == 'App\\Notifications\\ThreadRequestAccepted') {
+
+                        var thread = notification.thread;
+                        
+
+                        Push.create(thread.acceptor.name + ' accepted your request!', {
+                            body: 'Start your conversation!',
+                            icon: '../images/fav.png',
+                            timeout: 4000,
+                            onClick: function () {
+                                window.focus();
+                                self.openChats(notification.thread, 1);
+                                this.close();
+                            }
+                        });
+
+                     }
+
+                     else if(notification.type == '\\App\\Notifications\\ThreadRequestRejected') {
+
+                        var thread = notification.thread;
+                        
+
+                        Push.create(thread.acceptor.name + ' rejected your request!', {
+                            body: 'You cannot have a conversation!',
+                            icon: '../images/fav.png',
+                            timeout: 4000,
+                            onClick: function () {
+                                window.focus();
+                                self.openChats(notification.thread, 3);
+                                this.close();
+                            }
+                        });
+
+                     }
+                });
+
+
+            
 
 
 
@@ -132,18 +290,23 @@
         },
 
         methods: {
-            openChats(user) {
-                Echo.leave('chat.'+this.getRoomId());
+            openChats(thread, accepted = 0) {
+                Echo.leave('thread.'+this.getRoomId());
                 Echo.leave('chats');
-                this.receiver = user;
+                this.currentThread = thread;
+                if(accepted != 0)
+                {
+                    this.currentThread.accepted = accepted;
+                }
                 this.joinChats();   
                  this.joinRoom(this.getRoomId());
                  var self = this;
-                  axios.get('/chats/get?friend_id='+self.receiver.id)
+                  axios.get('/messages/'+self.currentThread.id)
                      .then(function(response){
                         console.log(response.data);
                         self.messages = response.data.messages;
-                        
+                         
+                         
                        
                         $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 500);
 
@@ -163,7 +326,7 @@
             },
 
             getClass: function(message){
-                if(message.sender.id == this.user.id)
+                if(message.sender_id == this.user.id)
                 {
                     return 'alt';
                 } else {
@@ -173,8 +336,9 @@
 
 
             sendMessage(){
+                
                 var self = this;
-                axios.post('/chats', {'message': self.newMessage, 'to_id': self.receiver.id })
+                axios.post('/messages/' + self.currentThread.id, {'message': self.newMessage, 'receiver_id': self.currentThread.second_user.id })
                      .then(function(response){
                         var message = response.data.message;
                         
@@ -195,7 +359,7 @@
                
                
 
-                return "" + Math.max(this.user.id, this.receiver.id) + '-' + Math.min(this.user.id, this.receiver.id);;
+                return "" + this.currentThread.id;
 
             },
 
@@ -215,9 +379,9 @@
             joinRoom(roomId) {
 
                   var self = this;
-                Echo.join('chat.'+roomId)
+                Echo.join('thread.'+roomId)
                     .here((users) => {
-                        if(self.contains(users, self.receiver))
+                        if(self.contains(users, self.currentThread.second_user))
                         {
 
                         self.status = 'active';
@@ -228,14 +392,14 @@
                     })
                     .joining((user) => {
                        
-                            if(self.receiver.id == self.user.id)
+                            if(self.currentThread.second_user.id == self.user.id)
                             {
                              self.status = 'active';
                             } 
                         
                     })
                     .leaving((user) => {
-                         if(self.receiver.id == self.user.id)
+                         if(self.currentThread.second_user.id  == self.user.id)
                             {
                              self.status = self.globalStatus;
                             } 
@@ -257,19 +421,9 @@
                     });
 
 
-                    Echo.channel('chat.'+roomId)
-                        .listen('NewMessage', (data) => {
+                    
 
-                           console.log(e.message);
-
-                        var message = e.message;
-                        
-                        self.messages.push(message);   
-
-                        self.newMessage = '';
-
-                        $('#chats').animate({scrollTop: $('#chats').prop("scrollHeight")}, 500);
-                        });
+                       
             },
 
             joinChats()
@@ -277,7 +431,7 @@
                   var self = this;
                  Echo.join('chats')
                     .here((users) => {
-                        if(self.contains(users, self.receiver))
+                        if(self.contains(users, self.currentThread.second_user))
                         {
 
                         self.globalStatus = 'online';
@@ -287,7 +441,7 @@
                     
                     })
                     .joining((user) => {
-                       if(user.id == self.receiver.id)
+                       if(user.id == self.currentThread.second_user.id)
                         {
                             self.globalStatus = 'online';
                         }
@@ -295,7 +449,7 @@
                         
                     })
                     .leaving((user) => {
-                        if(user.id == self.receiver.id)
+                        if(user.id == self.currentThread.second_user.id)
                         {
                             self.globalStatus = 'offline';
                         }
@@ -325,7 +479,52 @@
 
             searchUser(){
 
-            }
+            },
+
+            autoComplete(){
+                this.results = [];
+                if(this.query.length > 2){
+                 axios.get('/api/search',{params: {query: this.query}}).then(response => {
+                  this.results = response.data;
+                 });
+                }
+               },
+
+               chooseUser(user) {
+                 this.results = [];
+                 this.query = user.name;
+                 this.selectedUser = user;
+               },
+
+               addFriend()
+               {
+                  self = this;
+                  axios.post('/threads', { 'to_id': self.selectedUser.id }).then(response => {
+
+                      self.chatThreads.unshift(response.data.thread);
+                       console.log(self.chatThreads);
+                  });
+               },
+
+               acceptRequest()
+               {
+                  self = this;
+                  axios.post('/threads/' + self.currentThread.id + '/respond', { 'response': 1 }).then(response => {
+
+                        self.currentThread.accepted = 1;
+                     
+                  });
+               },
+
+               rejectRequest()
+               {
+                  self = this;
+                  axios.post('/threads/' + self.currentThread.id + '/respond', { 'response': 3 }).then(response => {
+
+                        self.currentThread.accepted = 3;
+                     
+                  });
+               }
         }
 
         }            

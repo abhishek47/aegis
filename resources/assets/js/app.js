@@ -7,6 +7,8 @@
 
 require('./bootstrap');
 
+window.Push = require('push.js');
+
 window.Vue = require('vue');
 
 /**
@@ -19,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('question', require('./components/Question.vue'));
 Vue.component('chats', require('./components/Chats.vue'));
+Vue.component('autocomplete',require('./components/Autocomplete.vue'));
 
 import VueCoreImageUpload from 'vue-core-image-upload';
 

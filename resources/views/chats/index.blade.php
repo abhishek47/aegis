@@ -72,6 +72,13 @@
     
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
+    <style type="text/css">
+       .chat-start {
+          background-color: #fff;
+          
+        }
+    </style>
+
 </head>
 
 <body>
@@ -82,7 +89,7 @@
 <div id="content" class="app-content box-shadow-0" role="main">
    
     <div class="content-main d-flex flex" id="content-main">
-       <!-- <chats :chats="{{ $chats }}" :user="{{ auth()->user() }}" :people="{{ $people }}" :currentuser="{{ $currentUser }}"></chats> -->
+      <chats :threads="{{ $threads }}" :user="{{ auth()->user() }}" :chats="{{ $chats }}"  ></chats> 
     </div>
     <div class="content-footer white hide" id="content-footer">
         <div class="d-flex p-3"><span class="text-sm text-muted flex">&copy; Copyright. AEGIS</span>

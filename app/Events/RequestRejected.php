@@ -10,22 +10,20 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class NewMessage implements ShouldBroadcast
+class RequestRejected
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-   
-
-    public $message;
+     public $thread;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($message)
+    public function __construct($thread)
     {
-        $this->message = $message;
+        $this->thread = $thread;
     }
 
     /**
@@ -35,6 +33,6 @@ class NewMessage implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PresenceChannel('thread.'.$this->message->thread->id);
+        return new PresenceChannel('thread.'.$this->thread->id);
     }
 }

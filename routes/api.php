@@ -13,6 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::get('/search',function(){
+ $query = request()->get('query');
+ $users = \App\User::where('name','like','%'.$query.'%')->get();
+ return response()->json($users);
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

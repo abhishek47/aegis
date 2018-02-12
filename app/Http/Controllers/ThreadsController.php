@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Chat;
-use App\User;
 use App\Thread;
+use App\Message;
+use App\Notifications\ThreadRequestAccepted;
+use App\Notifications\ThreadRequestRejected;
 use Illuminate\Http\Request;
-use App\Events\NewMessage;
 
-class ChatsController extends Controller
+class ThreadsController extends Controller
 {
-
-     /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -30,12 +29,14 @@ class ChatsController extends Controller
     public function index()
     { 
 
+        $threads = Thread::where('user_1', auth()->id())->orWhere('user_2', auth()->id())->latest()->get();
+       
+ 
+        $chats = $threads->first()->messages;
 
-        $threads = Thread::latest()->get();
 
-        
+        return view('chats.index', compact('threads', 'chats'));
 
-        return view('chats.index', compact('threads'));
     }
 
     /**
@@ -60,6 +61,8 @@ class ChatsController extends Controller
 
             //$chats = $chats->sortBy('id');
 
+         $thread->load(['acceptor', 'requestor', 'messages']);
+
             return response(['thread' => $thread], 200);
 
     }
@@ -72,13 +75,11 @@ class ChatsController extends Controller
      */
     public function store(Request $request)
     {
-        $message = Chat::create(['from_id' => auth()->id(), 'to_id' => request('to_id'), 'message' => request('message')]);
+        $thread = Thread::create(['user_1' => auth()->id(), 'user_2' => request('to_id')]);
 
-        $message->load(['sender', 'receiver']);
+        $thread->load(['requestor', 'acceptor']);
 
-        broadcast(new NewMessage($message))->toOthers();
-
-        return response(['message' => $message], 200);
+        return response(['thread' => $thread], 200);
 
     }
 
@@ -117,13 +118,38 @@ class ChatsController extends Controller
     }
 
     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Chat  $chat
+     * @return \Illuminate\Http\Response
+     */
+    public function respond(Thread $thread)
+    {
+        $thread->accepted = request()->get('response');
+
+        $thread->save();
+
+        if(request()->get('response') == 1)
+        {
+            $thread->requestor->notify(new ThreadRequestAccepted($thread));
+        } else {
+            $thread->requestor->notify(new ThreadRequestRejected($thread));
+        }
+
+        return response(['success'], 200);
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Chat  $chat
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Chat $chat)
+    public function destroy(Thread $thread)
     {
-        //
+        $thread->delete();
+
+        return back();
     }
 }
