@@ -503,6 +503,7 @@
 
                       self.chatThreads.unshift(response.data.thread);
                        console.log(self.chatThreads);
+                       window.location.reload();
                   });
                },
 

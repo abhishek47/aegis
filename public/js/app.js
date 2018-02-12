@@ -71115,6 +71115,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 self.chatThreads.unshift(response.data.thread);
                 console.log(self.chatThreads);
+                window.location.reload();
             });
         },
         acceptRequest: function acceptRequest() {
