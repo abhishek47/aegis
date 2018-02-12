@@ -31,8 +31,13 @@ class ThreadsController extends Controller
 
         $threads = Thread::where('user_1', auth()->id())->orWhere('user_2', auth()->id())->latest()->get();
        
- 
-        $chats = $threads->first()->messages;
+        if(count($threads))
+        {
+            $chats = $threads->first()->messages;
+        } else {
+            $chats = [];
+        }
+        
 
 
         return view('chats.index', compact('threads', 'chats'));
