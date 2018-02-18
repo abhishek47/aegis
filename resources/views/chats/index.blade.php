@@ -79,6 +79,8 @@
         }
     </style>
 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.css">
+
 </head>
 
 <body>
@@ -117,7 +119,12 @@
 
   <script src="/js/chats.min.js"></script>
 
+
+
   <script src="/js/app.js"></script>
+
+
+
 
 </body>
 </html>

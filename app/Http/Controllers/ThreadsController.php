@@ -6,6 +6,7 @@ use App\Thread;
 use App\Message;
 use App\Notifications\ThreadRequestAccepted;
 use App\Notifications\ThreadRequestRejected;
+use App\Notifications\NewThreadRequest;
 use Illuminate\Http\Request;
 
 class ThreadsController extends Controller
@@ -80,9 +81,11 @@ class ThreadsController extends Controller
      */
     public function store(Request $request)
     {
-        $thread = Thread::create(['user_1' => auth()->id(), 'user_2' => request('to_id')]);
+        $thread = Thread::create(['user_1' => auth()->id(), 'user_2' => request('to_id'), 'accepted' => 0]);
 
         $thread->load(['requestor', 'acceptor']);
+
+        $thread->acceptor->notify(new NewThreadRequest($thread));
 
         return response(['thread' => $thread], 200);
 
@@ -156,5 +159,23 @@ class ThreadsController extends Controller
         $thread->delete();
 
         return back();
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Chat  $chat
+     * @return \Illuminate\Http\Response
+     */
+    public function unfriend(Thread $thread)
+    {
+        
+        $thread->accepted = 0;
+
+        $thread->save();
+
+        return response(['success'], 200);
+
     }
 }

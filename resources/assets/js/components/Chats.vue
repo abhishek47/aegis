@@ -39,11 +39,28 @@
             </div>
             <div class="d-flex flex" id="content-body">
                 <div class="d-flex flex-column flex" id="chat-list" v-if="threads.length != 0">
-                    <div class="navbar flex-nowrap white lt box-shadow"><a data-toggle="modal" data-target="#content-aside" data-modal class="mr-1 d-md-none"><span class="btn btn-sm btn-icon primary"><i class="fa fa-th"></i> </span></a><span class="text-md text-ellipsis flex"><span v-text="currentThread.second_user.name"></span> <span style="font-size: 12px;color:green;" v-text="status"></span></span>
+                    <div class="navbar flex-nowrap white lt box-shadow">
+
+                     <a data-toggle="modal" data-target="#content-aside" data-modal class="mr-1 d-md-none">
+                      <span class="btn btn-sm btn-icon primary"><i class="fa fa-th"></i> </span>
+                     </a>
+
+                     <span class="text-md text-ellipsis flex"><span v-text="currentThread.second_user.name"></span> 
+                     <span style="font-size: 12px;color:green;" v-text="status"></span></span>
+
+                     <button  @click="unfriend(currentThread.second_user)"  class="btn btn-danger">Unfriend</button>
                         
                     </div>
 
-                    <div v-if="currentThread.accepted != 1">
+
+
+                    <div v-if="currentThread.accepted == 2">
+                      <h3 style="margin-top: 35vh;">Your friend request to <span class="font-weight-bold" v-text="currentThread.acceptor.name"></span> is rejected!</h3>
+
+                            <p style="font-size:18px;">You cannot send messages until the request is accepted!</p>
+                    </div>
+
+                    <div v-if="currentThread.accepted == 0">
                         <div class="d-flex flex-column flex  align-items-center"  v-if="currentThread.requestor.id == user.id">
                             
                             <h3 style="margin-top: 35vh;">Your friend request to <span class="font-weight-bold" v-text="currentThread.acceptor.name"></span> is not yet accepted!</h3>
@@ -68,7 +85,7 @@
                         </div>
 
                     </div>
-                    <div class="scrollable hover" v-else id="chats">
+                    <div class="scrollable hover" v-if="currentThread.accepted == 1" id="chats">
                         <div class="p-3">
                             <div class="chat-list">
                                <div v-for="message in messages" class="chat-item" :data-class="getClass(message)">
@@ -88,17 +105,49 @@
                         <p>Put all latex commands inside <span class="tex2jax_ignore">$</span> symbol.Ex. : <span class="tex2jax_ignore">$\alpha$</span></p>
                         <div class="input-group">
                             <span class="input-group-btn"><button @click="toggleKeyboard();" class="btn white b-a no-shadow" type="button" id="newBtn"><i class="fa fa-keyboard-o text-success"></i></button></span>
-                            <input type="text"  class="form-control" v-model="newMessage"    @keyup.enter="sendMessage();" placeholder="Say something" id="newField"> 
+                           <input type="text"  class="form-control" v-model="newMessage"    @keyup.enter="sendMessage();" placeholder="Say something" id="math-field">  
+                            
                             <span class="input-group-btn"><button @click="sendMessage();" class="btn white b-a no-shadow" type="button" id="newBtn"><i class="fa fa-send text-success"></i></button></span></div>
 
 
                          <div id="keyboard" class="mt-2">
-                             <div class="btn-group">
+                            <div class="btn-group">
+                              <button type="button" @click="addCode('$0$')"  class="btn btn-default">0</button>
+                              <button type="button" @click="addCode('$1$')" class="btn btn-default">1</button>
+                              <button type="button" @click="addCode('$2$')" class="btn btn-default">2</button>
+                              <button type="button" @click="addCode('$3$')" class="btn btn-default">3</button>
+                              <button type="button" @click="addCode('$4$')" class="btn btn-default">4</button>
+                              <button type="button" @click="addCode('$5$')" class="btn btn-default">5</button>
+                              <button type="button" @click="addCode('$6$')" class="btn btn-default">6</button>
+                              <button type="button" @click="addCode('$7$')" class="btn btn-default">7</button>
+                              <button type="button" @click="addCode('$8$')" class="btn btn-default">8</button>
+                              <button type="button" @click="addCode('$9$')" class="btn btn-default">9</button>
+                              <button type="button" @click="addCode('$.$')" class="btn btn-default">.</button>
+                            </div>
+                             <div class="btn-group ">
+                              <button type="button" @click="addCode('$\\sin$')"  class="btn btn-default">sin</button>
+                              <button type="button" @click="addCode('$\\cos$')" class="btn btn-default">cos</button>
+                              <button type="button" @click="addCode('$\\tan$')" class="btn btn-default">tan</button>
+                              <button type="button" @click="addCode('$\\cosine$')" class="btn btn-default">cosine</button>
+                            </div>
+                            <br>
+                             <div class="btn-group mt-1">
                               <button type="button" @click="addCode('$\\alpha$')"  class="btn btn-default">&alpha;</button>
                               <button type="button" @click="addCode('$\\beta$')" class="btn btn-default">&beta;</button>
                               <button type="button" @click="addCode('$\\gamma$')" class="btn btn-default">&gamma;</button>
                               <button type="button" @click="addCode('$\\delta$')" class="btn btn-default">&delta;</button>
-                              <button type="button" @click="addCode('$\\int_{a}^{b} x^2 dx$')" class="btn btn-default">&int;</button>
+                            </div>
+
+                            <div class="btn-group mt-1">
+                                <button type="button" @click="addCode('$\\frac{1}{4}$')" class="btn btn-default">&frac14;</button>
+                                <button type="button" @click="addCode('$\\sqrt[2]{4}$')" class="btn btn-default">&radic;</button>
+                                <button type="button" @click="addCode('$\\sqrt[3]{4}$')" class="btn btn-default" >&#8731;</button>
+                            </div>
+
+                            <div class="btn-group mt-1">
+                                <button type="button" @click="addCode('$\\sum_{k=1}^n$')" class="btn btn-default">&sum;</button>
+                                <button type="button" @click="addCode('$\\prod_{k=1}^n$')" class="btn btn-default">&prod;</button>
+                                <button type="button" @click="addCode('$\\int_{a}^{b} x^2 dx$')" class="btn btn-default">&int;</button>
                             </div>
                          </div>   
                     </div>
@@ -175,8 +224,8 @@
                 results: [],
                 selectedUser: [],
                 chatThreads: this.threads.length != 0 ? this.threads : [],
-                   messages: this.chats
-
+                messages: this.chats,
+                
             }
         },
 
@@ -190,6 +239,10 @@
 
         created() {
              
+            
+              
+              
+
              console.log('Threads : ' + this.threads);
 
              if(this.currentThread != [])
@@ -238,6 +291,19 @@
 
                         var thread = notification.thread;
                         
+                        if(this.currentThread.id == thread.id)
+                        {
+                          this.currentThread.accepted = 1;
+                        }
+
+                        this.chatThreads.forEach((e) => {
+                            if(e.id == thread.id)
+                            {
+                                e.accepted = 1;
+                            }
+                        });
+
+
 
                         Push.create(thread.acceptor.name + ' accepted your request!', {
                             body: 'Start your conversation!',
@@ -255,10 +321,42 @@
                      else if(notification.type == '\\App\\Notifications\\ThreadRequestRejected') {
 
                         var thread = notification.thread;
+
+                        if(this.currentThread.id == thread.id)
+                        {
+                          this.currentThread.accepted = 2;
+                        }
                         
+                         this.chatThreads.forEach((e) => {
+                            if(e.id == thread.id)
+                            {
+                                e.accepted = 2;
+                            }
+                        });
 
                         Push.create(thread.acceptor.name + ' rejected your request!', {
                             body: 'You cannot have a conversation!',
+                            icon: '../images/fav.png',
+                            timeout: 4000,
+                            onClick: function () {
+                                window.focus();
+                                self.openChats(notification.thread, 3);
+                                this.close();
+                            }
+                        });
+
+                     }
+
+                      else if(notification.type == '\\App\\Notifications\\NewThreadRequest') {
+
+                        var thread = notification.thread;
+
+                        this.chatThreads.unshift(thread);
+                        console.log(this.chatThreads);
+                        this.currentThread = thread;
+
+                        Push.create('You have a new friend request from ' + thread.requestor.name, {
+                            body: 'Respond to the request!',
                             icon: '../images/fav.png',
                             timeout: 4000,
                             onClick: function () {
@@ -461,7 +559,7 @@
             {
                 console.log(code);
                 this.newMessage = this.newMessage + code;
-                $('#newField').focus();
+                $('#math-field').focus();
             },
 
             toggleKeyboard()
@@ -503,7 +601,7 @@
 
                       self.chatThreads.unshift(response.data.thread);
                        console.log(self.chatThreads);
-                       window.location.reload();
+                      self.currentThread = response.data.thread;
                   });
                },
 
@@ -520,13 +618,38 @@
                rejectRequest()
                {
                   self = this;
-                  axios.post('/threads/' + self.currentThread.id + '/respond', { 'response': 3 }).then(response => {
+                  axios.post('/threads/' + self.currentThread.id + '/respond', { 'response': 2 }).then(response => {
 
                         self.currentThread.accepted = 3;
                      
                   });
+               },
+
+
+               unfriend(user)
+               {
+                  var r = confirm('Are you sure, you want to unfriend ' + user.name + '?');
+
+                  if (r == true) {
+                      
+                  this.currentThread.accepted = 0;
+
+                   axios.get('/unfriend/' + this.currentThread.id);
+
+                   //location.reload();
+
+                  } else {
+                     
+                  }
+
+
                }
-        }
+
+               
+        },
+
+
+
 
         }            
     

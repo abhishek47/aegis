@@ -9,7 +9,7 @@ use Illuminate\Notifications\Messages\MailMessage;
 
 use Illuminate\Notifications\Messages\BroadcastMessage;
 
-class ThreadRequestRejected extends Notification
+class NewThreadRequest extends Notification
 {
     use Queueable;
     

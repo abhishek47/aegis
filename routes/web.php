@@ -109,4 +109,5 @@ Route::post('/messages/{thread}', 'MessagesController@store');
 
 Route::post('/questions/solve', 'QuestionController@solve');
 
+Route::get('/unfriend/{thread}', 'ThreadsController@unfriend');
 
