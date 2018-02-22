@@ -4,6 +4,12 @@
 
    <link rel="stylesheet" type="text/css" href="/css/problems.css">
 
+   <style type="text/css">
+     .lastQuestion {
+      display: none !important;
+     }
+   </style>
+
 @endsection
 
 @section('content')
