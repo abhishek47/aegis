@@ -71953,7 +71953,7 @@ var render = function() {
                                   attrs: { type: "button" },
                                   on: {
                                     click: function($event) {
-                                      _vm.addCode("$\\cosine$")
+                                      _vm.addCode("$cosine$")
                                     }
                                   }
                                 },
