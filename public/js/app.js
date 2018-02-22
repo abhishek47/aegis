@@ -70958,6 +70958,78 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -71727,147 +71799,9 @@ var render = function() {
                           "div",
                           { staticClass: "mt-2", attrs: { id: "keyboard" } },
                           [
-                            _c("div", { staticClass: "btn-group" }, [
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-default",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.addCode("$0$")
-                                    }
-                                  }
-                                },
-                                [_vm._v("0")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-default",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.addCode("$1$")
-                                    }
-                                  }
-                                },
-                                [_vm._v("1")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-default",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.addCode("$2$")
-                                    }
-                                  }
-                                },
-                                [_vm._v("2")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-default",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.addCode("$3$")
-                                    }
-                                  }
-                                },
-                                [_vm._v("3")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-default",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.addCode("$4$")
-                                    }
-                                  }
-                                },
-                                [_vm._v("4")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-default",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.addCode("$5$")
-                                    }
-                                  }
-                                },
-                                [_vm._v("5")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-default",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.addCode("$6$")
-                                    }
-                                  }
-                                },
-                                [_vm._v("6")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-default",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.addCode("$7$")
-                                    }
-                                  }
-                                },
-                                [_vm._v("7")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-default",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.addCode("$8$")
-                                    }
-                                  }
-                                },
-                                [_vm._v("8")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-default",
-                                  attrs: { type: "button" },
-                                  on: {
-                                    click: function($event) {
-                                      _vm.addCode("$9$")
-                                    }
-                                  }
-                                },
-                                [_vm._v("9")]
-                              ),
-                              _vm._v(" "),
+                            _vm._m(6),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "btn-group mt-1" }, [
                               _c(
                                 "button",
                                 {
@@ -71880,6 +71814,92 @@ var render = function() {
                                   }
                                 },
                                 [_vm._v(".")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$=$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("=")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\neq$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\neq$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\infty$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("∞")]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "btn-group mt-1" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\therefore$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\therefore$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\because$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\because$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\sim$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\sim$")]
                               )
                             ]),
                             _vm._v(" "),
@@ -71938,6 +71958,164 @@ var render = function() {
                                   }
                                 },
                                 [_vm._v("cosine")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\sin^{-1}$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$sin^{-1}$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\cos^{-1}$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$cos^{-1}$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\tan^{-1}$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$tan^{-1}$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\cosine^{-1}$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$cosine^{-1}$")]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "btn-group mt-1" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\rightarrow$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\rightarrow$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\leftarrow$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\leftarrow$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\uparrow$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\uparrow$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\downarrow$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\downarrow$")]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "btn-group mt-1" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\exists$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\exists$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\forall$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\forall$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\neg$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\neg$")]
                               )
                             ]),
                             _vm._v(" "),
@@ -72053,6 +72231,50 @@ var render = function() {
                                   attrs: { type: "button" },
                                   on: {
                                     click: function($event) {
+                                      _vm.addCode("$a^{b}$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$a^{b}$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$a_{b}$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$a_{b}$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$a^{\\frac{1}{4}}$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$a^{\\frac{1}{4}}$")]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "btn-group mt-1" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
                                       _vm.addCode("$\\sum_{k=1}^n$")
                                     }
                                   }
@@ -72086,6 +72308,170 @@ var render = function() {
                                   }
                                 },
                                 [_vm._v("∫")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\frac{du}{dt}$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\frac{du}{dt}$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode(
+                                        "$\\frac{\\partial u}{\\partial t}$"
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                  $\\frac{\\partial u}{\\partial t}$\n                                "
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "btn-group mt-1" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\nless$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\nless$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\ngtr$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\ngtr$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\nleqslant$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\nleqslant$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\ngeqslant$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\ngeqslant$")]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "btn-group mt-1" }, [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\overline{\\rm AB}$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\overline{\\rm AB}$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\overrightarrow{\\rm AB}$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\overrightarrow{\\rm AB}$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\vec{o}$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\vec{a}$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\hat{o}$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\hat{o}$")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-default",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.addCode("$\\hat{\\jmath}$")
+                                    }
+                                  }
+                                },
+                                [_vm._v("$\\hat{\\jmath}$")]
                               )
                             ])
                           ]
@@ -72137,7 +72523,7 @@ var render = function() {
         [
           _c("div", { staticClass: "modal-dialog" }, [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(6),
+              _vm._m(7),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body  p-lg" }, [
                 _c("div", { staticClass: "form-group" }, [
@@ -72345,6 +72731,24 @@ var staticRenderFns = [
       _c("span", { staticClass: "tex2jax_ignore" }, [_vm._v("$")]),
       _vm._v(" symbol.Ex. : "),
       _c("span", { staticClass: "tex2jax_ignore" }, [_vm._v("$\\alpha$")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "a",
+        {
+          staticStyle: {
+            color: "blue",
+            "text-decoration": "underline !important"
+          },
+          attrs: { href: "/uploads/latexcheatsheet.pdf", target: "_blank" }
+        },
+        [_vm._v("Read LaTex Symbols Cheat Sheet")]
+      )
     ])
   },
   function() {

@@ -111,6 +111,10 @@
 
 
                          <div id="keyboard" class="mt-2">
+                          <div>
+                            <a href="/uploads/latexcheatsheet.pdf" style="color: blue;text-decoration:underline !important;" target="_blank">Read LaTex Symbols Cheat Sheet</a>
+                          </div>
+                         <!--
                             <div class="btn-group">
                               <button type="button" @click="addCode('$0$')"  class="btn btn-default">0</button>
                               <button type="button" @click="addCode('$1$')" class="btn btn-default">1</button>
@@ -124,13 +128,53 @@
                               <button type="button" @click="addCode('$9$')" class="btn btn-default">9</button>
                               <button type="button" @click="addCode('$.$')" class="btn btn-default">.</button>
                             </div>
+                            -->
+
+                              <div class="btn-group mt-1">
+                                <button type="button" @click="addCode('$.$')" class="btn btn-default">.</button>
+                                <button type="button" @click="addCode('$=$')" class="btn btn-default">=</button>
+                                <button type="button" @click="addCode('$\\neq$')" class="btn btn-default">$\neq$</button>
+                                <button type="button" @click="addCode('$\\infty$')" class="btn btn-default" >&infin;</button>
+                            </div>
+
+                              <div class="btn-group mt-1">
+                                <button type="button" @click="addCode('$\\therefore$')" class="btn btn-default">$\therefore$</button>
+                                <button type="button" @click="addCode('$\\because$')" class="btn btn-default">$\because$</button>
+                                <button type="button" @click="addCode('$\\sim$')" class="btn btn-default" >$\sim$</button>
+                            </div>
+
                              <div class="btn-group ">
                               <button type="button" @click="addCode('$\\sin$')"  class="btn btn-default">sin</button>
                               <button type="button" @click="addCode('$\\cos$')" class="btn btn-default">cos</button>
                               <button type="button" @click="addCode('$\\tan$')" class="btn btn-default">tan</button>
                               <button type="button" @click="addCode('$\\cosine$')" class="btn btn-default">cosine</button>
+                              <button type="button" @click="addCode('$\\sin^{-1}$')"  class="btn btn-default">$sin^{-1}$</button>
+                              <button type="button" @click="addCode('$\\cos^{-1}$')" class="btn btn-default">$cos^{-1}$</button>
+                              <button type="button" @click="addCode('$\\tan^{-1}$')" class="btn btn-default">$tan^{-1}$</button>
+                              <button type="button" @click="addCode('$\\cosine^{-1}$')" class="btn btn-default">$cosine^{-1}$</button>
                             </div>
+
+
+                            <div class="btn-group mt-1">
+                                <button type="button" @click="addCode('$\\rightarrow$')" class="btn btn-default">$\rightarrow$</button>
+                                <button type="button" @click="addCode('$\\leftarrow$')" class="btn btn-default">$\leftarrow$</button>
+                                <button type="button" @click="addCode('$\\uparrow$')" class="btn btn-default">$\uparrow$</button>
+                                <button type="button" @click="addCode('$\\downarrow$')" class="btn btn-default">$\downarrow$</button>
+                            </div>
+
+                             <div class="btn-group mt-1">
+                                <button type="button" @click="addCode('$\\exists$')" class="btn btn-default">$\exists$</button>
+                                <button type="button" @click="addCode('$\\forall$')" class="btn btn-default">$\forall$</button>
+                                <button type="button" @click="addCode('$\\neg$')" class="btn btn-default">$\neg$</button>
+                            </div>
+
+
+                          
+
+
                             <br>
+                           
+
                              <div class="btn-group mt-1">
                               <button type="button" @click="addCode('$\\alpha$')"  class="btn btn-default">&alpha;</button>
                               <button type="button" @click="addCode('$\\beta$')" class="btn btn-default">&beta;</button>
@@ -138,16 +182,44 @@
                               <button type="button" @click="addCode('$\\delta$')" class="btn btn-default">&delta;</button>
                             </div>
 
+
+                             
+
                             <div class="btn-group mt-1">
                                 <button type="button" @click="addCode('$\\frac{1}{4}$')" class="btn btn-default">&frac14;</button>
                                 <button type="button" @click="addCode('$\\sqrt[2]{4}$')" class="btn btn-default">&radic;</button>
                                 <button type="button" @click="addCode('$\\sqrt[3]{4}$')" class="btn btn-default" >&#8731;</button>
                             </div>
 
+                             <div class="btn-group mt-1">
+                              <button type="button" @click="addCode('$a^{b}$')"  class="btn btn-default">$a^{b}$</button>
+                              <button type="button" @click="addCode('$a_{b}$')" class="btn btn-default">$a_{b}$</button>
+                              <button type="button" @click="addCode('$a^{\\frac{1}{4}}$')"  class="btn btn-default">$a^{\frac{1}{4}}$</button>
+                            </div>
+
                             <div class="btn-group mt-1">
                                 <button type="button" @click="addCode('$\\sum_{k=1}^n$')" class="btn btn-default">&sum;</button>
                                 <button type="button" @click="addCode('$\\prod_{k=1}^n$')" class="btn btn-default">&prod;</button>
                                 <button type="button" @click="addCode('$\\int_{a}^{b} x^2 dx$')" class="btn btn-default">&int;</button>
+                                <button type="button" @click="addCode('$\\frac{du}{dt}$')" class="btn btn-default">$\frac{du}{dt}$</button>
+                                <button type="button" @click="addCode('$\\frac{\\partial u}{\\partial t}$')" class="btn btn-default">
+                                  $\frac{\partial u}{\partial t}$
+                                </button>
+                            </div>
+
+                            <div class="btn-group mt-1">
+                              <button type="button" @click="addCode('$\\nless$')"  class="btn btn-default">$\nless$</button>
+                              <button type="button" @click="addCode('$\\ngtr$')" class="btn btn-default">$\ngtr$</button>
+                              <button type="button" @click="addCode('$\\nleqslant$')"  class="btn btn-default">$\nleqslant$</button>
+                              <button type="button" @click="addCode('$\\ngeqslant$')"  class="btn btn-default">$\ngeqslant$</button>
+                            </div>
+
+                            <div class="btn-group mt-1">
+                                <button type="button" @click="addCode('$\\overline{\\rm AB}$')" class="btn btn-default">$\overline{\rm AB}$</button>
+                                <button type="button" @click="addCode('$\\overrightarrow{\\rm AB}$')" class="btn btn-default">$\overrightarrow{\rm AB}$</button>
+                                <button type="button" @click="addCode('$\\vec{o}$')" class="btn btn-default">$\vec{a}$</button>
+                                <button type="button" @click="addCode('$\\hat{o}$')" class="btn btn-default">$\hat{o}$</button>
+                                <button type="button" @click="addCode('$\\hat{\\jmath}$')" class="btn btn-default">$\hat{\jmath}$</button>
                             </div>
                          </div>   
                     </div>
