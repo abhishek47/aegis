@@ -28,21 +28,22 @@ class HomeController extends Controller
     {
        $wiki = Wiki::findOrFail(\DB::table('settings')->where('key', 'wiki_of_week')->value('value'));
 
+        $weeks = Quiz::where('problemofweek', 1)->where('start_date', '<=', Carbon::now()->toDateString())->orderBy('start_date')->pluck('start_date')->toArray();
+
        if(request('week') == null)
        {
 
-       $problemOfWeek = Quiz::where('start_date', '<=', Carbon::now()->toDateString())->where('end_date', '>=', Carbon::now()->toDateString())->first();
+       $problemOfWeek = Quiz::where('start_date',  $weeks[count($weeks)-1])->first();
        }
        else {
         $problemOfWeek = Quiz::where('start_date',  request('week'))->first();
        }
-
        if($problemOfWeek == null)
        {
           $problemOfWeek = Quiz::latest()->first();
        }
 
-       $weeks = Quiz::where('problemofweek', 1)->where('start_date', '<=', Carbon::now()->toDateString())->orderBy('start_date')->pluck('start_date')->toArray();
+      
 
       
 
