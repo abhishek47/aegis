@@ -151,7 +151,7 @@
                               <button type="button" @click="addCode('$\\sin^{-1}$')"  class="btn btn-default">$sin^{-1}$</button>
                               <button type="button" @click="addCode('$\\cos^{-1}$')" class="btn btn-default">$cos^{-1}$</button>
                               <button type="button" @click="addCode('$\\tan^{-1}$')" class="btn btn-default">$tan^{-1}$</button>
-                              <button type="button" @click="addCode('$\\cosine^{-1}$')" class="btn btn-default">$cosine^{-1}$</button>
+                              <button type="button" @click="addCode('$cosine^{-1}$')" class="btn btn-default">$cosine^{-1}$</button>
                             </div>
 
 
