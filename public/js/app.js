@@ -72730,7 +72730,9 @@ var staticRenderFns = [
       _vm._v("Put all latex commands inside "),
       _c("span", { staticClass: "tex2jax_ignore" }, [_vm._v("$")]),
       _vm._v(" symbol.Ex. : "),
-      _c("span", { staticClass: "tex2jax_ignore" }, [_vm._v("$\\alpha$")])
+      _c("span", { staticClass: "tex2jax_ignore" }, [
+        _vm._v("$\\sin(sin^{-1})$")
+      ])
     ])
   },
   function() {

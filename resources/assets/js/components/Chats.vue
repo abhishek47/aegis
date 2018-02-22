@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <div class="p-3 white lt b-t mt-auto" id="chat-form" v-if="currentThread.accepted == 1" >
-                        <p>Put all latex commands inside <span class="tex2jax_ignore">$</span> symbol.Ex. : <span class="tex2jax_ignore">$\alpha$</span></p>
+                        <p>Put all latex commands inside <span class="tex2jax_ignore">$</span> symbol.Ex. : <span class="tex2jax_ignore">$\sin(sin^{-1})$</span></p>
                         <div class="input-group">
                             <span class="input-group-btn"><button @click="toggleKeyboard();" class="btn white b-a no-shadow" type="button" id="newBtn"><i class="fa fa-keyboard-o text-success"></i></button></span>
                            <input type="text"  class="form-control" v-model="newMessage"    @keyup.enter="sendMessage();" placeholder="Say something" id="math-field">  
