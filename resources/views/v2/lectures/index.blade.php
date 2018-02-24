@@ -21,9 +21,9 @@
                  
                  <div class="card-body"> 
                  <h2  class="title font-medium m-t-0"><a class="text-dark" href="#"></a>{{ $lecture->name }}</h2> 
-                    
-                  <p class="text-dark">{!! $lecture->description !!}</p>
-
+                 <div class="text-dark">   
+                 {!! $lecture->description !!}
+                  </div>
                   @if($lecture->active)
                     <a target="_blank" href="{{ $lecture->link }}" class="btn btn-primary"><i class="fa fa-play-circle"></i> &nbsp; Watch Lecture</a>
                   @else
