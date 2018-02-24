@@ -57,9 +57,20 @@
 @section('js')
 
 <script type="text/javascript">
-  text = $('.marked-input').html();
-  text = md.render(text) ;
-  $('.marked-input').html(text);
+  var buffer = document.querySelector('.marked-input');
+  
+  MathJax.Hub.Queue(
+      ["Typeset",MathJax.Hub,buffer],
+      ["PreviewDone",function() {
+        text = $('.marked-input').html();
+  
+        text = md.render(text) ;
+        
+        $('.marked-input').html(text);
+      }]
+    );
+
+  
 </script>
 
 @endsection
