@@ -306,15 +306,15 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 
 
 
-
+@if($lecture->active)
+                    <a target="_blank" href="{{ $lecture->link }}" class="btn btn-primary"><i class="fa fa-play-circle"></i> &nbsp; Watch Lecture</a>
+                  @else
+                     <p class="m-b-10 font-medium text-primary">Lecture on : {{ $lecture->date }}, {{ $lecture->start_time }}</p>
+                  @endif
   
   </div>
 
-    @if($lecture->active)
-                    <a target="_blank" href="{{ $lecture->link }}" class="btn btn-primary"><i class="fa fa-play-circle"></i> &nbsp; Watch Lecture</a>
-                  @else
-                     <p class="m-b-0 font-medium text-primary">Lecture on : {{ $lecture->date }}, {{ $lecture->start_time }}</p>
-                  @endif
+    
   </div>
 
 
