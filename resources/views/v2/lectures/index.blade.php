@@ -54,25 +54,5 @@
 
 @endsection
 
-@section('js')
-
-<script type="text/javascript">
-  var buffer = document.querySelector('.marked-input');
-  
-  MathJax.Hub.Queue(
-      ["Typeset",MathJax.Hub,buffer],
-      ["PreviewDone",function() {
-        text = $('.marked-input').html();
-  
-        text = md.render(text) ;
-        
-        $('.marked-input').html(text);
-      }]
-    );
-
-  
-</script>
-
-@endsection
 
 
