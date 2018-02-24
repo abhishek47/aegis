@@ -48,7 +48,7 @@ class LectureCrudController extends CrudController
             [
             'name' => 'description',
             'label' => "Lecture Description",
-            'type' => 'editor'
+            'type' => 'summernote'
             ],
 
             [
