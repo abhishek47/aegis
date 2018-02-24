@@ -9,7 +9,7 @@ class Lecture extends Model
 {
     use CrudTrait;
 
-     protected $fillable = ['name', 'description', 'fees', 'duration', 'date', 'start_time'];
+     protected $fillable = ['name', 'description', 'fees', 'duration', 'date', 'start_time', 'active'];
 
     public function enrollments()
     {
@@ -18,13 +18,5 @@ class Lecture extends Model
     }
 
 
-    public function showMe($crud = false)
-   { 
-   	 
-   	  
-	  	return '<a class="btn btn-xs btn-success" target="_blank"  href="'. $this->link .'" data-toggle="tooltip" title="View Course Details">Preview</a>';
-   	 
-   	 
-   	   
-   }
+
 }

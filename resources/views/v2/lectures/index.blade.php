@@ -20,14 +20,15 @@
            <div class="card card-shadow" style="width: 100%;cursor: pointer;" >
                  
                  <div class="card-body"> 
-                 <h2  class="title font-medium m-t-0"><a class="text-dark" href="/lectures/{{ $lecture->id }}"></a>{{ $lecture->name }}</h2> 
+                 <h2  class="title font-medium m-t-0"><a class="text-dark" href="#"></a>{{ $lecture->name }}</h2> 
                     
-                  <p class="text-dark">{!! substr($lecture->description, 0, 320) !!}...</p>
+                  <p class="text-dark">{!! $lecture->description !!}</p>
 
-                  <p class="m-b-1"><a class="font-bold" href="/lecture/{{ $lecture->id }}">Read More</a></p>
-
-                  <p class="m-b-0 font-medium">Lecture on : {{ $lecture->date }}, {{ $lecture->start_time }}</p>
-
+                  @if($lecture->active)
+                    <a target="_blank" href="{{ $lecture->link }}" class="btn btn-primary"><i class="fa fa-play-circle"></i> &nbsp; Watch Lecture</a>
+                  @else
+                     <p class="m-b-0 font-medium text-primary">Lecture on : {{ $lecture->date }}, {{ $lecture->start_time }}</p>
+                  @endif
                   </div>
 
                   <div class="card-footer bg-danger" style="padding: 2px;"></div>

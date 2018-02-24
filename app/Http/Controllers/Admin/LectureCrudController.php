@@ -76,6 +76,15 @@ class LectureCrudController extends CrudController
             'label' => "Link to Lecture",
             'type' => 'text'
             ],
+
+            [ // select_from_array
+    'name' => 'active',
+    'label' => "Lecture Active State",
+    'type' => 'select2_from_array',
+    'options' => [ 0 => 'Scheduled', 1 => 'Lecture Active'],
+    'allows_null' => false,
+    // 'allows_multiple' => true, // OPTIONAL; needs you to cast this to array in your model;
+],
             
             
 
