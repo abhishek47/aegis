@@ -21,8 +21,8 @@
                  
                  <div class="card-body"> 
                  <h2  class="title font-medium m-t-0"><a class="text-dark" href="#"></a>{{ $lecture->name }}</h2> 
-                 <div class="text-dark">   
-                 {!! $lecture->description !!}
+                  <div class="text-dark marked-input" >   
+                     {!! $lecture->description !!}
                   </div>
                   @if($lecture->active)
                     <a target="_blank" href="{{ $lecture->link }}" class="btn btn-primary"><i class="fa fa-play-circle"></i> &nbsp; Watch Lecture</a>
@@ -51,6 +51,16 @@
      
 
 
+
+@endsection
+
+@section('js')
+
+<script type="text/javascript">
+  text = $('.marked-input').html();
+  text = md.render(text) ;
+  $('.marked-input').html(text);
+</script>
 
 @endsection
 
