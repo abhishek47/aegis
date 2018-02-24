@@ -37,8 +37,10 @@
 
            <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/courses') }}"><i class="fa fa-newspaper-o"></i> <span>General Courses</span></a></li>
 
+            <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/lectures') }}"><i class="fa fa-video-camera"></i> <span>Video Lectures</span></a></li>
 
-              <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/classrooms') }}"><i class="fa fa-video-camera"></i> <span>Live Courses</span></a></li>
+
+              <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/classrooms') }}"><i class="fa fa-comments"></i> <span>Live Courses</span></a></li>
 
              
 

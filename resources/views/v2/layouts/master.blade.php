@@ -171,7 +171,9 @@ we just copy that css and paste here you can also do that -->
                                          
                                         <li class="nav-item {{ request()->is('courses') ? 'active' : ''}}"><a class="nav-link font-bold" href="/courses">Courses</a></li>
 
-                                        <li class="nav-item dropdown">
+                                         <li class="nav-item {{ request()->is('lectures') ? 'active' : ''}}"><a class="nav-link font-bold" href="/lectures">Video Lectures</a></li>
+
+                                        <li class="nav-item dropdown  {{ request()->is('wiki') ? 'active' : ''}}">
                                             <a class="nav-link font-bold" dropdown-toggle" href="#" id="h6-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Wiki <i class="fa fa-angle-down m-l-5"></i></a>
 
                                             <ul class="b-none dropdown-menu font-14 animated fadeInUp">

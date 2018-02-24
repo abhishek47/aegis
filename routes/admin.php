@@ -47,4 +47,6 @@ CRUD::resource('chapter-notes', 'ChapterNoteCrudController')->with(function(){
 CRUD::resource('wikis', 'WikiCrudController');
 CRUD::resource('problems-of-week', 'ProblemWeekCrudController');
 
+CRUD::resource('lectures', 'LectureCrudController');
+
 

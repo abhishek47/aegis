@@ -76,6 +76,10 @@ Route::get('/courses', 'ClassroomsController@index');
 Route::get('/courses/{course}', 'CoursesController@show');
 Route::get('/enroll/{course}', 'CoursesController@enroll');
 
+Route::get('/lectures', 'LecturesController@index');
+Route::get('/lectures/{course}', 'LecturesController@show');
+Route::get('/enroll/{course}', 'LecturesController@enroll');
+
 Route::get('/classrooms', 'ClassroomsController@index');
 Route::get('/classrooms/{classroom}', 'ClassroomsController@show');
 
