@@ -24,11 +24,9 @@
                   <div class="text-dark marked-input m-b-10" >   
                      {{ $lecture->short_description }}
                   </div>
-                  @if($lecture->active)
-                    <a target="_blank" href="{{ $lecture->link }}" class="btn btn-primary"><i class="fa fa-play-circle"></i> &nbsp; Watch Lecture</a>
-                  @else
-                     <p class="m-b-0 font-medium text-primary">Lecture on : {{ $lecture->date }}, {{ $lecture->start_time }}</p>
-                  @endif
+                  <p class="m-b-10 font-medium text-primary">Lecture on : {{ $lecture->date }}, {{ $lecture->start_time }}</p>
+
+      <a target="_blank" href="{{ $lecture->link }}" class="btn btn-primary"><i class="fa fa-play-circle"></i> &nbsp; Join Class</a>
                   </div>
 
                   <div class="card-footer bg-danger" style="padding: 2px;"></div>
