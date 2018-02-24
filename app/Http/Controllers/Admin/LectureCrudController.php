@@ -46,6 +46,12 @@ class LectureCrudController extends CrudController
             ],
 
             [
+            'name' => 'short_description',
+            'label' => "Lecture Short Description",
+            'type' => 'textarea'
+            ],
+
+            [
             'name' => 'description',
             'label' => "Lecture Description",
             'type' => 'summernote'

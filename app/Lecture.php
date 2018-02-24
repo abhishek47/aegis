@@ -9,7 +9,7 @@ class Lecture extends Model
 {
     use CrudTrait;
 
-     protected $fillable = ['name', 'description', 'fees', 'duration', 'date', 'start_time', 'active', 'link'];
+     protected $fillable = ['name', 'description', 'fees', 'duration', 'date', 'start_time', 'active', 'link', 'short_description'];
 
     public function enrollments()
     {

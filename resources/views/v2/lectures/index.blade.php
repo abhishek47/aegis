@@ -20,9 +20,9 @@
            <div class="card card-shadow" style="width: 100%;cursor: pointer;" >
                  
                  <div class="card-body"> 
-                 <h2  class="title font-medium m-t-0"><a class="text-dark" href="#"></a>{{ $lecture->name }}</h2> 
+                 <h2  class="title font-medium m-t-0"><a class="text-dark" href="/lectures/{{ $lecture->id }}">{{ $lecture->name }}</a></h2> 
                   <div class="text-dark marked-input m-b-10" >   
-                     {!! $lecture->description !!}
+                     {{ $lecture->short_description }}
                   </div>
                   @if($lecture->active)
                     <a target="_blank" href="{{ $lecture->link }}" class="btn btn-primary"><i class="fa fa-play-circle"></i> &nbsp; Watch Lecture</a>

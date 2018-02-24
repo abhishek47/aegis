@@ -48,7 +48,7 @@ class LecturesController extends Controller
      */
     public function show(Lecture $lecture)
     {
-        //
+        return view('v2.lectures.show', compact('lecture'));
     }
 
     /**
