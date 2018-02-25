@@ -438,17 +438,21 @@
                 {
                     var correctResponse = false;
                     var selectedAnswer = 0;
+                    
                     if(question.user_answers != null)
                     {
-                      correctResponse = answers[0].option == question.user_answers[0];
-                      selectedAnswer = question.user_answers[0];
+                      correctResponse = answers[0].option == question.user_answers;
+                      selectedAnswer = question.user_answers;
                     }
                     
                     if(correctResponse)
                     {
 
-                    answerLIs.first().removeClass(incorrectResponseClass).addClass(correctResponseClass);
-                    } else {
+                        answerLIs.first().removeClass(incorrectResponseClass).addClass(correctResponseClass);
+                    
+                    } 
+                    else 
+                    {
                          answerLIs.append('<li class="sb-resp" style="margin-top: 8px;"><b>Answer : </b>' + answers[0].option).css('display', 'inline-block');
                     }
 
@@ -630,9 +634,7 @@
                          answerLIs.append('<li class="sb-resp" style="margin-top: 8px;"><b>Answer : </b>' + answers[0].option).fadeIn(200);
                     }
                     
-                    var selectedAnswers = [];
-
-                     selectedAnswers.push(answerLIs.first().find('input:first-child').val());
+                    var selectedAnswers = answerLIs.first().find('input:first-child').val();
 
 
                 } else {
