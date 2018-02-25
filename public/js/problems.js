@@ -437,11 +437,12 @@
                 if(answers.length == 1)
                 {
                     var correctResponse = false;
+                    
                     if(question.userAnswers != null)
                     {
                       correctResponse = answers[0].option == question.userAnswers[0];
                     }
-                    }
+                    
                     if(correctResponse)
                     {
 
