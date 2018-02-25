@@ -10,7 +10,7 @@
 
       <div class="container pt-50">
 
-      <h2 class="title font-bold m-b-40 m-t-0">Video Lectures</h2>
+      <h2 class="title font-bold m-b-40 m-t-0">Free Video Lectures</h2>
 
       @foreach($lectures as $index => $lecture)
 
@@ -30,6 +30,8 @@
                      <p class="m-b-10 font-medium text-primary">Lecture on : {{ $lecture->date }}, {{ $lecture->start_time }}</p>
 
                      <a target="_blank" href="{{ $lecture->link }}" class="btn btn-primary"><i class="fa fa-play-circle"></i> &nbsp; Join Class</a>
+
+                     <p class="text-grey font-bold m-t-10">** Please not the above link works only on Google Chrome or Mozilla Firefox.</p>
                   
                   </div>
 
