@@ -436,7 +436,12 @@
 
                 if(answers.length == 1)
                 {
-                    var correctResponse = answers[0].option == question.userAnswers[0];
+                    var correctResponse = false;
+                    if(question.userAnswers != null)
+                    {
+                      correctResponse = answers[0].option == question.userAnswers[0];
+                    }
+                    }
                     if(correctResponse)
                     {
 
@@ -620,7 +625,11 @@
                     } else {
                          answerLIs.append('<li class="sb-resp" style="margin-top: 8px;"><b>Answer : </b>' + answers[0].option).fadeIn(200);
                     }
-                   
+                    
+                    var selectedAnswers = [];
+
+                     selectedAnswers.push(answerLIs.first().find('input:first-child').val());
+
 
                 } else {
                      // Collect the true answers needed for a correct response
