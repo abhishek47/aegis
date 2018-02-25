@@ -437,10 +437,11 @@
                 if(answers.length == 1)
                 {
                     var correctResponse = false;
-                    
+                    var selectedAnswer = 0;
                     if(question.userAnswers != null)
                     {
                       correctResponse = answers[0].option == question.userAnswers[0];
+                      selectedAnswer = question.userAnswers[0];
                     }
                     
                     if(correctResponse)
@@ -450,6 +451,8 @@
                     } else {
                          answerLIs.append('<li class="sb-resp" style="margin-top: 8px;"><b>Answer : </b>' + answers[0].option).css('display', 'inline-block');
                     }
+
+                    answerLIs.first().find('input').val(selectedAnswer);
                    
 
                 } else {
