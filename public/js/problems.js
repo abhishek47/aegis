@@ -438,10 +438,10 @@
                 {
                     var correctResponse = false;
                     var selectedAnswer = 0;
-                    if(question.userAnswers != null)
+                    if(question.user_answers != null)
                     {
-                      correctResponse = answers[0].option == question.userAnswers[0];
-                      selectedAnswer = question.userAnswers[0];
+                      correctResponse = answers[0].option == question.user_answers[0];
+                      selectedAnswer = question.user_answers[0];
                     }
                     
                     if(correctResponse)
