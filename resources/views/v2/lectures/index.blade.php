@@ -24,7 +24,7 @@
                     <h2  class="title font-medium m-t-0"><a class="text-dark" href="/lectures/{{ $lecture->id }}">{{ $lecture->name }}</a></h2> 
                     
                     <div class="text-dark marked-input m-b-10" >   
-                       {{ $lecture->short_description }}..<a href="/lectures/{{ $looking->id }}">Read More</a>
+                       {{ $lecture->short_description }}..<a href="/lectures/{{ $lecture->id }}">Read More</a>
                     </div>
                   
                      <p class="m-b-10 font-medium text-primary">Lecture on : {{ $lecture->date }}, {{ $lecture->start_time }}</p>
