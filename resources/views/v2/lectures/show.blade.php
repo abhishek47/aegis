@@ -306,7 +306,7 @@ Preview.callback.autoReset = true;  // make sure it can run more than once</scri
 
       <a target="_blank" href="{{ $lecture->link }}" class="btn btn-primary"><i class="fa fa-play-circle"></i> &nbsp; Join Class</a>
        
-        <p class="text-grey font-bold m-t-10">** Please not the above link works only on Google Chrome or Mozilla Firefox.</p>          
+        <p class="text-grey font-bold m-t-10">** Please note the above link works only on Google Chrome or Mozilla Firefox.</p>          
                    
   </div>
 
