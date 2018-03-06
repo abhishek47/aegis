@@ -11,7 +11,7 @@ class Question extends Model
 
      
 
-     protected $fillable = ['q', 'a', 'select_any', 'correct', 'incorrect', 'quiz_id', 'level', 'solution'];
+     protected $fillable = ['q', 'a', 'select_any', 'correct', 'incorrect', 'quiz_id', 'level', 'solution', 'source'];
 
       protected $visible = ['id', 'q', 'a', 'select_any', 'correct', 'incorrect', 'level', 'solved', 'solved_correct', 'user_answers'];
 
