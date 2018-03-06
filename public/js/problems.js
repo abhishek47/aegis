@@ -505,6 +505,10 @@
                             questionHTML.find(_responses).find('.'+correctResponseClass).css('display', 'block');
                         } else {
                             questionHTML.find(_responses).find('.'+incorrectResponseClass).css('display', 'block');
+                            if(question.userAnswers == '')
+                            {
+                                 questionHTML.find(_responses).find('.'+incorrectResponseClass).html('You viewed the solution');
+                            }
                         }
 
                         
