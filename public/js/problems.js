@@ -414,7 +414,7 @@
                             if(!question.solved) {
                             questionHTML.append('<a href="#" class="btn btn-primary mr-1 ' + checkAnswerClass + '">' + plugin.config.checkAnswerText + '</a>');
                             }
-                            questionHTML.append('<a target="_blank" href="/quiz/' + quizID + '/question:' + question.id + '/discuss" class="btn btn-dark">Discuss Solution</a>');
+                            questionHTML.append('<a  href="/quiz/' + quizID + '/question:' + question.id + '/discuss" class="btn btn-dark">Discuss Solution</a>');
                         }
 
                         // Append question & answers to quiz
