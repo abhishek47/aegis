@@ -17,7 +17,7 @@ class PagesController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('terms', 'policy', 'careers');
+        $this->middleware('guest')->except('terms', 'policy', 'careers', 'applyJob');
     }
 
     public function index()
@@ -74,7 +74,8 @@ class PagesController extends Controller
 
         \Mail::to('info@aegisacademy.co.in')
             ->send(new JobApplication(request('name'), request('email'), request('phone'), request('post'), $url));
-        return back();
+
+        return redirect('/careers');
     }
 
 

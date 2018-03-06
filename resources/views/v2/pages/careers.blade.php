@@ -52,7 +52,7 @@
                             <div class="col-md-6 ml-auto align-self-center">
                                 <h2 class="title ">Online/Offline Teacher</h2>
                                     <p class="m-t-20 text-dark font-18">We are seeking online/offline teachers for Mathematics, Physics, Chemistry, Biology, Computer Science who can teach for Olympiads, JEE/NEET, ISI/CMI(entrance exam), AMC-10, AMC-12, GMAT, SAT.</p><p class="m-t-20 text-dark font-18">For offline positions place in Nashik, Maharashtra, India. We prefer online teaching.</p>
-                                    <a href="javascript:void(0)" class="btn btn-primary">Apply Now </a>
+                                    <a href="#apply-modal" data-toggle="modal" class="btn btn-primary">Apply Now </a>
                             </div>
                         </div>
                          <hr style="margin-bottom: 0;">
@@ -61,7 +61,7 @@
                                 <div class="max-box">
                                     <h2 class="title">Software Engineer and Designer</h2>
                                     <p class="m-t-20 text-dark font-18">We are seeking for a software engineer and designer for updation and maintainance of our website.</p>
-                                    <a href="javascript:void(0)" class="btn btn-primary">Apply Now </a>
+                                    <a href="#apply-modal" data-toggle="modal" class="btn btn-primary">Apply Now </a>
                                 </div>
                             </div>
                             <div class="col-md-5 col-md-5 ml-auto p-t-20"> <img src="/images/icons/coder.png" style="width: 160px;" alt="wrapkit" class="img-responsive" /> </div>
@@ -72,7 +72,7 @@
                             <div class="col-md-6 ml-auto align-self-center">
                                 <h2 class="title">Sales and Online Marketing</h2>
                                     <p class="m-t-20 text-dark font-18">We require individuals who have a experience in sales and online marketing.</p>
-                                    <a href="javascript:void(0)" class="btn btn-primary">Apply Now </a>
+                                    <a href="#apply-modal" data-toggle="modal" class="btn btn-primary">Apply Now </a>
                             </div>
                         </div>
                     </div>

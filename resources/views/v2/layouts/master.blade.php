@@ -14,6 +14,9 @@
 <meta property="og:url" content="https://aegisacademy.co.in/" />
 
 <meta property="og:title" content="Aegis Academy | Online Courses, Wiki Pages, Offline Courses - Aegis Academy is started by young educators to provide high - quality education at affordable price. Almost every country conducts several exams to hunt extraordinary problem - solving skilled students.Olympiads are the most prestigious exam among them." />
+
+<meta name="description" content="Aegis Academy is started by young educators to provide high - quality education at affordable price. Almost every country conducts several exams to hunt extraordinary problem - solving skilled students.Olympiads are the most prestigious exam among them." />
+
     <!-- Favicon icon -->
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -169,7 +172,7 @@ we just copy that css and paste here you can also do that -->
                                     @else
                                         <li class="nav-item {{ request()->is('home') ? 'active' : ''}}"><a class="nav-link font-bold" href="/home">Home</a></li>
                                          
-                                        <li class="nav-item {{ request()->is('courses') ? 'active' : ''}}"><a class="nav-link font-bold" href="/courses">Courses</a></li>
+                                       <!-- <li class="nav-item {{ request()->is('courses') ? 'active' : ''}}"><a class="nav-link font-bold" href="/courses">Courses</a></li> -->
 
                                          <li class="nav-item {{ request()->is('lectures') ? 'active' : ''}}"><a class="nav-link font-bold" href="/lectures">Free Video Lectures</a></li>
 
