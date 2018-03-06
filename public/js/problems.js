@@ -280,7 +280,7 @@
                         }
                         questionHTML.append('<h3>' + formatQuestion + '</h3>');
 
-                        questionHTML.append('<p>' + question.source + '</p>');
+                        questionHTML.append('<p><i>Source : ' + question.source + '</i></p>');
 
                         // Count the number of true values
                         var truths = 0;
