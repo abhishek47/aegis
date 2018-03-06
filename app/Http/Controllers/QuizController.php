@@ -36,7 +36,7 @@ class QuizController extends Controller
 
     public function discuss(Quiz $quiz, Question $question)
     {
-        if(!auth()->user()->solvedQuestions()->contains($question))
+        if(!auth()->user()->solvedQuestions->contains($question))
         {
             $solving = auth()->user()->solvedQuestions()->save($question, 
               ['correct' => 0, 'selectedAnswers' => json_encode('')]);
