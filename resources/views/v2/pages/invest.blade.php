@@ -36,7 +36,7 @@
                         <div class="row wrap-feature-26 p-b-0">
                             <div class="col-md-12 align-self-center">
                                 <div class="max-box">
-                                    <h2 class="title ">Why is AEGIS ?</h2>
+                                    <h2 class="title ">What is AEGIS ?</h2>
                                     <p class="m-t-20 text-dark font-18">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
