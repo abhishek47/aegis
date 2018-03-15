@@ -29,6 +29,12 @@ class PagesController extends Controller
     	return view('v2.welcome', compact('wikiOfDay', 'wikis', 'courses'));
     }
 
+     public function invest()
+    {
+        return view('v2.pages.invest');
+    }
+
+
     public function about()
     {
     	return view('pages.about');

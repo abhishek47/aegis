@@ -15,6 +15,8 @@ Route::get('/', 'PagesController@index');
 Route::get('/terms-of-use', 'PagesController@terms');
 Route::get('/privacy-policy', 'PagesController@policy');
 
+Route::get('/invest', 'PagesController@invest');
+
 Auth::routes();
 
 Route::post('/send-mail', 'PagesController@sendMail');
