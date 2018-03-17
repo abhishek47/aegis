@@ -17,7 +17,7 @@ class PagesController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('terms', 'policy', 'careers', 'applyJob');
+        $this->middleware('guest')->except('terms', 'policy', 'careers', 'applyJob', 'invest');
     }
 
     public function index()
