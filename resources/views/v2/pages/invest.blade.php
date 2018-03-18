@@ -37,40 +37,17 @@
                             <div class="col-md-12 align-self-center">
                                 <div class="max-box">
                                     <h2 class="title ">What is AEGIS ?</h2>
-                                    <p class="m-t-20 text-dark font-18">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <p class="m-t-20 text-dark font-18">Aegis Academy is a start up by young educators to provide high quality education at affordable price. The problem with the current education system is that competent teachers have incompetent students and incompetent teachers have competent students. Our attempt is to provide an outstanding teaching services to the students across the world.</p>
                                     
                                 </div>
                             </div>
                             
 
-                              <div class="col-md-12 align-self-center m-t-20">
-                                <div class="max-box">
-                                    <h2 class="title ">How we work ?</h2>
-                                    <p class="m-t-20 text-dark font-18">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                    
-                                </div>
-                            </div>
-
 
                              <div class="col-md-12 align-self-center m-t-20">
                                 <div class="max-box">
                                     <h2 class="title ">Why invest in AEGIS ?</h2>
-                                    <p class="m-t-20 text-dark font-18">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    <p class="m-t-20 text-dark font-18">We have a globally scalable products and have a recurring revenue model. We have a potential to be a leading educational company across the world. Please contact us at invest@aegisacademy.co.in for details.</p>
                                     
                                 </div>
                             </div>
