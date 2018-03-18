@@ -17,7 +17,7 @@ class PagesController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('terms', 'policy', 'careers', 'applyJob', 'invest');
+        $this->middleware('guest')->only('index');
     }
 
     public function index()
@@ -29,9 +29,14 @@ class PagesController extends Controller
     	return view('v2.welcome', compact('wikiOfDay', 'wikis', 'courses'));
     }
 
-     public function invest()
+    public function invest()
     {
         return view('v2.pages.invest');
+    }
+
+       public function schools()
+    {
+        return view('v2.pages.schools');
     }
 
 

@@ -17,6 +17,8 @@ Route::get('/privacy-policy', 'PagesController@policy');
 
 Route::get('/invest', 'PagesController@invest');
 
+Route::get('/for-schools', 'PagesController@schools');
+
 Auth::routes();
 
 Route::post('/send-mail', 'PagesController@sendMail');
