@@ -36,21 +36,15 @@
                         <div class="row wrap-feature-26 p-b-0">
                             <div class="col-md-12 align-self-center">
                                 <div class="max-box">
-                                    <h2 class="title ">What is AEGIS ?</h2>
-                                    <p class="m-t-20 text-dark font-18">Aegis Academy is a start up by young educators to provide high quality education at affordable price. The problem with the current education system is that competent teachers have incompetent students and incompetent teachers have competent students. Our attempt is to provide an outstanding teaching services to the students across the world.</p>
+                                    <h2 class="title "></h2>
+                                    <p class="m-t-20 text-dark font-24" style="font-size: 24px;">We provide in-campus facility for the preparation of various competitive exams like JEE, NEET, AIIMS, KVPY, Olympiads and many more. Our study material is the most comprehensive and rigorous. Our teachers are highly qualified mostly are the alumni of prestigious institutions like IITs, ISIs etc. Please contact us at info@aegisacademy.co.in for details.</p>
                                     
                                 </div>
                             </div>
                             
 
 
-                             <div class="col-md-12 align-self-center m-t-20">
-                                <div class="max-box">
-                                    <h2 class="title ">Why invest in AEGIS ?</h2>
-                                    <p class="m-t-20 text-dark font-18">We have a globally scalable products and have a recurring revenue model. We have a potential to be a leading educational company across the world. Please contact us at invest@aegisacademy.co.in for details.</p>
-                                    
-                                </div>
-                            </div>
+                            
 
 
                             
