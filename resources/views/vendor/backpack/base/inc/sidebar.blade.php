@@ -42,6 +42,8 @@
 
               <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/classrooms') }}"><i class="fa fa-comments"></i> <span>Live Courses</span></a></li>
 
+
+              <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/books') }}"><i class="fa fa-book"></i> <span>Books</span></a></li>
              
 
              

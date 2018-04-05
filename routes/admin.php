@@ -49,4 +49,9 @@ CRUD::resource('problems-of-week', 'ProblemWeekCrudController');
 
 CRUD::resource('lectures', 'LectureCrudController');
 
+CRUD::resource('books', 'BookCrudController')->with(function(){
+    // add extra routes to this resource
+    Route::get('chapters/book:{book}', 'BookChapterCrudController@getChapters');
+
+});
 
