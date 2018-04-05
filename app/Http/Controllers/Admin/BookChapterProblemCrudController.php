@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+
+use App\Book;
+use App\BookChapter;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
@@ -18,9 +21,9 @@ class BookChapterProblemCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Book_chapter_problem');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/book_chapter_problem');
-        $this->crud->setEntityNameStrings('book_chapter_problem', 'book_chapter_problems');
+        $this->crud->setModel('App\BookChapterProblem');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/book-chapter-problems');
+        $this->crud->setEntityNameStrings('Book Chapter Problem', 'Book Chapter Problems');
 
         /*
         |--------------------------------------------------------------------------
@@ -28,76 +31,178 @@ class BookChapterProblemCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        $this->crud->setFromDb();
+        $this->crud->setColumns([
+             [
+            'name' => 'question',
+            'label' => "Question"
+            ]
+            
 
-        // ------ CRUD FIELDS
-        // $this->crud->addField($options, 'update/create/both');
-        // $this->crud->addFields($array_of_arrays, 'update/create/both');
-        // $this->crud->removeField('name', 'update/create/both');
-        // $this->crud->removeFields($array_of_names, 'update/create/both');
 
-        // ------ CRUD COLUMNS
-        // $this->crud->addColumn(); // add a single column, at the end of the stack
-        // $this->crud->addColumns(); // add multiple columns, at the end of the stack
-        // $this->crud->removeColumn('column_name'); // remove a column from the stack
-        // $this->crud->removeColumns(['column_name_1', 'column_name_2']); // remove an array of columns from the stack
-        // $this->crud->setColumnDetails('column_name', ['attribute' => 'value']); // adjusts the properties of the passed in column (by name)
-        // $this->crud->setColumnsDetails(['column_1', 'column_2'], ['attribute' => 'value']);
+    ]);
+        $this->crud->addFields([
+             [
+            'name' => 'question',
+            'label' => "Question",
+            'type' => 'editor'
+            ],
+            
+            ['name' => 'solution',
+            'label' => "Solution",
+            'type' => 'editor2'],
+            
+             
 
-        // ------ CRUD BUTTONS
-        // possible positions: 'beginning' and 'end'; defaults to 'beginning' for the 'line' stack, 'end' for the others;
-        // $this->crud->addButton($stack, $name, $type, $content, $position); // add a button; possible types are: view, model_function
-        // $this->crud->addButtonFromModelFunction($stack, $name, $model_function_name, $position); // add a button whose HTML is returned by a method in the CRUD model
-        // $this->crud->addButtonFromView($stack, $name, $view, $position); // add a button whose HTML is in a view placed at resources\views\vendor\backpack\crud\buttons
-        // $this->crud->removeButton($name);
-        // $this->crud->removeButtonFromStack($name, $stack);
-        // $this->crud->removeAllButtons();
-        // $this->crud->removeAllButtonsFromStack('line');
 
-        // ------ CRUD ACCESS
-        // $this->crud->allowAccess(['list', 'create', 'update', 'reorder', 'delete']);
-        // $this->crud->denyAccess(['list', 'create', 'update', 'reorder', 'delete']);
+    ]);
 
-        // ------ CRUD REORDER
-        // $this->crud->enableReorder('label_name', MAX_TREE_LEVEL);
-        // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('reorder');
+        if(request()->has('bookchapter'))
+        {
+            $this->crud->addField([  // Select2
+               'label' => "Book Chapter",
+               'type' => 'select2',
+               'name' => 'book_chapter_id', // the db column for the foreign key
+               'entity' => 'bookchapter', // the method that defines the relationship in your Model
+               'attribute' => 'title', // foreign key attribute that is shown to user
+               'model' => "App\BookChapter", // foreign key model
+               'allows_null' => false,
+               'value' => request('bookchapter')
+            ]);
+        } else {
+            $this->crud->addField([  // Select2
+               'label' => "Book Chapter",
+               'type' => 'select2',
+               'name' => 'book_chapter_id', // the db column for the foreign key
+               'entity' => 'bookchapter', // the method that defines the relationship in your Model
+               'attribute' => 'title', // foreign key attribute that is shown to user
+               'model' => "App\BookChapter", // foreign key model
+               'allows_null' => false
+            ]);
+        }
 
-        // ------ CRUD DETAILS ROW
-        // $this->crud->enableDetailsRow();
-        // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('details_row');
-        // NOTE: you also need to do overwrite the showDetailsRow($id) method in your EntityCrudController to show whatever you'd like in the details row OR overwrite the views/backpack/crud/details_row.blade.php
-
-        // ------ REVISIONS
-        // You also need to use \Venturecraft\Revisionable\RevisionableTrait;
-        // Please check out: https://laravel-backpack.readme.io/docs/crud#revisions
-        // $this->crud->allowAccess('revisions');
-
-        // ------ AJAX TABLE VIEW
-        // Please note the drawbacks of this though:
-        // - 1-n and n-n columns are not searchable
-        // - date and datetime columns won't be sortable anymore
-        // $this->crud->enableAjaxTable();
-
-        // ------ DATATABLE EXPORT BUTTONS
-        // Show export to PDF, CSV, XLS and Print buttons on the table view.
-        // Does not work well with AJAX datatables.
-        // $this->crud->enableExportButtons();
-
-        // ------ ADVANCED QUERIES
-        // $this->crud->addClause('active');
-        // $this->crud->addClause('type', 'car');
-        // $this->crud->addClause('where', 'name', '==', 'car');
-        // $this->crud->addClause('whereName', 'car');
-        // $this->crud->addClause('whereHas', 'posts', function($query) {
-        //     $query->activePosts();
-        // });
-        // $this->crud->addClause('withoutGlobalScopes');
-        // $this->crud->addClause('withoutGlobalScope', VisibleScope::class);
-        // $this->crud->with(); // eager load relationships
-        // $this->crud->orderBy();
-        // $this->crud->groupBy();
-        // $this->crud->limit();
     }
+
+    /**
+     * Display all rows in the database for this entity.
+     *
+     * @return Response
+     */
+    public function get(BookChapter $bookchapter)
+    {
+        $this->crud->hasAccessOrFail('list');
+
+        $this->crud->addClause('where', 'book_chapter_id', '=', $bookchapter->id);
+
+        $this->crud->setListView('admin.bookchapters.edits.list');
+
+        $this->data['crud'] = $this->crud;
+        $this->data['title'] = $this->crud->entity_name_plural . ' | ' . $bookchapter->title;
+
+        // get all entries if AJAX is not enabled
+        if (! $this->data['crud']->ajaxTable()) {
+            $this->data['entries'] = $this->data['crud']->getEntries();
+        }
+
+        $this->data['bookchapter'] = $bookchapter;
+
+        // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
+        return view($this->crud->getListView(), $this->data);
+    }
+
+    /**
+     * Show the form for creating inserting a new row.
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        $this->crud->hasAccessOrFail('create');
+
+
+        $this->crud->setRoute("admin/book-chapter-problems/bookchapter:".request('bookchapter'));
+
+        $this->crud->setCreateView('admin.bookchapters.edits.create');
+
+
+        // prepare the fields you need to show
+        $this->data['crud'] = $this->crud;
+        $this->data['saveAction'] = $this->getSaveAction();
+        $this->data['fields'] = $this->crud->getCreateFields();
+        $this->data['title'] = trans('backpack::crud.add').' '.$this->crud->entity_name;
+
+        $this->data['bookchapter'] = BookChapter::findOrFail(request('bookchapter'));
+
+        $this->data['post_url'] = 'book-chapter-problems';
+
+        // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
+        return view($this->crud->getCreateView(), $this->data);
+    }
+
+     /**
+     * Redirect to the correct URL, depending on which save action has been selected.
+     * @param  [type] $itemId [description]
+     * @return [type]         [description]
+     */
+    public function performSaveAction($itemId = null)
+    {
+        $saveAction = \Request::input('save_action', config('backpack.crud.default_save_action', 'save_and_back'));
+        $itemId = $itemId ? $itemId : \Request::input('id');
+
+        switch ($saveAction) {
+            case 'save_and_new':
+                $redirectUrl = 'admin/'. 'book-chapter-problems' . '/create?bookchapter='. $this->crud->entry->bookchapter->id;
+                break;
+            case 'save_and_edit':
+                $redirectUrl = 'admin/book-chapter-problems'.'/'.$itemId.'/edit';
+                if (\Request::has('locale')) {
+                    $redirectUrl .= '?locale='.\Request::input('locale');
+                }
+                break;
+            case 'save_and_back':
+            default:
+                $redirectUrl = 'admin/'. 'book-chapter-problems' . '/bookchapter:' . $this->crud->entry->bookchapter->id;
+                break;
+        }
+
+        return \Redirect::to($redirectUrl);
+    }
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $id
+     *
+     * @return Response
+     */
+    public function edit($id)
+    {
+        $this->crud->hasAccessOrFail('update');
+
+        
+
+        $this->crud->setEditView('admin.bookchapters.edits.edit');
+
+        // get the info for that entry
+        $this->data['entry'] = $this->crud->getEntry($id);
+        $this->data['crud'] = $this->crud;
+        $this->data['saveAction'] = $this->getSaveAction();
+        $this->data['fields'] = $this->crud->getUpdateFields($id);
+        $this->data['title'] = trans('backpack::crud.edit').' '.$this->crud->entity_name;
+
+        $this->data['id'] = $id;
+
+        $this->data['bookchapter'] = $this->data['entry']->bookchapter;
+
+        $this->crud->setRoute("admin/book-chapter-problems/bookchapter:".$this->data['entry']->bookchapter->id);
+
+        $this->data['post_url'] = 'book-chapter-problems';
+
+        // load the view from /resources/views/vendor/backpack/crud/ if it exists, otherwise load the one in the package
+        return view($this->crud->getEditView(), $this->data);
+    }
+
+
 
     public function store(StoreRequest $request)
     {

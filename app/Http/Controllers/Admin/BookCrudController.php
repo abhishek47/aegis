@@ -75,7 +75,7 @@ class BookCrudController extends CrudController
             'label' => "Tags (keywords related to book | Use comma to seperate multiple values)",
             ],
             
-
+            
 
     ]);
 

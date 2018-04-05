@@ -25,7 +25,7 @@ class Book extends Model
     public function manageChapters($crud = false)
    	{ 
    	 
-   	  	return '<a class="btn btn-xs btn-success" href="/admin/chapters/book:' . $this->id . '" data-toggle="tooltip" title="View Chapters">Chapters</a>';
+   	  	return '<a class="btn btn-xs btn-success" href="/admin/bookchapters/book:' . $this->id . '" data-toggle="tooltip" title="View Chapters">Chapters</a>';
    	   
    	}
 

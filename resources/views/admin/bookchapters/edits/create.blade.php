@@ -3,7 +3,7 @@
 @section('header')
 	<section class="content-header">
 	  <h1>
-	    {{ trans('backpack::crud.add') }} <span>{{ $crud->entity_name }} | {{ $chapter->title }}</span>
+	    {{ trans('backpack::crud.add') }} <span>{{ $crud->entity_name }} | {{ $bookchapter->title }}</span>
 	  </h1>
 	  <ol class="breadcrumb">
 	    <li><a href="{{ url(config('backpack.base.route_prefix'), 'dashboard') }}">{{ trans('backpack::crud.admin') }}</a></li>
@@ -18,7 +18,7 @@
 	<div class="col-md-8 col-md-offset-2">
 		<!-- Default box -->
 		@if ($crud->hasAccess('list'))
-			<a href="/{{$crud->route}}"><i class="fa fa-angle-double-left"></i> {{ trans('backpack::crud.back_to_all') }} <span>{{ $crud->entity_name_plural }} in  {{ $chapter->title }}</span></a><br><br>
+			<a href="/{{$crud->route}}"><i class="fa fa-angle-double-left"></i> {{ trans('backpack::crud.back_to_all') }} <span>{{ $crud->entity_name_plural }} in  {{ $bookchapter->title }}</span></a><br><br>
 		@endif
 
 		@include('crud::inc.grouped_errors')

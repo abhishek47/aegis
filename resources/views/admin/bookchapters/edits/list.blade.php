@@ -3,8 +3,8 @@
 @section('header')
 	<section class="content-header">
 	  <h1>
-	    <span class="text-capitalize"><a href="/admin/chapters/{{$chapter->id}}"><i class="fa fa-angle-double-left"></i>  {{ $chapter->title }}</a> | {{ $crud->entity_name_plural }}</span>
-	    <small>{{ trans('backpack::crud.all') }} <span>{{ $crud->entity_name_plural }}</span> in {{ $chapter->title }}.</small>
+	    <span class="text-capitalize"><a href="/admin/bookchapters/book:{{$bookchapter->book->id}}"><i class="fa fa-angle-double-left"></i>  {{ $bookchapter->title }}</a> | {{ $crud->entity_name_plural }}</span>
+	    <small>{{ trans('backpack::crud.all') }} <span>{{ $crud->entity_name_plural }}</span> in {{ $bookchapter->title }}.</small>
 	  </h1>
 	  <ol class="breadcrumb">
 	    <li><a href="{{ url(config('backpack.base.route_prefix'), 'dashboard') }}">{{ trans('backpack::crud.admin') }}</a></li>
@@ -23,7 +23,7 @@
       <div class="box">
         <div class="box-header {{ $crud->hasAccess('create') && (!isset($limit) || count($entries) != $limit) ?'with-border':'' }}">
          @if(!isset($limit) || count($entries) != $limit)
-          <a class="btn btn-primary"  href="/{{ $crud->route }}/create?chapter={{$chapter->id}}" data-toggle="tooltip" title="Add New chapter to classroom"><i class="fa fa-plus"></i> Add {{ $crud->entity_name }}</a>
+          <a class="btn btn-primary"  href="/{{ $crud->route }}/create?bookchapter={{$bookchapter->id}}" data-toggle="tooltip" title="Add New chapter to book"><i class="fa fa-plus"></i> Add {{ $crud->entity_name }}</a>
           @endif
           <div id="datatable_button_stack" class="pull-right text-right"></div>
         </div>

@@ -9,7 +9,7 @@ class BookChapter extends Model
 {
     use CrudTrait;
 
-    protected $fillable = ['title', 'short_description', 'description'];
+    protected $fillable = ['title', 'short_description', 'description', 'book_id'];
 
 
 
@@ -24,5 +24,12 @@ class BookChapter extends Model
     {
     	return $this->belongsTo(Book::class);
     }
+
+    public function manageQuestions($crud = false)
+   	{ 
+   	 
+   	  	return '<a class="btn btn-xs btn-success" href="/admin/book-chapter-problems/bookchapter:' . $this->id . '" data-toggle="tooltip" title="View Questions">Questions</a>';
+   	   
+   	}
 
   }

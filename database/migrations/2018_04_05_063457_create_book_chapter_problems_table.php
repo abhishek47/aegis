@@ -15,6 +15,9 @@ class CreateBookChapterProblemsTable extends Migration
     {
         Schema::create('book_chapter_problems', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('question');
+            $table->text('solution');
+            $table->integer('book_chapter_id');
             $table->timestamps();
         });
     }

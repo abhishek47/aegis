@@ -18,6 +18,7 @@ class CreateBookChaptersTable extends Migration
             $table->string('title');
             $table->text('short_description')->nullable();
             $table->text('description')->nullable();
+            $table->integer('book_id');
             $table->timestamps();
         });
     }

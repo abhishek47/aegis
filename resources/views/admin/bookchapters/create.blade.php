@@ -3,7 +3,7 @@
 @section('header')
 	<section class="content-header">
 	  <h1>
-	    {{ trans('backpack::crud.add') }} <span>{{ $crud->entity_name }} | {{ $classroom->title }}</span>
+	    {{ trans('backpack::crud.add') }} <span>{{ $crud->entity_name }} | {{ $book->title }}</span>
 	  </h1>
 	  <ol class="breadcrumb">
 	    <li><a href="{{ url(config('backpack.base.route_prefix'), 'dashboard') }}">{{ trans('backpack::crud.admin') }}</a></li>
@@ -18,12 +18,12 @@
 	<div class="col-md-8 col-md-offset-2">
 		<!-- Default box -->
 		@if ($crud->hasAccess('list'))
-			<a href="/admin/chapters/classroom:{{$classroom->id}}"><i class="fa fa-angle-double-left"></i> {{ trans('backpack::crud.back_to_all') }} <span>{{ $crud->entity_name_plural }} in  {{ $classroom->title }}</span></a><br><br>
+			<a href="/admin/bookchapters/book:{{$book->id}}"><i class="fa fa-angle-double-left"></i> {{ trans('backpack::crud.back_to_all') }} <span>{{ $crud->entity_name_plural }} in  {{ $book->title }}</span></a><br><br>
 		@endif
 
 		@include('crud::inc.grouped_errors')
 
-		  {!! Form::open(array('url' => '/admin/chapters', 'method' => 'post', 'files'=>$crud->hasUploadFields('create'))) !!}
+		  {!! Form::open(array('url' => '/admin/bookchapters', 'method' => 'post', 'files'=>$crud->hasUploadFields('create'))) !!}
 		  
 		  <div class="box">
 
