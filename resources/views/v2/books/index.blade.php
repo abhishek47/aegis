@@ -20,6 +20,7 @@
     <?php $bookChunks = $books->chunk(3); ?>
     @foreach($bookChunks as $bookChunks)
     <div class="row mt-4">
+   
       @foreach($bookChunks as $index => $book)
       
       <div class="col-md-4" id="classrooms">

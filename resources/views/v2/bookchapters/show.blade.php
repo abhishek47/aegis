@@ -54,10 +54,13 @@
   	                  </div>
   		                 
   		                <div class="clearfix"></div>
-  		                   {{ $problem->question }}
+  		                   <h4>{{ $problem->question }}</h4>
 
+                         <div>
 
-                         {{ $problem->solution }}
+                          {{ $problem->solution }}
+
+                         </div>
 
 		                </div>
 
