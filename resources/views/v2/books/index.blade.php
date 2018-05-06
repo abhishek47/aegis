@@ -8,7 +8,7 @@
       </div>
       <div class="card-body  classroom-description">
         
-          <h2 class="card-title"><a class="text-dark m-b-10" data-toggle="collapse" href="#desc"><b>What are Live Courses <i class="fa fa-chevron-down"></i></b></a></h2>
+          <h2 class="card-title"><a class="text-dark m-b-10" data-toggle="collapse" href="#desc"><b>What are Solved Books <i class="fa fa-chevron-down"></i></b></a></h2>
      
         
           <div class="collapse" id="desc">
