@@ -189,6 +189,8 @@ we just copy that css and paste here you can also do that -->
 
                                         </li>
 
+                                         <li class="nav-item {{ request()->is('books') ? 'active' : ''}}"><a class="nav-link font-bold" href="/books">Solved Books</a></li>
+
                                         <li class="nav-item {{ request()->is('discuss') ? 'active' : ''}}"><a class="nav-link font-bold" href="/discuss">Discuss</a></li>
 
                                        <li class="nav-item {{ request()->is('chat') ? 'active' : ''}}"><a class="nav-link font-bold" target="_blank" href="/chats">Chat</a></li>

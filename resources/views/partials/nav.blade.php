@@ -81,6 +81,7 @@
                   <li><a href="/wiki/problematic">Problematic</a></li>
                 </ul>
               </li>
+              <li><a href="/books">Solved Books</a></li>
                <li><a href="/discuss">Discuss</a></li>
                <li><a href="/chats">Chat</a></li>
               @endguest

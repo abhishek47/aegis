@@ -119,3 +119,9 @@ Route::post('/questions/solve', 'QuestionController@solve');
 
 Route::get('/unfriend/{thread}', 'ThreadsController@unfriend');
 
+
+
+Route::get('/books', 'BooksController@index');
+Route::get('/books/{book}', 'BooksController@show');
+Route::get('/books/{book}/chapter/{chapter}', 'BookChaptersController@show');
+
