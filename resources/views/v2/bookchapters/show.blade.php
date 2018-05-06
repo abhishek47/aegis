@@ -47,7 +47,11 @@
 		      
           @foreach($chapter->problems as $index => $problem)
                 <div class="course-single-item bg-white border-1px clearfix m-b-30 week-box" >
-					    
+					          
+                    <div class="bg-info p-2">
+                      
+                    </div> 
+
   					        <div class="course-details clearfix p-20 pt-15">
   	                  <div class="course-top-part pull-left mr-40">
   	                    <h4 class="mt-0 m-b-10"><b>Problem {{ $index+1 }}</b></h4>
