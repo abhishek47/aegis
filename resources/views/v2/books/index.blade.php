@@ -43,7 +43,7 @@
             
             </h4>
 
-            <p>{{ substr($book->short_description, 0, 100) }}...</p>
+            <p>{{ substr($book->short_description, 0, 100) }}</p>
             </div>
             
             <div class="clearfix"></div>
