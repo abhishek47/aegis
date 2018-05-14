@@ -34,7 +34,7 @@
      
 
          
-                  <h2><a href="/books/{{$book->id}}"><<</a>{{ $chapter->title }}</h2>
+                  <h2><a href="/books/{{$chapter->book->id}}"><<</a>{{ $chapter->title }}</h2>
                   <p class="course-description mt-10  markdown-body" id="classroom-summary" style="font-size: 16px;">{{ $chapter->description }}
                   </p>
                 
