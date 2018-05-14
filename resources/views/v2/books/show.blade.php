@@ -23,43 +23,31 @@
 
 @section('content')
 
-
-
-
-    <div class="bg-light mini-spacer" style="min-height: 1000px;">
-
-  <div class="container p-t-20 p-b-30">
-
-        <div class="row">
-
-          <div class="col-md-3">
-
-              <img src="{{ isset($book->image) ? Storage::disk('s3')->url($book->image) : 'http://via.placeholder.com/350x150' }}" style="width: 100%;height: 200px;">
-                  
-          </div>
-   
-
-               <div class="col-md-9"> 
-                  <h2>{{ $book->title }}</h2>
-                  <p class="course-description mt-10  markdown-body" id="classroom-summary" style="font-size: 16px;">{{ $book->description }}
-                  </p>
-               </div>   
-         </div>
-
-{{--                   <br>
-
-                  @if(!empty($classroom->contents))
-                  <a href="{{  Storage::url($classroom->contents) }}" target="_blank" class="btn btn-success"><i class="fa fa-file-pdf-o"></i> Table of Contents</a>
-                  @endif
-                  @if(!empty($classroom->ready))
-                  <a href="{{  Storage::url($classroom->ready) }}" target="_blank" class="btn btn-success"><i class="fa fa-file-pdf-o"></i> Are you Ready?</a>
-                  @endif
-                  @if(!empty($classroom->need))
-                  <a href="{{  Storage::url($classroom->need) }}" target="_blank" class="btn btn-success"><i class="fa fa-file-pdf-o"></i> Do you need this?</a>
-                  @endif
-     --}}
+  
+  <div class="banner-innerpage" style="background: url('/images/bg/bg-pattern.png'); background-size: cover;height: 340px;padding: 0;">
+               <div class="overlay" style="height: 340px;background: rgba(0, 173, 10, 0.8);">
+                <div class="container">
+                    <!-- Row  -->
+                    <div class="row ">
+                        <div class="col-md-3 m-t-40">
+                              <img src="{{ isset($book->image) ? Storage::disk('s3')->url($book->image) : 'http://via.placeholder.com/350x150' }}" style="width: 100%;height: 260px;box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.4);">
+                        </div>
+                        <!-- Column -->
+                        <div class="col-md-8 aos-init aos-animate" data-aos="fade-down" data-aos-duration="1200">
+                            <h1 class="title p-t-30" style="">{{ $book->title }}<br>
+            <span style="font-size: 14px;color: #000;">by {{ $book->authors }}</span></h1>
+                            <h6 class="subtitle font-medium">{{ substr($book->short_description, 0, 350) }}...</h6> </div>
+                        <!-- Column -->
+                    </div>
                 </div>
+                </div>
+            </div>
 
+
+    <div class="bg-white mini-spacer" style="min-height: 1000px;">
+
+
+        
 
 
 
@@ -68,7 +56,12 @@
 
 
 <div class="container pb-30 pt-30">
-            
+
+      <h4 style="font-weight: bold;color: #9a9a9a;">Synopsis</h4>
+
+      <div style="margin-bottom: 40px;">
+      {!! $book->description !!}
+      </div>       
 		
                 <div class="course-single-item bg-white border-1px clearfix m-b-30 week-box" >
 					    

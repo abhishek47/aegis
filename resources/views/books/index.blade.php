@@ -30,28 +30,6 @@
 
   <div class="container pt-50">
 
-  <div class="course-single-item bg-white border-1px clearfix mb-30">
-    <div class="course-thumb">
-                  <div class="price-tag">Info</div>
-                </div>
-  <div class="course-details clearfix p-20 pt-15">
-
-                  <div class="course-top-part pull-left mr-40">
-                    <h3 class="mt-0 mb-5"><b>What are Solved Books?</b></h3>
-                  </div>
-
-                 
-                  
-                  <div class="clearfix"></div>
-                  <p class="course-description mt-10" style="font-size: 17px;">
-                      {!! \Config::get('settings.solved_book_desc') !!}
-                  </p>
-
-                </div>
-
-
-  </div>
-
 
 
 
