@@ -32,7 +32,7 @@
 
 
             <div style="width: 45%;float: left;">
-                  <img style="margin-top: -50px;box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.4);" src="{{ isset($book->image) ? Storage::disk('s3')->url($book->image) : 'http://via.placeholder.com/350x150' }}" style="width: 80%;height: 240px;">
+                  <img style="margin-top: -50px;box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.4); height: 270px;" src="{{ isset($book->image) ? Storage::disk('s3')->url($book->image) : 'http://via.placeholder.com/350x150' }}" >
                 </div>
 
              <div style="width: 50%;float: left;padding-left: 0px;">   
