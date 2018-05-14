@@ -72,13 +72,13 @@
 
   					        <div class="course-details clearfix p-20 pt-15">
   	                  <div class="course-top-part pull-left mr-40">
-  	                    <h4 class="mt-0 m-b-10"><b>Problem {{ $index+1 }}</b></h4>
+  	                    <h4 class="mt-0 m-b-10"><b>{{ $problem->question }}</b></h4>
   	                  </div>
   		                 
   		                <div class="clearfix"></div>
-  		                   <h4>{{ $problem->question }}</h4>
+  		                  
 
-                         <div>
+                         <div >
 
                           {{ $problem->solution }}
 
