@@ -27,14 +27,14 @@
 
 
 
-    <div class="bg-light mini-spacer" style="min-height: 1000px;">
+    <div class="bg-white mini-spacer" style="min-height: 1000px;">
 
   <div class="container p-t-20 p-b-30">
 
      
 
          
-                  <h2>{{ $chapter->title }}</h2>
+                  <h2><a href="/books/{{$book->id}}"><<</a>{{ $chapter->title }}</h2>
                   <p class="course-description mt-10  markdown-body" id="classroom-summary" style="font-size: 16px;">{{ $chapter->description }}
                   </p>
                 
