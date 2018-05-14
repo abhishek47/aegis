@@ -49,7 +49,7 @@
             <div class="clearfix"></div>
 
             <div style="margin-top: 20px;">
-              <a href="/books/{{$book->id}}" style="margin: 0 auto;display: block;background: transparent;border: 2px solid #316ce8;color: #316ce8" class="btn btn-primary btn-border">Read Book</a>
+              <a href="/books/{{$book->id}}" style="margin: 0 auto;display: block;background: transparent;border: 2px solid #316ce8;color: #316ce8" class="btn btn-primary btn-border">Read Solutions</a>
             </div>
             
             

@@ -18,7 +18,7 @@
                         <div class="col-md-8 aos-init aos-animate" data-aos="fade-down" data-aos-duration="1200">
                             <h1 class="title p-t-30" style="">{{ $chapter->book->title }}<br>
             <span style="font-size: 14px;color: #000;">by {{ $chapter->book->authors }}</span></h1>
-                            <h6 class="subtitle font-medium">{{ substr($chapter->book->short_description, 0, 350) }}...</h6> </div>
+                            <h6 class="subtitle font-medium">{{ substr($chapter->book->short_description, 0, 350) }}</h6> </div>
                         <!-- Column -->
                     </div>
                 </div>
