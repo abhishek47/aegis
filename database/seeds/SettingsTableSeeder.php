@@ -37,7 +37,7 @@ class SettingsTableSeeder extends Seeder
      */
     public function run()
     {
-        foreach ($this->settings as $index => $setting) {
+     /*   foreach ($this->settings as $index => $setting) {
             $result = DB::table('settings')->insert($setting);
 
             if (!$result) {
@@ -47,6 +47,6 @@ class SettingsTableSeeder extends Seeder
             }
         }
 
-        $this->command->info('Inserted '.count($this->settings).' records.');
+        $this->command->info('Inserted '.count($this->settings).' records.'); */
     }
 }
